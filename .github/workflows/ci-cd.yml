@@ -37,7 +37,7 @@ jobs:
         run: npm test
 
       - name: Security audit
-        run: npm run security || true
+        run: npm run security
 
   build:
     name: Build
