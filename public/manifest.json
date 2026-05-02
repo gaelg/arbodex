@@ -1,0 +1,22 @@
+{
+  "name": "Arbodex — Filtre d'arbres",
+  "short_name": "Arbodex",
+  "description": "Filtrer les arbres pour trouver ceux qui correspondent à vos critères",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f9fafb",
+  "theme_color": "#166534",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

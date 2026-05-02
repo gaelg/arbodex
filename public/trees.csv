@@ -1,0 +1,21 @@
+especes,hauteur_min_m,hauteur_max_m,zone,soleil,besoin_eau,feuillu,type_sol,croissance
+Chene,15,25,4-9,Plein soleil,Moyen,Oui,Argileux,Lente
+Erable rouge,12,18,3-9,Plein soleil a ombre partielle,Eleve,Oui,Argileux/Moyen,Moyenne
+Pin blanc,15,25,3-8,Plein soleil,Moyen,Non,Sableux,Moyenne
+Erable a sucre,12,18,3-8,Plein soleil a ombre partielle,Moyen,Oui,Argileux,Lente
+Bouleau,9,15,2-7,Plein soleil,Eleve,Oui,Sableux/Argileux,Moyenne
+Sapin de Douglas,18,30,4-9,Plein soleil,Moyen,Non,Argileux,Moyenne
+Noyer noir,15,23,4-9,Plein soleil,Moyen,Oui,Argileux,Moyenne
+Cedre rouge de l'Est,6,12,2-9,Plein soleil,Bas,Non,Argileux/Sableux,Lente
+Saule pleureur,9,15,4-10,Plein soleil,Eleve,Oui,Argileux,Rapide
+Ginkgo,15,25,4-8,Plein soleil a ombre partielle,Bas,Oui,Argileux/Sableux,Lente
+Erable du Japon,5,8,5-9,Ombre partielle,Moyen,Oui,Argileux,Lente
+Epicéa bleu,9,18,2-7,Plein soleil,Moyen,Non,Sableux/Argileux,Lente
+Magnolia grandiflora,18,25,6-10,Plein soleil a ombre partielle,Moyen,Non,Argileux,Moyenne
+Bouleau des rivières,12,21,4-9,Plein soleil,Eleve,Oui,Argileux,Rapide
+Frene blanc,15,25,2-9,Plein soleil,Moyen,Oui,Argileux,Moyenne
+Lagerstroemia,5,9,6-10,Plein soleil,Moyen,Oui,Argileux,Moyenne
+Cypres chauve,15,21,4-10,Plein soleil,Eleve,Oui,Argileux,Moyenne
+Palmier (Sabal),12,18,8-11,Plein soleil,Moyen,Non,Sableux,Lente
+Cedre du Liban,12,18,5-9,Plein soleil,Bas,Non,Argileux,Moyenne
+Cornouiller floral,5,9,5-9,Ombre partielle,Moyen,Oui,Argileux,Lente
