@@ -3,7 +3,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Arbodex — Filtre d'arbres",
-  description: "Filtrer les arbres pour trouver ceux qui correspondent à vos critères",
+  description:
+    "Filtrer les arbres pour trouver ceux qui correspondent à vos critères",
   manifest: "/manifest.json",
   appleWebApp: { capable: true, statusBarStyle: "default" },
 };

@@ -33,10 +33,7 @@ export async function chargerArbres(): Promise<Arbre[]> {
   return resultat.data as Arbre[];
 }
 
-export function appliquerFiltres(
-  arbres: Arbre[],
-  filtres: Filtres
-): Arbre[] {
+export function appliquerFiltres(arbres: Arbre[], filtres: Filtres): Arbre[] {
   return arbres.filter((arbre) => {
     if (filtres.soleil && arbre.soleil !== filtres.soleil) return false;
     if (filtres.besoin_eau && arbre.besoin_eau !== filtres.besoin_eau)
@@ -46,9 +43,15 @@ export function appliquerFiltres(
       return false;
     if (filtres.croissance && arbre.croissance !== filtres.croissance)
       return false;
-    if (filtres.hauteur_min && arbre.hauteur_max_m < Number(filtres.hauteur_min))
+    if (
+      filtres.hauteur_min &&
+      arbre.hauteur_max_m < Number(filtres.hauteur_min)
+    )
       return false;
-    if (filtres.hauteur_max && arbre.hauteur_min_m > Number(filtres.hauteur_max))
+    if (
+      filtres.hauteur_max &&
+      arbre.hauteur_min_m > Number(filtres.hauteur_max)
+    )
       return false;
     return true;
   });

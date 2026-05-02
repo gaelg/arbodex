@@ -22,7 +22,9 @@ export default function FormulaireFiltres({
   const optionsSoleil = [...new Set(arbres.map((a) => a.soleil))].sort();
   const optionsEau = [...new Set(arbres.map((a) => a.besoin_eau))].sort();
   const optionsSol = [...new Set(arbres.map((a) => a.type_sol))].sort();
-  const optionsCroissance = [...new Set(arbres.map((a) => a.croissance))].sort();
+  const optionsCroissance = [
+    ...new Set(arbres.map((a) => a.croissance)),
+  ].sort();
 
   const mettreAJour = (cle: keyof Filtres, valeur: string) => {
     onChange({ ...filtres, [cle]: valeur });
