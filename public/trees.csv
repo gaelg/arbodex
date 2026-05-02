@@ -1,143 +1,143 @@
-nom_commun;nom_scientifique;stockage_carbone;resilience;impact_icu;biodiversite;qualite_air;potentiel_allergisant;ombrage_fort;rafraichissement_fort;biodiversite_service;type_racines;allergie_service;hauteur_min_m;hauteur_max_m;envergure_min_m;envergure_max_m;port
-Chene pedoncule;Quercus robur;;;15;30;10;20;fort;fort;fort;superficielles;faible;15;40;10;25;étalé
-Chene sessile;Quercus petraea;;;15;30;10;18;fort;fort;fort;profondes;faible;20;45;15;30;arrondi
-Chene pubescent;Quercus pubescens;;;10;25;8;15;moyen;moyen;fort;profondes;faible;8;25;5;15;étalé
-Chene vert;Quercus ilex;;;8;20;6;12;moyen;moyen;moyen;profondes;faible;15;20;10;15;arrondi
-Chene rouge;Quercus rubra;;;15;28;10;18;fort;fort;moyen;superficielles;moyen;;;;;
-Chene chevelu;Quercus cerris;;;;;;;;;;;;20;30;20;20;étalé
-Chene de Hongrie;Quercus frainetto;;;;;;;;;;;;20;25;10;15;ovale
-Erable champetre;Acer campestre;3;4.35;3.67;2.25;6;4;moyen;moyen;moyen;superficielles;faible;5;15;5;10;arrondi
-Erable plane;Acer platanoides;2;3.52;3.67;2;1.94;4;fort;fort;moyen;superficielles;moyen;15;30;12;15;ovale
-Erable sycomore;Acer pseudoplatanus;2;4.72;4.5;2.25;10;4;fort;fort;moyen;superficielles;moyen;20;40;10;25;étalé
-Erable argente;Acer saccharinum;;;;;;;;;;;;20;30;9;15;érigé
-Erable de Buerger;Acer buergerianum;;;;;;;;;;;;10;15;5;10;arrondi
-Erable de Montpellier;Acer monspessulanum;;;;;;;;;;;;;;;;
-Erable a feuilles d'obier;Acer opalus;;;;;;;;;;;;;;;;
-Tilleul a petites feuilles;Tilia cordata;;;10;25;8;15;fort;fort;fort;superficielles;faible;25;30;15;20;dressé
-Tilleul a larges feuilles;Tilia platyphyllos;;;10;25;8;15;fort;fort;fort;superficielles;faible;20;40;7;12;pyramidal
-Tilleul argente;Tilia tomentosa;;;;;;;;;;;;15;25;9;15;dressé
-Tilleul de Crimee;Tilia x euchlora;;;;;;;;;;;;15;20;10;12;ovale
-Tilleul de Mongolie;Tilia mongolica;;;;;;;;;;;;6;10;6;10;érigé
-Hete;Fagus sylvatica;4;3.33;4.5;4.25;10;3;fort;fort;eleve;profondes;faible;20;35;10;25;dressé
-Hete pourpre;Fagus sylvatica f. purpurea;;;;;;;;;;;;;;;;
-Hete pleureur;Fagus sylvatica f. pendula;;;;;;;;;;;;;;;;
-Chataignier;Castanea sativa;;;15;30;10;20;fort;fort;moyen;profondes;faible;25;40;15;20;arrondi
-Marronnier commun;Aesculus hippocastanum;2;2.5;5;2.5;2.5;5;fort;fort;moyen;superficielles;fort;18;25;10;15;arrondi
-Marronnier a fleurs rouges;Aesculus x carnea;;;;;;;;;;;;;;;;
-Pommier sauvage;Malus sylvestris;;;5;10;4;8;faible;faible;fort;superficielles;faible;5;9;5;6;étalé
-Pommier domestique;Malus communis;;;;;;;;;;;;;;;;
-Poirier sauvage;Pyrus communis subsp. pyraster;;;;;;;;;;;;;;;;
-Poirier commun;Pyrus communis;;;8;15;6;10;moyen;moyen;moyen;profondes;faible;10;15;8;10;pyramidal
-Cerisier merisier;Prunus avium;;;8;15;6;10;moyen;moyen;moyen;superficielles;faible;15;25;10;15;ovale
-Cerisier a grappes;Prunus padus;;;;;;;;;;;;;;;;
-Cerisier du Japon;Prunus serrulata;;;;;;;;;;;;;;;;
-Prunier myrobolan;Prunus cerasifera;;;;;;;;;;;;;;;;
-Prunier domestique;Prunus domestica;;;8;15;6;10;moyen;moyen;moyen;superficielles;moyen;3;8;3;6;arrondi
-Prunellier;Prunus spinosa;;;5;10;4;8;faible;faible;fort;superficielles;fort;;;;;
-Cerisier de Sainte-Lucie;Prunus mahaleb;;;;;;;;;;;;;;;;
-Noyer commun;Juglans regia;;;15;25;10;15;fort;fort;moyen;profondes;faible;;;;;
-Noyer noir;Juglans nigra;;;;;;;;;;;;;;;;
-Peuplier noir;Populus nigra;;;15;25;10;15;fort;fort;moyen;superficielles;faible;;;;;
-Peuplier tremble;Populus tremula;;;;;;;;;;;;;;;;
-Peuplier du Canada;Populus x canadensis;;;;;;;;;;;;;;;;
-Saule blanc;Salix alba;;;15;25;10;15;fort;fort;fort;superficielles;faible;;;;;
-Saule marsault;Salix caprea;;;;;;;;;;;;;;;;
-Saule pleureur;Salix x sepulcralis;;;;;;;;;;;;;;;;
-Saule cendre;Salix cinerea;;;;;;;;;;;;;;;;
-Saule pourpre;Salix purpurea;;;;;;;;;;;;;;;;
-Saule d'osier;Salix viminalis;;;;;;;;;;;;;;;;
-Saule a trois etamines;Salix triandra;;;;;;;;;;;;;;;;
-Bouleau verruqueux;Betula pendula;;;15;25;8;12;moyen;moyen;moyen;superficielles;faible;20;25;5;10;dressé
-Bouleau pubescent;Betula pubescens;2;5;3.67;0.25;;2;;;;;;;;;;
-Charme commun;Carpinus betulus;3;4.35;3.33;4.25;8;2;fort;fort;fort;superficielles;faible;15;20;6;8;ovale
-Charme houblon;Ostrya carpinifolia;;;8;15;6;10;moyen;moyen;moyen;superficielles;faible;;;;;
-Aulne glutineux;Alnus glutinosa;2;5;2.83;20;8;1;moyen;moyen;fort;superficielles;faible;18;30;10;15;dressé
-Aulne cordiforme;Alnus cordata;2;2.5;3.67;;;1;;;;;;;;;;
-Frene commun;Fraxinus excelsior;3;2.5;4;3.75;10;5;fort;fort;fort;profondes;fort;20;40;10;20;étalé
-Frene a feuilles etroites;Fraxinus angustifolia;;;;;;;;;;;;;;;;
-Robinier faux-acacia;Robinia pseudoacacia;;;15;25;10;15;fort;fort;moyen;profondes;fort;20;30;10;15;étalé
-Sorbier des oiseleurs;Sorbus aucuparia;;;8;15;6;10;moyen;moyen;fort;superficielles;fort;5;15;5;10;dressé
-Sorbier torminal;Sorbus torminalis;;;8;15;6;10;moyen;moyen;fort;superficielles;faible;;;;;
-Alisier blanc;Sorbus aria;;;8;15;6;10;moyen;moyen;fort;superficielles;faible;;;;;
-Alisier torminal;Sorbus torminalis;;;8;15;6;10;moyen;moyen;fort;superficielles;faible;;;;;
-Cormier;Sorbus domestica;;;8;15;6;10;moyen;moyen;fort;superficielles;faible;;;;;
-Micocoulier de Provence;Celtis australis;2;3.33;4;3.5;8;3;fort;fort;moyen;profondes;moyen;;;;;
-Platane commun;Platanus x hispanica;;;;;;;;;;;;10;35;15;25;étalé
-Platane d'Orient;Platanus orientalis;;;;;;;;;;;;;;;;
-Ginkgo;Ginkgo biloba;;;15;25;10;20;fort;fort;moyen;profondes;faible;;;;;
-Tulipier de Virginie;Liriodendron tulipifera;;;15;30;10;20;fort;fort;moyen;profondes;faible;;;;;
-Catalpa commun;Catalpa bignonioides;;;10;20;8;15;fort;fort;moyen;profondes;faible;;;;;
-Catalpa specieux;Catalpa speciosa;;;15;25;10;18;fort;fort;moyen;profondes;faible;;;;;
-Sophora du Japon;Sophora japonica;;;;;;;;;;;;;;;;
-Fevier d'Amerique;Gleditsia triacanthos;;;;;;;;;;;;;;;;
-Fevier sans epines;Gleditsia triacanthos var. inermis;;;;;;;;;;;;;;;;
-Arbre de Judee;Cercis siliquastrum;;;8;15;6;10;moyen;moyen;moyen;profondes;faible;;;;;
-Parrotie de Perse;Parrotia persica;;;5;10;4;8;moyen;moyen;moyen;profondes;faible;;;;;
-Liquidambar;Liquidambar styraciflua;;;;;;;;;;;;;;;;
-Copalme d'Amerique;Liquidambar styraciflua;;;;;;;;;;;;;;;;
-Styrax de Chine;Styrax japonicus;;;3;6;2;4;faible;faible;moyen;profondes;faible;;;;;
-Davidia de Chine;Davidia involucrata;;;8;15;6;10;moyen;moyen;moyen;profondes;faible;;;;;
-Micocoulier commun;Celtis occidentalis;;;;;;;;;;;;;;;;
-Zelkova du Japon;Zelkova serrata;;;;;;;;;;;;;;;;
-Orme champetre;Ulmus minor;;;;;;;;;;;;;;;;
-Orme de Hollande;Ulmus x hollandica;;;;;;;;;;;;;;;;
-Orme lisse;Ulmus laevis;;;;;;;;;;;;;;;;
-Orme de Siberie;Ulmus pumila;;;;;;;;;;;;;;;;
-Faux orme de Siberie;Zelkova carpinifolia;;;;;;;;;;;;;;;;
-If commun;Taxus baccata;;;8;15;6;10;moyen;moyen;fort;superficielles;faible;;;;;
-Sapin pecine;Abies alba;;;15;40;8;15;fort;fort;moyen;profondes;faible;;;;;
-Sapin argente;Abies alba;;;15;40;8;15;fort;fort;moyen;profondes;faible;;;;;
-Sapin de Concolor;Abies concolor;;;;;;;;;;;;;;;;
-Sapin du Colorado;Abies concolor;;;;;;;;;;;;;;;;
-Sapin d'Espagne;Abies pinsapo;;;;;;;;;;;;;;;;
-Cedre de l'Atlas;Cedrus atlantica;;;;;;;;;;;;;;;;
-Cedre du Liban;Cedrus libani;;;;;;;;;;;;;;;;
-Pin sylvestre;Pinus sylvestris;;;15;25;8;15;moyen;moyen;moyen;profondes;moyen;;;;;
-Pin noir;Pinus nigra;;;;;;;;;;;;;;;;
-Pin laricio;Pinus nigra subsp. laricio;;;;;;;;;;;;;;;;
-Pin maritime;Pinus pinaster;;;;;;;;;;;;;;;;
-Pin de Weymouth;Pinus strobus;;;;;;;;;;;;;;;;
-Epicea commun;Picea abies;;;15;40;8;15;fort;fort;moyen;superficielles;faible;;;;;
-Epicea d'Orient;Picea orientalis;;;;;;;;;;;;;;;;
-Epicea de Serbie;Picea omorika;;;;;;;;;;;;;;;;
-Meleze d'Europe;Larix decidua;;;15;30;8;15;fort;fort;moyen;profondes;faible;;;;;
-Meleze du Japon;Larix kaempferi;;;;;;;;;;;;;;;;
-Sequoi a feuilles d'if;Sequoia sempervirens;;;;;;;;;;;;;;;;
-Metasequoia;Metasequoia glyptostroboides;;;;;;;;;;;;;;;;
-Chamaecyparis de Lawson;Chamaecyparis lawsoniana;;;8;15;3;6;moyen;faible;faible;superficielles;moyen;;;;;
-Cypres de Leyland x Cupressocyparis leylandii;;;;;;;;;;;;;;;;;
-Thuya de Chine;Platycladus orientalis;;;;;;;;;;;;;;;;
-Thuya occidental;Thuja occidentalis;;;5;12;2;4;moyen;faible;faible;superficielles;moyen;;;;;
-Genievre commun;Juniperus communis;;;3;8;2;5;faible;faible;moyen;superficielles;faible;;;;;
-Amelanchier;Amelanchier canadensis;;;;;;;;;;;;;;;;
-Amelanchier a feuilles d'alism;Amelanchier alnifolia;;;;;;;;;;;;;;;;
-Argousier;Hippophae rhamnoides;;;3;6;3;5;faible;faible;fort;profondes;faible;;;;;
-Bourdaine;Frangula alnus;;;;;;;;;;;;;;;;
-Buis commun;Buxus sempervirens;;;1;3;1;2;faible;faible;moyen;superficielles;faible;;;;;
-Cotonaster;Cotoneaster horizontalis;;;0.5;1;1;2;faible;faible;moyen;superficielles;faible;;;;;
-Cotonaster de Franchet;Cotoneaster franchetii;;;1;2;1;2;faible;faible;moyen;superficielles;faible;;;;;
-Cornouiller male;Cornus mas;;;;;;;;;;;;;;;;
-Cornouiller sanguin;Cornus sanguinea;;;;;;;;;;;;;;;;
-Cornouiller a fleurs;Cornus florida;;;;;;;;;;;;;;;;
-Fusain d'Europe;Euonymus europaeus;;;3;6;2;4;faible;faible;moyen;superficielles;moyen;;;;;
-Houx commun;Ilex aquifolium;;;;;;;;;;;;;;;;
-Laurier du Caucase;Prunus laurocerasus;;;;;;;;;;;;;;;;
-Laurier du Portugal;Prunus lusitanica;;;;;;;;;;;;;;;;
-Lilas commun;Syringa vulgaris;;;;;;;;;;;;;;;;
-Nerprun purgatif;Rhamnus cathartica;;;;;;;;;;;;;;;;
-Noisetier commun;Corylus avellana;;;5;10;4;8;faible;faible;moyen;superficielles;faible;;;;;
-Noisetier de Byzance;Corylus colurna;2;3.33;3;2.5;;2;;;;;;;;;;
-Porteron a feuilles de houblon;Pterocarya fraxinifolia;;;15;25;10;15;fort;fort;eleve;profondes;faible;;;;;
-Pyracantha;Pyracantha coccinea;;;;;;;;;;;;;;;;
-Sureau noir;Sambucus nigra;;;;;;;;;;;;;;;;
-Viorne lantane;Viburnum lantana;;;;;;;;;;;;;;;;
-Viorne obier;Viburnum opulus;;;;;;;;;;;;;;;;
-Troene commun;Ligustrum vulgare;;;3;6;2;4;faible;faible;moyen;superficielles;moyen;;;;;
-Chievrefeuille du Japon;Lonicera japonica;;;;;;;;;;;;;;;;
-Rosier sauvage;Rosa canina;;;3;6;2;4;faible;faible;moyen;superficielles;fort;;;;;
-Eglantier;Rosa canina;;;3;6;2;4;faible;faible;moyen;superficielles;fort;;;;;
-Framboisier;Rubus idaeus;;;1;2;1;2;faible;faible;moyen;superficielles;faible;;;;;
-Groseillier a maquereaux;Ribes uva-crispa;;;1;2;1;2;faible;faible;moyen;superficielles;faible;;;;;
-Cassis;Ribes nigrum;;;1;2;1;2;faible;faible;moyen;superficielles;faible;;;;;
-Cytise;Cytisus scoparius;;;1;3;1;2;faible;faible;moyen;superficielles;moyen;;;;;
-Lavande;Lavandula angustifolia;;;0.5;1;0.5;1;faible;faible;faible;superficielles;faible;;;;;
+nom_commun;nom_scientifique;stockage_carbone;resilience;impact_icu;biodiversite;qualite_air;potentiel_allergisant;ombrage_fort;rafraichissement_fort;biodiversite_service;type_racines;allergie_service;hauteur_min_m;hauteur_max_m;envergure_min_m;envergure_max_m;port;type_sol;resistance_secheresse;services_ecosystemiques
+Chene pedoncule;Quercus robur;;;15;30;10;20;fort;fort;fort;superficielles;faible;15;40;10;25;étalé;profond, bien drainé;moyenne;
+Chene sessile;Quercus petraea;;;15;30;10;18;fort;fort;fort;profondes;faible;20;45;15;30;arrondi;profond, acide;moyenne;
+Chene pubescent;Quercus pubescens;;;10;25;8;15;moyen;moyen;fort;profondes;faible;8;25;5;15;étalé;calcaire, sec;bonne;
+Chene vert;Quercus ilex;;;8;20;6;12;moyen;moyen;moyen;profondes;faible;15;20;10;15;arrondi;calcaire, sec;excellente;
+Chene rouge;Quercus rubra;;;15;28;10;18;fort;fort;moyen;superficielles;moyen;15;25;10;20;ovale;profond, acide;moyenne;
+Chene chevelu;Quercus cerris;;;;;;;;;;;;20;30;20;20;étalé;bien drainé, calcaire;bonne;
+Chene de Hongrie;Quercus frainetto;;;;;;;;;;;;20;25;10;15;ovale;profond, frais;moyenne;
+Erable champetre;Acer campestre;3;4.35;3.67;2.25;6;4;moyen;moyen;moyen;superficielles;faible;5;15;5;10;arrondi;tous types, calcaire;moyenne;
+Erable plane;Acer platanoides;2;3.52;3.67;2;1.94;4;fort;fort;moyen;superficielles;moyen;15;30;12;15;ovale;profond, fertile;moyenne;
+Erable sycomore;Acer pseudoplatanus;2;4.72;4.5;2.25;10;4;fort;fort;moyen;superficielles;moyen;20;40;10;25;étalé;profond, frais;moyenne;
+Erable argente;Acer saccharinum;;;;;;;;;;;;20;30;9;15;érigé;tous types, humide;bonne;
+Erable de Buerger;Acer buergerianum;;;;;;;;;;;;10;15;5;10;arrondi;acide, humifere;moyenne;
+Erable de Montpellier;Acer monspessulanum;;;;;;;;;;;;5;10;4;8;arrondi;calcaire, sec;excellente;
+Erable a feuilles d'obier;Acer opalus;;;;;;;;;;;;5;10;4;8;arrondi;calcaire, sec;;
+Tilleul a petites feuilles;Tilia cordata;;;10;25;8;15;fort;fort;fort;superficielles;faible;25;30;15;20;dressé;frais, fertile;;
+Tilleul a larges feuilles;Tilia platyphyllos;;;10;25;8;15;fort;fort;fort;superficielles;faible;20;40;7;12;pyramidal;frais, fertile;;
+Tilleul argente;Tilia tomentosa;;;;;;;;;;;;15;25;9;15;dressé;frais, fertile;;
+Tilleul de Crimee;Tilia x euchlora;;;;;;;;;;;;15;20;10;12;ovale;frais, fertile;;
+Tilleul de Mongolie;Tilia mongolica;;;;;;;;;;;;6;10;6;10;érigé;frais, fertile;;
+Hete;Fagus sylvatica;4;3.33;4.5;4.25;10;3;fort;fort;eleve;profondes;faible;20;35;10;25;dressé;profond, frais;;
+Hete pourpre;Fagus sylvatica f. purpurea;;;;;;;;;;;;20;35;10;25;dressé;profond, frais;;
+Hete pleureur;Fagus sylvatica f. pendula;;;;;;;;;;;;20;35;10;25;pleureur;profond, frais;;
+Chataignier;Castanea sativa;;;15;30;10;20;fort;fort;moyen;profondes;faible;25;40;15;20;arrondi;profond, acide;bonne;
+Marronnier commun;Aesculus hippocastanum;2;2.5;5;2.5;2.5;5;fort;fort;moyen;superficielles;fort;18;25;10;15;arrondi;profond, fertile;moyenne;
+Marronnier a fleurs rouges;Aesculus x carnea;;;;;;;;;;;;15;25;10;15;arrondi;profond, fertile;;
+Pommier sauvage;Malus sylvestris;;;5;10;4;8;faible;faible;fort;superficielles;faible;5;9;5;6;étalé;tous types, fertile;moyenne;
+Pommier domestique;Malus communis;;;;;;;;;;;;3;8;3;6;arrondi;tous types, fertile;;
+Poirier sauvage;Pyrus communis subsp. pyraster;;;;;;;;;;;;10;15;8;10;pyramidal;argileux, limoneux;;
+Poirier commun;Pyrus communis;;;8;15;6;10;moyen;moyen;moyen;profondes;faible;10;15;8;10;pyramidal;argileux, limoneux;moyenne;
+Cerisier merisier;Prunus avium;;;8;15;6;10;moyen;moyen;moyen;superficielles;faible;15;25;10;15;ovale;limoneux, argileux;moyenne;
+Cerisier a grappes;Prunus padus;;;;;;;;;;;;5;12;4;8;ovale;frais, humide;moyenne;
+Cerisier du Japon;Prunus serrulata;;;;;;;;;;;;5;10;4;8;arrondi;tous types, calcaire;;
+Prunier myrobolan;Prunus cerasifera;;;;;;;;;;;;5;10;4;8;arrondi;tous types, calcaire;bonne;
+Prunier domestique;Prunus domestica;;;8;15;6;10;moyen;moyen;moyen;superficielles;moyen;3;8;3;6;arrondi;tous types, fertile;moyenne;
+Prunellier;Prunus spinosa;;;5;10;4;8;faible;faible;fort;superficielles;fort;3;6;3;5;dressé;pauvre, calcaire;excellente;
+Cerisier de Sainte-Lucie;Prunus mahaleb;;;;;;;;;;;;5;10;4;8;arrondi;tous types, calcaire;;
+Noyer commun;Juglans regia;;;15;25;10;15;fort;fort;moyen;profondes;faible;15;25;10;20;arrondi;tous types;;
+Noyer noir;Juglans nigra;;;;;;;;;;;;15;30;10;20;arrondi;tous types;;
+Peuplier noir;Populus nigra;;;15;25;10;15;fort;fort;moyen;superficielles;faible;15;30;10;20;ovale;profond, humide;;
+Peuplier tremble;Populus tremula;;;;;;;;;;;;15;25;10;15;ovale;profond, humide;;
+Peuplier du Canada;Populus x canadensis;;;;;;;;;;;;20;35;10;20;ovale;profond, humide;;
+Saule blanc;Salix alba;;;15;25;10;15;fort;fort;fort;superficielles;faible;15;25;10;15;ovale;humide, argileux;;
+Saule marsault;Salix caprea;;;;;;;;;;;;5;12;4;8;arrondi;humide, acide;;
+Saule pleureur;Salix x sepulcralis;;;;;;;;;;;;10;15;5;10;pleureur;humide, bien drainé;;
+Saule cendre;Salix cinerea;;;;;;;;;;;;5;10;4;8;arrondi;humide, acide;;
+Saule pourpre;Salix purpurea;;;;;;;;;;;;2;5;2;4;arrondi;humide, calcaire;;
+Saule d'osier;Salix viminalis;;;;;;;;;;;;3;6;2;4;arrondi;humide, argileux;;
+Saule a trois etamines;Salix triandra;;;;;;;;;;;;5;12;4;8;arrondi;humide, argileux;;
+Bouleau verruqueux;Betula pendula;;;15;25;8;12;moyen;moyen;moyen;superficielles;faible;20;25;5;10;dressé;acide, bien draine;bonne;
+Bouleau pubescent;Betula pubescens;2;5;3.67;0.25;;2;;;;;;15;25;8;15;ovale;acide, bien drainé;;
+Charme commun;Carpinus betulus;3;4.35;3.33;4.25;8;2;fort;fort;fort;superficielles;faible;15;20;6;8;ovale;tous types, frais;moyenne;
+Charme houblon;Ostrya carpinifolia;;;8;15;6;10;moyen;moyen;moyen;superficielles;faible;8;15;5;10;ovale;calcaire, sec;;
+Aulne glutineux;Alnus glutinosa;2;5;2.83;20;8;1;moyen;moyen;fort;superficielles;faible;18;30;10;15;dressé;frais, humide;faible;
+Aulne cordiforme;Alnus cordata;2;2.5;3.67;;;1;;;;;;15;25;8;15;ovale;frais, humide;;
+Frene commun;Fraxinus excelsior;3;2.5;4;3.75;10;5;fort;fort;fort;profondes;fort;20;40;10;20;étalé;profond, frais;moyenne;
+Frene a feuilles etroites;Fraxinus angustifolia;;;;;;;;;;;;15;25;8;15;ovale;profond, frais;;
+Robinier faux-acacia;Robinia pseudoacacia;;;15;25;10;15;fort;fort;moyen;profondes;fort;20;30;10;15;étalé;pauvre, calcaire;excellente;
+Sorbier des oiseleurs;Sorbus aucuparia;;;8;15;6;10;moyen;moyen;fort;superficielles;fort;5;15;5;10;dressé;tous types, acide;moyenne;
+Sorbier torminal;Sorbus torminalis;;;8;15;6;10;moyen;moyen;fort;superficielles;faible;8;15;5;10;ovale;tous types, calcaire;;
+Alisier blanc;Sorbus aria;;;8;15;6;10;moyen;moyen;fort;superficielles;faible;8;15;5;10;ovale;tous types, calcaire;;
+Alisier torminal;Sorbus torminalis;;;8;15;6;10;moyen;moyen;fort;superficielles;faible;8;15;5;10;ovale;tous types, calcaire;;
+Cormier;Sorbus domestica;;;8;15;6;10;moyen;moyen;fort;superficielles;faible;8;20;5;12;ovale;profond, calcaire;;
+Micocoulier de Provence;Celtis australis;2;3.33;4;3.5;8;3;fort;fort;moyen;profondes;moyen;10;25;8;15;ovale;sec, calcaire;;
+Platane commun;Platanus x hispanica;;;;;;;;;;;;10;35;15;25;étalé;profond, fertile;;
+Platane d'Orient;Platanus orientalis;;;;;;;;;;;;15;30;10;20;ovale;profond, fertile;;
+Ginkgo;Ginkgo biloba;;;15;25;10;20;fort;fort;moyen;profondes;faible;15;25;8;15;ovale;tous types, bien draine;;
+Tulipier de Virginie;Liriodendron tulipifera;;;15;30;10;20;fort;fort;moyen;profondes;faible;15;30;10;20;ovale;profond, fertile;;
+Catalpa commun;Catalpa bignonioides;;;10;20;8;15;fort;fort;moyen;profondes;faible;8;15;6;12;ovale;profond, fertile;;
+Catalpa specieux;Catalpa speciosa;;;15;25;10;18;fort;fort;moyen;profondes;faible;10;20;8;15;ovale;profond, fertile;;
+Sophora du Japon;Sophora japonica;;;;;;;;;;;;10;20;8;15;ovale;profond, bien draine;;
+Fevier d'Amerique;Gleditsia triacanthos;;;;;;;;;;;;10;20;8;15;ovale;pauvre, calcaire;;
+Fevier sans epines;Gleditsia triacanthos var. inermis;;;;;;;;;;;;10;20;8;15;ovale;pauvre, calcaire;;
+Arbre de Judee;Cercis siliquastrum;;;8;15;6;10;moyen;moyen;moyen;profondes;faible;5;10;4;8;arrondi;calcaire, sec;;
+Parrotie de Perse;Parrotia persica;;;5;10;4;8;moyen;moyen;moyen;profondes;faible;5;10;4;8;arrondi;tous types, fertile;;
+Liquidambar;Liquidambar styraciflua;;;;;;;;;;;;15;25;8;15;ovale;profond, fertile;;
+Copalme d'Amerique;Liquidambar styraciflua;;;;;;;;;;;;15;25;8;15;ovale;profond, fertile;;
+Styrax de Chine;Styrax japonicus;;;3;6;2;4;faible;faible;moyen;profondes;faible;5;10;4;8;arrondi;acide, humide;;
+Davidia de Chine;Davidia involucrata;;;8;15;6;10;moyen;moyen;moyen;profondes;faible;8;15;6;12;ovale;profond, fertile;;
+Micocoulier commun;Celtis occidentalis;;;;;;;;;;;;10;25;8;15;ovale;sec, calcaire;;
+Zelkova du Japon;Zelkova serrata;;;;;;;;;;;;10;20;8;15;ovale;profond, fertile;;
+Orme champetre;Ulmus minor;;;;;;;;;;;;15;30;10;20;ovale;profond, frais;;
+Orme de Hollande;Ulmus x hollandica;;;;;;;;;;;;15;30;10;20;ovale;profond, frais;;
+Orme lisse;Ulmus laevis;;;;;;;;;;;;15;30;10;20;ovale;profond, frais;;
+Orme de Siberie;Ulmus pumila;;;;;;;;;;;;8;15;6;12;ovale;profond, frais;;
+Faux orme de Siberie;Zelkova carpinifolia;;;;;;;;;;;;10;20;8;15;ovale;profond, fertile;;
+If commun;Taxus baccata;;;8;15;6;10;moyen;moyen;fort;superficielles;faible;5;15;3;8;ovale;tous types, calcaire;;
+Sapin pecine;Abies alba;;;15;40;8;15;fort;fort;moyen;profondes;faible;20;50;5;12;conique;profond, frais;;
+Sapin argente;Abies alba;;;15;40;8;15;fort;fort;moyen;profondes;faible;20;50;5;12;conique;profond, frais;;
+Sapin de Concolor;Abies concolor;;;;;;;;;;;;15;40;5;12;conique;bien drainé, acide;;
+Sapin du Colorado;Abies concolor;;;;;;;;;;;;15;40;5;12;conique;bien drainé, acide;;
+Sapin d'Espagne;Abies pinsapo;;;;;;;;;;;;10;25;5;12;conique;bien drainé, acide;;
+Cedre de l'Atlas;Cedrus atlantica;;;;;;;;;;;;15;40;8;15;conique;sec, calcaire;;
+Cedre du Liban;Cedrus libani;;;;;;;;;;;;15;40;8;15;conique;sec, calcaire;;
+Pin sylvestre;Pinus sylvestris;;;15;25;8;15;moyen;moyen;moyen;profondes;moyen;10;25;5;15;conique;sableux, acide;;
+Pin noir;Pinus nigra;;;;;;;;;;;;15;40;8;15;conique;sec, calcaire;;
+Pin laricio;Pinus nigra subsp. laricio;;;;;;;;;;;;15;40;8;15;conique;sec, calcaire;;
+Pin maritime;Pinus pinaster;;;;;;;;;;;;15;35;8;20;conique;sableux, sec;;
+Pin de Weymouth;Pinus strobus;;;;;;;;;;;;15;30;8;15;conique;sableux, acide;;
+Epicea commun;Picea abies;;;15;40;8;15;fort;fort;moyen;superficielles;faible;15;40;5;10;conique;argileux, profond;;
+Epicea d'Orient;Picea orientalis;;;;;;;;;;;;15;35;5;12;conique;bien drainé, acide;;
+Epicea de Serbie;Picea omorika;;;;;;;;;;;;15;30;4;8;conique;bien drainé, acide;;
+Meleze d'Europe;Larix decidua;;;15;30;8;15;fort;fort;moyen;profondes;faible;15;35;5;10;conique;bien drainé, acide;;
+Meleze du Japon;Larix kaempferi;;;;;;;;;;;;15;25;5;10;conique;bien drainé, acide;;
+Sequoi a feuilles d'if;Sequoia sempervirens;;;;;;;;;;;;20;40;10;20;conique;tous types;;
+Metasequoia;Metasequoia glyptostroboides;;;;;;;;;;;;15;30;8;15;conique;tous types;;
+Chamaecyparis de Lawson;Chamaecyparis lawsoniana;;;8;15;3;6;moyen;faible;faible;superficielles;moyen;5;20;3;8;conique;humide, fertile;;
+Cypres de Leyland x Cupressocyparis leylandii;;;;;;;;;;;;;;;;;;tous types;;
+Thuya de Chine;Platycladus orientalis;;;;;;;;;;;;5;15;3;8;conique;tous types;;
+Thuya occidental;Thuja occidentalis;;;5;12;2;4;moyen;faible;faible;superficielles;moyen;5;15;2;5;conique;humide, fertile;;
+Genievre commun;Juniperus communis;;;3;8;2;5;faible;faible;moyen;superficielles;faible;1;3;1;2;arrondi;tous types, sec, calcaire;;
+Amelanchier;Amelanchier canadensis;;;;;;;;;;;;3;8;3;6;arrondi;tous types, calcaire;;
+Amelanchier a feuilles d'alism;Amelanchier alnifolia;;;;;;;;;;;;2;5;2;4;arrondi;tous types, calcaire;;
+Argousier;Hippophae rhamnoides;;;3;6;3;5;faible;faible;fort;profondes;faible;3;6;3;5;arrondi;tous types;;
+Bourdaine;Frangula alnus;;;;;;;;;;;;3;6;3;5;arrondi;tous types, humide;;
+Buis commun;Buxus sempervirens;;;1;3;1;2;faible;faible;moyen;superficielles;faible;1;3;1;2;arrondi;tous types;;
+Cotonaster;Cotoneaster horizontalis;;;0.5;1;1;2;faible;faible;moyen;superficielles;faible;0.5;1;0.5;1;arrondi;tous types, sec;;
+Cotonaster de Franchet;Cotoneaster franchetii;;;1;2;1;2;faible;faible;moyen;superficielles;faible;1;3;1;2;arrondi;tous types, sec;;
+Cornouiller male;Cornus mas;;;;;;;;;;;;4;8;3;6;arrondi;tous types, bien drainé;moyenne;
+Cornouiller sanguin;Cornus sanguinea;;;;;;;;;;;;2;5;2;4;arrondi;tous types, bien drainé;;
+Cornouiller a fleurs;Cornus florida;;;;;;;;;;;;5;10;4;8;arrondi;tous types, bien drainé;;
+Fusain d'Europe;Euonymus europaeus;;;3;6;2;4;faible;faible;moyen;superficielles;moyen;2;6;2;4;arrondi;tous types;;
+Houx commun;Ilex aquifolium;;;;;;;;;;;;5;15;4;8;arrondi;tous types;;
+Laurier du Caucase;Prunus laurocerasus;;;;;;;;;;;;2;6;2;4;arrondi;tous types, calcaire;;
+Laurier du Portugal;Prunus lusitanica;;;;;;;;;;;;3;8;3;6;arrondi;tous types, calcaire;;
+Lilas commun;Syringa vulgaris;;;;;;;;;;;;2;4;2;3;arrondi;tous types;;
+Nerprun purgatif;Rhamnus cathartica;;;;;;;;;;;;2;5;2;4;arrondi;tous types, calcaire;;
+Noisetier commun;Corylus avellana;;;5;10;4;8;faible;faible;moyen;superficielles;faible;3;6;3;5;arrondi;tous types;;
+Noisetier de Byzance;Corylus colurna;2;3.33;3;2.5;;2;;;;;;5;12;4;8;ovale;tous types;;
+Porteron a feuilles de houblon;Pterocarya fraxinifolia;;;15;25;10;15;fort;fort;eleve;profondes;faible;15;25;8;15;ovale;tous types;;
+Pyracantha;Pyracantha coccinea;;;;;;;;;;;;1;3;1;2;arrondi;tous types;;
+Sureau noir;Sambucus nigra;;;;;;;;;;;;3;6;3;5;arrondi;tous types, humide;;
+Viorne lantane;Viburnum lantana;;;;;;;;;;;;2;4;2;3;arrondi;tous types, calcaire;moyenne;
+Viorne obier;Viburnum opulus;;;;;;;;;;;;3;5;3;4;arrondi;frais, humide;moyenne;
+Troene commun;Ligustrum vulgare;;;3;6;2;4;faible;faible;moyen;superficielles;moyen;2;4;2;3;arrondi;tous types, calcaire;excellente;
+Chievrefeuille du Japon;Lonicera japonica;;;;;;;;;;;;1;3;1;2;arrondi;tous types, sec;;
+Rosier sauvage;Rosa canina;;;3;6;2;4;faible;faible;moyen;superficielles;fort;1;3;1;2;arrondi;tous types, sec;;
+Eglantier;Rosa canina;;;3;6;2;4;faible;faible;moyen;superficielles;fort;1;3;1;2;arrondi;tous types, sec;;
+Framboisier;Rubus idaeus;;;1;2;1;2;faible;faible;moyen;superficielles;faible;1;2;1;2;arrondi;tous types, acide;;
+Groseillier a maquereaux;Ribes uva-crispa;;;1;2;1;2;faible;faible;moyen;superficielles;faible;1;2;1;2;arrondi;argileux, humide;;
+Cassis;Ribes nigrum;;;1;2;1;2;faible;faible;moyen;superficielles;faible;1;2;1;2;arrondi;argileux, humide;moyenne;
+Cytise;Cytisus scoparius;;;1;3;1;2;faible;faible;moyen;superficielles;moyen;1;3;1;2;arrondi;pauvre, sec, calcaire;;
+Lavande;Lavandula angustifolia;;;0.5;1;0.5;1;faible;faible;faible;superficielles;faible;0.3;0.8;0.3;0.8;arrondi;tous types;;
