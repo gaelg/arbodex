@@ -21,30 +21,34 @@ function formatOption(opt: string) {
     .replace("Non", "Non");
 }
 
-type VueType = "cartes" | "terrain" | "tableau";
+type VueType = "cartes" | "liste" | "tableau";
 
 interface Props {
   arbres: Arbre[];
 }
 
-  function EmojiBadge({ valeur, map, couleurs }: {
-    valeur: string;
-    map: Record<string, string>;
-    couleurs?: Record<string, string>;
-  }) {
-    const emoji = map[valeur] || "✅";
-    const couleur = couleurs?.[valeur] || "text-green-600";
-    return <span className={`text-sm ${couleur}`}>{emoji}</span>;
-  }
+function EmojiBadge({
+  valeur,
+  map,
+  couleurs,
+}: {
+  valeur: string;
+  map: Record<string, string>;
+  couleurs?: Record<string, string>;
+}) {
+  const emoji = map[valeur] || "✅";
+  const couleur = couleurs?.[valeur] || "text-green-600";
+  return <span className={`text-sm ${couleur}`}>{emoji}</span>;
+}
 
-  function Badge({ texte, couleur }: { texte: string; couleur?: string }) {
-    const base = "inline-block px-2 py-0.5 text-xs rounded-full";
-    return (
-      <span className={`${base} ${couleur || "bg-gray-100 text-gray-500"}`}>
-        {texte}
-      </span>
-    );
-  }
+function Badge({ texte, couleur }: { texte: string; couleur?: string }) {
+  const base = "inline-block px-2 py-0.5 text-xs rounded-full";
+  return (
+    <span className={`${base} ${couleur || "bg-gray-100 text-gray-500"}`}>
+      {texte}
+    </span>
+  );
+}
 
 function Barre({ niveau, label }: { niveau: number; label: string }) {
   return (
@@ -63,7 +67,7 @@ function Barre({ niveau, label }: { niveau: number; label: string }) {
 }
 
 export default function ListeArbres({ arbres }: Props) {
-  const [vue, setVue] = useState<VueType>("cartes");
+  const [vue, setVue] = useState<VueType>("liste");
 
   if (arbres.length === 0) {
     return (
@@ -82,7 +86,7 @@ export default function ListeArbres({ arbres }: Props) {
           {arbres.length} essence(s) trouvée(s)
         </p>
         <div className="flex gap-1 bg-gray-100 rounded-lg p-1">
-          {(["cartes", "terrain", "tableau"] as VueType[]).map((v) => (
+          {(["cartes", "liste", "tableau"] as VueType[]).map((v) => (
             <button
               key={v}
               onClick={() => setVue(v)}
@@ -98,7 +102,7 @@ export default function ListeArbres({ arbres }: Props) {
         </div>
       </div>
 
-      {vue === "terrain" && (
+      {vue === "liste" && (
         <div className="space-y-2">
           {arbres.map((arbre, i) => (
             <div
@@ -121,7 +125,11 @@ export default function ListeArbres({ arbres }: Props) {
                 <EmojiBadge
                   valeur={arbre.pollen_allergisant}
                   map={{ fort: "🤧", moyen: "🤢", faible: "✅" }}
-                  couleurs={{ fort: "text-red-600", moyen: "text-orange-500", faible: "text-green-600" }}
+                  couleurs={{
+                    fort: "text-red-600",
+                    moyen: "text-orange-500",
+                    faible: "text-green-600",
+                  }}
                 />
                 <span className="px-2 py-1 rounded-full bg-blue-100 text-blue-800">
                   {arbre.hauteur_max_m}m
