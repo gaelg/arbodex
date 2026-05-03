@@ -40,7 +40,11 @@ function EmojiBadge({
 }) {
   const emoji = map[valeur] || "✅";
   const couleur = couleurs?.[valeur] || "text-green-600";
-  return <span className={`text-sm ${couleur}`} title={title}>{emoji}</span>;
+  return (
+    <span className={`text-sm ${couleur}`} title={title}>
+      {emoji}
+    </span>
+  );
 }
 
 function Badge({ texte, couleur }: { texte: string; couleur?: string }) {
@@ -123,7 +127,10 @@ export default function ListeArbres({ arbres }: Props) {
                 <EmojiBadge
                   valeur={arbre.type}
                   map={{ arbre: "🌳", arbuste: "🌿" }}
-                  couleurs={{ arbre: "text-green-700", arbuste: "text-green-600" }}
+                  couleurs={{
+                    arbre: "text-green-700",
+                    arbuste: "text-green-600",
+                  }}
                   title="Type : arbre ou arbuste"
                 />
                 <EmojiBadge

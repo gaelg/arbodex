@@ -21,9 +21,9 @@ const CHAMPS: ChampSelect[] = [
 
   // Sol & Climat
   { cle: "type_sol", étiquette: "Type de sol", section: "Sol & Climat" },
-  {
+    {
     cle: "résistance_secheresse",
-    étiquette: "Résistance sécheresse (max)",
+    étiquette: "Résistance sécheresse",
     section: "Sol & Climat",
   },
   { cle: "pH", étiquette: "pH préféré", section: "Sol & Climat" },
