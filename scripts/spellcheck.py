@@ -1,36 +1,28 @@
 #!/usr/bin/env python3
 """
-Vérification orthographe systématique avant push.
+Vérification orthographe systématique.
 Usage: python3 scripts/spellcheck.py
 """
 
 import os
-import re
 import sys
 from pathlib import Path
 
-# Fautes connues à corriger (sans accent là où il faut, typos)
 TYPO_MAP = {
     "hete": "hêtre",
-    "forrest": "forest",  # mais "forrestières" → "forestières"
+    "forrest": "forest",
     "nettoyage": "nettoyage",
-    "filtre": "filtre",  # variable de code, acceptable
-    "effectu": "effectué",  # participe passé
 }
 
-def check_file(filepath: Path) -> list:
-    """Retourne la liste des fautes trouvées dans un fichier."""
+def check_file(filepath):
     fautes = []
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
-            content = f.read()
+            content = f.read().lower()
             for wrong, correct in TYPO_MAP.items():
-                if wrong in content.lower() and wrong != correct:
-                    # Éviter les faux positifs (mots anglais, variables de code)
-                    if wrong == "filtre" and "filtre" in filepath.name:
-                        continue  # C'est une variable de code
+                if wrong in content:
                     fautes.append((filepath, wrong, correct))
-    except Exception as e:
+    except Exception:
         pass
     return fautes
 
@@ -38,7 +30,6 @@ def main():
     base = Path(__file__).parent.parent
     files_to_check = []
     
-    # Fichiers sources
     for ext in ["tsx", "ts", "ts", "md", "csv"]:
         files_to_check.extend(base.rglob(f"src/**/*.{ext}"))
         files_to_check.extend(base.rglob(f"*.{ext}"))
