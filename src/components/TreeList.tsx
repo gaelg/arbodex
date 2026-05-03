@@ -180,15 +180,11 @@ export default function ListeArbres({ arbres }: Props) {
               {expanded === i && (
                 <div className="mt-3 pt-3 border-t border-gray-100 text-sm text-gray-600">
                   <p>
-                    <span className="font-medium text-gray-700">
-                      Famille :
-                    </span>{" "}
+                    <span className="font-medium text-gray-700">Famille :</span>{" "}
                     {arbre.famille}
                   </p>
                   <p>
-                    <span className="font-medium text-gray-700">
-                      Origine :
-                    </span>{" "}
+                    <span className="font-medium text-gray-700">Origine :</span>{" "}
                     {arbre.origine === "local"
                       ? "Local"
                       : arbre.origine === "presque_local"
@@ -199,20 +195,15 @@ export default function ListeArbres({ arbres }: Props) {
                     <span className="font-medium text-gray-700">
                       Dimensions :
                     </span>{" "}
-                    {arbre.hauteur_min_m}–{arbre.hauteur_max_m}m H
-                    {" "}×(espace){" "}
+                    {arbre.hauteur_min_m}–{arbre.hauteur_max_m}m H ×(espace){" "}
                     {arbre.envergure_min_m}–{arbre.envergure_max_m}m L
                   </p>
                   <p>
-                    <span className="font-medium text-gray-700">
-                      Port :
-                    </span>{" "}
+                    <span className="font-medium text-gray-700">Port :</span>{" "}
                     {arbre.port}
                   </p>
                   <p>
-                    <span className="font-medium text-gray-700">
-                      Sol :
-                    </span>{" "}
+                    <span className="font-medium text-gray-700">Sol :</span>{" "}
                     {arbre.type_sol} (pH {arbre.pH})
                   </p>
                   <p>
@@ -279,9 +270,7 @@ export default function ListeArbres({ arbres }: Props) {
                         Maladies :
                       </span>{" "}
                       {arbre.sensibilite_maladies} ·{" "}
-                      <span className="font-medium text-gray-700">
-                        Coût :
-                      </span>{" "}
+                      <span className="font-medium text-gray-700">Coût :</span>{" "}
                       {arbre.cout_entretien}
                     </p>
                   </div>
