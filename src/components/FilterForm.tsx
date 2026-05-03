@@ -170,7 +170,7 @@ export default function FormulaireFiltres({
           type="text"
           value={filtres.recherche}
           onChange={(e) => mettreAJour("recherche", e.target.value)}
-          placeholder="Ex: Ch\u00eane, Erable, Buis..."
+          placeholder="Ex: Chêne, Érable, Buis..."
           className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
         />
       </div>

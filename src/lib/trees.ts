@@ -196,5 +196,5 @@ export function appliquerFiltres(arbres: Arbre[], filtres: Filtres): Arbre[] {
     )
       return false;
     return true;
-  });
+  }).sort((a, b) => a.nom_commun.localeCompare(b.nom_commun, "fr"));
 }
