@@ -300,11 +300,14 @@ export default function FormulaireFiltres({
                           className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                         >
                           <option value="">Tous</option>
-                          {opts.map((opt) => (
-                            <option key={opt} value={opt}>
-                              {formatOption(opt)}
-                            </option>
-                          ))}
+                  {opts.map((opt) => {
+                    const count = appliquerFiltres(arbres, { ...filtres, [cle]: opt }).length;
+                    return (
+                      <option key={opt} value={opt}>
+                        {formatOption(opt)} ({count})
+                      </option>
+                    );
+                  })}
                         </select>
                       </div>
                     );
