@@ -76,6 +76,20 @@ export default function Accueil() {
   };
 
   const filtresAppliques = appliquerFiltres(arbres, filtres);
+  const [showScrollToResults, setShowScrollToResults] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setShowScrollToResults(window.scrollY > 400);
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollToResults = () => {
+    const el = document.getElementById("liste-arbres");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-6 sm:py-10">
@@ -147,8 +161,19 @@ export default function Accueil() {
               onChange={setFiltres}
             />
           </div>
-          <ListeArbres arbres={filtresAppliques} />
+          <div className="mb-6" id="liste-arbres">
+            <ListeArbres arbres={filtresAppliques} />
+          </div>
         </>
+      )}
+
+      {showScrollToResults && !chargement && (
+        <button
+          onClick={scrollToResults}
+          className="fixed bottom-6 right-6 z-50 px-4 py-3 bg-green-700 text-white rounded-full shadow-lg text-sm font-medium hover:bg-green-800 transition-opacity"
+        >
+          ↑ Voir les résultats
+        </button>
       )}
 
       <footer className="mt-16 pt-8 border-t border-gray-200">
