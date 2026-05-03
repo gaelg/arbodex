@@ -6,7 +6,7 @@ const ARBRES_TEST: Arbre[] = [
     nom_commun: "Chêne pédonculé",
     nom_scientifique: "Quercus robur",
     famille: "Fagacées",
-    origine: "indigene",
+    origine: "local",
     type: "arbre",
     hauteur_min_m: 15,
     hauteur_max_m: 25,
@@ -51,7 +51,7 @@ const ARBRES_TEST: Arbre[] = [
     nom_commun: "Érable rouge",
     nom_scientifique: "Acer rubrum",
     famille: "Sapindacées",
-    origine: "exotique",
+    origine: "vraiment_exotique",
     type: "arbre",
     hauteur_min_m: 12,
     hauteur_max_m: 18,
@@ -96,7 +96,7 @@ const ARBRES_TEST: Arbre[] = [
     nom_commun: "Pin blanc",
     nom_scientifique: "Pinus strobus",
     famille: "Pinacées",
-    origine: "exotique",
+    origine: "vraiment_exotique",
     type: "arbre",
     hauteur_min_m: 15,
     hauteur_max_m: 25,
@@ -141,7 +141,7 @@ const ARBRES_TEST: Arbre[] = [
     nom_commun: "Ginkgo",
     nom_scientifique: "Ginkgo biloba",
     famille: "Ginkgoacées",
-    origine: "exotique",
+    origine: "presque_local",
     type: "arbre",
     hauteur_min_m: 15,
     hauteur_max_m: 25,
@@ -186,7 +186,7 @@ const ARBRES_TEST: Arbre[] = [
     nom_commun: "Buis commun",
     nom_scientifique: "Buxus sempervirens",
     famille: "Buxacées",
-    origine: "indigene",
+    origine: "local",
     type: "arbuste",
     hauteur_min_m: 1,
     hauteur_max_m: 5,
@@ -233,6 +233,7 @@ describe("appliquerFiltres", () => {
   const filtresVides: Filtres = {
     recherche: "",
     type: "",
+    origine: "",
     type_sol: "",
     resistance_secheresse: "",
     pH: "",
@@ -385,5 +386,28 @@ describe("appliquerFiltres", () => {
     expect(resultat).toHaveLength(4);
     expect(resultat.map((a) => a.nom_commun)).toContain("Chêne pédonculé");
     expect(resultat.map((a) => a.nom_commun)).not.toContain("Buis commun");
+  });
+
+  it("filtre par origine (local)", () => {
+    const filtres: Filtres = { ...filtresVides, origine: "local" };
+    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    expect(resultat).toHaveLength(2);
+    expect(resultat.map((a) => a.nom_commun)).toContain("Chêne pédonculé");
+    expect(resultat.map((a) => a.nom_commun)).toContain("Buis commun");
+  });
+
+  it("filtre par origine (presque_local)", () => {
+    const filtres: Filtres = { ...filtresVides, origine: "presque_local" };
+    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    expect(resultat).toHaveLength(1);
+    expect(resultat.map((a) => a.nom_commun)).toContain("Ginkgo");
+  });
+
+  it("filtre par origine (vraiment_exotique)", () => {
+    const filtres: Filtres = { ...filtresVides, origine: "vraiment_exotique" };
+    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    expect(resultat).toHaveLength(2);
+    expect(resultat.map((a) => a.nom_commun)).toContain("Érable rouge");
+    expect(resultat.map((a) => a.nom_commun)).toContain("Pin blanc");
   });
 });

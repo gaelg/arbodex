@@ -17,6 +17,7 @@ interface ChampSelect {
 
 const CHAMPS: ChampSelect[] = [
   { cle: "type", etiquette: "Type", section: "Identit\u00e9 & Dimensions" },
+  { cle: "origine", etiquette: "Origine", section: "Identit\u00e9 & Dimensions" },
   { cle: "type_sol", etiquette: "Type de sol", section: "Sol & Climat" },
   {
     cle: "resistance_secheresse",
@@ -135,6 +136,7 @@ export default function FormulaireFiltres({
     onChange({
       recherche: "",
       type: "",
+      origine: "",
       type_sol: "",
       resistance_secheresse: "",
       pH: "",
@@ -170,6 +172,8 @@ export default function FormulaireFiltres({
 
   function getOptions(cle: keyof Filtres): string[] {
     switch (cle) {
+      case "origine":
+        return ["local", "presque_local", "vraiment_exotique"];
       case "type":
         return optionsUniques(arbres, "type");
       case "type_sol":

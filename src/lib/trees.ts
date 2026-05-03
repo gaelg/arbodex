@@ -49,6 +49,7 @@ export interface Arbre {
 export interface Filtres {
   recherche: string;
   type: string;
+  origine: string;
   type_sol: string;
   resistance_secheresse: string;
   pH: string;
@@ -102,6 +103,7 @@ export function appliquerFiltres(arbres: Arbre[], filtres: Filtres): Arbre[] {
         return false;
     }
     if (!correspond(filtres.type, arbre.type)) return false;
+    if (!correspond(filtres.origine, arbre.origine)) return false;
     if (filtres.type_sol && !arbre.type_sol.includes(filtres.type_sol))
       return false;
     if (!correspond(filtres.resistance_secheresse, arbre.resistance_secheresse))
