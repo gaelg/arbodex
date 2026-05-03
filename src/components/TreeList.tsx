@@ -74,6 +74,11 @@ function Barre({ niveau, label }: { niveau: number; label: string }) {
 
 export default function ListeArbres({ arbres }: Props) {
   const [vue, setVue] = useState<VueType>("liste");
+  const [expanded, setExpanded] = useState<number | null>(null);
+
+  const toggleExpand = (i: number) => {
+    setExpanded(expanded === i ? null : i);
+  };
 
   if (arbres.length === 0) {
     return (
@@ -113,40 +118,175 @@ export default function ListeArbres({ arbres }: Props) {
           {arbres.map((arbre, i) => (
             <div
               key={i}
-              className="bg-white rounded-lg border border-gray-200 p-3 flex items-center justify-between"
+              className="bg-white rounded-lg border border-gray-200 p-3"
             >
-              <div className="flex-1">
-                <h3 className="font-semibold text-green-800">
-                  {arbre.nom_commun}
-                </h3>
-                <p className="text-xs text-gray-500 italic">
-                  {arbre.nom_scientifique}
-                </p>
+              <div
+                className="flex items-center justify-between cursor-pointer"
+                onClick={() => toggleExpand(i)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") toggleExpand(i);
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <div className="flex-1">
+                  <h3 className="font-semibold text-green-800">
+                    {arbre.nom_commun}
+                  </h3>
+                  <p className="text-xs text-gray-500 italic">
+                    {arbre.nom_scientifique}
+                  </p>
+                </div>
+                <div className="flex gap-2 text-xs">
+                  <EmojiBadge
+                    valeur={arbre.type}
+                    map={{ arbre: "🌳", arbuste: "🌿" }}
+                    couleurs={{
+                      arbre: "text-green-700",
+                      arbuste: "text-green-600",
+                    }}
+                    title="Type : arbre ou arbuste"
+                  />
+                  <EmojiBadge
+                    valeur={arbre.pollen_allergisant}
+                    map={{ fort: "🤧", moyen: "🤢", faible: "✅" }}
+                    couleurs={{
+                      fort: "text-red-600",
+                      moyen: "text-orange-500",
+                      faible: "text-green-600",
+                    }}
+                    title="Allergie : fort, moyen, faible"
+                  />
+                  <span className="px-2 py-1 rounded-full bg-blue-100 text-blue-800">
+                    {arbre.hauteur_max_m}m
+                  </span>
+                  <svg
+                    className={`w-4 h-4 text-gray-500 transition-transform ${
+                      expanded === i ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </div>
               </div>
-              <div className="flex gap-2 text-xs">
-                <EmojiBadge
-                  valeur={arbre.type}
-                  map={{ arbre: "🌳", arbuste: "🌿" }}
-                  couleurs={{
-                    arbre: "text-green-700",
-                    arbuste: "text-green-600",
-                  }}
-                  title="Type : arbre ou arbuste"
-                />
-                <EmojiBadge
-                  valeur={arbre.pollen_allergisant}
-                  map={{ fort: "🤧", moyen: "🤢", faible: "✅" }}
-                  couleurs={{
-                    fort: "text-red-600",
-                    moyen: "text-orange-500",
-                    faible: "text-green-600",
-                  }}
-                  title="Allergie : fort, moyen, faible"
-                />
-                <span className="px-2 py-1 rounded-full bg-blue-100 text-blue-800">
-                  {arbre.hauteur_max_m}m
-                </span>
-              </div>
+              {expanded === i && (
+                <div className="mt-3 pt-3 border-t border-gray-100 text-sm text-gray-600">
+                  <p>
+                    <span className="font-medium text-gray-700">
+                      Famille :
+                    </span>{" "}
+                    {arbre.famille}
+                  </p>
+                  <p>
+                    <span className="font-medium text-gray-700">
+                      Origine :
+                    </span>{" "}
+                    {arbre.origine === "local"
+                      ? "Local"
+                      : arbre.origine === "presque_local"
+                        ? "Presque local"
+                        : "Vraiment exotique"}
+                  </p>
+                  <p>
+                    <span className="font-medium text-gray-700">
+                      Dimensions :
+                    </span>{" "}
+                    {arbre.hauteur_min_m}–{arbre.hauteur_max_m}m H
+                    {" "}×(espace){" "}
+                    {arbre.envergure_min_m}–{arbre.envergure_max_m}m L
+                  </p>
+                  <p>
+                    <span className="font-medium text-gray-700">
+                      Port :
+                    </span>{" "}
+                    {arbre.port}
+                  </p>
+                  <p>
+                    <span className="font-medium text-gray-700">
+                      Sol :
+                    </span>{" "}
+                    {arbre.type_sol} (pH {arbre.pH})
+                  </p>
+                  <p>
+                    <span className="font-medium text-gray-700">
+                      Sécheresse :
+                    </span>{" "}
+                    {arbre.resistance_secheresse}
+                  </p>
+                  <p>
+                    <span className="font-medium text-gray-700">
+                      Rusticité :
+                    </span>{" "}
+                    {arbre.rusticite_min_C}°C
+                  </p>
+                  <div className="flex flex-wrap gap-1 pt-1">
+                    <Badge
+                      texte="Mellifère"
+                      couleur={
+                        arbre.mellifere === "oui"
+                          ? "bg-green-100 text-green-800"
+                          : "bg-gray-100 text-gray-500"
+                      }
+                    />
+                    <Badge
+                      texte="Fruits sauvages"
+                      couleur={
+                        arbre.fruitiere_sauvage === "oui"
+                          ? "bg-green-100 text-green-800"
+                          : "bg-gray-100 text-gray-500"
+                      }
+                    />
+                    <Badge
+                      texte="Floraison remarquable"
+                      couleur={
+                        arbre.floraison_remarquable === "oui"
+                          ? "bg-green-100 text-green-800"
+                          : "bg-gray-100 text-gray-500"
+                      }
+                    />
+                    <Badge
+                      texte="Couleur automnale"
+                      couleur={
+                        arbre.couleur_automnale === "oui"
+                          ? "bg-green-100 text-green-800"
+                          : "bg-gray-100 text-gray-500"
+                      }
+                    />
+                    <Badge
+                      texte="Adapté climat futur"
+                      couleur={
+                        arbre.adapte_changement_climatique === "oui"
+                          ? "bg-green-100 text-green-800"
+                          : "bg-gray-100 text-gray-500"
+                      }
+                    />
+                  </div>
+                  <div className="pt-1 border-t border-gray-100 mt-2">
+                    <p className="text-xs text-gray-500">
+                      <span className="font-medium text-gray-700">
+                        Taille :
+                      </span>{" "}
+                      {arbre.frequence_taille} ·{" "}
+                      <span className="font-medium text-gray-700">
+                        Maladies :
+                      </span>{" "}
+                      {arbre.sensibilite_maladies} ·{" "}
+                      <span className="font-medium text-gray-700">
+                        Coût :
+                      </span>{" "}
+                      {arbre.cout_entretien}
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>
