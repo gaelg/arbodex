@@ -22,28 +22,88 @@ const CHAMPS: ChampSelect[] = [
 
   // Sol & Climat (priorité haute)
   { cle: "type_sol", etiquette: "Type de sol", section: "Sol & Climat" },
-  { cle: "resistance_secheresse", etiquette: "Résistance sécheresse (max)", section: "Sol & Climat" },
+  {
+    cle: "resistance_secheresse",
+    etiquette: "Résistance sécheresse (max)",
+    section: "Sol & Climat",
+  },
   { cle: "pH", etiquette: "pH préféré", section: "Sol & Climat" },
-  { cle: "resistance_vent", etiquette: "Résistance vent (min)", section: "Sol & Climat" },
-  { cle: "resistance_chaleur_urbaine", etiquette: "Chaleur urbaine (min)", section: "Sol & Climat" },
-  { cle: "adapte_changement_climatique", etiquette: "Adapté changement climatique", section: "Sol & Climat" },
+  {
+    cle: "resistance_vent",
+    etiquette: "Résistance vent (min)",
+    section: "Sol & Climat",
+  },
+  {
+    cle: "resistance_chaleur_urbaine",
+    etiquette: "Chaleur urbaine (min)",
+    section: "Sol & Climat",
+  },
+  {
+    cle: "adapte_changement_climatique",
+    etiquette: "Adapté changement climatique",
+    section: "Sol & Climat",
+  },
 
   // Services (pour clients)
-  { cle: "mellifere", etiquette: "Mellifère", section: "Services écosystémiques" },
-  { cle: "fruitiere_sauvage", etiquette: "Fruits sauvages", section: "Services écosystémiques" },
-  { cle: "floraison_remarquable", etiquette: "Floraison remarquable", section: "Services écosystémiques" },
-  { cle: "couleur_automnale", etiquette: "Couleur automnale", section: "Services écosystémiques" },
+  {
+    cle: "mellifere",
+    etiquette: "Mellifère",
+    section: "Services écosystémiques",
+  },
+  {
+    cle: "fruitiere_sauvage",
+    etiquette: "Fruits sauvages",
+    section: "Services écosystémiques",
+  },
+  {
+    cle: "floraison_remarquable",
+    etiquette: "Floraison remarquable",
+    section: "Services écosystémiques",
+  },
+  {
+    cle: "couleur_automnale",
+    etiquette: "Couleur automnale",
+    section: "Services écosystémiques",
+  },
 
   // Contraintes (alertes)
-  { cle: "pollen_allergisant", etiquette: "Pollen allergisant (max)", section: "Contraintes & Risques" },
-  { cle: "fruits_salissants", etiquette: "Fruits salissants", section: "Contraintes & Risques" },
-  { cle: "branches_fragiles", etiquette: "Branches fragiles", section: "Contraintes & Risques" },
-  { cle: "racines_devastatrices", etiquette: "Racines dévastatrices", section: "Contraintes & Risques" },
+  {
+    cle: "pollen_allergisant",
+    etiquette: "Pollen allergisant (max)",
+    section: "Contraintes & Risques",
+  },
+  {
+    cle: "fruits_salissants",
+    etiquette: "Fruits salissants",
+    section: "Contraintes & Risques",
+  },
+  {
+    cle: "branches_fragiles",
+    etiquette: "Branches fragiles",
+    section: "Contraintes & Risques",
+  },
+  {
+    cle: "racines_devastatrices",
+    etiquette: "Racines dévastatrices",
+    section: "Contraintes & Risques",
+  },
 
   // Maintenance (coût)
-  { cle: "frequence_taille", etiquette: "Fréquence taille (max)", section: "Entretien" },
-  { cle: "sensibilite_maladies", etiquette: "Sensibilité maladies (max)", section: "Entretien" },
-  { cle: "cout_entretien", etiquette: "Coût entretien (max)", section: "Entretien" },
+  {
+    cle: "frequence_taille",
+    etiquette: "Fréquence taille (max)",
+    section: "Entretien",
+  },
+  {
+    cle: "sensibilite_maladies",
+    etiquette: "Sensibilité maladies (max)",
+    section: "Entretien",
+  },
+  {
+    cle: "cout_entretien",
+    etiquette: "Coût entretien (max)",
+    section: "Entretien",
+  },
 ];
 
 function optionsUniques(arbres: Arbre[], cle: keyof Arbre): string[] {

@@ -213,7 +213,7 @@ export default function Accueil() {
             Arbodex v2 — Données fournies à titre
             indicatif. Toujours vérifier auprès de votre
             pépiniériste pour la disponibilité et l
-            'adaptation locale.
+            &apos;adaptation locale.
           </p>
           <a
             href="/mentions-legales"

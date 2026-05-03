@@ -93,108 +93,162 @@ function correspond(filtre: string, valeur: string | number): boolean {
 
 // Échelles ordonnées pour filtres relatifs (≤ max choisi)
 const ORDER: Record<string, Record<string, number>> = {
-  pollen_allergisant: { "faible": 1, "moyen": 2, "fort": 3 },
-  sensibilite_maladies: { "faible": 1, "moderee": 2, "elevee": 3 },
-  cout_entretien: { "faible": 1, "modere": 2, "eleve": 3 },
-  frequence_taille: { "jamais": 1, "occasionnelle": 2, "reguliere": 3 },
-  resistance_secheresse: { "faible": 1, "moyenne": 2, "bonne": 3, "excellente": 4 },
+  pollen_allergisant: { faible: 1, moyen: 2, fort: 3 },
+  sensibilite_maladies: { faible: 1, moderee: 2, elevee: 3 },
+  cout_entretien: { faible: 1, modere: 2, eleve: 3 },
+  frequence_taille: { jamais: 1, occasionnelle: 2, reguliere: 3 },
+  resistance_secheresse: { faible: 1, moyenne: 2, bonne: 3, excellente: 4 },
 };
 
-function correspondRelatif(cle: string, filtre: string, valeur: string): boolean {
+function correspondRelatif(
+  cle: string,
+  filtre: string,
+  valeur: string
+): boolean {
   if (!filtre) return true;
   const echelle = ORDER[cle];
   if (!echelle) return String(valeur) === filtre;
   const seuil = echelle[filtre];
   const val = echelle[valeur];
-  if (seuil === undefined || val === undefined) return String(valeur) === filtre;
+  if (seuil === undefined || val === undefined)
+    return String(valeur) === filtre;
   return val <= seuil; // ≤ max choisi
 }
 
 export function appliquerFiltres(arbres: Arbre[], filtres: Filtres): Arbre[] {
-  return arbres.filter((arbre) => {
-    if (filtres.recherche) {
-      const q = filtres.recherche.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-      const commun = arbre.nom_commun.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-      const scient = arbre.nom_scientifique.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-      const fam = arbre.famille.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-      if (!commun.includes(q) && !scient.includes(q) && !fam.includes(q))
+  return arbres
+    .filter((arbre) => {
+      if (filtres.recherche) {
+        const q = filtres.recherche
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+        const commun = arbre.nom_commun
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+        const scient = arbre.nom_scientifique
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+        const fam = arbre.famille
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+        if (!commun.includes(q) && !scient.includes(q) && !fam.includes(q))
+          return false;
+      }
+      if (!correspond(filtres.type, arbre.type)) return false;
+      if (!correspond(filtres.origine, arbre.origine)) return false;
+      if (filtres.type_sol && !arbre.type_sol.includes(filtres.type_sol))
         return false;
-    }
-    if (!correspond(filtres.type, arbre.type)) return false;
-    if (!correspond(filtres.origine, arbre.origine)) return false;
-    if (filtres.type_sol && !arbre.type_sol.includes(filtres.type_sol))
-      return false;
-    if (!correspondRelatif("resistance_secheresse", filtres.resistance_secheresse, arbre.resistance_secheresse))
-      return false;
-    if (!correspond(filtres.pH, arbre.pH)) return false;
-    if (
-      filtres.rusticite_min &&
-      arbre.rusticite_min_C < Number(filtres.rusticite_min)
-    )
-      return false;
-    if (
-      filtres.rusticite_max &&
-      arbre.rusticite_min_C > Number(filtres.rusticite_max)
-    )
-      return false;
-    if (
-      filtres.resistance_vent &&
-      arbre.resistance_vent < Number(filtres.resistance_vent)
-    )
-      return false;
-    if (
-      filtres.resistance_chaleur_urbaine &&
-      arbre.resistance_chaleur_urbaine <
-        Number(filtres.resistance_chaleur_urbaine)
-    )
-      return false;
-    if (
-      !correspond(
-        filtres.adapte_changement_climatique,
-        arbre.adapte_changement_climatique
+      if (
+        !correspondRelatif(
+          "resistance_secheresse",
+          filtres.resistance_secheresse,
+          arbre.resistance_secheresse
+        )
       )
-    )
-      return false;
-    if (!correspond(filtres.mellifere, arbre.mellifere)) return false;
-    if (!correspond(filtres.fruitiere_sauvage, arbre.fruitiere_sauvage))
-      return false;
-    if (!correspond(filtres.floraison_remarquable, arbre.floraison_remarquable))
-      return false;
-    if (!correspond(filtres.couleur_automnale, arbre.couleur_automnale))
-      return false;
-    if (!correspondRelatif("pollen_allergisant", filtres.pollen_allergisant, arbre.pollen_allergisant))
-      return false;
-    if (!correspond(filtres.fruits_salissants, arbre.fruits_salissants))
-      return false;
-    if (!correspond(filtres.branches_fragiles, arbre.branches_fragiles))
-      return false;
-    if (!correspond(filtres.racines_devastatrices, arbre.racines_devastatrices))
-      return false;
-    if (!correspondRelatif("frequence_taille", filtres.frequence_taille, arbre.frequence_taille))
-      return false;
-    if (!correspondRelatif("sensibilite_maladies", filtres.sensibilite_maladies, arbre.sensibilite_maladies))
-      return false;
-    if (!correspondRelatif("cout_entretien", filtres.cout_entretien, arbre.cout_entretien)) return false;
-    if (
-      filtres.hauteur_min &&
-      arbre.hauteur_max_m < Number(filtres.hauteur_min)
-    )
-      return false;
-    if (
-      filtres.hauteur_max &&
-      arbre.hauteur_min_m > Number(filtres.hauteur_max)
-    )
-      return false;
-    if (
-      filtres.envergure_min &&
-      arbre.envergure_max_m < Number(filtres.envergure_min)
-    )
-      return false;
-    if (
-      filtres.envergure_max &&
-      arbre.envergure_min_m > Number(filtres.envergure_max)
-    )
-      return false;
-    return true;
-  }).sort((a, b) => a.nom_commun.localeCompare(b.nom_commun, "fr"));
+        return false;
+      if (!correspond(filtres.pH, arbre.pH)) return false;
+      if (
+        filtres.rusticite_min &&
+        arbre.rusticite_min_C < Number(filtres.rusticite_min)
+      )
+        return false;
+      if (
+        filtres.rusticite_max &&
+        arbre.rusticite_min_C > Number(filtres.rusticite_max)
+      )
+        return false;
+      if (
+        filtres.resistance_vent &&
+        arbre.resistance_vent < Number(filtres.resistance_vent)
+      )
+        return false;
+      if (
+        filtres.resistance_chaleur_urbaine &&
+        arbre.resistance_chaleur_urbaine <
+          Number(filtres.resistance_chaleur_urbaine)
+      )
+        return false;
+      if (
+        !correspond(
+          filtres.adapte_changement_climatique,
+          arbre.adapte_changement_climatique
+        )
+      )
+        return false;
+      if (!correspond(filtres.mellifere, arbre.mellifere)) return false;
+      if (!correspond(filtres.fruitiere_sauvage, arbre.fruitiere_sauvage))
+        return false;
+      if (
+        !correspond(filtres.floraison_remarquable, arbre.floraison_remarquable)
+      )
+        return false;
+      if (!correspond(filtres.couleur_automnale, arbre.couleur_automnale))
+        return false;
+      if (
+        !correspondRelatif(
+          "pollen_allergisant",
+          filtres.pollen_allergisant,
+          arbre.pollen_allergisant
+        )
+      )
+        return false;
+      if (!correspond(filtres.fruits_salissants, arbre.fruits_salissants))
+        return false;
+      if (!correspond(filtres.branches_fragiles, arbre.branches_fragiles))
+        return false;
+      if (
+        !correspond(filtres.racines_devastatrices, arbre.racines_devastatrices)
+      )
+        return false;
+      if (
+        !correspondRelatif(
+          "frequence_taille",
+          filtres.frequence_taille,
+          arbre.frequence_taille
+        )
+      )
+        return false;
+      if (
+        !correspondRelatif(
+          "sensibilite_maladies",
+          filtres.sensibilite_maladies,
+          arbre.sensibilite_maladies
+        )
+      )
+        return false;
+      if (
+        !correspondRelatif(
+          "cout_entretien",
+          filtres.cout_entretien,
+          arbre.cout_entretien
+        )
+      )
+        return false;
+      if (
+        filtres.hauteur_min &&
+        arbre.hauteur_max_m < Number(filtres.hauteur_min)
+      )
+        return false;
+      if (
+        filtres.hauteur_max &&
+        arbre.hauteur_min_m > Number(filtres.hauteur_max)
+      )
+        return false;
+      if (
+        filtres.envergure_min &&
+        arbre.envergure_max_m < Number(filtres.envergure_min)
+      )
+        return false;
+      if (
+        filtres.envergure_max &&
+        arbre.envergure_min_m > Number(filtres.envergure_max)
+      )
+        return false;
+      return true;
+    })
+    .sort((a, b) => a.nom_commun.localeCompare(b.nom_commun, "fr"));
 }

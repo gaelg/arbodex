@@ -27,8 +27,8 @@ export default function MentionsLegales() {
             {"\u00e7"}age n{"\u0027"}est utilis{"\u00e9"}.
           </p>
           <p className="mt-1">
-            Les filtres et recherches sont effectuées localement dans
-            votre navigateur. Aucune donn{"\u00e9"}e n{"\u0027"}est envoy
+            Les filtres et recherches sont effectuées localement dans votre
+            navigateur. Aucune donn{"\u00e9"}e n{"\u0027"}est envoy
             {"\u00e9"}e {"\u00e0"} un serveur tiers.
           </p>
         </div>
