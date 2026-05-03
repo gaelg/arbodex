@@ -3,6 +3,24 @@
 import { useState } from "react";
 import { Arbre } from "@/lib/trees";
 
+function formatOption(opt: string) {
+  return opt
+    .replace(/_/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase())
+    .replace("Resistance", "Résistance")
+    .replace("Mellifere", "Mellifère")
+    .replace("Fruitiere", "Fruitière")
+    .replace("Floraison", "Floraison")
+    .replace("Couleur", "Couleur")
+    .replace("Adapte", "Adapté")
+    .replace("Pollen", "Pollen")
+    .replace("Frequence", "Fréquence")
+    .replace("Sensibilite", "Sensibilité")
+    .replace("Cout", "Coût")
+    .replace("Oui", "Oui")
+    .replace("Non", "Non");
+}
+
 type VueType = "cartes" | "terrain" | "tableau";
 
 interface Props {
@@ -104,7 +122,7 @@ export default function ListeArbres({ arbres }: Props) {
                         : "bg-green-100 text-green-800"
                   }`}
                 >
-                  {arbre.pollen_allergisant}
+                  {formatOption(arbre.pollen_allergisant)}
                 </span>
                 <span className="px-2 py-1 rounded-full bg-blue-100 text-blue-800">
                   {arbre.hauteur_max_m}m
@@ -184,7 +202,7 @@ export default function ListeArbres({ arbres }: Props) {
                             : "bg-green-100 text-green-800"
                       }`}
                     >
-                      {arbre.pollen_allergisant}
+                      {formatOption(arbre.pollen_allergisant)}
                     </span>
                   </td>
                   <td className="px-3 py-2 text-xs">
@@ -335,7 +353,7 @@ export default function ListeArbres({ arbres }: Props) {
 
                 <div className="flex flex-wrap gap-1 pt-1">
                   <Badge
-                    texte={`Allergisant: ${arbre.pollen_allergisant}`}
+                    texte={`Allergisant: ${formatOption(arbre.pollen_allergisant)}`}
                     couleur={
                       arbre.pollen_allergisant === "fort"
                         ? "bg-red-100 text-red-800"
