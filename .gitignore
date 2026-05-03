@@ -2,7 +2,5 @@ node_modules/
 .next/
 arbodex.log
 .vercel
-logs/
-.opencode-tmp/
-CLAUDE.md
+.opencode/
 *.backup
