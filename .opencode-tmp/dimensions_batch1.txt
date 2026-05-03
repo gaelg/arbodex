@@ -1,7 +1,0 @@
-Quercus robur;15;40;10;25;étalé
-Quercus petraea;20;45;15;30;arrondi
-Acer campestre;5;15;5;10;arrondi
-Acer platanoides;15;30;12;15;ovale
-Acer pseudoplatanus;20;40;10;25;étalé
-Quercus pubescens;8;25;5;15;étalé
-Quercus ilex;15;20;10;15;arrondi

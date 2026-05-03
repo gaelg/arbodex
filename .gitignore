@@ -3,3 +3,6 @@ node_modules/
 arbodex.log
 .vercel
 logs/
+.opencode-tmp/
+CLAUDE.md
+*.backup
