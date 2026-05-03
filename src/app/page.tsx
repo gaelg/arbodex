@@ -6,13 +6,30 @@ import FormulaireFiltres from "@/components/FilterForm";
 import ListeArbres from "@/components/TreeList";
 
 const FILTRES_VIDES: Filtres = {
-  soleil: "",
-  besoin_eau: "",
-  feuillu: "",
+  type: "",
   type_sol: "",
-  croissance: "",
+  resistance_secheresse: "",
+  pH: "",
+  rusticite_min: "",
+  rusticite_max: "",
+  resistance_vent: "",
+  resistance_chaleur_urbaine: "",
+  adapte_changement_climatique: "",
+  mellifere: "",
+  fruitiere_sauvage: "",
+  floraison_remarquable: "",
+  couleur_automnale: "",
+  pollen_allergisant: "",
+  fruits_salissants: "",
+  branches_fragiles: "",
+  racines_devastatrices: "",
+  frequence_taille: "",
+  sensibilite_maladies: "",
+  cout_entretien: "",
   hauteur_min: "",
   hauteur_max: "",
+  envergure_min: "",
+  envergure_max: "",
 };
 
 export default function Accueil() {

@@ -3,117 +3,317 @@ import { appliquerFiltres, Arbre, Filtres } from "@/lib/trees";
 
 const ARBRES_TEST: Arbre[] = [
   {
-    especes: "Chene",
+    nom_commun: "Chêne pédonculé",
+    nom_scientifique: "Quercus robur",
+    famille: "Fagacées",
+    origine: "indigene",
+    type: "arbre",
     hauteur_min_m: 15,
     hauteur_max_m: 25,
-    zone: "4-9",
-    soleil: "Plein soleil",
-    besoin_eau: "Moyen",
-    feuillu: "Oui",
+    envergure_min_m: 10,
+    envergure_max_m: 20,
+    port: "ovale",
     type_sol: "Argileux",
-    croissance: "Lente",
+    resistance_secheresse: "moyenne",
+    pH: "basique",
+    tolerance_sel: "oui",
+    rusticite_min_C: -30,
+    resistance_vent: 4,
+    resistance_chaleur_urbaine: 4,
+    adapte_changement_climatique: "oui",
+    mellifere: "oui",
+    fruitiere_sauvage: "oui",
+    refuge_oiseaux: "oui",
+    floraison_remarquable: "non",
+    couleur_automnale: "oui",
+    ecorce_decorative: "non",
+    stockage_carbone: "eleve",
+    resilience: "elevee",
+    impact_icu: "fort",
+    biodiversite: "elevee",
+    qualite_air: "bonne",
+    potentiel_allergisant: "faible",
+    ombrage_fort: "oui",
+    rafraichissement_fort: "oui",
+    biodiversite_service: "elevee",
+    type_racines: "traçantes",
+    allergie_service: "faible",
+    fruits_salissants: "oui",
+    pollen_allergisant: "non",
+    branches_fragiles: "non",
+    racines_devastatrices: "non",
+    frequence_taille: "occasionnelle",
+    sensibilite_maladies: "moderee",
+    longevite: "tres_longue",
+    cout_entretien: "modere",
   },
   {
-    especes: "Erable rouge",
+    nom_commun: "Érable rouge",
+    nom_scientifique: "Acer rubrum",
+    famille: "Sapindacées",
+    origine: "exotique",
+    type: "arbre",
     hauteur_min_m: 12,
     hauteur_max_m: 18,
-    zone: "3-9",
-    soleil: "Plein soleil a ombre partielle",
-    besoin_eau: "Eleve",
-    feuillu: "Oui",
+    envergure_min_m: 8,
+    envergure_max_m: 15,
+    port: "arrondi",
     type_sol: "Argileux/Moyen",
-    croissance: "Moyenne",
+    resistance_secheresse: "faible",
+    pH: "acide",
+    tolerance_sel: "non",
+    rusticite_min_C: -35,
+    resistance_vent: 3,
+    resistance_chaleur_urbaine: 3,
+    adapte_changement_climatique: "non",
+    mellifere: "oui",
+    fruitiere_sauvage: "oui",
+    refuge_oiseaux: "oui",
+    floraison_remarquable: "oui",
+    couleur_automnale: "oui",
+    ecorce_decorative: "non",
+    stockage_carbone: "moyen",
+    resilience: "moderee",
+    impact_icu: "moyen",
+    biodiversite: "moyenne",
+    qualite_air: "bonne",
+    potentiel_allergisant: "modere",
+    ombrage_fort: "oui",
+    rafraichissement_fort: "oui",
+    biodiversite_service: "moyenne",
+    type_racines: "fasciculées",
+    allergie_service: "modere",
+    fruits_salissants: "oui",
+    pollen_allergisant: "oui",
+    branches_fragiles: "oui",
+    racines_devastatrices: "non",
+    frequence_taille: "jamais",
+    sensibilite_maladies: "moderee",
+    longevite: "longue",
+    cout_entretien: "faible",
   },
   {
-    especes: "Pin blanc",
+    nom_commun: "Pin blanc",
+    nom_scientifique: "Pinus strobus",
+    famille: "Pinacées",
+    origine: "exotique",
+    type: "arbre",
     hauteur_min_m: 15,
     hauteur_max_m: 25,
-    zone: "3-8",
-    soleil: "Plein soleil",
-    besoin_eau: "Moyen",
-    feuillu: "Non",
+    envergure_min_m: 8,
+    envergure_max_m: 15,
+    port: "conique",
     type_sol: "Sableux",
-    croissance: "Moyenne",
+    resistance_secheresse: "bonne",
+    pH: "acide",
+    tolerance_sel: "non",
+    rusticite_min_C: -35,
+    resistance_vent: 3,
+    resistance_chaleur_urbaine: 3,
+    adapte_changement_climatique: "non",
+    mellifere: "non",
+    fruitiere_sauvage: "oui",
+    refuge_oiseaux: "oui",
+    floraison_remarquable: "non",
+    couleur_automnale: "non",
+    ecorce_decorative: "non",
+    stockage_carbone: "moyen",
+    resilience: "moderee",
+    impact_icu: "moyen",
+    biodiversite: "faible",
+    qualite_air: "bonne",
+    potentiel_allergisant: "eleve",
+    ombrage_fort: "oui",
+    rafraichissement_fort: "moyen",
+    biodiversite_service: "faible",
+    type_racines: "traçantes",
+    allergie_service: "eleve",
+    fruits_salissants: "oui",
+    pollen_allergisant: "oui",
+    branches_fragiles: "oui",
+    racines_devastatrices: "oui",
+    frequence_taille: "jamais",
+    sensibilite_maladies: "faible",
+    longevite: "longue",
+    cout_entretien: "faible",
   },
   {
-    especes: "Ginkgo",
+    nom_commun: "Ginkgo",
+    nom_scientifique: "Ginkgo biloba",
+    famille: "Ginkgoacées",
+    origine: "exotique",
+    type: "arbre",
     hauteur_min_m: 15,
     hauteur_max_m: 25,
-    zone: "4-8",
-    soleil: "Plein soleil a ombre partielle",
-    besoin_eau: "Bas",
-    feuillu: "Oui",
+    envergure_min_m: 8,
+    envergure_max_m: 15,
+    port: "pyramidal",
     type_sol: "Argileux/Sableux",
-    croissance: "Lente",
+    resistance_secheresse: "excellente",
+    pH: "neutre",
+    tolerance_sel: "oui",
+    rusticite_min_C: -25,
+    resistance_vent: 4,
+    resistance_chaleur_urbaine: 5,
+    adapte_changement_climatique: "oui",
+    mellifere: "non",
+    fruitiere_sauvage: "oui",
+    refuge_oiseaux: "oui",
+    floraison_remarquable: "non",
+    couleur_automnale: "oui",
+    ecorce_decorative: "non",
+    stockage_carbone: "moyen",
+    resilience: "elevee",
+    impact_icu: "fort",
+    biodiversite: "faible",
+    qualite_air: "excellente",
+    potentiel_allergisant: "faible",
+    ombrage_fort: "oui",
+    rafraichissement_fort: "moyen",
+    biodiversite_service: "faible",
+    type_racines: "traçantes",
+    allergie_service: "faible",
+    fruits_salissants: "oui",
+    pollen_allergisant: "non",
+    branches_fragiles: "non",
+    racines_devastatrices: "non",
+    frequence_taille: "jamais",
+    sensibilite_maladies: "faible",
+    longevite: "tres_longue",
+    cout_entretien: "faible",
+  },
+  {
+    nom_commun: "Buis commun",
+    nom_scientifique: "Buxus sempervirens",
+    famille: "Buxacées",
+    origine: "indigene",
+    type: "arbuste",
+    hauteur_min_m: 1,
+    hauteur_max_m: 5,
+    envergure_min_m: 1,
+    envergure_max_m: 3,
+    port: "arrondi",
+    type_sol: "Calcaire",
+    resistance_secheresse: "moyenne",
+    pH: "basique",
+    tolerance_sel: "oui",
+    rusticite_min_C: -15,
+    resistance_vent: 3,
+    resistance_chaleur_urbaine: 4,
+    adapte_changement_climatique: "oui",
+    mellifere: "oui",
+    fruitiere_sauvage: "oui",
+    refuge_oiseaux: "oui",
+    floraison_remarquable: "non",
+    couleur_automnale: "non",
+    ecorce_decorative: "non",
+    stockage_carbone: "faible",
+    resilience: "moderee",
+    impact_icu: "moyen",
+    biodiversite: "moyenne",
+    qualite_air: "bonne",
+    potentiel_allergisant: "faible",
+    ombrage_fort: "non",
+    rafraichissement_fort: "faible",
+    biodiversite_service: "moyenne",
+    type_racines: "fasciculées",
+    allergie_service: "faible",
+    fruits_salissants: "non",
+    pollen_allergisant: "non",
+    branches_fragiles: "non",
+    racines_devastatrices: "non",
+    frequence_taille: "reguliere",
+    sensibilite_maladies: "moderee",
+    longevite: "longue",
+    cout_entretien: "modere",
   },
 ];
 
 describe("appliquerFiltres", () => {
   const filtresVides: Filtres = {
-    soleil: "",
-    besoin_eau: "",
-    feuillu: "",
+    type: "",
     type_sol: "",
-    croissance: "",
+    resistance_secheresse: "",
+    pH: "",
+    rusticite_min: "",
+    rusticite_max: "",
+    resistance_vent: "",
+    resistance_chaleur_urbaine: "",
+    adapte_changement_climatique: "",
+    mellifere: "",
+    fruitiere_sauvage: "",
+    floraison_remarquable: "",
+    couleur_automnale: "",
+    pollen_allergisant: "",
+    fruits_salissants: "",
+    branches_fragiles: "",
+    racines_devastatrices: "",
+    frequence_taille: "",
+    sensibilite_maladies: "",
+    cout_entretien: "",
     hauteur_min: "",
     hauteur_max: "",
+    envergure_min: "",
+    envergure_max: "",
   };
 
   it("retourne tous les arbres quand aucun filtre n'est actif", () => {
     const resultat = appliquerFiltres(ARBRES_TEST, filtresVides);
+    expect(resultat).toHaveLength(5);
+  });
+
+  it("filtre par type (arbre)", () => {
+    const filtres: Filtres = { ...filtresVides, type: "arbre" };
+    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
     expect(resultat).toHaveLength(4);
   });
 
-  it("filtre par soleil exact", () => {
-    const filtres: Filtres = { ...filtresVides, soleil: "Plein soleil" };
-    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
-    expect(resultat).toHaveLength(2);
-    expect(resultat.map((a) => a.especes)).toContain("Chene");
-    expect(resultat.map((a) => a.especes)).toContain("Pin blanc");
-  });
-
-  it("filtre par besoin en eau", () => {
-    const filtres: Filtres = { ...filtresVides, besoin_eau: "Bas" };
+  it("filtre par type (arbuste)", () => {
+    const filtres: Filtres = { ...filtresVides, type: "arbuste" };
     const resultat = appliquerFiltres(ARBRES_TEST, filtres);
     expect(resultat).toHaveLength(1);
-    expect(resultat[0].especes).toBe("Ginkgo");
-  });
-
-  it("filtre par feuillu", () => {
-    const filtres: Filtres = { ...filtresVides, feuillu: "Non" };
-    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
-    expect(resultat).toHaveLength(1);
-    expect(resultat[0].especes).toBe("Pin blanc");
+    expect(resultat[0].nom_commun).toBe("Buis commun");
   });
 
   it("filtre par type de sol avec partial match", () => {
     const filtres: Filtres = { ...filtresVides, type_sol: "Sableux" };
     const resultat = appliquerFiltres(ARBRES_TEST, filtres);
     expect(resultat).toHaveLength(2);
-    expect(resultat.map((a) => a.especes)).toContain("Pin blanc");
-    expect(resultat.map((a) => a.especes)).toContain("Ginkgo");
+    expect(resultat.map((a) => a.nom_commun)).toContain("Pin blanc");
+    expect(resultat.map((a) => a.nom_commun)).toContain("Ginkgo");
   });
 
-  it("filtre par croissance", () => {
-    const filtres: Filtres = { ...filtresVides, croissance: "Lente" };
+  it("filtre par mellifère", () => {
+    const filtres: Filtres = { ...filtresVides, mellifere: "oui" };
+    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    expect(resultat).toHaveLength(3);
+    expect(resultat.map((a) => a.nom_commun)).toContain("Chêne pédonculé");
+    expect(resultat.map((a) => a.nom_commun)).toContain("Érable rouge");
+    expect(resultat.map((a) => a.nom_commun)).toContain("Buis commun");
+  });
+
+  it("filtre par pollen allergisant", () => {
+    const filtres: Filtres = { ...filtresVides, pollen_allergisant: "oui" };
     const resultat = appliquerFiltres(ARBRES_TEST, filtres);
     expect(resultat).toHaveLength(2);
-    expect(resultat.map((a) => a.especes)).toContain("Chene");
-    expect(resultat.map((a) => a.especes)).toContain("Ginkgo");
+    expect(resultat.map((a) => a.nom_commun)).toContain("Érable rouge");
+    expect(resultat.map((a) => a.nom_commun)).toContain("Pin blanc");
   });
 
   it("filtre par hauteur minimum", () => {
     const filtres: Filtres = { ...filtresVides, hauteur_min: "20" };
     const resultat = appliquerFiltres(ARBRES_TEST, filtres);
     expect(resultat).toHaveLength(3);
-    expect(resultat.map((a) => a.especes)).not.toContain("Erable rouge");
+    expect(resultat.map((a) => a.nom_commun)).not.toContain("Érable rouge");
+    expect(resultat.map((a) => a.nom_commun)).not.toContain("Buis commun");
   });
 
   it("filtre par hauteur maximum", () => {
     const filtres: Filtres = { ...filtresVides, hauteur_max: "14" };
     const resultat = appliquerFiltres(ARBRES_TEST, filtres);
-    expect(resultat).toHaveLength(1);
-    expect(resultat[0].especes).toBe("Erable rouge");
+    expect(resultat).toHaveLength(2);
+    expect(resultat.map((a) => a.nom_commun)).toContain("Érable rouge");
+    expect(resultat.map((a) => a.nom_commun)).toContain("Buis commun");
   });
 
   it("filtre par plage de hauteur", () => {
@@ -124,28 +324,62 @@ describe("appliquerFiltres", () => {
     };
     const resultat = appliquerFiltres(ARBRES_TEST, filtres);
     expect(resultat).toHaveLength(3);
-    expect(resultat.map((a) => a.especes)).not.toContain("Erable rouge");
+    expect(resultat.map((a) => a.nom_commun)).not.toContain("Érable rouge");
+    expect(resultat.map((a) => a.nom_commun)).not.toContain("Buis commun");
+  });
+
+  it("filtre par rusticité minimum", () => {
+    const filtres: Filtres = { ...filtresVides, rusticite_min: "-30" };
+    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    // Seuls les arbres avec rusticite_min_C <= -30 (plus rustiques)
+    expect(resultat).toHaveLength(3);
+  });
+
+  it("filtre par résistance vent minimum", () => {
+    const filtres: Filtres = { ...filtresVides, resistance_vent: "4" };
+    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    expect(resultat).toHaveLength(2);
+    expect(resultat.map((a) => a.nom_commun)).toContain("Chêne pédonculé");
+    expect(resultat.map((a) => a.nom_commun)).toContain("Ginkgo");
+  });
+
+  it("filtre par adapté changement climatique", () => {
+    const filtres: Filtres = { ...filtresVides, adapte_changement_climatique: "oui" };
+    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    expect(resultat).toHaveLength(3);
+    expect(resultat.map((a) => a.nom_commun)).toContain("Chêne pédonculé");
+    expect(resultat.map((a) => a.nom_commun)).toContain("Ginkgo");
+    expect(resultat.map((a) => a.nom_commun)).toContain("Buis commun");
   });
 
   it("combine plusieurs filtres", () => {
     const filtres: Filtres = {
       ...filtresVides,
-      soleil: "Plein soleil a ombre partielle",
-      feuillu: "Oui",
+      type: "arbre",
+      mellifere: "oui",
+      couleur_automnale: "oui",
     };
     const resultat = appliquerFiltres(ARBRES_TEST, filtres);
     expect(resultat).toHaveLength(2);
-    expect(resultat.map((a) => a.especes)).toContain("Erable rouge");
-    expect(resultat.map((a) => a.especes)).toContain("Ginkgo");
+    expect(resultat.map((a) => a.nom_commun)).toContain("Chêne pédonculé");
+    expect(resultat.map((a) => a.nom_commun)).toContain("Érable rouge");
   });
 
   it("retourne un tableau vide quand aucun arbre ne correspond", () => {
     const filtres: Filtres = {
       ...filtresVides,
-      soleil: "Plein soleil",
-      besoin_eau: "Bas",
+      type: "arbuste",
+      hauteur_min: "20",
     };
     const resultat = appliquerFiltres(ARBRES_TEST, filtres);
     expect(resultat).toHaveLength(0);
+  });
+
+  it("filtre par envergure minimum", () => {
+    const filtres: Filtres = { ...filtresVides, envergure_min: "10" };
+    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    expect(resultat).toHaveLength(4);
+    expect(resultat.map((a) => a.nom_commun)).toContain("Chêne pédonculé");
+    expect(resultat.map((a) => a.nom_commun)).not.toContain("Buis commun");
   });
 });
