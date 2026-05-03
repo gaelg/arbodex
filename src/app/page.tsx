@@ -75,24 +75,24 @@ export default function Accueil() {
     setInstallable(false);
   };
 
-  const filtresAppliques = appliquerFiltres(arbres, filtres);
-  const [showScrollToResults, setShowScrollToResults] = useState(false);
+  const filtres_appliques = appliquerFiltres(arbres, filtres);
+  const [show_scroll_to_results, set_show_scroll_to_results] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
+    const on_scroll = () => {
       const el = document.getElementById("liste-arbres");
       if (!el) return;
       const rect = el.getBoundingClientRect();
       // Afficher si on a scrolle assez et que la liste n'est pas visible
-      setShowScrollToResults(
-        window.scrollY > 400 && rect.top > window.innerHeight
+      set_show_scroll_to_results(
+        window.scroll_y > 400 && rect.top > window.innerHeight
       );
     };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("scroll", on_scroll);
+    return () => window.removeEventListener("scroll", on_scroll);
   }, []);
 
-  const scrollToResults = () => {
+  const scroll_to_results = () => {
     const el = document.getElementById("liste-arbres");
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
@@ -168,19 +168,21 @@ export default function Accueil() {
             />
           </div>
           <div className="mb-6" id="liste-arbres">
-            <ListeArbres arbres={filtresAppliques} />
+            <ListeArbres arbres={filtres_appliques} />
           </div>
         </>
       )}
 
-      {showScrollToResults && !chargement && filtresAppliques.length > 0 && (
-        <button
-          onClick={scrollToResults}
-          className="fixed bottom-6 right-6 z-50 px-4 py-3 bg-green-700 text-white rounded-full shadow-lg text-sm font-medium hover:bg-green-800 transition-opacity"
-        >
-          ↑ Voir les résultats
-        </button>
-      )}
+      {show_scroll_to_results &&
+        !chargement &&
+        filtres_appliques.length > 0 && (
+          <button
+            onClick={scroll_to_results}
+            className="fixed bottom-6 right-6 z-50 px-4 py-3 bg-green-700 text-white rounded-full shadow-lg text-sm font-medium hover:bg-green-800 transition-opacity"
+          >
+            ↑ Voir les résultats
+          </button>
+        )}
 
       <footer className="mt-16 pt-8 border-t border-gray-200">
         <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
