@@ -20,7 +20,11 @@ const CHAMPS: ChampSelect[] = [
   { cle: "origine", étiquette: "Origine", section: "Essence" },
 
   // Sol & Climat
-  { cle: "résistance_secheresse", étiquette: "Résistance sécheresse", section: "Sol & Climat" },
+  {
+    cle: "résistance_secheresse",
+    étiquette: "Résistance sécheresse",
+    section: "Sol & Climat",
+  },
   {
     cle: "résistance_vent",
     étiquette: "Résistance vent",
