@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Arbre, Filtres } from "@/lib/trees";
+import { Arbre, Filtres, appliquerFiltres } from "@/lib/trees";
 
 interface Props {
   arbres: Arbre[];
