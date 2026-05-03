@@ -219,7 +219,7 @@ export default function ListeArbres({ arbres }: Props) {
                     <span className="font-medium text-gray-700">
                       Sécheresse :
                     </span>{" "}
-                    {arbre.resistance_secheresse}
+                    {arbre.résistance_secheresse}
                   </p>
                   <p>
                     <span className="font-medium text-gray-700">
