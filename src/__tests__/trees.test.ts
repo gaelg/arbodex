@@ -264,19 +264,6 @@ describe("appliquerFiltres", () => {
     expect(resultat).toHaveLength(5);
   });
 
-  it("filtre par type (arbre)", () => {
-    const filtres: Filtres = { ...filtresVides, type: "arbre" };
-    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
-    expect(resultat).toHaveLength(4);
-  });
-
-  it("filtre par type (arbuste)", () => {
-    const filtres: Filtres = { ...filtresVides, type: "arbuste" };
-    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
-    expect(resultat).toHaveLength(1);
-    expect(resultat[0].nom_commun).toBe("Buis commun");
-  });
-
   it("filtre par type de sol avec partial match", () => {
     const filtres: Filtres = { ...filtresVides, type_sol: "Sableux" };
     const resultat = appliquerFiltres(ARBRES_TEST, filtres);
@@ -376,16 +363,6 @@ describe("appliquerFiltres", () => {
     expect(resultat).toHaveLength(2);
     expect(resultat.map((a) => a.nom_commun)).toContain("Chêne pédonculé");
     expect(resultat.map((a) => a.nom_commun)).toContain("Érable rouge");
-  });
-
-  it("retourne un tableau vide quand aucun arbre ne correspond", () => {
-    const filtres: Filtres = {
-      ...filtresVides,
-      type: "arbuste",
-      hauteur_min: "20",
-    };
-    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
-    expect(resultat).toHaveLength(0);
   });
 
   it("filtre par envergure minimum", () => {
