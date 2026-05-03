@@ -20,21 +20,15 @@ const CHAMPS: ChampSelect[] = [
   { cle: "origine", étiquette: "Origine", section: "Essence" },
 
   // Sol & Climat
-  { cle: "type_sol", étiquette: "Type de sol", section: "Sol & Climat" },
-    {
-    cle: "résistance_secheresse",
-    étiquette: "Résistance sécheresse",
-    section: "Sol & Climat",
-  },
-  { cle: "pH", étiquette: "pH préféré", section: "Sol & Climat" },
+  { cle: "résistance_secheresse", étiquette: "Résistance sécheresse", section: "Sol & Climat" },
   {
     cle: "résistance_vent",
-    étiquette: "Résistance vent (min)",
+    étiquette: "Résistance vent",
     section: "Sol & Climat",
   },
   {
     cle: "résistance_chaleur_urbaine",
-    étiquette: "Chaleur urbaine (min)",
+    étiquette: "Chaleur urbaine",
     section: "Sol & Climat",
   },
   {
@@ -179,9 +173,9 @@ export default function FormulaireFiltres({
   };
 
   const ouiNon = ["oui", "non"];
-  const frequences = ["jamais", "occasionnelle", "reguliere"];
+  const frequences = ["jamais", "occasionnelle", "régulière"];
   const tailles = ["faible", "moderee", "elevee"];
-  const couts = ["faible", "modere", "eleve"];
+  const couts = ["faible", "modérée", "élevée"];
 
   const formatOption = (opt: string) =>
     opt.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
