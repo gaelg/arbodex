@@ -127,11 +127,11 @@ export default function FormulaireFiltres({
     Record<string, boolean>
   >({
     "Sol & Climat": true,
-    "Essence": false,
+    Essence: false,
     "Services écosystémiques": false,
-    "Caractéristiques": false,
+    Caractéristiques: false,
     "Contraintes & Risques": false,
-    "Entretien": false,
+    Entretien: false,
   });
 
   const toggleSection = (section: string) => {
