@@ -80,7 +80,11 @@ export default function Accueil() {
 
   useEffect(() => {
     const onScroll = () => {
-      setShowScrollToResults(window.scrollY > 400);
+      const el = document.getElementById("liste-arbres");
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      // Afficher si on a scrolle assez et que la liste n'est pas visible
+      setShowScrollToResults(window.scrollY > 400 && rect.top > window.innerHeight);
     };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
