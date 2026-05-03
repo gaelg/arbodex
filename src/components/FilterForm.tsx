@@ -11,98 +11,98 @@ interface Props {
 
 interface ChampSelect {
   cle: keyof Filtres;
-  etiquette: string;
+  étiquette: string;
   section: string;
 }
 
 const CHAMPS: ChampSelect[] = [
   // Essence
-  { cle: "origine", etiquette: "Origine", section: "Essence" },
+  { cle: "origine", étiquette: "Origine", section: "Essence" },
 
   // Sol & Climat
-  { cle: "type_sol", etiquette: "Type de sol", section: "Sol & Climat" },
+  { cle: "type_sol", étiquette: "Type de sol", section: "Sol & Climat" },
   {
-    cle: "resistance_secheresse",
-    etiquette: "Résistance sécheresse (max)",
+    cle: "résistance_secheresse",
+    étiquette: "Résistance sécheresse (max)",
     section: "Sol & Climat",
   },
-  { cle: "pH", etiquette: "pH préféré", section: "Sol & Climat" },
+  { cle: "pH", étiquette: "pH préféré", section: "Sol & Climat" },
   {
-    cle: "resistance_vent",
-    etiquette: "Résistance vent (min)",
+    cle: "résistance_vent",
+    étiquette: "Résistance vent (min)",
     section: "Sol & Climat",
   },
   {
-    cle: "resistance_chaleur_urbaine",
-    etiquette: "Chaleur urbaine (min)",
+    cle: "résistance_chaleur_urbaine",
+    étiquette: "Chaleur urbaine (min)",
     section: "Sol & Climat",
   },
   {
     cle: "adapte_changement_climatique",
-    etiquette: "Adapté changement climatique",
+    étiquette: "Adapté changement climatique",
     section: "Sol & Climat",
   },
 
   // Services écosystémiques
   {
     cle: "mellifere",
-    etiquette: "Mellifère",
+    étiquette: "Mellifère",
     section: "Services écosystémiques",
   },
 
   // Caractéristiques
   {
     cle: "fruitiere_sauvage",
-    etiquette: "Fruits sauvages",
+    étiquette: "Fruits sauvages",
     section: "Caractéristiques",
   },
   {
     cle: "floraison_remarquable",
-    etiquette: "Floraison remarquable",
+    étiquette: "Floraison remarquable",
     section: "Caractéristiques",
   },
   {
     cle: "couleur_automnale",
-    etiquette: "Couleur automnale",
+    étiquette: "Couleur automnale",
     section: "Caractéristiques",
   },
 
   // Contraintes & Risques
   {
     cle: "pollen_allergisant",
-    etiquette: "Pollen allergisant (max)",
+    étiquette: "Pollen allergisant (max)",
     section: "Contraintes & Risques",
   },
   {
     cle: "fruits_salissants",
-    etiquette: "Fruits salissants",
+    étiquette: "Fruits salissants",
     section: "Contraintes & Risques",
   },
   {
     cle: "branches_fragiles",
-    etiquette: "Branches fragiles",
+    étiquette: "Branches fragiles",
     section: "Contraintes & Risques",
   },
   {
     cle: "racines_devastatrices",
-    etiquette: "Racines dévastatrices",
+    étiquette: "Racines dévastatrices",
     section: "Contraintes & Risques",
   },
 
   // Entretien
   {
     cle: "frequence_taille",
-    etiquette: "Fréquence taille (max)",
+    étiquette: "Fréquence taille (max)",
     section: "Entretien",
   },
   {
     cle: "sensibilite_maladies",
-    etiquette: "Sensibilité maladies (max)",
+    étiquette: "Sensibilité maladies (max)",
     section: "Entretien",
   },
   {
     cle: "cout_entretien",
-    etiquette: "Coût entretien (max)",
+    étiquette: "Coût entretien (max)",
     section: "Entretien",
   },
 ];
@@ -153,12 +153,12 @@ export default function FormulaireFiltres({
       type: "",
       origine: "",
       type_sol: "",
-      resistance_secheresse: "",
+      résistance_secheresse: "",
       pH: "",
       rusticite_min: "",
       rusticite_max: "",
-      resistance_vent: "",
-      resistance_chaleur_urbaine: "",
+      résistance_vent: "",
+      résistance_chaleur_urbaine: "",
       adapte_changement_climatique: "",
       mellifere: "",
       fruitiere_sauvage: "",
@@ -194,8 +194,8 @@ export default function FormulaireFiltres({
         return optionsUniques(arbres, "type");
       case "type_sol":
         return optionsUniques(arbres, "type_sol");
-      case "resistance_secheresse":
-        return optionsUniques(arbres, "resistance_secheresse");
+      case "résistance_secheresse":
+        return optionsUniques(arbres, "résistance_secheresse");
       case "pH":
         return optionsUniques(arbres, "pH");
       case "adapte_changement_climatique":
@@ -279,12 +279,12 @@ export default function FormulaireFiltres({
               </button>
               {ouvert && (
                 <div className="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {sectionsFiltres[section].map(({ cle, etiquette }) => {
+                  {sectionsFiltres[section].map(({ cle, étiquette }) => {
                     const opts = getOptions(cle);
                     return (
                       <div key={cle}>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
-                          {etiquette}
+                          {étiquette}
                         </label>
                         <select
                           value={filtres[cle]}
