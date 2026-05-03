@@ -114,21 +114,36 @@ export function appliquerFiltres(arbres: Arbre[], filtres: Filtres): Arbre[] {
       return false;
     if (
       filtres.resistance_chaleur_urbaine &&
-      arbre.resistance_chaleur_urbaine < Number(filtres.resistance_chaleur_urbaine)
+      arbre.resistance_chaleur_urbaine <
+        Number(filtres.resistance_chaleur_urbaine)
     )
       return false;
-    if (!correspond(filtres.adapte_changement_climatique, arbre.adapte_changement_climatique))
+    if (
+      !correspond(
+        filtres.adapte_changement_climatique,
+        arbre.adapte_changement_climatique
+      )
+    )
       return false;
     if (!correspond(filtres.mellifere, arbre.mellifere)) return false;
-    if (!correspond(filtres.fruitiere_sauvage, arbre.fruitiere_sauvage)) return false;
-    if (!correspond(filtres.floraison_remarquable, arbre.floraison_remarquable)) return false;
-    if (!correspond(filtres.couleur_automnale, arbre.couleur_automnale)) return false;
-    if (!correspond(filtres.pollen_allergisant, arbre.pollen_allergisant)) return false;
-    if (!correspond(filtres.fruits_salissants, arbre.fruits_salissants)) return false;
-    if (!correspond(filtres.branches_fragiles, arbre.branches_fragiles)) return false;
-    if (!correspond(filtres.racines_devastatrices, arbre.racines_devastatrices)) return false;
-    if (!correspond(filtres.frequence_taille, arbre.frequence_taille)) return false;
-    if (!correspond(filtres.sensibilite_maladies, arbre.sensibilite_maladies)) return false;
+    if (!correspond(filtres.fruitiere_sauvage, arbre.fruitiere_sauvage))
+      return false;
+    if (!correspond(filtres.floraison_remarquable, arbre.floraison_remarquable))
+      return false;
+    if (!correspond(filtres.couleur_automnale, arbre.couleur_automnale))
+      return false;
+    if (!correspond(filtres.pollen_allergisant, arbre.pollen_allergisant))
+      return false;
+    if (!correspond(filtres.fruits_salissants, arbre.fruits_salissants))
+      return false;
+    if (!correspond(filtres.branches_fragiles, arbre.branches_fragiles))
+      return false;
+    if (!correspond(filtres.racines_devastatrices, arbre.racines_devastatrices))
+      return false;
+    if (!correspond(filtres.frequence_taille, arbre.frequence_taille))
+      return false;
+    if (!correspond(filtres.sensibilite_maladies, arbre.sensibilite_maladies))
+      return false;
     if (!correspond(filtres.cout_entretien, arbre.cout_entretien)) return false;
     if (
       filtres.hauteur_min &&

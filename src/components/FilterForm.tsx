@@ -15,22 +15,82 @@ interface ChampSelect {
 const CHAMPS: ChampSelect[] = [
   { cle: "type", etiquette: "Type", section: "Identité & Dimensions" },
   { cle: "type_sol", etiquette: "Type de sol", section: "Sol & Climat" },
-  { cle: "resistance_secheresse", etiquette: "Résistance sécheresse", section: "Sol & Climat" },
+  {
+    cle: "resistance_secheresse",
+    etiquette: "Résistance sécheresse",
+    section: "Sol & Climat",
+  },
   { cle: "pH", etiquette: "pH préféré", section: "Sol & Climat" },
-  { cle: "resistance_vent", etiquette: "Résistance vent (min)", section: "Sol & Climat" },
-  { cle: "resistance_chaleur_urbaine", etiquette: "Résistance chaleur urbaine (min)", section: "Sol & Climat" },
-  { cle: "adapte_changement_climatique", etiquette: "Adapté changement climatique", section: "Sol & Climat" },
-  { cle: "mellifere", etiquette: "Mellifère", section: "Services écosystémiques" },
-  { cle: "fruitiere_sauvage", etiquette: "Fruits sauvages", section: "Services écosystémiques" },
-  { cle: "floraison_remarquable", etiquette: "Floraison remarquable", section: "Services écosystémiques" },
-  { cle: "couleur_automnale", etiquette: "Couleur automnale", section: "Services écosystémiques" },
-  { cle: "pollen_allergisant", etiquette: "Pollen allergisant", section: "Contraintes" },
-  { cle: "fruits_salissants", etiquette: "Fruits salissants", section: "Contraintes" },
-  { cle: "branches_fragiles", etiquette: "Branches fragiles", section: "Contraintes" },
-  { cle: "racines_devastatrices", etiquette: "Racines dévastatrices", section: "Contraintes" },
-  { cle: "frequence_taille", etiquette: "Fréquence taille", section: "Maintenance" },
-  { cle: "sensibilite_maladies", etiquette: "Sensibilité maladies", section: "Maintenance" },
-  { cle: "cout_entretien", etiquette: "Coût entretien", section: "Maintenance" },
+  {
+    cle: "resistance_vent",
+    etiquette: "Résistance vent (min)",
+    section: "Sol & Climat",
+  },
+  {
+    cle: "resistance_chaleur_urbaine",
+    etiquette: "Résistance chaleur urbaine (min)",
+    section: "Sol & Climat",
+  },
+  {
+    cle: "adapte_changement_climatique",
+    etiquette: "Adapté changement climatique",
+    section: "Sol & Climat",
+  },
+  {
+    cle: "mellifere",
+    etiquette: "Mellifère",
+    section: "Services écosystémiques",
+  },
+  {
+    cle: "fruitiere_sauvage",
+    etiquette: "Fruits sauvages",
+    section: "Services écosystémiques",
+  },
+  {
+    cle: "floraison_remarquable",
+    etiquette: "Floraison remarquable",
+    section: "Services écosystémiques",
+  },
+  {
+    cle: "couleur_automnale",
+    etiquette: "Couleur automnale",
+    section: "Services écosystémiques",
+  },
+  {
+    cle: "pollen_allergisant",
+    etiquette: "Pollen allergisant",
+    section: "Contraintes",
+  },
+  {
+    cle: "fruits_salissants",
+    etiquette: "Fruits salissants",
+    section: "Contraintes",
+  },
+  {
+    cle: "branches_fragiles",
+    etiquette: "Branches fragiles",
+    section: "Contraintes",
+  },
+  {
+    cle: "racines_devastatrices",
+    etiquette: "Racines dévastatrices",
+    section: "Contraintes",
+  },
+  {
+    cle: "frequence_taille",
+    etiquette: "Fréquence taille",
+    section: "Maintenance",
+  },
+  {
+    cle: "sensibilite_maladies",
+    etiquette: "Sensibilité maladies",
+    section: "Maintenance",
+  },
+  {
+    cle: "cout_entretien",
+    etiquette: "Coût entretien",
+    section: "Maintenance",
+  },
 ];
 
 function optionsUniques(arbres: Arbre[], cle: keyof Arbre): string[] {
@@ -138,7 +198,9 @@ export default function FormulaireFiltres({
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {sectionsFiltres[section].map(({ cle, etiquette }) => {
                 const opts = getOptions(cle);
-                const isNumber = cle === "resistance_vent" || cle === "resistance_chaleur_urbaine";
+                const isNumber =
+                  cle === "resistance_vent" ||
+                  cle === "resistance_chaleur_urbaine";
                 return (
                   <div key={cle}>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -153,7 +215,8 @@ export default function FormulaireFiltres({
                       {isNumber
                         ? [1, 2, 3, 4, 5].map((n) => (
                             <option key={n} value={n}>
-                              {"≥ ".repeat(n === 1 ? 0 : 0)}{n}/5
+                              {"≥ ".repeat(n === 1 ? 0 : 0)}
+                              {n}/5
                             </option>
                           ))
                         : opts.map((opt) => (

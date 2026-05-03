@@ -344,7 +344,10 @@ describe("appliquerFiltres", () => {
   });
 
   it("filtre par adapté changement climatique", () => {
-    const filtres: Filtres = { ...filtresVides, adapte_changement_climatique: "oui" };
+    const filtres: Filtres = {
+      ...filtresVides,
+      adapte_changement_climatique: "oui",
+    };
     const resultat = appliquerFiltres(ARBRES_TEST, filtres);
     expect(resultat).toHaveLength(3);
     expect(resultat.map((a) => a.nom_commun)).toContain("Chêne pédonculé");

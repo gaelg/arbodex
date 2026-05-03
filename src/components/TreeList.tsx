@@ -8,9 +8,7 @@ function Badge({ actif, texte }: { actif: boolean; texte: string }) {
   return (
     <span
       className={`inline-block px-2 py-0.5 text-xs rounded-full ${
-        actif
-          ? "bg-green-100 text-green-800"
-          : "bg-gray-100 text-gray-500"
+        actif ? "bg-green-100 text-green-800" : "bg-gray-100 text-gray-500"
       }`}
     >
       {texte}
@@ -113,10 +111,7 @@ export default function ListeArbres({ arbres }: Props) {
               </p>
 
               <div className="pt-1 space-y-1">
-                <Barre
-                  niveau={arbre.resistance_vent}
-                  label="Résistance vent"
-                />
+                <Barre niveau={arbre.resistance_vent} label="Résistance vent" />
                 <Barre
                   niveau={arbre.resistance_chaleur_urbaine}
                   label="Chaleur urbaine"
@@ -124,10 +119,7 @@ export default function ListeArbres({ arbres }: Props) {
               </div>
 
               <div className="flex flex-wrap gap-1 pt-1">
-                <Badge
-                  actif={arbre.mellifere === "oui"}
-                  texte="Mellifère"
-                />
+                <Badge actif={arbre.mellifere === "oui"} texte="Mellifère" />
                 <Badge
                   actif={arbre.floraison_remarquable === "oui"}
                   texte="Floraison"
