@@ -183,11 +183,12 @@ export default function FormulaireFiltres({
       case "fruitiere_sauvage":
       case "floraison_remarquable":
       case "couleur_automnale":
-      case "pollen_allergisant":
       case "fruits_salissants":
       case "branches_fragiles":
       case "racines_devastatrices":
         return ouiNon;
+      case "pollen_allergisant":
+        return ["faible", "moyen", "fort"];
       case "frequence_taille":
         return frequences;
       case "sensibilite_maladies":
