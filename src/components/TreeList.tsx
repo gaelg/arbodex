@@ -27,14 +27,24 @@ interface Props {
   arbres: Arbre[];
 }
 
-function Badge({ texte, couleur }: { texte: string; couleur?: string }) {
-  const base = "inline-block px-2 py-0.5 text-xs rounded-full";
-  return (
-    <span className={`${base} ${couleur || "bg-gray-100 text-gray-500"}`}>
-      {texte}
-    </span>
-  );
-}
+  function EmojiBadge({ valeur, map, couleurs }: {
+    valeur: string;
+    map: Record<string, string>;
+    couleurs?: Record<string, string>;
+  }) {
+    const emoji = map[valeur] || "✅";
+    const couleur = couleurs?.[valeur] || "text-green-600";
+    return <span className={`text-sm ${couleur}`}>{emoji}</span>;
+  }
+
+  function Badge({ texte, couleur }: { texte: string; couleur?: string }) {
+    const base = "inline-block px-2 py-0.5 text-xs rounded-full";
+    return (
+      <span className={`${base} ${couleur || "bg-gray-100 text-gray-500"}`}>
+        {texte}
+      </span>
+    );
+  }
 
 function Barre({ niveau, label }: { niveau: number; label: string }) {
   return (
@@ -104,26 +114,15 @@ export default function ListeArbres({ arbres }: Props) {
                 </p>
               </div>
               <div className="flex gap-2 text-xs">
-                <span
-                  className={`px-2 py-1 rounded-full ${
-                    arbre.type === "arbre"
-                      ? "bg-emerald-100 text-emerald-800"
-                      : "bg-amber-100 text-amber-800"
-                  }`}
-                >
-                  {arbre.type}
-                </span>
-                <span
-                  className={`px-2 py-1 rounded-full ${
-                    arbre.pollen_allergisant === "fort"
-                      ? "bg-red-100 text-red-800"
-                      : arbre.pollen_allergisant === "moyen"
-                        ? "bg-yellow-100 text-yellow-800"
-                        : "bg-green-100 text-green-800"
-                  }`}
-                >
-                  {formatOption(arbre.pollen_allergisant)}
-                </span>
+                <EmojiBadge
+                  valeur={arbre.type}
+                  map={{ arbre: "🌳", arbuste: "🌿" }}
+                />
+                <EmojiBadge
+                  valeur={arbre.pollen_allergisant}
+                  map={{ fort: "🤧", moyen: "🤢", faible: "✅" }}
+                  couleurs={{ fort: "text-red-600", moyen: "text-orange-500", faible: "text-green-600" }}
+                />
                 <span className="px-2 py-1 rounded-full bg-blue-100 text-blue-800">
                   {arbre.hauteur_max_m}m
                 </span>
