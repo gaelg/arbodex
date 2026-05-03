@@ -16,10 +16,10 @@ interface ChampSelect {
 }
 
 const CHAMPS: ChampSelect[] = [
-  // Essence (plus utilisé)
-  { cle: "origine", etiquette: "Origine", section: "L'essence" },
+  // Essence
+  { cle: "origine", etiquette: "Origine", section: "Essence" },
 
-  // Sol & Climat (priorité haute)
+  // Sol & Climat
   { cle: "type_sol", etiquette: "Type de sol", section: "Sol & Climat" },
   {
     cle: "resistance_secheresse",
@@ -43,21 +43,23 @@ const CHAMPS: ChampSelect[] = [
     section: "Sol & Climat",
   },
 
-  // Services (pour clients)
+  // Services écosystémiques
   {
     cle: "mellifere",
     etiquette: "Mellifère",
     section: "Services écosystémiques",
   },
+
+  // Caractéristiques
   {
     cle: "fruitiere_sauvage",
     etiquette: "Fruits sauvages",
-    section: "Services écosystémiques",
+    section: "Caractéristiques",
   },
   {
     cle: "floraison_remarquable",
     etiquette: "Floraison remarquable",
-    section: "Services écosystémiques",
+    section: "Caractéristiques",
   },
   {
     cle: "couleur_automnale",
@@ -65,7 +67,7 @@ const CHAMPS: ChampSelect[] = [
     section: "Caractéristiques",
   },
 
-  // Contraintes (alertes)
+  // Contraintes & Risques
   {
     cle: "pollen_allergisant",
     etiquette: "Pollen allergisant (max)",
@@ -87,7 +89,7 @@ const CHAMPS: ChampSelect[] = [
     section: "Contraintes & Risques",
   },
 
-  // Maintenance (coût)
+  // Entretien
   {
     cle: "frequence_taille",
     etiquette: "Fréquence taille (max)",
@@ -125,8 +127,9 @@ export default function FormulaireFiltres({
     Record<string, boolean>
   >({
     "Sol & Climat": true,
-    "Caractéristiques": false,
+    "Essence": false,
     "Services écosystémiques": false,
+    "Caractéristiques": false,
     "Contraintes & Risques": false,
     "Entretien": false,
   });
