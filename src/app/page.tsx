@@ -210,10 +210,10 @@ export default function Accueil() {
         </div>
         <div className="mt-6 pt-4 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
           <p className="text-xs text-gray-400">
-            Arbodex v1 {"\u2014"} Donn{"\u00e9"}es fournies {"\u00e0"} titre
-            indicatif. Toujours v{"\u00e9"}rifier aupr{"\u00e8"}s de votre p
-            {"\u00e9"}pini{"\u00e8"}riste pour la disponibilit{"\u00e9"} et l
-            {"\u0027"}adaptation locale.
+            Arbodex v2 — Données fournies à titre
+            indicatif. Toujours vérifier auprès de votre
+            pépiniériste pour la disponibilité et l
+            'adaptation locale.
           </p>
           <a
             href="/mentions-legales"
