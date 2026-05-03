@@ -12,15 +12,15 @@ export interface Arbre {
   envergure_max_m: number;
   port: string;
   type_sol: string;
-  resistance_secheresse: string;
+  résistance_sécheresse: string;
   pH: string;
   tolerance_sel: string;
   rusticite_min_C: number;
-  resistance_vent: number;
-  resistance_chaleur_urbaine: number;
+  résistance_vent: number;
+  résistance_chaleur_urbaine: number;
   adapte_changement_climatique: string;
   mellifere: string;
-  fruitiere_sauvage: string;
+  fruitière_sauvage: string;
   refuge_oiseaux: string;
   floraison_remarquable: string;
   couleur_automnale: string;
@@ -51,15 +51,15 @@ export interface Filtres {
   type: string;
   origine: string;
   type_sol: string;
-  resistance_secheresse: string;
+  résistance_sécheresse: string;
   pH: string;
   rusticite_min: string;
   rusticite_max: string;
-  resistance_vent: string;
-  resistance_chaleur_urbaine: string;
+  résistance_vent: string;
+  résistance_chaleur_urbaine: string;
   adapte_changement_climatique: string;
   mellifere: string;
-  fruitiere_sauvage: string;
+  fruitière_sauvage: string;
   floraison_remarquable: string;
   couleur_automnale: string;
   pollen_allergisant: string;
@@ -97,7 +97,7 @@ const ORDER: Record<string, Record<string, number>> = {
   sensibilite_maladies: { faible: 1, moderee: 2, elevee: 3 },
   cout_entretien: { faible: 1, modere: 2, eleve: 3 },
   frequence_taille: { jamais: 1, occasionnelle: 2, reguliere: 3 },
-  resistance_secheresse: { faible: 1, moyenne: 2, bonne: 3, excellente: 4 },
+  résistance_sécheresse: { faible: 1, moyenne: 2, bonne: 3, excellente: 4 },
 };
 
 function correspondRelatif(
@@ -143,9 +143,9 @@ export function appliquerFiltres(arbres: Arbre[], filtres: Filtres): Arbre[] {
         return false;
       if (
         !correspondRelatif(
-          "resistance_secheresse",
-          filtres.resistance_secheresse,
-          arbre.resistance_secheresse
+          "résistance_sécheresse",
+          filtres.résistance_sécheresse,
+          arbre.résistance_sécheresse
         )
       )
         return false;
@@ -161,14 +161,14 @@ export function appliquerFiltres(arbres: Arbre[], filtres: Filtres): Arbre[] {
       )
         return false;
       if (
-        filtres.resistance_vent &&
-        arbre.resistance_vent < Number(filtres.resistance_vent)
+        filtres.résistance_vent &&
+        arbre.résistance_vent < Number(filtres.résistance_vent)
       )
         return false;
       if (
-        filtres.resistance_chaleur_urbaine &&
-        arbre.resistance_chaleur_urbaine <
-          Number(filtres.resistance_chaleur_urbaine)
+        filtres.résistance_chaleur_urbaine &&
+        arbre.résistance_chaleur_urbaine <
+          Number(filtres.résistance_chaleur_urbaine)
       )
         return false;
       if (
@@ -179,7 +179,7 @@ export function appliquerFiltres(arbres: Arbre[], filtres: Filtres): Arbre[] {
       )
         return false;
       if (!correspond(filtres.mellifere, arbre.mellifere)) return false;
-      if (!correspond(filtres.fruitiere_sauvage, arbre.fruitiere_sauvage))
+      if (!correspond(filtres.fruitière_sauvage, arbre.fruitière_sauvage))
         return false;
       if (
         !correspond(filtres.floraison_remarquable, arbre.floraison_remarquable)

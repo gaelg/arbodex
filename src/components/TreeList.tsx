@@ -188,7 +188,7 @@ export default function ListeArbres({ arbres }: Props) {
                     </span>
                   </td>
                   <td className="px-3 py-2 text-xs">
-                    {arbre.resistance_secheresse}
+                    {arbre.résistance_sécheresse}
                   </td>
                   <td className="px-3 py-2">
                     <span
@@ -280,7 +280,7 @@ export default function ListeArbres({ arbres }: Props) {
                   <span className="font-medium text-gray-700">
                     Sécheresse :
                   </span>{" "}
-                  {arbre.resistance_secheresse}
+                  {arbre.résistance_sécheresse}
                 </p>
                 <p>
                   <span className="font-medium text-gray-700">Rusticité :</span>{" "}
@@ -289,11 +289,11 @@ export default function ListeArbres({ arbres }: Props) {
 
                 <div className="pt-1 space-y-1">
                   <Barre
-                    niveau={arbre.resistance_vent}
+                    niveau={arbre.résistance_vent}
                     label="Résistance vent"
                   />
                   <Barre
-                    niveau={arbre.resistance_chaleur_urbaine}
+                    niveau={arbre.résistance_chaleur_urbaine}
                     label="Chaleur urbaine"
                   />
                 </div>
