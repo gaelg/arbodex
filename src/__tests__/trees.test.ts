@@ -39,7 +39,7 @@ const ARBRES_TEST: Arbre[] = [
     type_racines: "traçantes",
     allergie_service: "faible",
     fruits_salissants: "oui",
-    pollen_allergisant: "non",
+    pollen_allergisant: "faible",
     branches_fragiles: "non",
     racines_devastatrices: "non",
     frequence_taille: "occasionnelle",
@@ -84,7 +84,7 @@ const ARBRES_TEST: Arbre[] = [
     type_racines: "fasciculées",
     allergie_service: "modere",
     fruits_salissants: "oui",
-    pollen_allergisant: "oui",
+    pollen_allergisant: "fort",
     branches_fragiles: "oui",
     racines_devastatrices: "non",
     frequence_taille: "jamais",
@@ -129,7 +129,7 @@ const ARBRES_TEST: Arbre[] = [
     type_racines: "traçantes",
     allergie_service: "eleve",
     fruits_salissants: "oui",
-    pollen_allergisant: "oui",
+    pollen_allergisant: "fort",
     branches_fragiles: "oui",
     racines_devastatrices: "oui",
     frequence_taille: "jamais",
@@ -174,7 +174,7 @@ const ARBRES_TEST: Arbre[] = [
     type_racines: "traçantes",
     allergie_service: "faible",
     fruits_salissants: "oui",
-    pollen_allergisant: "non",
+    pollen_allergisant: "faible",
     branches_fragiles: "non",
     racines_devastatrices: "non",
     frequence_taille: "jamais",
@@ -219,7 +219,7 @@ const ARBRES_TEST: Arbre[] = [
     type_racines: "fasciculées",
     allergie_service: "faible",
     fruits_salissants: "non",
-    pollen_allergisant: "non",
+    pollen_allergisant: "faible",
     branches_fragiles: "non",
     racines_devastatrices: "non",
     frequence_taille: "reguliere",
@@ -294,12 +294,20 @@ describe("appliquerFiltres", () => {
     expect(resultat.map((a) => a.nom_commun)).toContain("Buis commun");
   });
 
-  it("filtre par pollen allergisant", () => {
-    const filtres: Filtres = { ...filtresVides, pollen_allergisant: "oui" };
-    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
-    expect(resultat).toHaveLength(2);
-    expect(resultat.map((a) => a.nom_commun)).toContain("Érable rouge");
-    expect(resultat.map((a) => a.nom_commun)).toContain("Pin blanc");
+  it("filtre par pollen allergisant (relatif - max)", () => {
+    // "faible" → only faible (3 in test data)
+    let filtres: Filtres = { ...filtresVides, pollen_allergisant: "faible" };
+    let resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    expect(resultat).toHaveLength(3); // Chêne, Buis, Ginkgo
+    let noms = resultat.map((a) => a.nom_commun);
+    expect(noms).toContain("Chêne pédonculé");
+    expect(noms).toContain("Buis commun");
+    expect(noms).toContain("Ginkgo");
+
+    // "moyen" → faible + moyen (3 + 0 in test data)
+    filtres = { ...filtresVides, pollen_allergisant: "moyen" };
+    resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    expect(resultat).toHaveLength(3);
   });
 
   it("filtre par hauteur minimum", () => {

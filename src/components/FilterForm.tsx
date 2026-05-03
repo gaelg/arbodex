@@ -66,7 +66,7 @@ const CHAMPS: ChampSelect[] = [
   },
   {
     cle: "pollen_allergisant",
-    etiquette: "Pollen allergisant",
+    etiquette: "Pollen allergisant (max)",
     section: "Contraintes",
   },
   {
@@ -192,7 +192,7 @@ export default function FormulaireFiltres({
       case "racines_devastatrices":
         return ouiNon;
       case "pollen_allergisant":
-        return ["faible", "moyen", "fort"];
+        return ["faible", "moyen"]; // "fort" excluded - pros want max tolerance
       case "frequence_taille":
         return frequences;
       case "sensibilite_maladies":
