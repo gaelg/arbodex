@@ -121,6 +121,8 @@ export default function ListeArbres({ arbres }: Props) {
                 <EmojiBadge
                   valeur={arbre.type}
                   map={{ arbre: "🌳", arbuste: "🌿" }}
+                  couleurs={{ arbre: "text-green-700", arbuste: "text-green-600" }}
+                  title="Type : arbre ou arbuste"
                 />
                 <EmojiBadge
                   valeur={arbre.pollen_allergisant}
@@ -130,6 +132,7 @@ export default function ListeArbres({ arbres }: Props) {
                     moyen: "text-orange-500",
                     faible: "text-green-600",
                   }}
+                  title="Allergie : fort, moyen, faible"
                 />
                 <span className="px-2 py-1 rounded-full bg-blue-100 text-blue-800">
                   {arbre.hauteur_max_m}m
