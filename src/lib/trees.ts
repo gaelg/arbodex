@@ -138,7 +138,7 @@ export function appliquerFiltres(arbres: Arbre[], filtres: Filtres): Arbre[] {
         if (!commun.includes(q) && !scient.includes(q) && !fam.includes(q))
           return false;
       }
-    if (!correspond(filtres.origine, arbre.origine)) return false;
+      if (!correspond(filtres.origine, arbre.origine)) return false;
       if (filtres.type_sol && !arbre.type_sol.includes(filtres.type_sol))
         return false;
       if (

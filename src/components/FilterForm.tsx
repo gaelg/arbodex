@@ -62,7 +62,7 @@ const CHAMPS: ChampSelect[] = [
   {
     cle: "couleur_automnale",
     etiquette: "Couleur automnale",
-    section: "Services écosystémiques",
+    section: "Caractéristiques",
   },
 
   // Contraintes (alertes)
@@ -125,9 +125,10 @@ export default function FormulaireFiltres({
     Record<string, boolean>
   >({
     "Sol & Climat": true,
-    "Services \u00e9cosyst\u00e9miques": false,
-    Contraintes: false,
-    Maintenance: false,
+    "Caractéristiques": false,
+    "Services écosystémiques": false,
+    "Contraintes & Risques": false,
+    "Entretien": false,
   });
 
   const toggleSection = (section: string) => {
