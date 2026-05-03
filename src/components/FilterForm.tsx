@@ -16,89 +16,34 @@ interface ChampSelect {
 }
 
 const CHAMPS: ChampSelect[] = [
-  { cle: "type", etiquette: "Type", section: "Identit\u00e9 & Dimensions" },
-  { cle: "origine", etiquette: "Origine", section: "Identit\u00e9 & Dimensions" },
+  // Essence (plus utilisé)
+  { cle: "type", etiquette: "Type (arbre/arbuste)", section: "L'essence" },
+  { cle: "origine", etiquette: "Origine", section: "L'essence" },
+
+  // Sol & Climat (priorité haute)
   { cle: "type_sol", etiquette: "Type de sol", section: "Sol & Climat" },
-  {
-    cle: "resistance_secheresse",
-    etiquette: "R\u00e9sistance s\u00e9cheresse",
-    section: "Sol & Climat",
-  },
-  {
-    cle: "pH",
-    etiquette: "pH pr\u00e9f\u00e9r\u00e9",
-    section: "Sol & Climat",
-  },
-  {
-    cle: "resistance_vent",
-    etiquette: "R\u00e9sistance vent (min)",
-    section: "Sol & Climat",
-  },
-  {
-    cle: "resistance_chaleur_urbaine",
-    etiquette: "Chaleur urbaine (min)",
-    section: "Sol & Climat",
-  },
-  {
-    cle: "adapte_changement_climatique",
-    etiquette: "Adapt\u00e9 changement climatique",
-    section: "Sol & Climat",
-  },
-  {
-    cle: "mellifere",
-    etiquette: "Mellif\u00e8re",
-    section: "Services \u00e9cosyst\u00e9miques",
-  },
-  {
-    cle: "fruitiere_sauvage",
-    etiquette: "Fruits sauvages",
-    section: "Services \u00e9cosyst\u00e9miques",
-  },
-  {
-    cle: "floraison_remarquable",
-    etiquette: "Floraison remarquable",
-    section: "Services \u00e9cosyst\u00e9miques",
-  },
-  {
-    cle: "couleur_automnale",
-    etiquette: "Couleur automnale",
-    section: "Services \u00e9cosyst\u00e9miques",
-  },
-  {
-    cle: "pollen_allergisant",
-    etiquette: "Pollen allergisant (max)",
-    section: "Contraintes",
-  },
-  {
-    cle: "fruits_salissants",
-    etiquette: "Fruits salissants",
-    section: "Contraintes",
-  },
-  {
-    cle: "branches_fragiles",
-    etiquette: "Branches fragiles",
-    section: "Contraintes",
-  },
-  {
-    cle: "racines_devastatrices",
-    etiquette: "Racines d\u00e9vastatrices",
-    section: "Contraintes",
-  },
-  {
-    cle: "frequence_taille",
-    etiquette: "Fr\u00e9quence taille",
-    section: "Maintenance",
-  },
-  {
-    cle: "sensibilite_maladies",
-    etiquette: "Sensibilit\u00e9 maladies",
-    section: "Maintenance",
-  },
-  {
-    cle: "cout_entretien",
-    etiquette: "Co\u00fbt entretien",
-    section: "Maintenance",
-  },
+  { cle: "resistance_secheresse", etiquette: "Résistance sécheresse (max)", section: "Sol & Climat" },
+  { cle: "pH", etiquette: "pH préféré", section: "Sol & Climat" },
+  { cle: "resistance_vent", etiquette: "Résistance vent (min)", section: "Sol & Climat" },
+  { cle: "resistance_chaleur_urbaine", etiquette: "Chaleur urbaine (min)", section: "Sol & Climat" },
+  { cle: "adapte_changement_climatique", etiquette: "Adapté changement climatique", section: "Sol & Climat" },
+
+  // Services (pour clients)
+  { cle: "mellifere", etiquette: "Mellifère", section: "Services écosystémiques" },
+  { cle: "fruitiere_sauvage", etiquette: "Fruits sauvages", section: "Services écosystémiques" },
+  { cle: "floraison_remarquable", etiquette: "Floraison remarquable", section: "Services écosystémiques" },
+  { cle: "couleur_automnale", etiquette: "Couleur automnale", section: "Services écosystémiques" },
+
+  // Contraintes (alertes)
+  { cle: "pollen_allergisant", etiquette: "Pollen allergisant (max)", section: "Contraintes & Risques" },
+  { cle: "fruits_salissants", etiquette: "Fruits salissants", section: "Contraintes & Risques" },
+  { cle: "branches_fragiles", etiquette: "Branches fragiles", section: "Contraintes & Risques" },
+  { cle: "racines_devastatrices", etiquette: "Racines dévastatrices", section: "Contraintes & Risques" },
+
+  // Maintenance (coût)
+  { cle: "frequence_taille", etiquette: "Fréquence taille (max)", section: "Entretien" },
+  { cle: "sensibilite_maladies", etiquette: "Sensibilité maladies (max)", section: "Entretien" },
+  { cle: "cout_entretien", etiquette: "Coût entretien (max)", section: "Entretien" },
 ];
 
 function optionsUniques(arbres: Arbre[], cle: keyof Arbre): string[] {

@@ -175,7 +175,7 @@ export default function Accueil() {
           <div>
             <p className="font-medium text-gray-700">ClimEssences (ONF)</p>
             <p className="text-xs text-gray-500 mt-1">
-              149 esp{"\u00e8"}ces {"\u2014"} Adaptation des essences forresti
+              149 esp{"\u00e8"}ces {"\u2014"} Adaptation des essences foresti
               {"\u00e8"}res au changement climatique. Source : ONF / CRPF.
             </p>
           </div>
