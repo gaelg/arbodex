@@ -250,7 +250,12 @@ export default function FormulaireFiltres({
 
       <div className="space-y-2">
         {sections.map((section) => {
+          const filtresSection = sectionsFiltres[section] || [];
+          if (filtresSection.length <= 1) return null; // Pas de replié si 1 seul filtre
           const ouvert = sectionsOuvertes[section] ?? false;
+          const nbActifs = filtresSection.filter(
+            ({ cle }) => filtres[cle]
+          ).length;
           return (
             <div
               key={section}
@@ -262,6 +267,11 @@ export default function FormulaireFiltres({
               >
                 <h3 className="text-sm font-semibold text-gray-700">
                   {section}
+                  {nbActifs > 0 && (
+                    <span className="ml-2 px-2 py-0.5 bg-green-100 text-green-800 text-xs rounded-full">
+                      {nbActifs}
+                    </span>
+                  )}
                 </h3>
                 <svg
                   className={`w-4 h-4 text-gray-500 transition-transform ${ouvert ? "rotate-180" : ""}`}
