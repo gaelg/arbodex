@@ -52,7 +52,7 @@ const CHAMPS: ChampSelect[] = [
 
   // Caractéristiques
   {
-    cle: "fruitière_sauvage",
+    cle: "fruitiere_sauvage",
     étiquette: "Fruits sauvages",
     section: "Caractéristiques",
   },
@@ -161,7 +161,7 @@ export default function FormulaireFiltres({
       résistance_chaleur_urbaine: "",
       adapte_changement_climatique: "",
       mellifere: "",
-      fruitière_sauvage: "",
+      fruitiere_sauvage: "",
       floraison_remarquable: "",
       couleur_automnale: "",
       pollen_allergisant: "",
@@ -200,7 +200,7 @@ export default function FormulaireFiltres({
         return optionsUniques(arbres, "pH");
       case "adapte_changement_climatique":
       case "mellifere":
-      case "fruitière_sauvage":
+      case "fruitiere_sauvage":
       case "floraison_remarquable":
       case "couleur_automnale":
       case "fruits_salissants":

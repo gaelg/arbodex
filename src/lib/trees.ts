@@ -12,7 +12,7 @@ export interface Arbre {
   envergure_max_m: number;
   port: string;
   type_sol: string;
-  résistance_sécheresse: string;
+  résistance_secheresse: string;
   pH: string;
   tolerance_sel: string;
   rusticite_min_C: number;
@@ -20,7 +20,7 @@ export interface Arbre {
   résistance_chaleur_urbaine: number;
   adapte_changement_climatique: string;
   mellifere: string;
-  fruitière_sauvage: string;
+  fruitiere_sauvage: string;
   refuge_oiseaux: string;
   floraison_remarquable: string;
   couleur_automnale: string;
@@ -51,7 +51,7 @@ export interface Filtres {
   type: string;
   origine: string;
   type_sol: string;
-  résistance_sécheresse: string;
+  résistance_secheresse: string;
   pH: string;
   rusticite_min: string;
   rusticite_max: string;
@@ -59,7 +59,7 @@ export interface Filtres {
   résistance_chaleur_urbaine: string;
   adapte_changement_climatique: string;
   mellifere: string;
-  fruitière_sauvage: string;
+  fruitiere_sauvage: string;
   floraison_remarquable: string;
   couleur_automnale: string;
   pollen_allergisant: string;
@@ -97,7 +97,7 @@ const ORDER: Record<string, Record<string, number>> = {
   sensibilite_maladies: { faible: 1, moderee: 2, elevee: 3 },
   cout_entretien: { faible: 1, modere: 2, eleve: 3 },
   frequence_taille: { jamais: 1, occasionnelle: 2, reguliere: 3 },
-  résistance_sécheresse: { faible: 1, moyenne: 2, bonne: 3, excellente: 4 },
+  résistance_secheresse: { faible: 1, moyenne: 2, bonne: 3, excellente: 4 },
 };
 
 function correspondRelatif(
@@ -143,9 +143,9 @@ export function appliquerFiltres(arbres: Arbre[], filtres: Filtres): Arbre[] {
         return false;
       if (
         !correspondRelatif(
-          "résistance_sécheresse",
-          filtres.résistance_sécheresse,
-          arbre.résistance_sécheresse
+          "résistance_secheresse",
+          filtres.résistance_secheresse,
+          arbre.résistance_secheresse
         )
       )
         return false;
@@ -179,7 +179,7 @@ export function appliquerFiltres(arbres: Arbre[], filtres: Filtres): Arbre[] {
       )
         return false;
       if (!correspond(filtres.mellifere, arbre.mellifere)) return false;
-      if (!correspond(filtres.fruitière_sauvage, arbre.fruitière_sauvage))
+      if (!correspond(filtres.fruitiere_sauvage, arbre.fruitiere_sauvage))
         return false;
       if (
         !correspond(filtres.floraison_remarquable, arbre.floraison_remarquable)

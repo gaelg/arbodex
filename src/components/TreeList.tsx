@@ -188,7 +188,7 @@ export default function ListeArbres({ arbres }: Props) {
                     </span>
                   </td>
                   <td className="px-3 py-2 text-xs">
-                    {arbre.résistance_sécheresse}
+                    {arbre.résistance_secheresse}
                   </td>
                   <td className="px-3 py-2">
                     <span
@@ -280,7 +280,7 @@ export default function ListeArbres({ arbres }: Props) {
                   <span className="font-medium text-gray-700">
                     Sécheresse :
                   </span>{" "}
-                  {arbre.résistance_sécheresse}
+                  {arbre.résistance_secheresse}
                 </p>
                 <p>
                   <span className="font-medium text-gray-700">Rusticité :</span>{" "}
