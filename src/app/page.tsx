@@ -6,6 +6,7 @@ import FormulaireFiltres from "@/components/FilterForm";
 import ListeArbres from "@/components/TreeList";
 
 const FILTRES_VIDES: Filtres = {
+  recherche: "",
   type: "",
   type_sol: "",
   resistance_secheresse: "",

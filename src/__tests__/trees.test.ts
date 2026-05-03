@@ -231,6 +231,7 @@ const ARBRES_TEST: Arbre[] = [
 
 describe("appliquerFiltres", () => {
   const filtresVides: Filtres = {
+    recherche: "",
     type: "",
     type_sol: "",
     resistance_secheresse: "",

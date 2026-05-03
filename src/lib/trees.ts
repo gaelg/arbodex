@@ -47,6 +47,7 @@ export interface Arbre {
 }
 
 export interface Filtres {
+  recherche: string;
   type: string;
   type_sol: string;
   resistance_secheresse: string;
@@ -91,6 +92,15 @@ function correspond(filtre: string, valeur: string | number): boolean {
 
 export function appliquerFiltres(arbres: Arbre[], filtres: Filtres): Arbre[] {
   return arbres.filter((arbre) => {
+    if (filtres.recherche) {
+      const q = filtres.recherche.toLowerCase();
+      if (
+        !arbre.nom_commun.toLowerCase().includes(q) &&
+        !arbre.nom_scientifique.toLowerCase().includes(q) &&
+        !arbre.famille.toLowerCase().includes(q)
+      )
+        return false;
+    }
     if (!correspond(filtres.type, arbre.type)) return false;
     if (filtres.type_sol && !arbre.type_sol.includes(filtres.type_sol))
       return false;

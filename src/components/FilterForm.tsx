@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Arbre, Filtres } from "@/lib/trees";
 
 interface Props {
@@ -13,48 +16,52 @@ interface ChampSelect {
 }
 
 const CHAMPS: ChampSelect[] = [
-  { cle: "type", etiquette: "Type", section: "Identité & Dimensions" },
+  { cle: "type", etiquette: "Type", section: "Identit\u00e9 & Dimensions" },
   { cle: "type_sol", etiquette: "Type de sol", section: "Sol & Climat" },
   {
     cle: "resistance_secheresse",
-    etiquette: "Résistance sécheresse",
+    etiquette: "R\u00e9sistance s\u00e9cheresse",
     section: "Sol & Climat",
   },
-  { cle: "pH", etiquette: "pH préféré", section: "Sol & Climat" },
+  {
+    cle: "pH",
+    etiquette: "pH pr\u00e9f\u00e9r\u00e9",
+    section: "Sol & Climat",
+  },
   {
     cle: "resistance_vent",
-    etiquette: "Résistance vent (min)",
+    etiquette: "R\u00e9sistance vent (min)",
     section: "Sol & Climat",
   },
   {
     cle: "resistance_chaleur_urbaine",
-    etiquette: "Résistance chaleur urbaine (min)",
+    etiquette: "Chaleur urbaine (min)",
     section: "Sol & Climat",
   },
   {
     cle: "adapte_changement_climatique",
-    etiquette: "Adapté changement climatique",
+    etiquette: "Adapt\u00e9 changement climatique",
     section: "Sol & Climat",
   },
   {
     cle: "mellifere",
-    etiquette: "Mellifère",
-    section: "Services écosystémiques",
+    etiquette: "Mellif\u00e8re",
+    section: "Services \u00e9cosyst\u00e9miques",
   },
   {
     cle: "fruitiere_sauvage",
     etiquette: "Fruits sauvages",
-    section: "Services écosystémiques",
+    section: "Services \u00e9cosyst\u00e9miques",
   },
   {
     cle: "floraison_remarquable",
     etiquette: "Floraison remarquable",
-    section: "Services écosystémiques",
+    section: "Services \u00e9cosyst\u00e9miques",
   },
   {
     cle: "couleur_automnale",
     etiquette: "Couleur automnale",
-    section: "Services écosystémiques",
+    section: "Services \u00e9cosyst\u00e9miques",
   },
   {
     cle: "pollen_allergisant",
@@ -73,22 +80,22 @@ const CHAMPS: ChampSelect[] = [
   },
   {
     cle: "racines_devastatrices",
-    etiquette: "Racines dévastatrices",
+    etiquette: "Racines d\u00e9vastatrices",
     section: "Contraintes",
   },
   {
     cle: "frequence_taille",
-    etiquette: "Fréquence taille",
+    etiquette: "Fr\u00e9quence taille",
     section: "Maintenance",
   },
   {
     cle: "sensibilite_maladies",
-    etiquette: "Sensibilité maladies",
+    etiquette: "Sensibilit\u00e9 maladies",
     section: "Maintenance",
   },
   {
     cle: "cout_entretien",
-    etiquette: "Coût entretien",
+    etiquette: "Co\u00fbt entretien",
     section: "Maintenance",
   },
 ];
@@ -107,12 +114,26 @@ export default function FormulaireFiltres({
   filtres,
   onChange,
 }: Props) {
+  const [sectionsOuvertes, setSectionsOuvertes] = useState<
+    Record<string, boolean>
+  >({
+    "Sol & Climat": true,
+    "Services \u00e9cosyst\u00e9miques": false,
+    Contraintes: false,
+    Maintenance: false,
+  });
+
+  const toggleSection = (section: string) => {
+    setSectionsOuvertes((prev) => ({ ...prev, [section]: !prev[section] }));
+  };
+
   const mettreAJour = (cle: keyof Filtres, valeur: string) => {
     onChange({ ...filtres, [cle]: valeur });
   };
 
   const reinitialiser = () => {
     onChange({
+      recherche: "",
       type: "",
       type_sol: "",
       resistance_secheresse: "",
@@ -143,9 +164,8 @@ export default function FormulaireFiltres({
   const sections = [...new Set(CHAMPS.map((c) => c.section))];
 
   const ouiNon = ["oui", "non"];
-  const tailles = ["faible", "moderee", "elevee"];
   const frequences = ["jamais", "occasionnelle", "reguliere"];
-  const longevites = ["courte", "moyenne", "longue", "tres_longue"];
+  const tailles = ["faible", "moderee", "elevee"];
   const couts = ["faible", "modere", "eleve"];
 
   function getOptions(cle: keyof Filtres): string[] {
@@ -187,141 +207,204 @@ export default function FormulaireFiltres({
 
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
+      {/* Barre de recherche */}
+      <div className="mb-4">
+        <label
+          htmlFor="recherche"
+          className="block text-sm font-medium text-gray-700 mb-1"
+        >
+          Rechercher une essence
+        </label>
+        <input
+          id="recherche"
+          type="text"
+          value={filtres.recherche}
+          onChange={(e) => mettreAJour("recherche", e.target.value)}
+          placeholder="Ex: Ch\u00eane, Erable, Buis..."
+          className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+        />
+      </div>
+
       <h2 className="text-lg font-semibold text-green-800 mb-4">Filtres</h2>
 
-      <div className="space-y-6">
-        {sections.map((section) => (
-          <div key={section}>
-            <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">
-              {section}
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {sectionsFiltres[section].map(({ cle, etiquette }) => {
-                const opts = getOptions(cle);
-                const isNumber =
-                  cle === "resistance_vent" ||
-                  cle === "resistance_chaleur_urbaine";
-                return (
-                  <div key={cle}>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      {etiquette}
-                    </label>
-                    <select
-                      value={filtres[cle]}
-                      onChange={(e) => mettreAJour(cle, e.target.value)}
-                      className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    >
-                      <option value="">Tous</option>
-                      {isNumber
-                        ? [1, 2, 3, 4, 5].map((n) => (
-                            <option key={n} value={n}>
-                              {"≥ ".repeat(n === 1 ? 0 : 0)}
-                              {n}/5
-                            </option>
-                          ))
-                        : opts.map((opt) => (
+      <div className="space-y-2">
+        {sections.map((section) => {
+          const ouvert = sectionsOuvertes[section] ?? false;
+          return (
+            <div
+              key={section}
+              className="border border-gray-200 rounded-lg overflow-hidden"
+            >
+              <button
+                onClick={() => toggleSection(section)}
+                className="w-full flex items-center justify-between px-4 py-3 bg-gray-50 hover:bg-gray-100 text-left"
+              >
+                <h3 className="text-sm font-semibold text-gray-700">
+                  {section}
+                </h3>
+                <svg
+                  className={`w-4 h-4 text-gray-500 transition-transform ${ouvert ? "rotate-180" : ""}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              {ouvert && (
+                <div className="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {sectionsFiltres[section].map(({ cle, etiquette }) => {
+                    const opts = getOptions(cle);
+                    return (
+                      <div key={cle}>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          {etiquette}
+                        </label>
+                        <select
+                          value={filtres[cle]}
+                          onChange={(e) => mettreAJour(cle, e.target.value)}
+                          className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        >
+                          <option value="">Tous</option>
+                          {opts.map((opt) => (
                             <option key={opt} value={opt}>
                               {opt}
                             </option>
                           ))}
-                    </select>
-                  </div>
-                );
-              })}
+                        </select>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
-          </div>
-        ))}
+          );
+        })}
 
-        <div>
-          <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">
-            Dimensions
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Hauteur min. (m)
-              </label>
-              <input
-                type="number"
-                min={0}
-                value={filtres.hauteur_min}
-                onChange={(e) => mettreAJour("hauteur_min", e.target.value)}
-                placeholder="0"
-                className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+        {/* Dimensions - toujours visible */}
+        <div className="border border-gray-200 rounded-lg overflow-hidden">
+          <button
+            onClick={() => toggleSection("Dimensions")}
+            className="w-full flex items-center justify-between px-4 py-3 bg-gray-50 hover:bg-gray-100 text-left"
+          >
+            <h3 className="text-sm font-semibold text-gray-700">Dimensions</h3>
+            <svg
+              className={`w-4 h-4 text-gray-500 transition-transform ${sectionsOuvertes["Dimensions"] ? "rotate-180" : ""}`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
               />
+            </svg>
+          </button>
+          {sectionsOuvertes["Dimensions"] && (
+            <div className="p-4 space-y-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div>
+                  <label className="block text-xs font-medium text-gray-600 mb-1">
+                    H. min (m)
+                  </label>
+                  <input
+                    type="number"
+                    min={0}
+                    value={filtres.hauteur_min}
+                    onChange={(e) => mettreAJour("hauteur_min", e.target.value)}
+                    placeholder="0"
+                    className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-gray-600 mb-1">
+                    H. max (m)
+                  </label>
+                  <input
+                    type="number"
+                    min={0}
+                    value={filtres.hauteur_max}
+                    onChange={(e) => mettreAJour("hauteur_max", e.target.value)}
+                    placeholder="50"
+                    className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-gray-600 mb-1">
+                    E. min (m)
+                  </label>
+                  <input
+                    type="number"
+                    min={0}
+                    value={filtres.envergure_min}
+                    onChange={(e) =>
+                      mettreAJour("envergure_min", e.target.value)
+                    }
+                    placeholder="0"
+                    className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-gray-600 mb-1">
+                    E. max (m)
+                  </label>
+                  <input
+                    type="number"
+                    min={0}
+                    value={filtres.envergure_max}
+                    onChange={(e) =>
+                      mettreAJour("envergure_max", e.target.value)
+                    }
+                    placeholder="30"
+                    className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-medium text-gray-600 mb-1">
+                    Rusticit\u00e9 min (\u00b0C)
+                  </label>
+                  <input
+                    type="number"
+                    value={filtres.rusticite_min}
+                    onChange={(e) =>
+                      mettreAJour("rusticite_min", e.target.value)
+                    }
+                    placeholder="-40"
+                    className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-gray-600 mb-1">
+                    Rusticit\u00e9 max (\u00b0C)
+                  </label>
+                  <input
+                    type="number"
+                    value={filtres.rusticite_max}
+                    onChange={(e) =>
+                      mettreAJour("rusticite_max", e.target.value)
+                    }
+                    placeholder="0"
+                    className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                  />
+                </div>
+              </div>
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Hauteur max. (m)
-              </label>
-              <input
-                type="number"
-                min={0}
-                value={filtres.hauteur_max}
-                onChange={(e) => mettreAJour("hauteur_max", e.target.value)}
-                placeholder="50"
-                className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Envergure min. (m)
-              </label>
-              <input
-                type="number"
-                min={0}
-                value={filtres.envergure_min}
-                onChange={(e) => mettreAJour("envergure_min", e.target.value)}
-                placeholder="0"
-                className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Envergure max. (m)
-              </label>
-              <input
-                type="number"
-                min={0}
-                value={filtres.envergure_max}
-                onChange={(e) => mettreAJour("envergure_max", e.target.value)}
-                placeholder="30"
-                className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-              />
-            </div>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Rusticité min. (°C)
-              </label>
-              <input
-                type="number"
-                value={filtres.rusticite_min}
-                onChange={(e) => mettreAJour("rusticite_min", e.target.value)}
-                placeholder="-40"
-                className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Rusticité max. (°C)
-              </label>
-              <input
-                type="number"
-                value={filtres.rusticite_max}
-                onChange={(e) => mettreAJour("rusticite_max", e.target.value)}
-                placeholder="0"
-                className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-              />
-            </div>
-          </div>
+          )}
         </div>
       </div>
 
       <button
         onClick={reinitialiser}
-        className="mt-6 text-sm text-green-700 hover:text-green-900 font-medium"
+        className="mt-4 text-sm text-green-700 hover:text-green-900 font-medium"
       >
         Effacer tous les filtres
       </button>
