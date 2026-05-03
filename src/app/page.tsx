@@ -167,7 +167,7 @@ export default function Accueil() {
         </>
       )}
 
-      {showScrollToResults && !chargement && (
+      {showScrollToResults && !chargement && filtresAppliques.length > 0 && (
         <button
           onClick={scrollToResults}
           className="fixed bottom-6 right-6 z-50 px-4 py-3 bg-green-700 text-white rounded-full shadow-lg text-sm font-medium hover:bg-green-800 transition-opacity"
