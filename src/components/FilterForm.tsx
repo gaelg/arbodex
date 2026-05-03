@@ -17,7 +17,6 @@ interface ChampSelect {
 
 const CHAMPS: ChampSelect[] = [
   // Essence (plus utilisé)
-  { cle: "type", etiquette: "Type (arbre/arbuste)", section: "L'essence" },
   { cle: "origine", etiquette: "Origine", section: "L'essence" },
 
   // Sol & Climat (priorité haute)
@@ -120,6 +119,8 @@ export default function FormulaireFiltres({
   filtres,
   onChange,
 }: Props) {
+  const sections = [...new Set(CHAMPS.map((c) => c.section))];
+
   const [sectionsOuvertes, setSectionsOuvertes] = useState<
     Record<string, boolean>
   >({
@@ -135,6 +136,11 @@ export default function FormulaireFiltres({
 
   const mettreAJour = (cle: keyof Filtres, valeur: string) => {
     onChange({ ...filtres, [cle]: valeur });
+    if (cle === "recherche" && valeur) {
+      const toutesFermees: Record<string, boolean> = {};
+      for (const s of sections) toutesFermees[s] = false;
+      setSectionsOuvertes(toutesFermees);
+    }
   };
 
   const reinitialiser = () => {
@@ -168,12 +174,13 @@ export default function FormulaireFiltres({
     });
   };
 
-  const sections = [...new Set(CHAMPS.map((c) => c.section))];
-
   const ouiNon = ["oui", "non"];
   const frequences = ["jamais", "occasionnelle", "reguliere"];
   const tailles = ["faible", "moderee", "elevee"];
   const couts = ["faible", "modere", "eleve"];
+
+  const formatOption = (opt: string) =>
+    opt.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
   function getOptions(cle: keyof Filtres): string[] {
     switch (cle) {
@@ -283,7 +290,7 @@ export default function FormulaireFiltres({
                           <option value="">Tous</option>
                           {opts.map((opt) => (
                             <option key={opt} value={opt}>
-                              {opt}
+                              {formatOption(opt)}
                             </option>
                           ))}
                         </select>
