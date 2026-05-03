@@ -31,14 +31,16 @@ function EmojiBadge({
   valeur,
   map,
   couleurs,
+  title,
 }: {
   valeur: string;
   map: Record<string, string>;
   couleurs?: Record<string, string>;
+  title?: string;
 }) {
   const emoji = map[valeur] || "✅";
   const couleur = couleurs?.[valeur] || "text-green-600";
-  return <span className={`text-sm ${couleur}`}>{emoji}</span>;
+  return <span className={`text-sm ${couleur}`} title={title}>{emoji}</span>;
 }
 
 function Badge({ texte, couleur }: { texte: string; couleur?: string }) {

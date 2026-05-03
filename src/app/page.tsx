@@ -243,7 +243,7 @@ export default function Accueil() {
         </div>
         <div className="mt-6 pt-4 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
           <p className="text-xs text-gray-400">
-            Arbodex v3 — Données fournies à titre indicatif. Toujours vérifier
+            Arbodex v4 — Données fournies à titre indicatif. Toujours vérifier
             auprès de votre pépiniériste pour la disponibilité et l
             &apos;adaptation locale.
           </p>
