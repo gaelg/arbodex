@@ -85,7 +85,7 @@ export default function Accueil() {
       const rect = el.getBoundingClientRect();
       // Afficher si on a scrolle assez et que la liste n'est pas visible
       set_show_scroll_to_results(
-        window.scroll_y > 400 && rect.top > window.innerHeight
+        window.scrollY > 400 && rect.top > window.innerHeight
       );
     };
     window.addEventListener("scroll", on_scroll);
