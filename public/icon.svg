@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- Fond vert (Pokéball haut) -->
-  <circle cx="50" cy="50" r="45" fill="#2E7D32" stroke="#000" stroke-width="3"/>
-  
-  <!-- Band noir central -->
+  <!-- Haut vert -->
+  <path d="M 50 5 A 45 45 0 0 1 50 95 Q 50 50 5 50 Z" fill="#2E7D32" stroke="#000" stroke-width="3"/>
+  <!-- Bas blanc -->
+  <path d="M 50 95 A 45 45 0 0 1 50 5 Q 50 50 5 50 Z" fill="#FFF" stroke="#000" stroke-width="3"/>
+  <!-- Bande noire -->
   <rect x="5" y="47" width="90" height="6" fill="#000"/>
-  
-  <!-- Bouton central (gris) -->
+  <!-- Bouton central gris -->
   <circle cx="50" cy="50" r="15" fill="#A0A0A0" stroke="#000" stroke-width="3"/>
   <circle cx="50" cy="50" r="8" fill="#C0C0C0" stroke="#000" stroke-width="2"/>
 </svg>
