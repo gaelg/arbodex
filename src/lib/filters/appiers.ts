@@ -64,27 +64,32 @@ function matchSearch(query: string, arbre: Arbre): boolean {
 const REGIONS: Record<string, { lat: number; lon: number }> = {
   "Hauts-de-France": { lat: 49.9, lon: 2.3 },
   "Île-de-France": { lat: 48.86, lon: 2.35 },
-  "Normandie": { lat: 49.18, lon: -0.37 },
+  Normandie: { lat: 49.18, lon: -0.37 },
   "Grand Est": { lat: 48.68, lon: 6.17 },
   "Bourgogne-Franche-Comté": { lat: 47.28, lon: 5.02 },
   "Centre-Val de Loire": { lat: 47.75, lon: 1.68 },
   "Pays de la Loire": { lat: 47.48, lon: -0.55 },
-  "Bretagne": { lat: 48.12, lon: -2.83 },
+  Bretagne: { lat: 48.12, lon: -2.83 },
   "Nouvelle-Aquitaine": { lat: 45.76, lon: 0.58 },
-  "Occitanie": { lat: 43.6, lon: 2.25 },
+  Occitanie: { lat: 43.6, lon: 2.25 },
   "Auvergne-Rhône-Alpes": { lat: 45.76, lon: 4.83 },
   "Provence-Alpes-Côte d'Azur": { lat: 43.53, lon: 5.43 },
-  "Corse": { lat: 42.03, lon: 9.01 },
+  Corse: { lat: 42.03, lon: 9.01 },
 };
 
 const HDF: { lat: number; lon: number } = REGIONS["Hauts-de-France"];
 const RAYON_MAX_KM = 700;
 
 // Calcul de distance haversine (km)
-function haversine(lat1: number, lon1: number, lat2: number, lon2: number): number {
+function haversine(
+  lat1: number,
+  lon1: number,
+  lat2: number,
+  lon2: number
+): number {
   const R = 6371;
-  const dLat = (lat2 - lat1) * Math.PI / 180;
-  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLon = ((lon2 - lon1) * Math.PI) / 180;
   const a =
     Math.sin(dLat / 2) * Math.sin(dLat / 2) +
     Math.cos((lat1 * Math.PI) / 180) *
@@ -102,7 +107,7 @@ function isPresqueLocal(arbre: Arbre): boolean {
     return arbre.origine === "presque_local";
   }
 
-  const regions = arbre.regions_natives.split(",").map(r => r.trim());
+  const regions = arbre.regions_natives.split(",").map((r) => r.trim());
   for (const reg of regions) {
     const coord = REGIONS[reg];
     if (coord) {
@@ -190,7 +195,10 @@ export function applyAllFilters(
         }
         continue;
       }
-      if (filters[config.key] && !applyFilter(arbre, config, filters[config.key])) {
+      if (
+        filters[config.key] &&
+        !applyFilter(arbre, config, filters[config.key])
+      ) {
         return false;
       }
     }
