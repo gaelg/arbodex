@@ -46,6 +46,10 @@ export interface Arbre {
   cout_entretien: string;
   // Nouveau : aire de répartition native (pour presque_local)
   regions_natives?: string; // ex: "Hauts-de-France,Pays de la Loire"
+  // Photos fiables (URLs)
+  photos_port?: string;
+  photos_fleurs?: string;
+  photos_fruits?: string;
 }
 
 export interface Filtres {
