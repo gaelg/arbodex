@@ -1,13 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- Cercle rouge Pokéball -->
-  <circle cx="50" cy="50" r="45" fill="#EE1515" stroke="#000" stroke-width="3"/>
-  <rect x="5" y="48" width="90" height="4" fill="#000"/>
+  <!-- Pokéball style avec vert (arbre) au lieu de rouge -->
+  <!-- Moitié haute verte -->
+  <path d="M 50,5 A 45,45 0 0,1 50,95 A 45,45 0 0,1 50,5 Z" fill="#2E7D32" stroke="#000" stroke-width="3"/>
+  <!-- Moitié basse blanche -->
+  <path d="M 50,95 A 45,45 0 0,1 50,5 A 45,45 0 0,1 50,95 Z" fill="#FFF" stroke="#000" stroke-width="3"/>
+  <!-- Band noire centrale -->
+  <rect x="5" y="47" width="90" height="6" fill="#000"/>
+  <!-- Bouton central avec icône arbre -->
   <circle cx="50" cy="50" r="15" fill="#FFF" stroke="#000" stroke-width="3"/>
-  <circle cx="50" cy="50" r="8" fill="#FFF" stroke="#000" stroke-width="2"/>
-  
-  <!-- Silhouette arbre (vert) -->
-  <rect x="47" y="35" width="6" height="25" fill="#2E7D32" rx="1"/>
-  <circle cx="50" cy="25" r="18" fill="#2E7D32" opacity="0.9"/>
-  <circle cx="40" cy="30" r="12" fill="#2E7D32" opacity="0.7"/>
-  <circle cx="60" cy="30" r="12" fill="#2E7D32" opacity="0.7"/>
+  <circle cx="50" cy="50" r="8" fill="#2E7D32" stroke="#000" stroke-width="2"/>
+  <!-- Petite silhouette arbre dans le bouton -->
+  <rect x="48" y="42" width="4" height="10" fill="#FFF" rx="1"/>
+  <circle cx="50" cy="38" r="6" fill="#FFF"/>
 </svg>
