@@ -148,3 +148,4 @@ interface BeforeInstallPromptEvent extends Event {
   prompt: () => void;
   userChoice: Promise<{ outcome: "accepted" | "dismissed" }>;
 }
+// Force redeploy lun. 04 mai 2026 19:10:01 CEST
