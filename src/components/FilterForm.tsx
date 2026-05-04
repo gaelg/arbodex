@@ -151,7 +151,9 @@ export default function FormulaireFiltres({
                         </label>
                         <select
                           value={value}
-                          onChange={(e) => mettreAJour(config.key, e.target.value)}
+                          onChange={(e) =>
+                            mettreAJour(config.key, e.target.value)
+                          }
                           className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                         >
                           <option value="">Tous</option>
@@ -234,7 +236,9 @@ export default function FormulaireFiltres({
                     type="number"
                     min={0}
                     value={filtres.envergure_min}
-                    onChange={(e) => mettreAJour("envergure_min", e.target.value)}
+                    onChange={(e) =>
+                      mettreAJour("envergure_min", e.target.value)
+                    }
                     placeholder="0"
                     className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
                   />
@@ -247,7 +251,9 @@ export default function FormulaireFiltres({
                     type="number"
                     min={0}
                     value={filtres.envergure_max}
-                    onChange={(e) => mettreAJour("envergure_max", e.target.value)}
+                    onChange={(e) =>
+                      mettreAJour("envergure_max", e.target.value)
+                    }
                     placeholder="30"
                     className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
                   />
@@ -261,7 +267,9 @@ export default function FormulaireFiltres({
                   <input
                     type="number"
                     value={filtres.rusticite_min}
-                    onChange={(e) => mettreAJour("rusticite_min", e.target.value)}
+                    onChange={(e) =>
+                      mettreAJour("rusticite_min", e.target.value)
+                    }
                     placeholder="-40"
                     className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
                   />
@@ -273,7 +281,9 @@ export default function FormulaireFiltres({
                   <input
                     type="number"
                     value={filtres.rusticite_max}
-                    onChange={(e) => mettreAJour("rusticite_max", e.target.value)}
+                    onChange={(e) =>
+                      mettreAJour("rusticite_max", e.target.value)
+                    }
                     placeholder="0"
                     className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
                   />

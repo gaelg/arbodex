@@ -50,7 +50,12 @@ describe("Système de filtres encapsulé", () => {
   it("Types de filtres sont valides", () => {
     FILTERS.forEach((f: FilterConfig) => {
       expect([
-        "exact", "partial", "range", "relative", "numeric", "search"
+        "exact",
+        "partial",
+        "range",
+        "relative",
+        "numeric",
+        "search",
       ]).toContain(f.type);
     });
   });
@@ -58,7 +63,9 @@ describe("Système de filtres encapsulé", () => {
   it("Filtres relatifs ont une échelle ordonnée", () => {
     const f = getFilterByKey("resistance_secheresse");
     expect(f?.order).toBeDefined();
-    expect((f?.order as any)["faible"]).toBeLessThan((f?.order as any)["excellente"]);
+    expect((f?.order as any)["faible"]).toBeLessThan(
+      (f?.order as any)["excellente"]
+    );
   });
 
   it("Filtres écosystémiques présents", () => {

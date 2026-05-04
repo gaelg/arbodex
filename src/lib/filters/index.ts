@@ -1,4 +1,10 @@
-export { FILTERS, getFilterByKey, getFiltersBySection, getAllSections, getDefaultFiltersState } from "./registry";
+export {
+  FILTERS,
+  getFilterByKey,
+  getFiltersBySection,
+  getAllSections,
+  getDefaultFiltersState,
+} from "./registry";
 export type { FilterConfig, FilterType, FiltersState } from "./types";
 export { applyFilter, applyAllFilters } from "./appiers";
 import { Arbre } from "../trees";
