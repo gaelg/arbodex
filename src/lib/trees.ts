@@ -88,6 +88,17 @@ export interface Filtres {
 }
 
 export async function chargerArbres(): Promise<Arbre[]> {
+  // Essayer d'abord via API SQLite (serveur)
+  try {
+    const res = await fetch("/api/trees");
+    if (res.ok) {
+      return await res.json();
+    }
+  } catch (e) {
+    console.warn("API /api/trees indisponible, fallback CSV", e);
+  }
+
+  // Fallback : lire le CSV directement
   const res = await fetch("/trees.csv");
   const csv = await res.text();
   const resultat = Papa.parse<Arbre>(csv, {
