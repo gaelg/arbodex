@@ -36,7 +36,7 @@ export default function Header({
       {!installed && !installable && (
         <div className="mb-6 bg-amber-50 border border-amber-200 rounded-xl p-4">
           <h3 className="font-semibold text-amber-800 text-sm">
-            📱 Installer Arbodex comme application
+            Installer Arbodex comme application
           </h3>
           <div className="mt-2 text-sm text-amber-700 space-y-1">
             <p>

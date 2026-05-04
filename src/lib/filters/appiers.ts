@@ -60,11 +60,57 @@ function matchSearch(query: string, arbre: Arbre): boolean {
   );
 }
 
-// Calculateur "presque_local" (à implementer avec coordonnées GPS + rayon 700km)
-// Pour l'instant : retourne la valeur du champ
-function computeOrigine(arbre: Arbre): string {
-  return arbre.origine; // TODO: calculer distance HDF < 700km
+// Coordonnées du centre des Hauts-de-France (Amiens)
+const HDF_LAT = 49.9;
+const HDF_LON = 2.3;
+const RAYON_MAX_KM = 700;
+
+// Calcul de distance haversine (km) entre deux points GPS
+function haversine(lat1: number, lon1: number, lat2: number, lon2: number): number {
+  const R = 6371; // Rayon Terre en km
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLon = ((lon2 - lon1) * Math.PI) / 180;
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos((lat1 * Math.PI) / 180) *
+      Math.cos((lat2 * Math.PI) / 180) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
 }
+
+// Coordonnées GPS par région (pour calcul d'origine)
+const COORD_REGIONS: Record<string, { lat: number; lon: number }> = {
+  "Hauts-de-France": { lat: 49.9, lon: 2.3 },
+  "Île-de-France": { lat: 48.86, lon: 2.35 },
+  "Normandie": { lat: 49.18, lon: -0.37 },
+  "Grand Est": { lat: 48.68, lon: 6.17 },
+  "Bourgogne-Franche-Comté": { lat: 47.28, lon: 5.02 },
+  "Pays de la Loire": { lat: 47.48, lon: -0.55 },
+  "Bretagne": { lat: 48.12, lon: -2.83 },
+  "Nouvelle-Aquitaine": { lat: 45.76, lon: 0.58 },
+  "Occitanie": { lat: 43.6, lon: 2.25 },
+  "Auvergne-Rhône-Alpes": { lat: 45.76, lon: 4.83 },
+  "Provence-Alpes-Côte d'Azur": { lat: 43.53, lon: 5.43 },
+  "Corse": { lat: 42.03, lon: 9.01 },
+  "Centre-Val de Loire": { lat: 47.75, lon: 1.68 },
+};
+
+// Calcule l'origine réelle (local/presque_local/vraiment_exotique)
+// Pour l'instant, on utilise le champ existant + logique si besoin
+function computeOrigine(arbre: Arbre): string {
+  // Si déjà "local" ou "vraiment_exotique", on garde
+  if (arbre.origine === "local") return "local";
+  if (arbre.origine === "vraiment_exotique") return "vraiment_exotique";
+
+  // Pour "presque_local", on pourrait calculer la distance
+  // Mais comme on a déjà le champ, on le retourne
+  return arbre.origine;
+}
+
+// TODO: Ajouter coordonnées GPS dans Arbre interface pour calcul précis
+// Pour l'instant, on se base sur le champ 'origine' du CSV
 
 // Applique UN filtre selon son type
 export function applyFilter(

@@ -38,7 +38,7 @@ function EmojiBadge({
   couleurs?: Record<string, string>;
   title?: string;
 }) {
-  const emoji = map[valeur] || "✅";
+  const emoji = map[valeur] || "";
   const couleur = couleurs?.[valeur] || "text-green-600";
   return (
     <span className={`text-sm ${couleur}`} title={title}>
@@ -142,7 +142,7 @@ export default function ListeArbres({ arbres }: Props) {
                 <div className="flex gap-2 text-xs">
                   <EmojiBadge
                     valeur={arbre.type}
-                    map={{ arbre: "🌳", arbuste: "🌿" }}
+                    map={{ arbre: "", arbuste: "" }}
                     couleurs={{
                       arbre: "text-green-700",
                       arbuste: "text-green-600",
@@ -151,7 +151,7 @@ export default function ListeArbres({ arbres }: Props) {
                   />
                   <EmojiBadge
                     valeur={arbre.pollen_allergisant}
-                    map={{ fort: "🤧", moyen: "🤢", faible: "✅" }}
+                    map={{ fort: "", moyen: "", faible: "" }}
                     couleurs={{
                       fort: "text-red-600",
                       moyen: "text-orange-500",
