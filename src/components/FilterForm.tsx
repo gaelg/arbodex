@@ -19,32 +19,46 @@ const CHAMPS: ChampSelect[] = [
   // Essence
   { cle: "origine", étiquette: "Origine", section: "Essence" },
 
-  // Sol & Climat
+  // Sol
+  { cle: "type_sol", étiquette: "Type de sol", section: "Sol" },
+  { cle: "pH", étiquette: "pH", section: "Sol" },
+
+  // Climat
   {
-    cle: "résistance_secheresse",
+    cle: "resistance_secheresse",
     étiquette: "Résistance sécheresse",
-    section: "Sol & Climat",
+    section: "Climat",
   },
   {
-    cle: "résistance_vent",
+    cle: "resistance_vent",
     étiquette: "Résistance vent",
-    section: "Sol & Climat",
+    section: "Climat",
   },
   {
-    cle: "résistance_chaleur_urbaine",
+    cle: "resistance_chaleur_urbaine",
     étiquette: "Chaleur urbaine",
-    section: "Sol & Climat",
+    section: "Climat",
   },
   {
     cle: "adapte_changement_climatique",
     étiquette: "Adapté changement climatique",
-    section: "Sol & Climat",
+    section: "Climat",
   },
 
   // Services écosystémiques
   {
     cle: "mellifere",
     étiquette: "Mellifère",
+    section: "Services écosystémiques",
+  },
+  {
+    cle: "ombrage_fort",
+    étiquette: "Ombrage",
+    section: "Services écosystémiques",
+  },
+  {
+    cle: "rafraichissement_fort",
+    étiquette: "Rafraîchissement",
     section: "Services écosystémiques",
   },
 
@@ -151,14 +165,16 @@ export default function FormulaireFiltres({
       type: "",
       origine: "",
       type_sol: "",
-      résistance_secheresse: "",
+      resistance_secheresse: "",
       pH: "",
       rusticite_min: "",
       rusticite_max: "",
-      résistance_vent: "",
-      résistance_chaleur_urbaine: "",
+      resistance_vent: "",
+      resistance_chaleur_urbaine: "",
       adapte_changement_climatique: "",
       mellifere: "",
+      ombrage_fort: "",
+      rafraichissement_fort: "",
       fruitiere_sauvage: "",
       floraison_remarquable: "",
       couleur_automnale: "",
@@ -192,12 +208,14 @@ export default function FormulaireFiltres({
         return optionsUniques(arbres, "type");
       case "type_sol":
         return optionsUniques(arbres, "type_sol");
-      case "résistance_secheresse":
-        return optionsUniques(arbres, "résistance_secheresse");
+      case "resistance_secheresse":
+        return optionsUniques(arbres, "resistance_secheresse");
       case "pH":
         return optionsUniques(arbres, "pH");
       case "adapte_changement_climatique":
       case "mellifere":
+      case "ombrage_fort":
+      case "rafraichissement_fort":
       case "fruitiere_sauvage":
       case "floraison_remarquable":
       case "couleur_automnale":
@@ -405,7 +423,7 @@ export default function FormulaireFiltres({
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-medium text-gray-600 mb-1">
-                    Rusticit\u00e9 min (\u00b0C)
+                    Rusticité min (°C)
                   </label>
                   <input
                     type="number"
@@ -419,7 +437,7 @@ export default function FormulaireFiltres({
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-gray-600 mb-1">
-                    Rusticit\u00e9 max (\u00b0C)
+                    Rusticité max (°C)
                   </label>
                   <input
                     type="number"

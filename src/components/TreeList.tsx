@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Arbre } from "@/lib/trees";
 
-function formatOption(opt: string) {
+export function formatOption(opt: string) {
   return opt
     .replace(/_/g, " ")
     .replace(/\b\w/g, (c) => c.toUpperCase())
@@ -21,7 +21,7 @@ function formatOption(opt: string) {
     .replace("Non", "Non");
 }
 
-type VueType = "cartes" | "liste" | "tableau";
+  type VueType = "fiches" | "liste" | "tableau";
 
 interface Props {
   arbres: Arbre[];
@@ -96,21 +96,21 @@ export default function ListeArbres({ arbres }: Props) {
         <p className="text-sm text-gray-500">
           {arbres.length} essence(s) trouvée(s)
         </p>
-        <div className="flex gap-1 bg-gray-100 rounded-lg p-1">
-          {(["cartes", "liste", "tableau"] as VueType[]).map((v) => (
-            <button
-              key={v}
-              onClick={() => setVue(v)}
-              className={`px-3 py-1 text-xs rounded-md transition-colors ${
-                vue === v
-                  ? "bg-white text-green-800 shadow-sm"
-                  : "text-gray-500 hover:text-gray-700"
-              }`}
-            >
-              {v.charAt(0).toUpperCase() + v.slice(1)}
-            </button>
-          ))}
-        </div>
+         <div className="flex gap-1 bg-gray-100 rounded-lg p-1">
+           {(["liste", "fiches", "tableau"] as VueType[]).map((v) => (
+             <button
+               key={v}
+               onClick={() => setVue(v)}
+               className={`px-3 py-1 text-xs rounded-md transition-colors ${
+                 vue === v
+                   ? "bg-white text-green-800 shadow-sm"
+                   : "text-gray-500 hover:text-gray-700"
+               }`}
+             >
+               {v === "fiches" ? "Fiches" : v.charAt(0).toUpperCase() + v.slice(1)}
+             </button>
+           ))}
+         </div>
       </div>
 
       {vue === "liste" && (
@@ -210,7 +210,7 @@ export default function ListeArbres({ arbres }: Props) {
                     <span className="font-medium text-gray-700">
                       Sécheresse :
                     </span>{" "}
-                    {arbre.résistance_secheresse}
+                    {arbre.resistance_secheresse}
                   </p>
                   <p>
                     <span className="font-medium text-gray-700">
@@ -354,7 +354,7 @@ export default function ListeArbres({ arbres }: Props) {
                     </span>
                   </td>
                   <td className="px-3 py-2 text-xs">
-                    {arbre.résistance_secheresse}
+                    {arbre.resistance_secheresse}
                   </td>
                   <td className="px-3 py-2">
                     <span
@@ -376,7 +376,7 @@ export default function ListeArbres({ arbres }: Props) {
         </div>
       )}
 
-      {vue === "cartes" && (
+      {vue === "fiches" && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {arbres.map((arbre, i) => (
             <div
@@ -442,27 +442,27 @@ export default function ListeArbres({ arbres }: Props) {
                   <span className="font-medium text-gray-700">Sol :</span>{" "}
                   {arbre.type_sol} (pH {arbre.pH})
                 </p>
-                <p>
-                  <span className="font-medium text-gray-700">
-                    Sécheresse :
-                  </span>{" "}
-                  {arbre.résistance_secheresse}
-                </p>
-                <p>
-                  <span className="font-medium text-gray-700">Rusticité :</span>{" "}
-                  {arbre.rusticite_min_C}°C
-                </p>
+                  <p>
+                    <span className="font-medium text-gray-700">
+                      Sécheresse :
+                    </span>{" "}
+                    {arbre.resistance_secheresse}
+                  </p>
+                  <p>
+                    <span className="font-medium text-gray-700">Rusticité :</span>{" "}
+                    {arbre.rusticite_min_C}°C
+                  </p>
 
-                <div className="pt-1 space-y-1">
-                  <Barre
-                    niveau={arbre.résistance_vent}
-                    label="Résistance vent"
-                  />
-                  <Barre
-                    niveau={arbre.résistance_chaleur_urbaine}
-                    label="Chaleur urbaine"
-                  />
-                </div>
+                  <div className="pt-1 space-y-1">
+                    <Barre
+                      niveau={arbre.resistance_vent}
+                      label="Résistance vent"
+                    />
+                    <Barre
+                      niveau={arbre.resistance_chaleur_urbaine}
+                      label="Chaleur urbaine"
+                    />
+                  </div>
 
                 <div className="flex flex-wrap gap-1 pt-1">
                   <Badge
