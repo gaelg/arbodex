@@ -58,7 +58,10 @@ describe("Non-régressions composants", () => {
   });
 
   it("sensibilite_maladies : la valeur est bien comparée avec accent", () => {
-    const filtres: Filtres = { ...getFiltresVides(), sensibilite_maladies: "moderee" };
+    const filtres: Filtres = {
+      ...getFiltresVides(),
+      sensibilite_maladies: "moderee",
+    };
     const resultat = appliquerFiltres([ARBRE_AVEC_BARRES], filtres);
     expect(resultat).toHaveLength(1);
   });
@@ -82,22 +85,34 @@ describe("Non-régressions composants", () => {
   it("filtre rafraichissement_fort retourne des résultats", () => {
     const arbres: Arbre[] = [
       { ...ARBRE_AVEC_BARRES, rafraichissement_fort: "fort" },
-      { ...ARBRE_AVEC_BARRES, nom_commun: "Test2", rafraichissement_fort: "faible" },
+      {
+        ...ARBRE_AVEC_BARRES,
+        nom_commun: "Test2",
+        rafraichissement_fort: "faible",
+      },
     ];
     const avecRafraichissement = arbres.filter(
-      (a) => a.rafraichissement_fort === "fort" || a.rafraichissement_fort === "moyen"
+      (a) =>
+        a.rafraichissement_fort === "fort" ||
+        a.rafraichissement_fort === "moyen"
     );
     expect(avecRafraichissement.length).toBeGreaterThan(0);
   });
 
   // --- Branches fragiles / racines ---
   it("branches_fragiles : oui doit être considéré comme inconvénient", () => {
-    const arbreDanger: Arbre = { ...ARBRE_AVEC_BARRES, branches_fragiles: "oui" };
+    const arbreDanger: Arbre = {
+      ...ARBRE_AVEC_BARRES,
+      branches_fragiles: "oui",
+    };
     expect(arbreDanger.branches_fragiles).toBe("oui");
   });
 
   it("racines_devastatrices : oui doit être considéré comme inconvénient", () => {
-    const arbreDanger: Arbre = { ...ARBRE_AVEC_BARRES, racines_devastatrices: "oui" };
+    const arbreDanger: Arbre = {
+      ...ARBRE_AVEC_BARRES,
+      racines_devastatrices: "oui",
+    };
     expect(arbreDanger.racines_devastatrices).toBe("oui");
   });
 

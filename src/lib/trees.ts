@@ -183,7 +183,10 @@ export function appliquerFiltres(arbres: Arbre[], filtres: Filtres): Arbre[] {
         return false;
       if (!correspond(filtres.mellifere, arbre.mellifere)) return false;
       if (!correspond(filtres.ombrage_fort, arbre.ombrage_fort)) return false;
-      if (!correspond(filtres.rafraichissement_fort, arbre.rafraichissement_fort)) return false;
+      if (
+        !correspond(filtres.rafraichissement_fort, arbre.rafraichissement_fort)
+      )
+        return false;
       if (!correspond(filtres.fruitiere_sauvage, arbre.fruitiere_sauvage))
         return false;
       if (

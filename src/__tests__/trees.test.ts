@@ -182,53 +182,52 @@ const ARBRES_TEST: Arbre[] = [
     longevite: "tres_longue",
     cout_entretien: "faible",
   },
-   {
-     nom_commun: "Buis commun",
-     nom_scientifique: "Buxus sempervirens",
-     famille: "Buxacées",
-     origine: "local",
-     type: "arbuste",
-     hauteur_min_m: 1,
-     hauteur_max_m: 5,
-     envergure_min_m: 1,
-     envergure_max_m: 3,
-     port: "arrondi",
-     type_sol: "Calcaire",
+  {
+    nom_commun: "Buis commun",
+    nom_scientifique: "Buxus sempervirens",
+    famille: "Buxacées",
+    origine: "local",
+    type: "arbuste",
+    hauteur_min_m: 1,
+    hauteur_max_m: 5,
+    envergure_min_m: 1,
+    envergure_max_m: 3,
+    port: "arrondi",
+    type_sol: "Calcaire",
     resistance_secheresse: "moyenne",
-     pH: "basique",
-     tolerance_sel: "oui",
-     rusticite_min_C: -15,
+    pH: "basique",
+    tolerance_sel: "oui",
+    rusticite_min_C: -15,
     resistance_vent: 3,
     resistance_chaleur_urbaine: 4,
-     adapte_changement_climatique: "oui",
-     mellifere: "oui",
-     fruitiere_sauvage: "non",
-     refuge_oiseaux: "oui",
-     floraison_remarquable: "non",
-     couleur_automnale: "non",
-     ecorce_decorative: "non",
-     stockage_carbone: "faible",
-     resilience: "moderee",
-     impact_icu: "moyen",
-     biodiversite: "moyenne",
-     qualite_air: "bonne",
-     potentiel_allergisant: "faible",
-     ombrage_fort: "non",
-     rafraichissement_fort: "faible",
-     biodiversite_service: "moyenne",
-     type_racines: "fasciculées",
-     allergie_service: "faible",
-     fruits_salissants: "non",
-     pollen_allergisant: "faible",
-     branches_fragiles: "non",
-     racines_devastatrices: "non",
-     frequence_taille: "reguliere",
-     sensibilite_maladies: "moderee",
-     longevite: "longue",
-     cout_entretien: "modere",
-   },
- ];
-
+    adapte_changement_climatique: "oui",
+    mellifere: "oui",
+    fruitiere_sauvage: "non",
+    refuge_oiseaux: "oui",
+    floraison_remarquable: "non",
+    couleur_automnale: "non",
+    ecorce_decorative: "non",
+    stockage_carbone: "faible",
+    resilience: "moderee",
+    impact_icu: "moyen",
+    biodiversite: "moyenne",
+    qualite_air: "bonne",
+    potentiel_allergisant: "faible",
+    ombrage_fort: "non",
+    rafraichissement_fort: "faible",
+    biodiversite_service: "moyenne",
+    type_racines: "fasciculées",
+    allergie_service: "faible",
+    fruits_salissants: "non",
+    pollen_allergisant: "faible",
+    branches_fragiles: "non",
+    racines_devastatrices: "non",
+    frequence_taille: "reguliere",
+    sensibilite_maladies: "moderee",
+    longevite: "longue",
+    cout_entretien: "modere",
+  },
+];
 
 describe("appliquerFiltres", () => {
   const filtresVides: Filtres = {
@@ -412,7 +411,9 @@ describe("appliquerFiltres", () => {
   });
 
   it("presque_local : l'essence est correctement catégorisée", () => {
-    const presqueLocal = ARBRES_TEST.filter((a) => a.origine === "presque_local");
+    const presqueLocal = ARBRES_TEST.filter(
+      (a) => a.origine === "presque_local"
+    );
     expect(presqueLocal).toHaveLength(1);
     expect(presqueLocal[0].nom_commun).toBe("Ginkgo");
   });
@@ -459,7 +460,10 @@ describe("appliquerFiltres", () => {
 
   it("résistance chaleur urbaine : filtres numériques retournent des résultats", () => {
     for (let v = 1; v <= 5; v++) {
-      const f: Filtres = { ...filtresVides, resistance_chaleur_urbaine: String(v) };
+      const f: Filtres = {
+        ...filtresVides,
+        resistance_chaleur_urbaine: String(v),
+      };
       const r = appliquerFiltres(ARBRES_TEST, f);
       expect(r.length).toBeGreaterThanOrEqual(0);
     }
@@ -498,7 +502,8 @@ describe("appliquerFiltres", () => {
     const f: Filtres = { ...filtresVides, recherche: "" };
     const tous = appliquerFiltres(ARBRES_TEST, f);
     const avecRafraichissement = tous.filter(
-      (a) => a.rafraichissement_fort === "oui" || a.rafraichissement_fort === "moyen"
+      (a) =>
+        a.rafraichissement_fort === "oui" || a.rafraichissement_fort === "moyen"
     );
     expect(avecRafraichissement.length).toBeGreaterThan(0);
   });
@@ -558,13 +563,24 @@ describe("appliquerFiltres", () => {
   it("CHAMPS utilise les bonnes clés système (sans accents)", () => {
     // Mock simple pour vérifier que les clés correspondent à l'interface Filtres
     const clesValides: (keyof Filtres)[] = [
-      "origine", "resistance_secheresse", "resistance_vent",
-      "resistance_chaleur_urbaine", "adapte_changement_climatique",
-      "mellifere", "ombrage_fort", "rafraichissement_fort",
-      "fruitiere_sauvage", "floraison_remarquable", "couleur_automnale",
-      "pollen_allergisant", "fruits_salissants", "branches_fragiles",
-      "racines_devastatrices", "frequence_taille", "sensibilite_maladies",
-      "cout_entretien"
+      "origine",
+      "resistance_secheresse",
+      "resistance_vent",
+      "resistance_chaleur_urbaine",
+      "adapte_changement_climatique",
+      "mellifere",
+      "ombrage_fort",
+      "rafraichissement_fort",
+      "fruitiere_sauvage",
+      "floraison_remarquable",
+      "couleur_automnale",
+      "pollen_allergisant",
+      "fruits_salissants",
+      "branches_fragiles",
+      "racines_devastatrices",
+      "frequence_taille",
+      "sensibilite_maladies",
+      "cout_entretien",
     ];
     clesValides.forEach((cle) => {
       expect(typeof cle).toBe("string");
