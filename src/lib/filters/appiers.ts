@@ -199,3 +199,4 @@ export function applyAllFilters(
     return true;
   });
 }
+// formatage
