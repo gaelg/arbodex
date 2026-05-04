@@ -118,6 +118,65 @@ function isPresqueLocal(arbre: Arbre): boolean {
   return false;
 }
 
+// Parse le champ type_sol pour extraire les propriétés agronomiques
+function getSoilProperties(typeSol: string, pH?: string): Record<string, string[]> {
+  const props: Record<string, string[]> = {
+    acidity: [],
+    moisture: [],
+    texture: [],
+    richness: [],
+    depth: [],
+    drainage: [],
+  };
+
+  if (!typeSol || typeSol === "tous types") {
+    // Tous types = tout est valide
+    return props;
+  }
+
+  const lower = typeSol.toLowerCase();
+
+  // Acidité - depuis pH d'abord, puis type_sol
+  if (pH) {
+    const pHLower = pH.toLowerCase();
+    if (pHLower.includes("acide")) props.acidity.push("Acide");
+    else if (pHLower.includes("basique") || pHLower.includes("calcaire")) props.acidity.push("Calcaire");
+    else if (pHLower.includes("neutre")) props.acidity.push("Neutre");
+  }
+  if (props.acidity.length === 0) {
+    if (lower.includes("acide")) props.acidity.push("Acide");
+    if (lower.includes("calcaire")) props.acidity.push("Calcaire");
+    if (props.acidity.length === 0) props.acidity.push("Neutre");
+  }
+
+  // Humidité
+  if (lower.includes("sec")) props.moisture.push("Sec");
+  if (lower.includes("frais")) props.moisture.push("Frais");
+  if (lower.includes("humide")) props.moisture.push("Humide");
+
+  // Texture
+  if (lower.includes("argileux")) props.texture.push("Argileux");
+  if (lower.includes("limoneux")) props.texture.push("Limoneux");
+  if (lower.includes("sableux")) props.texture.push("Sablonneux");
+
+  // Richesse
+  if (lower.includes("humif")) props.richness.push("Humifère");
+  if (lower.includes("fertile")) props.richness.push("Moyen");
+  if (lower.includes("pauvre")) props.richness.push("Pauvre");
+
+  // Profondeur
+  if (!lower.includes("profond")) props.depth.push("Peu profond");
+  // Si profond ou tous types, pas de restriction
+
+  // Drainage - si pas d'info, tout est valide (tableau vide)
+  if (lower.includes("bien drainé") || lower.includes("drainé")) {
+    props.drainage.push("Bon");
+  }
+  // Si pas de mention de drainage, on ne push rien (tout est valide)
+
+  return props;
+}
+
 // Applique UN filtre selon son type
 export function applyFilter(
   arbre: Arbre,
@@ -137,6 +196,25 @@ export function applyFilter(
       return matchNumeric(value, Number(fieldValue));
     case "search":
       return matchSearch(value, arbre);
+    case "multi":
+      // value est une chaîne d'options séparées par des virgules
+      if (!value) return true;
+      const selected = value.split(",").filter(Boolean);
+      if (selected.length === 0) return true;
+
+      // Pour les filtres sol, on parse type_sol
+      if (config.key.startsWith("sol_")) {
+        const soilProps = getSoilProperties(arbre.type_sol);
+        const propKey = config.key.replace("sol_", "");
+        const arbreValues = soilProps[propKey] || [];
+
+        // Si arbre a une valeur vide (tous types), tout passe
+        if (arbreValues.length === 0) return true;
+
+        // Vérifie si au moins une valeur de l'arbre correspond aux sélections
+        return selected.some((s) => arbreValues.includes(s));
+      }
+      return true;
     default:
       return true;
   }
@@ -195,6 +273,19 @@ export function applyAllFilters(
         }
         continue;
       }
+
+        // Gestion spéciale pour pH (champ séparé dans Arbre)
+      if (config.key === "sol_acidity" && filters[config.key]) {
+        const selected = filters[config.key].split(",").filter(Boolean);
+        if (selected.length > 0) {
+          const soilProps = getSoilProperties(arbre.type_sol, arbre.pH);
+          if (!selected.some(s => soilProps.acidity.includes(s))) {
+            return false;
+          }
+        }
+        continue;
+      }
+
       if (
         filters[config.key] &&
         !applyFilter(arbre, config, filters[config.key])
@@ -207,10 +298,9 @@ export function applyAllFilters(
   });
 }
 
-// Calcule l'origine réelle (local/presque_local/vraiment_exotique)
+// Calcule l'origine réelle pour le filtrage
 function computeOrigine(arbre: Arbre): string {
-  if (arbre.origine === "local") return "local";
-  if (arbre.origine === "vraiment_exotique") return "vraiment_exotique";
-  if (isPresqueLocal(arbre)) return "presque_local";
-  return "vraiment_exotique";
+  if (arbre.origine === "local") return "Endémique";
+  // presque_local ou vraiment_exotique -> Europe de l'Ouest
+  return "Europe de l'Ouest";
 }

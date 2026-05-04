@@ -4,7 +4,8 @@ export type FilterType =
   | "range" // Intervalle numérique (hauteur: 15-25m)
   | "relative" // Échelle ordonnée (faible ≤ moyen ≤ fort)
   | "numeric" // Comparaison numérique directe (vent ≥ 4)
-  | "search"; // Recherche textuelle avec normalisation accents
+  | "search" // Recherche textuelle avec normalisation accents
+  | "multi"; // Cases à cocher (plusieurs choix possibles)
 
 export interface FilterConfig {
   key: string; // Clé système (ex: "origine")

@@ -18,9 +18,9 @@ export interface Arbre {
   rusticite_min_C: number;
   resistance_vent: number;
   resistance_chaleur_urbaine: number;
-  adapté_changement_climatique: string;
+  adapte_changement_climatique: string;
   mellifere: string;
-  fruitiere_sauvage: string;
+  fruitière_sauvage: string;
   refuge_oiseaux: string;
   floraison_remarquable: string;
   couleur_automnale: string;
@@ -67,11 +67,11 @@ export interface Filtres {
   rusticite_max: string;
   resistance_vent: string;
   resistance_chaleur_urbaine: string;
-  adapté_changement_climatique: string;
+  adapte_changement_climatique: string;
   mellifere: string;
   ombrage_fort: string;
   rafraichissement_fort: string;
-  fruitiere_sauvage: string;
+  fruitière_sauvage: string;
   floraison_remarquable: string;
   couleur_automnale: string;
   pollen_allergisant: string;
@@ -186,8 +186,8 @@ export function appliquerFiltres(arbres: Arbre[], filtres: Filtres): Arbre[] {
         return false;
       if (
         !correspond(
-          filtres.adapté_changement_climatique,
-          arbre.adapté_changement_climatique
+          filtres.adapte_changement_climatique,
+          arbre.adapte_changement_climatique
         )
       )
         return false;
@@ -197,7 +197,7 @@ export function appliquerFiltres(arbres: Arbre[], filtres: Filtres): Arbre[] {
         !correspond(filtres.rafraichissement_fort, arbre.rafraichissement_fort)
       )
         return false;
-      if (!correspond(filtres.fruitiere_sauvage, arbre.fruitiere_sauvage))
+      if (!correspond(filtres.fruitière_sauvage, arbre.fruitière_sauvage))
         return false;
       if (
         !correspond(filtres.floraison_remarquable, arbre.floraison_remarquable)

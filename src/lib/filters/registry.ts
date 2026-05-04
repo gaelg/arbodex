@@ -1,45 +1,81 @@
 import { FilterConfig } from "./types";
 
 export const FILTERS: FilterConfig[] = [
-  // Sol
+  // Sol - Filtres décomposés (tous par défaut via cases à cocher)
   {
-    key: "type_sol",
-    label: "Type de sol",
+    key: "sol_acidity",
+    label: "Acidité",
     section: "Sol",
-    type: "partial",
+    type: "multi",
+    options: ["Acide", "Neutre", "Calcaire"],
   },
   {
-    key: "pH",
-    label: "pH",
+    key: "sol_moisture",
+    label: "Humidité",
+    section: "Sol",
+    type: "multi",
+    options: ["Sec", "Frais", "Humide"],
+  },
+  {
+    key: "sol_drainage",
+    label: "Drainage",
+    section: "Sol",
+    type: "multi",
+    options: ["Bon", "Moyen", "Mauvais"],
+  },
+  {
+    key: "sol_texture",
+    label: "Texture",
+    section: "Sol",
+    type: "multi",
+    options: ["Limoneux", "Argileux", "Sablonneux"],
+  },
+  {
+    key: "sol_richness",
+    label: "Richesse",
+    section: "Sol",
+    type: "multi",
+    options: ["Humifère", "Moyen", "Pauvre"],
+  },
+  {
+    key: "sol_depth",
+    label: "Profondeur",
     section: "Sol",
     type: "exact",
+    options: ["Tous", "Peu profond"],
   },
 
   // Climat
   {
+    key: "adapte_changement_climatique",
+    label: "Adapté changement climatique",
+    section: "Climat",
+    type: "exact",
+  },
+  {
     key: "resistance_secheresse",
-    label: "Résistance sécheresse",
+    label: "Résistance sécheresse (min)",
     section: "Climat",
     type: "relative",
     order: { faible: 1, moyenne: 2, bonne: 3, excellente: 4 },
   },
   {
     key: "resistance_vent",
-    label: "Résistance vent",
+    label: "Résistance vent (min)",
     section: "Climat",
     type: "numeric",
   },
   {
     key: "resistance_chaleur_urbaine",
-    label: "Chaleur urbaine",
+    label: "Chaleur urbaine (min)",
     section: "Climat",
     type: "numeric",
   },
   {
-    key: "adapté_changement_climatique",
-    label: "Adapté changement climatique",
+    key: "rusticite_min_C",
+    label: "Rusticité minimale (°C)",
     section: "Climat",
-    type: "exact",
+    type: "numeric",
   },
 
   // Services écosystémiques
@@ -47,8 +83,8 @@ export const FILTERS: FilterConfig[] = [
     key: "origine",
     label: "Origine",
     section: "Services écosystémiques",
-    type: "relative",
-    order: { vraiment_exotique: 1, presque_local: 2, local: 3 },
+    type: "exact",
+    options: ["Tous", "Europe de l'Ouest", "Endémique"],
   },
   {
     key: "mellifere",
@@ -71,7 +107,7 @@ export const FILTERS: FilterConfig[] = [
 
   // Caractéristiques
   {
-    key: "fruitiere_sauvage",
+    key: "fruitière_sauvage",
     label: "Fruits sauvages",
     section: "Caractéristiques",
     type: "exact",
@@ -83,40 +119,81 @@ export const FILTERS: FilterConfig[] = [
     type: "exact",
   },
   {
-    key: "couleur_automnale",
-    label: "Couleur automnale",
-    section: "Caractéristiques",
+    key: "rusticite_min_C",
+    label: "Rusticité minimale (°C)",
+    section: "Climat",
+    type: "numeric",
+  },
+
+  // Services écosystémiques
+  {
+    key: "origine",
+    label: "Origine",
+    section: "Services écosystémiques",
+    type: "exact",
+    options: ["Tous", "Europe de l'Ouest", "Endémique"],
+  },
+  {
+    key: "mellifere",
+    label: "Mellifère",
+    section: "Services écosystémiques",
+    type: "exact",
+  },
+  {
+    key: "ombrage_fort",
+    label: "Ombrage",
+    section: "Services écosystémiques",
+    type: "exact",
+  },
+  {
+    key: "rafraichissement_fort",
+    label: "Rafraîchissement (min)",
+    section: "Services écosystémiques",
+    type: "relative",
+    order: { faible: 1, moyen: 2, fort: 3 },
+  },
+  {
+    key: "fruitière_sauvage",
+    label: "Fruits pour la faune",
+    section: "Services écosystémiques",
     type: "exact",
   },
 
-  // Contraintes & Risques
+  // Contraintes et risques
   {
     key: "pollen_allergisant",
-    label: "Pollen allergisant (max)",
-    section: "Contraintes & Risques",
+    label: "Allergisant (max)",
+    section: "Contraintes et risques",
     type: "relative",
     order: { faible: 1, moyen: 2, fort: 3 },
   },
   {
     key: "fruits_salissants",
     label: "Fruits salissants",
-    section: "Contraintes & Risques",
+    section: "Contraintes et risques",
     type: "exact",
   },
   {
     key: "branches_fragiles",
     label: "Branches fragiles",
-    section: "Contraintes & Risques",
+    section: "Contraintes et risques",
     type: "exact",
   },
   {
     key: "racines_devastatrices",
-    label: "Racines dévastatrices",
-    section: "Contraintes & Risques",
+    label: "Racines problématiques",
+    section: "Contraintes et risques",
     type: "exact",
   },
 
   // Entretien
+  {
+    key: "cout_entretien",
+    label: "Coût entretien (max)",
+    section: "Entretien",
+    type: "relative",
+    order: { faible: 1, moyen: 2, élevé: 3 },
+  },
   {
     key: "frequence_taille",
     label: "Fréquence taille (max)",
@@ -126,17 +203,24 @@ export const FILTERS: FilterConfig[] = [
   },
   {
     key: "sensibilite_maladies",
-    label: "Sensibilité maladies (max)",
+    label: "Sensible aux maladies (max)",
     section: "Entretien",
     type: "relative",
     order: { faible: 1, modérée: 2, élevée: 3 },
   },
+
+  // Esthétique
   {
-    key: "cout_entretien",
-    label: "Coût entretien (max)",
-    section: "Entretien",
-    type: "relative",
-    order: { faible: 1, modéré: 2, élevé: 3 },
+    key: "floraison_remarquable",
+    label: "Floraison remarquable",
+    section: "Esthétique",
+    type: "exact",
+  },
+  {
+    key: "couleur_automnale",
+    label: "Couleur automnale",
+    section: "Esthétique",
+    type: "exact",
   },
 ];
 

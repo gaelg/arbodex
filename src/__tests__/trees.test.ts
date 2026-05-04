@@ -20,9 +20,9 @@ const ARBRES_TEST: Arbre[] = [
     rusticite_min_C: -30,
     resistance_vent: 4,
     resistance_chaleur_urbaine: 4,
-    adapté_changement_climatique: "oui",
+    adapte_changement_climatique: "oui",
     mellifere: "oui",
-    fruitiere_sauvage: "oui",
+    fruitière_sauvage: "oui",
     refuge_oiseaux: "oui",
     floraison_remarquable: "non",
     couleur_automnale: "oui",
@@ -65,9 +65,9 @@ const ARBRES_TEST: Arbre[] = [
     rusticite_min_C: -35,
     resistance_vent: 3,
     resistance_chaleur_urbaine: 3,
-    adapté_changement_climatique: "non",
+    adapte_changement_climatique: "non",
     mellifere: "oui",
-    fruitiere_sauvage: "oui",
+    fruitière_sauvage: "oui",
     refuge_oiseaux: "oui",
     floraison_remarquable: "oui",
     couleur_automnale: "oui",
@@ -110,9 +110,9 @@ const ARBRES_TEST: Arbre[] = [
     rusticite_min_C: -35,
     resistance_vent: 3,
     resistance_chaleur_urbaine: 3,
-    adapté_changement_climatique: "non",
+    adapte_changement_climatique: "non",
     mellifere: "non",
-    fruitiere_sauvage: "oui",
+    fruitière_sauvage: "oui",
     refuge_oiseaux: "oui",
     floraison_remarquable: "non",
     couleur_automnale: "non",
@@ -155,9 +155,9 @@ const ARBRES_TEST: Arbre[] = [
     rusticite_min_C: -25,
     resistance_vent: 4,
     resistance_chaleur_urbaine: 5,
-    adapté_changement_climatique: "oui",
+    adapte_changement_climatique: "oui",
     mellifere: "non",
-    fruitiere_sauvage: "oui",
+    fruitière_sauvage: "oui",
     refuge_oiseaux: "oui",
     floraison_remarquable: "non",
     couleur_automnale: "oui",
@@ -200,9 +200,9 @@ const ARBRES_TEST: Arbre[] = [
     rusticite_min_C: -15,
     resistance_vent: 3,
     resistance_chaleur_urbaine: 4,
-    adapté_changement_climatique: "oui",
+    adapte_changement_climatique: "oui",
     mellifere: "oui",
-    fruitiere_sauvage: "non",
+    fruitière_sauvage: "non",
     refuge_oiseaux: "oui",
     floraison_remarquable: "non",
     couleur_automnale: "non",
@@ -241,11 +241,11 @@ describe("appliquerFiltres", () => {
     rusticite_max: "",
     resistance_vent: "",
     resistance_chaleur_urbaine: "",
-    adapté_changement_climatique: "",
+    adapte_changement_climatique: "",
     mellifere: "",
     ombrage_fort: "",
     rafraichissement_fort: "",
-    fruitiere_sauvage: "",
+    fruitière_sauvage: "",
     floraison_remarquable: "",
     couleur_automnale: "",
     pollen_allergisant: "",
@@ -345,7 +345,7 @@ describe("appliquerFiltres", () => {
   it("filtre par adapté changement climatique", () => {
     const filtres: Filtres = {
       ...filtresVides,
-      adapté_changement_climatique: "oui",
+      adapte_changement_climatique: "oui",
     };
     const resultat = appliquerFiltres(ARBRES_TEST, filtres);
     expect(resultat).toHaveLength(3);
@@ -418,16 +418,16 @@ describe("appliquerFiltres", () => {
     expect(presqueLocal[0].nom_commun).toBe("Ginkgo");
   });
 
-  it("fruitiere_sauvage : filtre oui/non retourne des résultats", () => {
-    const filtresOui: Filtres = { ...filtresVides, fruitiere_sauvage: "oui" };
+  it("fruitière_sauvage : filtre oui/non retourne des résultats", () => {
+    const filtresOui: Filtres = { ...filtresVides, fruitière_sauvage: "oui" };
     const resultatOui = appliquerFiltres(ARBRES_TEST, filtresOui);
     expect(resultatOui.length).toBeGreaterThan(0);
-    resultatOui.forEach((a) => expect(a.fruitiere_sauvage).toBe("oui"));
+    resultatOui.forEach((a) => expect(a.fruitière_sauvage).toBe("oui"));
 
-    const filtresNon: Filtres = { ...filtresVides, fruitiere_sauvage: "non" };
+    const filtresNon: Filtres = { ...filtresVides, fruitière_sauvage: "non" };
     const resultatNon = appliquerFiltres(ARBRES_TEST, filtresNon);
     expect(resultatNon.length).toBeGreaterThan(0);
-    resultatNon.forEach((a) => expect(a.fruitiere_sauvage).toBe("non"));
+    resultatNon.forEach((a) => expect(a.fruitière_sauvage).toBe("non"));
   });
 
   // --- 2. Bugs bloquants ---
@@ -567,11 +567,11 @@ describe("appliquerFiltres", () => {
       "resistance_secheresse",
       "resistance_vent",
       "resistance_chaleur_urbaine",
-      "adapté_changement_climatique",
+      "adapte_changement_climatique",
       "mellifere",
       "ombrage_fort",
       "rafraichissement_fort",
-      "fruitiere_sauvage",
+      "fruitière_sauvage",
       "floraison_remarquable",
       "couleur_automnale",
       "pollen_allergisant",

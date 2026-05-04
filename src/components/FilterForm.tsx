@@ -39,7 +39,11 @@ export default function FormulaireFiltres({
   const replierTout = () => {
     const toutesFermees: Record<string, boolean> = {};
     for (const s of sections) toutesFermees[s] = false;
+    // Aussi fermer la section Dimensions
+    toutesFermees["Dimensions"] = false;
     setSectionsOuvertes(toutesFermees);
+    // Aussi réinitialiser la recherche
+    mettreAJour("recherche", "");
   };
 
   const mettreAJour = (cle: string, valeur: string) => {
@@ -67,6 +71,33 @@ export default function FormulaireFiltres({
   function getOptions(config: FilterConfig): string[] {
     if (config.options) return config.options;
     return optionsUniques(config.key);
+  }
+
+  // Vérifie si un filtre est de type multi (cases à cocher)
+  function isMultiFilter(config: FilterConfig): boolean {
+    return config.type === "multi";
+  }
+
+  // Gère les changements pour les filtres multi
+  function toggleMultiFilter(config: FilterConfig, option: string) {
+    const currentValue = ((filtres as any)[config.key] || "") as string;
+    const selected = currentValue ? currentValue.split(",").filter(Boolean) : [];
+
+    const idx = selected.indexOf(option);
+    if (idx >= 0) {
+      selected.splice(idx, 1);
+    } else {
+      selected.push(option);
+    }
+
+    mettreAJour(config.key, selected.join(","));
+  }
+
+  // Vérifie si une option est sélectionnée dans un filtre multi
+  function isOptionSelected(config: FilterConfig, option: string): boolean {
+    const currentValue = ((filtres as any)[config.key] || "") as string;
+    const selected = currentValue ? currentValue.split(",").filter(Boolean) : [];
+    return selected.includes(option);
   }
 
   const formatOption = (opt: string) =>
@@ -166,6 +197,42 @@ export default function FormulaireFiltres({
                   {filtresSection.map((config) => {
                     const opts = getOptions(config);
                     const value = (filtres as any)[config.key] || "";
+
+                    // Filtres multi : cases à cocher
+                    if (isMultiFilter(config)) {
+                      return (
+                        <div key={config.key}>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            {config.label}
+                          </label>
+                          <div className="space-y-1">
+                            {opts.map((opt) => {
+                              const selected = isOptionSelected(config, opt);
+                              const count = appliquerFiltres(arbres, {
+                                ...filtres,
+                                [config.key]: selected
+                                  ? (value.split(",").filter(Boolean).filter((o: string) => o !== opt).join(","))
+                                  : value ? `${value},${opt}` : opt,
+                              } as any).length;
+                              return (
+                                <label key={opt} className="flex items-center gap-2 text-sm">
+                                  <input
+                                    type="checkbox"
+                                    checked={selected}
+                                    onChange={() => toggleMultiFilter(config, opt)}
+                                    className="rounded border-gray-300 text-green-600 focus:ring-green-500"
+                                  />
+                                  <span>{formatOption(opt)}</span>
+                                  <span className="text-xs text-gray-400">({count})</span>
+                                </label>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      );
+                    }
+
+                    // Filtres standard : select
                     return (
                       <div key={config.key}>
                         <label className="block text-sm font-medium text-gray-700 mb-1">

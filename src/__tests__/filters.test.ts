@@ -30,9 +30,9 @@ describe("Système de filtres encapsulé", () => {
   it("getFilterByKey retourne la bonne config", () => {
     const f = getFilterByKey("origine");
     expect(f).toBeDefined();
-    expect(f?.type).toBe("relative");
+    expect(f?.type).toBe("exact");
     expect(f?.section).toBe("Services écosystémiques");
-    expect(f?.order).toBeDefined();
+    expect(f?.options).toContain("Europe de l'Ouest");
   });
 
   it("getFiltersBySection regroupe correctement", () => {
@@ -57,6 +57,7 @@ describe("Système de filtres encapsulé", () => {
         "relative",
         "numeric",
         "search",
+        "multi",
       ]).toContain(f.type);
     });
   });

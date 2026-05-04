@@ -23,11 +23,11 @@ export interface FiltersStateLegacy {
   rusticite_max: string;
   resistance_vent: string;
   resistance_chaleur_urbaine: string;
-  adapté_changement_climatique: string;
+  adapte_changement_climatique: string;
   mellifere: string;
   ombrage_fort: string;
   rafraichissement_fort: string;
-  fruitiere_sauvage: string;
+  fruitière_sauvage: string;
   floraison_remarquable: string;
   couleur_automnale: string;
   pollen_allergisant: string;
@@ -52,11 +52,11 @@ function adaptFilters(legacy: FiltersStateLegacy): Record<string, string> {
   state.resistance_secheresse = legacy.resistance_secheresse;
   state.resistance_vent = legacy.resistance_vent;
   state.resistance_chaleur_urbaine = legacy.resistance_chaleur_urbaine;
-  state.adapté_changement_climatique = legacy.adapté_changement_climatique;
+  state.adapte_changement_climatique = legacy.adapte_changement_climatique;
   state.mellifere = legacy.mellifere;
   state.ombrage_fort = legacy.ombrage_fort;
   state.rafraichissement_fort = legacy.rafraichissement_fort;
-  state.fruitiere_sauvage = legacy.fruitiere_sauvage;
+  state.fruitière_sauvage = legacy.fruitière_sauvage;
   state.floraison_remarquable = legacy.floraison_remarquable;
   state.couleur_automnale = legacy.couleur_automnale;
   state.pollen_allergisant = legacy.pollen_allergisant;

@@ -30,8 +30,8 @@ const OPTION_LABELS: Record<string, string> = {
   "resistance_secheresse": "Résistance sécheresse",
   "resistance_vent": "Résistance vent",
   "resistance_chaleur_urbaine": "Chaleur urbaine",
-  "adapté_changement_climatique": "Adapté changement climatique",
-  "fruitiere_sauvage": "Fruits sauvages",
+  "adapte_changement_climatique": "Adapté changement climatique",
+  "fruitière_sauvage": "Fruits sauvages",
   "fruits_salissants": "Fruits salissants",
   "pollen_allergisant": "Pollen allergisant",
   "frequence_taille": "Fréquence taille",
@@ -86,7 +86,7 @@ function getBadgeColor(key: string, valeur: string): string {
   const sémantique: Record<string, { positif: string[], negatif: string[] }> = {
     origine: { positif: ["local", "presque_local"], negatif: ["vraiment_exotique"] },
     mellifere: { positif: ["oui"], negatif: [] },
-    fruitiere_sauvage: { positif: ["oui"], negatif: [] },
+    fruitière_sauvage: { positif: ["oui"], negatif: [] },
     refuge_oiseaux: { positif: ["oui"], negatif: [] },
     floraison_remarquable: { positif: ["oui"], negatif: [] },
     couleur_automnale: { positif: ["oui"], negatif: [] },
@@ -297,7 +297,7 @@ export default function ListeArbres({ arbres }: Props) {
                     <Badge
                       texte="Fruits sauvages"
                       couleur={
-                        arbre.fruitiere_sauvage === "oui"
+                        arbre.fruitière_sauvage === "oui"
                           ? "bg-green-100 text-green-800"
                           : "bg-gray-100 text-gray-500"
                       }
@@ -321,7 +321,7 @@ export default function ListeArbres({ arbres }: Props) {
                     <Badge
                       texte="Adapté climat futur"
                       couleur={
-                        arbre.adapté_changement_climatique === "oui"
+                        arbre.adapte_changement_climatique === "oui"
                           ? "bg-green-100 text-green-800"
                           : "bg-gray-100 text-gray-500"
                       }
@@ -417,9 +417,9 @@ export default function ListeArbres({ arbres }: Props) {
                   </td>
                   <td className="px-3 py-2">
                     <Badge
-                      texte={arbre.adapté_changement_climatique === "oui" ? "Oui" : "Non"}
-                      key="adapté_changement_climatique"
-                      valeur={arbre.adapté_changement_climatique}
+                      texte={arbre.adapte_changement_climatique === "oui" ? "Oui" : "Non"}
+                      key="adapte_changement_climatique"
+                      valeur={arbre.adapte_changement_climatique}
                     />
                   </td>
                 </tr>
@@ -535,8 +535,8 @@ export default function ListeArbres({ arbres }: Props) {
                    />
                    <Badge
                      texte="Adapté climat futur"
-                     key="adapté_changement_climatique"
-                     valeur={arbre.adapté_changement_climatique}
+                     key="adapte_changement_climatique"
+                     valeur={arbre.adapte_changement_climatique}
                    />
                  </div>
 
