@@ -66,7 +66,12 @@ const HDF_LON = 2.3;
 const RAYON_MAX_KM = 700;
 
 // Calcul de distance haversine (km) entre deux points GPS
-function haversine(lat1: number, lon1: number, lat2: number, lon2: number): number {
+function haversine(
+  lat1: number,
+  lon1: number,
+  lat2: number,
+  lon2: number
+): number {
   const R = 6371; // Rayon Terre en km
   const dLat = ((lat2 - lat1) * Math.PI) / 180;
   const dLon = ((lon2 - lon1) * Math.PI) / 180;
@@ -84,16 +89,16 @@ function haversine(lat1: number, lon1: number, lat2: number, lon2: number): numb
 const COORD_REGIONS: Record<string, { lat: number; lon: number }> = {
   "Hauts-de-France": { lat: 49.9, lon: 2.3 },
   "Île-de-France": { lat: 48.86, lon: 2.35 },
-  "Normandie": { lat: 49.18, lon: -0.37 },
+  Normandie: { lat: 49.18, lon: -0.37 },
   "Grand Est": { lat: 48.68, lon: 6.17 },
   "Bourgogne-Franche-Comté": { lat: 47.28, lon: 5.02 },
   "Pays de la Loire": { lat: 47.48, lon: -0.55 },
-  "Bretagne": { lat: 48.12, lon: -2.83 },
+  Bretagne: { lat: 48.12, lon: -2.83 },
   "Nouvelle-Aquitaine": { lat: 45.76, lon: 0.58 },
-  "Occitanie": { lat: 43.6, lon: 2.25 },
+  Occitanie: { lat: 43.6, lon: 2.25 },
   "Auvergne-Rhône-Alpes": { lat: 45.76, lon: 4.83 },
   "Provence-Alpes-Côte d'Azur": { lat: 43.53, lon: 5.43 },
-  "Corse": { lat: 42.03, lon: 9.01 },
+  Corse: { lat: 42.03, lon: 9.01 },
   "Centre-Val de Loire": { lat: 47.75, lon: 1.68 },
 };
 
