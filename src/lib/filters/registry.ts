@@ -1,15 +1,6 @@
 import { FilterConfig } from "./types";
 
 export const FILTERS: FilterConfig[] = [
-  // Essence
-  {
-    key: "origine",
-    label: "Origine",
-    section: "Essence",
-    type: "exact",
-    options: ["local", "presque_local", "vraiment_exotique"],
-  },
-
   // Sol
   {
     key: "type_sol",
@@ -45,13 +36,20 @@ export const FILTERS: FilterConfig[] = [
     type: "numeric",
   },
   {
-    key: "adapte_changement_climatique",
+    key: "adapté_changement_climatique",
     label: "Adapté changement climatique",
     section: "Climat",
     type: "exact",
   },
 
   // Services écosystémiques
+  {
+    key: "origine",
+    label: "Origine",
+    section: "Services écosystémiques",
+    type: "relative",
+    order: { vraiment_exotique: 1, presque_local: 2, local: 3 },
+  },
   {
     key: "mellifere",
     label: "Mellifère",
@@ -124,21 +122,21 @@ export const FILTERS: FilterConfig[] = [
     label: "Fréquence taille (max)",
     section: "Entretien",
     type: "relative",
-    order: { jamais: 1, occasionnelle: 2, reguliere: 3 },
+    order: { jamais: 1, occasionnelle: 2, régulière: 3 },
   },
   {
     key: "sensibilite_maladies",
     label: "Sensibilité maladies (max)",
     section: "Entretien",
     type: "relative",
-    order: { faible: 1, moderee: 2, elevee: 3 },
+    order: { faible: 1, modérée: 2, élevée: 3 },
   },
   {
     key: "cout_entretien",
     label: "Coût entretien (max)",
     section: "Entretien",
     type: "relative",
-    order: { faible: 1, modere: 2, eleve: 3 },
+    order: { faible: 1, modéré: 2, élevé: 3 },
   },
 ];
 

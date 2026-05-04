@@ -21,7 +21,7 @@ const ARBRE_AVEC_BARRES: Arbre = {
   rusticite_min_C: -25,
   resistance_vent: 4,
   resistance_chaleur_urbaine: 5,
-  adapte_changement_climatique: "oui",
+  adapté_changement_climatique: "oui",
   mellifere: "oui",
   fruitiere_sauvage: "oui",
   refuge_oiseaux: "oui",
@@ -29,14 +29,14 @@ const ARBRE_AVEC_BARRES: Arbre = {
   couleur_automnale: "oui",
   ecorce_decorative: "non",
   stockage_carbone: "eleve",
-  resilience: "elevee",
+  resilience: "élevé",
   impact_icu: "fort",
-  biodiversite: "elevee",
+  biodiversite: "élevé",
   qualite_air: "bonne",
   potentiel_allergisant: "faible",
   ombrage_fort: "oui",
   rafraichissement_fort: "oui",
-  biodiversite_service: "elevee",
+  biodiversite_service: "élevé",
   type_racines: "traçantes",
   allergie_service: "faible",
   fruits_salissants: "oui",
@@ -44,23 +44,26 @@ const ARBRE_AVEC_BARRES: Arbre = {
   branches_fragiles: "non",
   racines_devastatrices: "non",
   frequence_taille: "occasionnelle",
-  sensibilite_maladies: "moderee",
+  sensibilite_maladies: "modéré",
   longevite: "tres_longue",
   cout_entretien: "modere",
 };
 
 describe("Non-régressions composants", () => {
   // --- Orthographe / accents ---
-  it("formatOption gère les accents correctement", () => {
-    expect(formatOption("moderee")).toBe("Moderee");
-    expect(formatOption("reguliere")).toBe("Reguliere");
-    expect(formatOption("resistance_secheresse")).toBe("Résistance Secheresse");
+  it("formatOption utilise le dictionnaire correctement", () => {
+    expect(formatOption("modéré")).toBe("Modéré");
+    expect(formatOption("régulière")).toBe("Régulière");
+    expect(formatOption("resistance_secheresse")).toBe("Résistance sécheresse");
+    expect(formatOption("oui")).toBe("Oui");
+    expect(formatOption("non")).toBe("Non");
+    expect(formatOption("local")).toBe("Local");
   });
 
   it("sensibilite_maladies : la valeur est bien comparée avec accent", () => {
     const filtres: Filtres = {
       ...getFiltresVides(),
-      sensibilite_maladies: "moderee",
+      sensibilite_maladies: "modéré",
     };
     const resultat = appliquerFiltres([ARBRE_AVEC_BARRES], filtres);
     expect(resultat).toHaveLength(1);
@@ -141,7 +144,7 @@ function getFiltresVides(): Filtres {
     rusticite_max: "",
     resistance_vent: "",
     resistance_chaleur_urbaine: "",
-    adapte_changement_climatique: "",
+    adapté_changement_climatique: "",
     mellifere: "",
     ombrage_fort: "",
     rafraichissement_fort: "",

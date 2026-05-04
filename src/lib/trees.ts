@@ -18,7 +18,7 @@ export interface Arbre {
   rusticite_min_C: number;
   resistance_vent: number;
   resistance_chaleur_urbaine: number;
-  adapte_changement_climatique: string;
+  adapté_changement_climatique: string;
   mellifere: string;
   fruitiere_sauvage: string;
   refuge_oiseaux: string;
@@ -67,7 +67,7 @@ export interface Filtres {
   rusticite_max: string;
   resistance_vent: string;
   resistance_chaleur_urbaine: string;
-  adapte_changement_climatique: string;
+  adapté_changement_climatique: string;
   mellifere: string;
   ombrage_fort: string;
   rafraichissement_fort: string;
@@ -107,9 +107,9 @@ function correspond(filtre: string, valeur: string | number): boolean {
 // Échelles ordonnées pour filtres relatifs (≤ max choisi)
 const ORDER: Record<string, Record<string, number>> = {
   pollen_allergisant: { faible: 1, moyen: 2, fort: 3 },
-  sensibilite_maladies: { faible: 1, moderee: 2, elevee: 3 },
-  cout_entretien: { faible: 1, modere: 2, eleve: 3 },
-  frequence_taille: { jamais: 1, occasionnelle: 2, reguliere: 3 },
+  sensibilite_maladies: { faible: 1, modérée: 2, élevée: 3 },
+  cout_entretien: { faible: 1, modéré: 2, élevé: 3 },
+  frequence_taille: { jamais: 1, occasionnelle: 2, régulière: 3 },
   resistance_secheresse: { faible: 1, moyenne: 2, bonne: 3, excellente: 4 },
 };
 
@@ -186,8 +186,8 @@ export function appliquerFiltres(arbres: Arbre[], filtres: Filtres): Arbre[] {
         return false;
       if (
         !correspond(
-          filtres.adapte_changement_climatique,
-          arbre.adapte_changement_climatique
+          filtres.adapté_changement_climatique,
+          arbre.adapté_changement_climatique
         )
       )
         return false;

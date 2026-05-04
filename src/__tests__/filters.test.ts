@@ -21,7 +21,7 @@ describe("Système de filtres encapsulé", () => {
 
   it("Sections sont correctement définies", () => {
     const sections = getAllSections();
-    expect(sections).toContain("Essence");
+    expect(sections).not.toContain("Essence");
     expect(sections).toContain("Sol");
     expect(sections).toContain("Climat");
     expect(sections).toContain("Services écosystémiques");
@@ -30,8 +30,9 @@ describe("Système de filtres encapsulé", () => {
   it("getFilterByKey retourne la bonne config", () => {
     const f = getFilterByKey("origine");
     expect(f).toBeDefined();
-    expect(f?.type).toBe("exact");
-    expect(f?.options).toContain("local");
+    expect(f?.type).toBe("relative");
+    expect(f?.section).toBe("Services écosystémiques");
+    expect(f?.order).toBeDefined();
   });
 
   it("getFiltersBySection regroupe correctement", () => {

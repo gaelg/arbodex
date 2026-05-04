@@ -18,7 +18,7 @@ const FILTRES_VIDES: Filtres = {
   rusticite_max: "",
   resistance_vent: "",
   resistance_chaleur_urbaine: "",
-  adapte_changement_climatique: "",
+  adapté_changement_climatique: "",
   mellifere: "",
   ombrage_fort: "",
   rafraichissement_fort: "",

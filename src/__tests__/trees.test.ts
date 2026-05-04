@@ -20,7 +20,7 @@ const ARBRES_TEST: Arbre[] = [
     rusticite_min_C: -30,
     resistance_vent: 4,
     resistance_chaleur_urbaine: 4,
-    adapte_changement_climatique: "oui",
+    adapté_changement_climatique: "oui",
     mellifere: "oui",
     fruitiere_sauvage: "oui",
     refuge_oiseaux: "oui",
@@ -28,14 +28,14 @@ const ARBRES_TEST: Arbre[] = [
     couleur_automnale: "oui",
     ecorce_decorative: "non",
     stockage_carbone: "eleve",
-    resilience: "elevee",
+    resilience: "élevé",
     impact_icu: "fort",
-    biodiversite: "elevee",
+    biodiversite: "élevé",
     qualite_air: "bonne",
     potentiel_allergisant: "faible",
     ombrage_fort: "oui",
     rafraichissement_fort: "oui",
-    biodiversite_service: "elevee",
+    biodiversite_service: "élevé",
     type_racines: "traçantes",
     allergie_service: "faible",
     fruits_salissants: "oui",
@@ -43,7 +43,7 @@ const ARBRES_TEST: Arbre[] = [
     branches_fragiles: "non",
     racines_devastatrices: "non",
     frequence_taille: "occasionnelle",
-    sensibilite_maladies: "moderee",
+    sensibilite_maladies: "modéré",
     longevite: "tres_longue",
     cout_entretien: "modere",
   },
@@ -65,7 +65,7 @@ const ARBRES_TEST: Arbre[] = [
     rusticite_min_C: -35,
     resistance_vent: 3,
     resistance_chaleur_urbaine: 3,
-    adapte_changement_climatique: "non",
+    adapté_changement_climatique: "non",
     mellifere: "oui",
     fruitiere_sauvage: "oui",
     refuge_oiseaux: "oui",
@@ -73,7 +73,7 @@ const ARBRES_TEST: Arbre[] = [
     couleur_automnale: "oui",
     ecorce_decorative: "non",
     stockage_carbone: "moyen",
-    resilience: "moderee",
+    resilience: "modéré",
     impact_icu: "moyen",
     biodiversite: "moyenne",
     qualite_air: "bonne",
@@ -88,7 +88,7 @@ const ARBRES_TEST: Arbre[] = [
     branches_fragiles: "oui",
     racines_devastatrices: "non",
     frequence_taille: "jamais",
-    sensibilite_maladies: "moderee",
+    sensibilite_maladies: "modéré",
     longevite: "longue",
     cout_entretien: "faible",
   },
@@ -110,7 +110,7 @@ const ARBRES_TEST: Arbre[] = [
     rusticite_min_C: -35,
     resistance_vent: 3,
     resistance_chaleur_urbaine: 3,
-    adapte_changement_climatique: "non",
+    adapté_changement_climatique: "non",
     mellifere: "non",
     fruitiere_sauvage: "oui",
     refuge_oiseaux: "oui",
@@ -118,7 +118,7 @@ const ARBRES_TEST: Arbre[] = [
     couleur_automnale: "non",
     ecorce_decorative: "non",
     stockage_carbone: "moyen",
-    resilience: "moderee",
+    resilience: "modéré",
     impact_icu: "moyen",
     biodiversite: "faible",
     qualite_air: "bonne",
@@ -155,7 +155,7 @@ const ARBRES_TEST: Arbre[] = [
     rusticite_min_C: -25,
     resistance_vent: 4,
     resistance_chaleur_urbaine: 5,
-    adapte_changement_climatique: "oui",
+    adapté_changement_climatique: "oui",
     mellifere: "non",
     fruitiere_sauvage: "oui",
     refuge_oiseaux: "oui",
@@ -163,7 +163,7 @@ const ARBRES_TEST: Arbre[] = [
     couleur_automnale: "oui",
     ecorce_decorative: "non",
     stockage_carbone: "moyen",
-    resilience: "elevee",
+    resilience: "élevé",
     impact_icu: "fort",
     biodiversite: "faible",
     qualite_air: "excellente",
@@ -200,7 +200,7 @@ const ARBRES_TEST: Arbre[] = [
     rusticite_min_C: -15,
     resistance_vent: 3,
     resistance_chaleur_urbaine: 4,
-    adapte_changement_climatique: "oui",
+    adapté_changement_climatique: "oui",
     mellifere: "oui",
     fruitiere_sauvage: "non",
     refuge_oiseaux: "oui",
@@ -208,7 +208,7 @@ const ARBRES_TEST: Arbre[] = [
     couleur_automnale: "non",
     ecorce_decorative: "non",
     stockage_carbone: "faible",
-    resilience: "moderee",
+    resilience: "modéré",
     impact_icu: "moyen",
     biodiversite: "moyenne",
     qualite_air: "bonne",
@@ -222,8 +222,8 @@ const ARBRES_TEST: Arbre[] = [
     pollen_allergisant: "faible",
     branches_fragiles: "non",
     racines_devastatrices: "non",
-    frequence_taille: "reguliere",
-    sensibilite_maladies: "moderee",
+    frequence_taille: "régulière",
+    sensibilite_maladies: "modéré",
     longevite: "longue",
     cout_entretien: "modere",
   },
@@ -241,7 +241,7 @@ describe("appliquerFiltres", () => {
     rusticite_max: "",
     resistance_vent: "",
     resistance_chaleur_urbaine: "",
-    adapte_changement_climatique: "",
+    adapté_changement_climatique: "",
     mellifere: "",
     ombrage_fort: "",
     rafraichissement_fort: "",
@@ -345,7 +345,7 @@ describe("appliquerFiltres", () => {
   it("filtre par adapté changement climatique", () => {
     const filtres: Filtres = {
       ...filtresVides,
-      adapte_changement_climatique: "oui",
+      adapté_changement_climatique: "oui",
     };
     const resultat = appliquerFiltres(ARBRES_TEST, filtres);
     expect(resultat).toHaveLength(3);
@@ -472,7 +472,7 @@ describe("appliquerFiltres", () => {
   // --- 3. Orthographe / accents ---
 
   it("sensibilite_maladies : gère les accents (modérée ≠ moderee)", () => {
-    const f: Filtres = { ...filtresVides, sensibilite_maladies: "moderee" };
+    const f: Filtres = { ...filtresVides, sensibilite_maladies: "modéré" };
     const r = appliquerFiltres(ARBRES_TEST, f);
     expect(r.length).toBeGreaterThanOrEqual(0);
   });
@@ -484,7 +484,7 @@ describe("appliquerFiltres", () => {
   });
 
   it("frequence_taille : gère la casse et les accents (régulière)", () => {
-    const f: Filtres = { ...filtresVides, frequence_taille: "reguliere" };
+    const f: Filtres = { ...filtresVides, frequence_taille: "régulière" };
     const r = appliquerFiltres(ARBRES_TEST, f);
     expect(r.length).toBeGreaterThanOrEqual(0);
   });
@@ -567,7 +567,7 @@ describe("appliquerFiltres", () => {
       "resistance_secheresse",
       "resistance_vent",
       "resistance_chaleur_urbaine",
-      "adapte_changement_climatique",
+      "adapté_changement_climatique",
       "mellifere",
       "ombrage_fort",
       "rafraichissement_fort",

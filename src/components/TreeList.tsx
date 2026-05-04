@@ -3,22 +3,53 @@
 import { useState } from "react";
 import { Arbre } from "@/lib/trees";
 
+// Dictionnaire de traduction : valeur brute → affichage français correct
+const OPTION_LABELS: Record<string, string> = {
+  // Résistances
+  "faible": "Faible",
+  "moyenne": "Moyenne",
+  "bonne": "Bonne",
+  "excellente": "Excellente",
+  // Entretien
+  "modéré": "Modéré",
+  "élevé": "Élevé",
+  // Taille
+  "jamais": "Jamais",
+  "occasionnelle": "Occasionnelle",
+  "régulière": "Régulière",
+  // Maladies
+  "modérée": "Modérée",
+  "élevée": "Élevée",
+  // Autres
+  "oui": "Oui",
+  "non": "Non",
+  "local": "Local",
+  "presque_local": "Presque local",
+  "vraiment_exotique": "Vraiment exotique",
+  // Labels composés
+  "resistance_secheresse": "Résistance sécheresse",
+  "resistance_vent": "Résistance vent",
+  "resistance_chaleur_urbaine": "Chaleur urbaine",
+  "adapté_changement_climatique": "Adapté changement climatique",
+  "fruitiere_sauvage": "Fruits sauvages",
+  "fruits_salissants": "Fruits salissants",
+  "pollen_allergisant": "Pollen allergisant",
+  "frequence_taille": "Fréquence taille",
+  "sensibilite_maladies": "Sensibilité maladies",
+  "cout_entretien": "Coût entretien",
+};
+
 export function formatOption(opt: string) {
-  return opt
+  return OPTION_LABELS[opt] || opt
     .replace(/_/g, " ")
-    .replace(/\b\w/g, (c) => c.toUpperCase())
-    .replace("Resistance", "Résistance")
-    .replace("Mellifere", "Mellifère")
-    .replace("Fruitiere", "Fruitière")
-    .replace("Floraison", "Floraison")
-    .replace("Couleur", "Couleur")
-    .replace("Adapte", "Adapté")
-    .replace("Pollen", "Pollen")
-    .replace("Frequence", "Fréquence")
-    .replace("Sensibilite", "Sensibilité")
-    .replace("Cout", "Coût")
-    .replace("Oui", "Oui")
-    .replace("Non", "Non");
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+export function formatNumericLevel(val: number | string): string {
+  const n = Number(val);
+  if (isNaN(n)) return String(val);
+  const map: Record<number, string> = { 1: "Très faible", 2: "Faible", 3: "Moyen", 4: "Fort", 5: "Très fort" };
+  return map[n] || String(n);
 }
 
 type VueType = "fiches" | "liste" | "tableau";
@@ -47,10 +78,43 @@ function EmojiBadge({
   );
 }
 
-function Badge({ texte, couleur }: { texte: string; couleur?: string }) {
+// Couleurs sémantiques selon le critère (key) et la valeur
+function getBadgeColor(key: string, valeur: string): string {
+  const v = valeur.toLowerCase();
+  
+  // Pour chaque clé, définir ce qui est positif (vert) ou négatif (rouge)
+  const sémantique: Record<string, { positif: string[], negatif: string[] }> = {
+    origine: { positif: ["local", "presque_local"], negatif: ["vraiment_exotique"] },
+    mellifere: { positif: ["oui"], negatif: [] },
+    fruitiere_sauvage: { positif: ["oui"], negatif: [] },
+    refuge_oiseaux: { positif: ["oui"], negatif: [] },
+    floraison_remarquable: { positif: ["oui"], negatif: [] },
+    couleur_automnale: { positif: ["oui"], negatif: [] },
+    adapte_changement_climatique: { positif: ["oui"], negatif: [] },
+    ombrage_fort: { positif: ["oui"], negatif: [] },
+    rafraichissement_fort: { positif: ["oui"], negatif: [] },
+    resistance_secheresse: { positif: ["bonne", "excellente"], negatif: ["faible"] },
+    cout_entretien: { positif: ["faible", "modéré"], negatif: ["élevé"] },
+    sensibilite_maladies: { positif: ["faible"], negatif: ["élevée"] },
+    frequence_taille: { positif: ["jamais"], negatif: ["régulière"] },
+    pollen_allergisant: { positif: ["faible"], negatif: ["fort"] },
+    fruits_salissants: { positif: [], negatif: ["oui"] },
+    branches_fragiles: { positif: [], negatif: ["oui"] },
+    racines_devastatrices: { positif: [], negatif: ["oui"] },
+  };
+  
+  const config = sémantique[key];
+  if (!config) return "bg-gray-100 text-gray-500";
+  if (config.positif.includes(v)) return "bg-green-100 text-green-800";
+  if (config.negatif.includes(v)) return "bg-red-100 text-red-800";
+  return "bg-gray-100 text-gray-500";
+}
+
+function Badge({ texte, couleur, key, valeur }: { texte: string; couleur?: string; key?: string; valeur?: string }) {
   const base = "inline-block px-2 py-0.5 text-xs rounded-full";
+  const autoCouleur = (key && valeur) ? getBadgeColor(key, valeur) : "bg-gray-100 text-gray-500";
   return (
-    <span className={`${base} ${couleur || "bg-gray-100 text-gray-500"}`}>
+    <span className={`${base} ${couleur || autoCouleur}`}>
       {texte}
     </span>
   );
@@ -68,6 +132,7 @@ function Barre({ niveau, label }: { niveau: number; label: string }) {
           />
         ))}
       </div>
+      <span className="text-xs text-gray-600">{formatNumericLevel(niveau)}</span>
     </div>
   );
 }
@@ -197,7 +262,7 @@ export default function ListeArbres({ arbres }: Props) {
                     <span className="font-medium text-gray-700">
                       Dimensions :
                     </span>{" "}
-                    {arbre.hauteur_min_m}–{arbre.hauteur_max_m}m H ×(espace){" "}
+                    {arbre.hauteur_min_m}–{arbre.hauteur_max_m}m H ×{" "}
                     {arbre.envergure_min_m}–{arbre.envergure_max_m}m L
                   </p>
                   <p>
@@ -256,7 +321,7 @@ export default function ListeArbres({ arbres }: Props) {
                     <Badge
                       texte="Adapté climat futur"
                       couleur={
-                        arbre.adapte_changement_climatique === "oui"
+                        arbre.adapté_changement_climatique === "oui"
                           ? "bg-green-100 text-green-800"
                           : "bg-gray-100 text-gray-500"
                       }
@@ -267,13 +332,13 @@ export default function ListeArbres({ arbres }: Props) {
                       <span className="font-medium text-gray-700">
                         Taille :
                       </span>{" "}
-                      {arbre.frequence_taille} ·{" "}
-                      <span className="font-medium text-gray-700">
-                        Maladies :
+                      {formatOption(arbre.frequence_taille)} ·{" "}
+                       <span className="font-medium text-gray-700">
+                         Maladies :
                       </span>{" "}
-                      {arbre.sensibilite_maladies} ·{" "}
-                      <span className="font-medium text-gray-700">Coût :</span>{" "}
-                      {arbre.cout_entretien}
+                     {formatOption(arbre.sensibilite_maladies)} ·{" "}
+                       <span className="font-medium text-gray-700">Coût :</span>{" "}
+                       {formatOption(arbre.cout_entretien)}
                     </p>
                   </div>
                 </div>
@@ -323,53 +388,39 @@ export default function ListeArbres({ arbres }: Props) {
                     </span>
                   </td>
                   <td className="px-3 py-2">
-                    <span
-                      className={`px-2 py-1 text-xs rounded-full ${
-                        arbre.origine === "local"
-                          ? "bg-green-100 text-green-800"
-                          : arbre.origine === "presque_local"
-                            ? "bg-yellow-100 text-yellow-800"
-                            : "bg-red-100 text-red-800"
-                      }`}
-                    >
-                      {arbre.origine === "local"
+                    <Badge
+                      texte={arbre.origine === "local"
                         ? "Local"
                         : arbre.origine === "presque_local"
-                          ? "Presque"
-                          : "Exotique"}
-                    </span>
+                          ? "Presque local"
+                          : "Vraiment exotique"}
+                      key="origine"
+                      valeur={arbre.origine}
+                    />
                   </td>
                   <td className="px-3 py-2 text-xs">
                     {arbre.hauteur_min_m}–{arbre.hauteur_max_m}m
                   </td>
                   <td className="px-3 py-2">
-                    <span
-                      className={`px-2 py-1 text-xs rounded-full ${
-                        arbre.pollen_allergisant === "fort"
-                          ? "bg-red-100 text-red-800"
-                          : arbre.pollen_allergisant === "moyen"
-                            ? "bg-yellow-100 text-yellow-800"
-                            : "bg-green-100 text-green-800"
-                      }`}
-                    >
-                      {formatOption(arbre.pollen_allergisant)}
-                    </span>
-                  </td>
-                  <td className="px-3 py-2 text-xs">
-                    {arbre.resistance_secheresse}
+                    <Badge
+                      texte={formatOption(arbre.pollen_allergisant)}
+                      key="pollen_allergisant"
+                      valeur={arbre.pollen_allergisant}
+                    />
                   </td>
                   <td className="px-3 py-2">
-                    <span
-                      className={`px-2 py-1 text-xs rounded-full ${
-                        arbre.adapte_changement_climatique === "oui"
-                          ? "bg-green-100 text-green-800"
-                          : "bg-gray-100 text-gray-500"
-                      }`}
-                    >
-                      {arbre.adapte_changement_climatique === "oui"
-                        ? "Oui"
-                        : "Non"}
-                    </span>
+                    <Badge
+                      texte={formatOption(arbre.resistance_secheresse)}
+                      key="resistance_secheresse"
+                      valeur={arbre.resistance_secheresse}
+                    />
+                  </td>
+                  <td className="px-3 py-2">
+                    <Badge
+                      texte={arbre.adapté_changement_climatique === "oui" ? "Oui" : "Non"}
+                      key="adapté_changement_climatique"
+                      valeur={arbre.adapté_changement_climatique}
+                    />
                   </td>
                 </tr>
               ))}
@@ -457,97 +508,71 @@ export default function ListeArbres({ arbres }: Props) {
 
                 <div className="pt-1 space-y-1">
                   <Barre
-                    niveau={arbre.resistance_vent}
-                    label="Résistance vent"
-                  />
-                  <Barre
-                    niveau={arbre.resistance_chaleur_urbaine}
-                    label="Chaleur urbaine"
-                  />
+                     niveau={Number(arbre.resistance_vent)}
+                     label="Résistance vent"
+                   />
+                   <Barre
+                     niveau={Number(arbre.resistance_chaleur_urbaine)}
+                     label="Chaleur urbaine"
+                   />
                 </div>
 
-                <div className="flex flex-wrap gap-1 pt-1">
-                  <Badge
-                    texte="Mellifère"
-                    couleur={
-                      arbre.mellifere === "oui"
-                        ? "bg-green-100 text-green-800"
-                        : "bg-gray-100 text-gray-500"
-                    }
-                  />
-                  <Badge
-                    texte="Floraison"
-                    couleur={
-                      arbre.floraison_remarquable === "oui"
-                        ? "bg-green-100 text-green-800"
-                        : "bg-gray-100 text-gray-500"
-                    }
-                  />
-                  <Badge
-                    texte="Couleur automne"
-                    couleur={
-                      arbre.couleur_automnale === "oui"
-                        ? "bg-green-100 text-green-800"
-                        : "bg-gray-100 text-gray-500"
-                    }
-                  />
-                  <Badge
-                    texte="Adapté climat futur"
-                    couleur={
-                      arbre.adapte_changement_climatique === "oui"
-                        ? "bg-green-100 text-green-800"
-                        : "bg-gray-100 text-gray-500"
-                    }
-                  />
-                </div>
+                 <div className="flex flex-wrap gap-1 pt-1">
+                   <Badge
+                     texte="Mellifère"
+                     key="mellifere"
+                     valeur={arbre.mellifere}
+                   />
+                   <Badge
+                     texte="Floraison"
+                     key="floraison_remarquable"
+                     valeur={arbre.floraison_remarquable}
+                   />
+                   <Badge
+                     texte="Couleur automne"
+                     key="couleur_automnale"
+                     valeur={arbre.couleur_automnale}
+                   />
+                   <Badge
+                     texte="Adapté climat futur"
+                     key="adapté_changement_climatique"
+                     valeur={arbre.adapté_changement_climatique}
+                   />
+                 </div>
 
-                <div className="flex flex-wrap gap-1 pt-1">
-                  <Badge
-                    texte={`Allergisant: ${formatOption(arbre.pollen_allergisant)}`}
-                    couleur={
-                      arbre.pollen_allergisant === "fort"
-                        ? "bg-red-100 text-red-800"
-                        : arbre.pollen_allergisant === "moyen"
-                          ? "bg-yellow-100 text-yellow-800"
-                          : "bg-green-100 text-green-800"
-                    }
-                  />
-                  <Badge
-                    texte="Fruits salissants"
-                    couleur={
-                      arbre.fruits_salissants === "oui"
-                        ? "bg-orange-100 text-orange-800"
-                        : "bg-gray-100 text-gray-500"
-                    }
-                  />
-                  <Badge
-                    texte="Branches fragiles"
-                    couleur={
-                      arbre.branches_fragiles === "oui"
-                        ? "bg-orange-100 text-orange-800"
-                        : "bg-gray-100 text-gray-500"
-                    }
-                  />
-                  <Badge
-                    texte="Racines agres."
-                    couleur={
-                      arbre.racines_devastatrices === "oui"
-                        ? "bg-red-100 text-red-800"
-                        : "bg-gray-100 text-gray-500"
-                    }
-                  />
-                </div>
+                 <div className="flex flex-wrap gap-1 pt-1">
+                   <Badge
+                     texte={`Allergisant: ${formatOption(arbre.pollen_allergisant)}`}
+                     key="pollen_allergisant"
+                     valeur={arbre.pollen_allergisant}
+                   />
+                   <Badge
+                     texte="Fruits salissants"
+                     key="fruits_salissants"
+                     valeur={arbre.fruits_salissants}
+                   />
+                   <Badge
+                     texte="Branches fragiles"
+                     key="branches_fragiles"
+                     valeur={arbre.branches_fragiles}
+                   />
+                   <Badge
+                     texte="Racines agres."
+                     key="racines_devastatrices"
+                     valeur={arbre.racines_devastatrices}
+                   />
+                 </div>
 
                 <div className="pt-1 border-t border-gray-100 mt-2">
                   <p className="text-xs text-gray-500">
                     <span className="font-medium text-gray-700">Taille :</span>{" "}
-                    {arbre.frequence_taille} ·{" "}
-                    <span className="font-medium text-gray-700">
-                      Maladies :
-                    </span>{" "}
-                    {arbre.sensibilite_maladies} ·{" "}
-                    <span className="font-medium text-gray-700">Coût :</span>{" "}
-                    {arbre.cout_entretien}
+                     {formatOption(arbre.frequence_taille)} ·{" "}
+                       <span className="font-medium text-gray-700">
+                         Maladies :
+                       </span>{" "}
+                       {formatOption(arbre.sensibilite_maladies)} ·{" "}
+                       <span className="font-medium text-gray-700">Coût :</span>{" "}
+                       {formatOption(arbre.cout_entretien)}
                   </p>
                 </div>
               </div>

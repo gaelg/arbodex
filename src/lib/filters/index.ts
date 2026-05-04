@@ -23,7 +23,7 @@ export interface FiltersStateLegacy {
   rusticite_max: string;
   resistance_vent: string;
   resistance_chaleur_urbaine: string;
-  adapte_changement_climatique: string;
+  adapté_changement_climatique: string;
   mellifere: string;
   ombrage_fort: string;
   rafraichissement_fort: string;
@@ -52,7 +52,7 @@ function adaptFilters(legacy: FiltersStateLegacy): Record<string, string> {
   state.resistance_secheresse = legacy.resistance_secheresse;
   state.resistance_vent = legacy.resistance_vent;
   state.resistance_chaleur_urbaine = legacy.resistance_chaleur_urbaine;
-  state.adapte_changement_climatique = legacy.adapte_changement_climatique;
+  state.adapté_changement_climatique = legacy.adapté_changement_climatique;
   state.mellifere = legacy.mellifere;
   state.ombrage_fort = legacy.ombrage_fort;
   state.rafraichissement_fort = legacy.rafraichissement_fort;

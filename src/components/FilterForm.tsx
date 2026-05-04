@@ -78,6 +78,14 @@ export default function FormulaireFiltres({
       .replace("Sensibilite", "Sensibilité")
       .replace("Cout", "Coût");
 
+  function formatFilterOption(config: FilterConfig, opt: string): string {
+    if (config.key === "resistance_vent" || config.key === "resistance_chaleur_urbaine") {
+      const numLabels: Record<string, string> = { "1": "Très faible", "2": "Faible", "3": "Moyen", "4": "Fort", "5": "Très fort" };
+      return numLabels[opt] || opt;
+    }
+    return formatOption(opt);
+  }
+
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
       {/* Barre de recherche */}
@@ -164,7 +172,7 @@ export default function FormulaireFiltres({
                             } as any).length;
                             return (
                               <option key={opt} value={opt}>
-                                {formatOption(opt)} ({count})
+                                {formatFilterOption(config, opt)} ({count})
                               </option>
                             );
                           })}

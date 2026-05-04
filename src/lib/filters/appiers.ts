@@ -31,7 +31,7 @@ function matchRelative(
   if (seuil === undefined || val === undefined) {
     return String(value) === filter;
   }
-  return val <= seuil;
+  return val >= seuil;
 }
 
 function matchNumeric(filter: string, value: number): boolean {
