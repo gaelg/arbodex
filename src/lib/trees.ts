@@ -50,6 +50,10 @@ export interface Arbre {
   photos_port?: string;
   photos_fleurs?: string;
   photos_fruits?: string;
+  // URLs d'images (Wikimedia Commons ou autres sources libres)
+  image_port?: string;
+  image_fleurs?: string;
+  image_fruits?: string;
 }
 
 export interface Filtres {

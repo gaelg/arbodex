@@ -4,3 +4,5 @@ arbodex.log
 .vercel
 .opencode/
 *.backup
+# Version générée au build (trackée pour que l'app l'utilise)
+!src/version.ts
