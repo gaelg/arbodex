@@ -44,6 +44,8 @@ export interface Arbre {
   sensibilite_maladies: string;
   longevite: string;
   cout_entretien: string;
+  // Nouveau : aire de répartition native (pour presque_local)
+  regions_natives?: string; // ex: "Hauts-de-France,Pays de la Loire"
 }
 
 export interface Filtres {

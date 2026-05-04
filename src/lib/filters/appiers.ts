@@ -9,7 +9,7 @@ function normalize(text: string): string {
     .replace(/[\u0300-\u036f]/g, "");
 }
 
-//Types de base pour les comparaisons
+// Types de base pour les comparaisons
 function matchExact(filter: string, value: string | number): boolean {
   if (!filter) return true;
   return String(value) === filter;
@@ -60,21 +60,31 @@ function matchSearch(query: string, arbre: Arbre): boolean {
   );
 }
 
-// Coordonnées du centre des Hauts-de-France (Amiens)
-const HDF_LAT = 49.9;
-const HDF_LON = 2.3;
+// Régions françaises avec coordonnées (centres)
+const REGIONS: Record<string, { lat: number; lon: number }> = {
+  "Hauts-de-France": { lat: 49.9, lon: 2.3 },
+  "Île-de-France": { lat: 48.86, lon: 2.35 },
+  "Normandie": { lat: 49.18, lon: -0.37 },
+  "Grand Est": { lat: 48.68, lon: 6.17 },
+  "Bourgogne-Franche-Comté": { lat: 47.28, lon: 5.02 },
+  "Centre-Val de Loire": { lat: 47.75, lon: 1.68 },
+  "Pays de la Loire": { lat: 47.48, lon: -0.55 },
+  "Bretagne": { lat: 48.12, lon: -2.83 },
+  "Nouvelle-Aquitaine": { lat: 45.76, lon: 0.58 },
+  "Occitanie": { lat: 43.6, lon: 2.25 },
+  "Auvergne-Rhône-Alpes": { lat: 45.76, lon: 4.83 },
+  "Provence-Alpes-Côte d'Azur": { lat: 43.53, lon: 5.43 },
+  "Corse": { lat: 42.03, lon: 9.01 },
+};
+
+const HDF: { lat: number; lon: number } = REGIONS["Hauts-de-France"];
 const RAYON_MAX_KM = 700;
 
-// Calcul de distance haversine (km) entre deux points GPS
-function haversine(
-  lat1: number,
-  lon1: number,
-  lat2: number,
-  lon2: number
-): number {
-  const R = 6371; // Rayon Terre en km
-  const dLat = ((lat2 - lat1) * Math.PI) / 180;
-  const dLon = ((lon2 - lon1) * Math.PI) / 180;
+// Calcul de distance haversine (km)
+function haversine(lat1: number, lon1: number, lat2: number, lon2: number): number {
+  const R = 6371;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
   const a =
     Math.sin(dLat / 2) * Math.sin(dLat / 2) +
     Math.cos((lat1 * Math.PI) / 180) *
@@ -85,37 +95,23 @@ function haversine(
   return R * c;
 }
 
-// Coordonnées GPS par région (pour calcul d'origine)
-const COORD_REGIONS: Record<string, { lat: number; lon: number }> = {
-  "Hauts-de-France": { lat: 49.9, lon: 2.3 },
-  "Île-de-France": { lat: 48.86, lon: 2.35 },
-  Normandie: { lat: 49.18, lon: -0.37 },
-  "Grand Est": { lat: 48.68, lon: 6.17 },
-  "Bourgogne-Franche-Comté": { lat: 47.28, lon: 5.02 },
-  "Pays de la Loire": { lat: 47.48, lon: -0.55 },
-  Bretagne: { lat: 48.12, lon: -2.83 },
-  "Nouvelle-Aquitaine": { lat: 45.76, lon: 0.58 },
-  Occitanie: { lat: 43.6, lon: 2.25 },
-  "Auvergne-Rhône-Alpes": { lat: 45.76, lon: 4.83 },
-  "Provence-Alpes-Côte d'Azur": { lat: 43.53, lon: 5.43 },
-  Corse: { lat: 42.03, lon: 9.01 },
-  "Centre-Val de Loire": { lat: 47.75, lon: 1.68 },
-};
+// Vérifie si une essence est "presque local" (aire native à < 700km de HDF)
+function isPresqueLocal(arbre: Arbre): boolean {
+  if (!arbre.regions_natives) {
+    // Si pas de données, on utilise le champ existant
+    return arbre.origine === "presque_local";
+  }
 
-// Calcule l'origine réelle (local/presque_local/vraiment_exotique)
-// Pour l'instant, on utilise le champ existant + logique si besoin
-function computeOrigine(arbre: Arbre): string {
-  // Si déjà "local" ou "vraiment_exotique", on garde
-  if (arbre.origine === "local") return "local";
-  if (arbre.origine === "vraiment_exotique") return "vraiment_exotique";
-
-  // Pour "presque_local", on pourrait calculer la distance
-  // Mais comme on a déjà le champ, on le retourne
-  return arbre.origine;
+  const regions = arbre.regions_natives.split(",").map(r => r.trim());
+  for (const reg of regions) {
+    const coord = REGIONS[reg];
+    if (coord) {
+      const dist = haversine(HDF.lat, HDF.lon, coord.lat, coord.lon);
+      if (dist <= RAYON_MAX_KM) return true;
+    }
+  }
+  return false;
 }
-
-// TODO: Ajouter coordonnées GPS dans Arbre interface pour calcul précis
-// Pour l'instant, on se base sur le champ 'origine' du CSV
 
 // Applique UN filtre selon son type
 export function applyFilter(
@@ -123,7 +119,6 @@ export function applyFilter(
   config: FilterConfig,
   value: string
 ): boolean {
-  // Pour l'origine, on pourrait utiliser un compute si besoin
   const fieldValue = (arbre as any)[config.key];
 
   switch (config.type) {
@@ -142,14 +137,14 @@ export function applyFilter(
   }
 }
 
-// Applique tous les filtres depuis l'état (record<string,string>)
+// Applique tous les filtres
 export function applyAllFilters(
   arbres: Arbre[],
   filters: Record<string, string>,
   filterConfigs: FilterConfig[]
 ): Arbre[] {
   return arbres.filter((arbre) => {
-    // 1. Recherche textuelle (spéciale)
+    // 1. Recherche textuelle
     if (!matchSearch(filters.recherche || "", arbre)) return false;
 
     // 2. Filtres dimension (range)
@@ -187,11 +182,15 @@ export function applyAllFilters(
 
     // 4. Autres filtres via la config
     for (const config of filterConfigs) {
-      if (config.key === "origine") continue; // Déjà géré via compute si besoin
-      if (
-        filters[config.key] &&
-        !applyFilter(arbre, config, filters[config.key])
-      ) {
+      if (config.key === "origine") {
+        // Logique spéciale pour l'origine
+        const expected = computeOrigine(arbre);
+        if (filters[config.key] && expected !== filters[config.key]) {
+          return false;
+        }
+        continue;
+      }
+      if (filters[config.key] && !applyFilter(arbre, config, filters[config.key])) {
         return false;
       }
     }
@@ -199,4 +198,11 @@ export function applyAllFilters(
     return true;
   });
 }
-// formatage
+
+// Calcule l'origine réelle (local/presque_local/vraiment_exotique)
+function computeOrigine(arbre: Arbre): string {
+  if (arbre.origine === "local") return "local";
+  if (arbre.origine === "vraiment_exotique") return "vraiment_exotique";
+  if (isPresqueLocal(arbre)) return "presque_local";
+  return "vraiment_exotique";
+}
