@@ -36,6 +36,12 @@ export default function FormulaireFiltres({
     setSectionsOuvertes((prev) => ({ ...prev, [section]: !prev[section] }));
   };
 
+  const replierTout = () => {
+    const toutesFermees: Record<string, boolean> = {};
+    for (const s of sections) toutesFermees[s] = false;
+    setSectionsOuvertes(toutesFermees);
+  };
+
   const mettreAJour = (cle: string, valeur: string) => {
     onChange({ ...filtres, [cle]: valeur });
     if (cle === "recherche" && valeur) {
@@ -106,7 +112,15 @@ export default function FormulaireFiltres({
         />
       </div>
 
-      <h2 className="text-lg font-semibold text-green-800 mb-4">Filtres</h2>
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-lg font-semibold text-green-800">Filtres</h2>
+        <button
+          onClick={replierTout}
+          className="text-xs text-green-700 hover:text-green-900 font-medium"
+        >
+          Replier tout
+        </button>
+      </div>
 
       <div className="space-y-2">
         {sections.map((section) => {
