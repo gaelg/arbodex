@@ -2,6 +2,13 @@
 
 import { useState } from "react";
 import { Arbre, Filtres, appliquerFiltres } from "@/lib/trees";
+import {
+  FILTERS,
+  getFiltersBySection,
+  getAllSections,
+  getDefaultFiltersState,
+} from "@/lib/filters";
+import type { FilterConfig } from "@/lib/filters";
 
 interface Props {
   arbres: Arbre[];
@@ -9,148 +16,27 @@ interface Props {
   onChange: (filtres: Filtres) => void;
 }
 
-interface ChampSelect {
-  cle: keyof Filtres;
-  étiquette: string;
-  section: string;
-}
-
-const CHAMPS: ChampSelect[] = [
-  // Essence
-  { cle: "origine", étiquette: "Origine", section: "Essence" },
-
-  // Sol
-  { cle: "type_sol", étiquette: "Type de sol", section: "Sol" },
-  { cle: "pH", étiquette: "pH", section: "Sol" },
-
-  // Climat
-  {
-    cle: "resistance_secheresse",
-    étiquette: "Résistance sécheresse",
-    section: "Climat",
-  },
-  {
-    cle: "resistance_vent",
-    étiquette: "Résistance vent",
-    section: "Climat",
-  },
-  {
-    cle: "resistance_chaleur_urbaine",
-    étiquette: "Chaleur urbaine",
-    section: "Climat",
-  },
-  {
-    cle: "adapte_changement_climatique",
-    étiquette: "Adapté changement climatique",
-    section: "Climat",
-  },
-
-  // Services écosystémiques
-  {
-    cle: "mellifere",
-    étiquette: "Mellifère",
-    section: "Services écosystémiques",
-  },
-  {
-    cle: "ombrage_fort",
-    étiquette: "Ombrage",
-    section: "Services écosystémiques",
-  },
-  {
-    cle: "rafraichissement_fort",
-    étiquette: "Rafraîchissement",
-    section: "Services écosystémiques",
-  },
-
-  // Caractéristiques
-  {
-    cle: "fruitiere_sauvage",
-    étiquette: "Fruits sauvages",
-    section: "Caractéristiques",
-  },
-  {
-    cle: "floraison_remarquable",
-    étiquette: "Floraison remarquable",
-    section: "Caractéristiques",
-  },
-  {
-    cle: "couleur_automnale",
-    étiquette: "Couleur automnale",
-    section: "Caractéristiques",
-  },
-
-  // Contraintes & Risques
-  {
-    cle: "pollen_allergisant",
-    étiquette: "Pollen allergisant (max)",
-    section: "Contraintes & Risques",
-  },
-  {
-    cle: "fruits_salissants",
-    étiquette: "Fruits salissants",
-    section: "Contraintes & Risques",
-  },
-  {
-    cle: "branches_fragiles",
-    étiquette: "Branches fragiles",
-    section: "Contraintes & Risques",
-  },
-  {
-    cle: "racines_devastatrices",
-    étiquette: "Racines dévastatrices",
-    section: "Contraintes & Risques",
-  },
-
-  // Entretien
-  {
-    cle: "frequence_taille",
-    étiquette: "Fréquence taille (max)",
-    section: "Entretien",
-  },
-  {
-    cle: "sensibilite_maladies",
-    étiquette: "Sensibilité maladies (max)",
-    section: "Entretien",
-  },
-  {
-    cle: "cout_entretien",
-    étiquette: "Coût entretien (max)",
-    section: "Entretien",
-  },
-];
-
-function optionsUniques(arbres: Arbre[], cle: keyof Arbre): string[] {
-  const vals = new Set<string>();
-  for (const a of arbres) {
-    const v = String(a[cle] ?? "");
-    if (v) vals.add(v);
-  }
-  return [...vals].sort();
-}
-
 export default function FormulaireFiltres({
   arbres,
   filtres,
   onChange,
 }: Props) {
-  const sections = [...new Set(CHAMPS.map((c) => c.section))];
+  const sections = getAllSections();
+  const sectionsFiltres = getFiltersBySection();
 
   const [sectionsOuvertes, setSectionsOuvertes] = useState<
     Record<string, boolean>
-  >({
-    "Sol & Climat": true,
-    Essence: false,
-    "Services écosystémiques": false,
-    Caractéristiques: false,
-    "Contraintes & Risques": false,
-    Entretien: false,
+  >(() => {
+    const init: Record<string, boolean> = {};
+    for (const s of sections) init[s] = s === "Climat"; // Climat ouvert par défaut
+    return init;
   });
 
   const toggleSection = (section: string) => {
     setSectionsOuvertes((prev) => ({ ...prev, [section]: !prev[section] }));
   };
 
-  const mettreAJour = (cle: keyof Filtres, valeur: string) => {
+  const mettreAJour = (cle: string, valeur: string) => {
     onChange({ ...filtres, [cle]: valeur });
     if (cle === "recherche" && valeur) {
       const toutesFermees: Record<string, boolean> = {};
@@ -160,87 +46,37 @@ export default function FormulaireFiltres({
   };
 
   const reinitialiser = () => {
-    onChange({
-      recherche: "",
-      type: "",
-      origine: "",
-      type_sol: "",
-      resistance_secheresse: "",
-      pH: "",
-      rusticite_min: "",
-      rusticite_max: "",
-      resistance_vent: "",
-      resistance_chaleur_urbaine: "",
-      adapte_changement_climatique: "",
-      mellifere: "",
-      ombrage_fort: "",
-      rafraichissement_fort: "",
-      fruitiere_sauvage: "",
-      floraison_remarquable: "",
-      couleur_automnale: "",
-      pollen_allergisant: "",
-      fruits_salissants: "",
-      branches_fragiles: "",
-      racines_devastatrices: "",
-      frequence_taille: "",
-      sensibilite_maladies: "",
-      cout_entretien: "",
-      hauteur_min: "",
-      hauteur_max: "",
-      envergure_min: "",
-      envergure_max: "",
-    });
+    onChange(getDefaultFiltersState() as any);
   };
 
-  const ouiNon = ["oui", "non"];
-  const frequences = ["jamais", "occasionnelle", "régulière"];
-  const tailles = ["faible", "moderee", "elevee"];
-  const couts = ["faible", "modérée", "élevée"];
+  function optionsUniques(cle: string): string[] {
+    const vals = new Set<string>();
+    for (const a of arbres) {
+      const v = (a as any)[cle];
+      if (v) vals.add(String(v));
+    }
+    return [...vals].sort();
+  }
+
+  function getOptions(config: FilterConfig): string[] {
+    if (config.options) return config.options;
+    return optionsUniques(config.key);
+  }
 
   const formatOption = (opt: string) =>
-    opt.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-
-  function getOptions(cle: keyof Filtres): string[] {
-    switch (cle) {
-      case "origine":
-        return ["local", "presque_local", "vraiment_exotique"];
-      case "type":
-        return optionsUniques(arbres, "type");
-      case "type_sol":
-        return optionsUniques(arbres, "type_sol");
-      case "resistance_secheresse":
-        return optionsUniques(arbres, "resistance_secheresse");
-      case "pH":
-        return optionsUniques(arbres, "pH");
-      case "adapte_changement_climatique":
-      case "mellifere":
-      case "ombrage_fort":
-      case "rafraichissement_fort":
-      case "fruitiere_sauvage":
-      case "floraison_remarquable":
-      case "couleur_automnale":
-      case "fruits_salissants":
-      case "branches_fragiles":
-      case "racines_devastatrices":
-        return ouiNon;
-      case "pollen_allergisant":
-        return ["faible", "moyen"]; // "fort" excluded - pros want max tolerance
-      case "frequence_taille":
-        return frequences;
-      case "sensibilite_maladies":
-        return tailles;
-      case "cout_entretien":
-        return couts;
-      default:
-        return [];
-    }
-  }
-
-  const sectionsFiltres: Record<string, ChampSelect[]> = {};
-  for (const champ of CHAMPS) {
-    if (!sectionsFiltres[champ.section]) sectionsFiltres[champ.section] = [];
-    sectionsFiltres[champ.section].push(champ);
-  }
+    opt
+      .replace(/_/g, " ")
+      .replace(/\b\w/g, (c) => c.toUpperCase())
+      .replace("Resistance", "Résistance")
+      .replace("Mellifere", "Mellifère")
+      .replace("Fruitiere", "Fruitière")
+      .replace("Floraison", "Floraison")
+      .replace("Couleur", "Couleur")
+      .replace("Adapte", "Adapté")
+      .replace("Pollen", "Pollen")
+      .replace("Frequence", "Fréquence")
+      .replace("Sensibilite", "Sensibilité")
+      .replace("Cout", "Coût");
 
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
@@ -267,11 +103,11 @@ export default function FormulaireFiltres({
       <div className="space-y-2">
         {sections.map((section) => {
           const filtresSection = sectionsFiltres[section] || [];
-          if (filtresSection.length <= 1) return null; // Pas de replié si 1 seul filtre
           const ouvert = sectionsOuvertes[section] ?? false;
           const nbActifs = filtresSection.filter(
-            ({ cle }) => filtres[cle]
+            ({ key }) => (filtres as any)[key]
           ).length;
+
           return (
             <div
               key={section}
@@ -305,24 +141,25 @@ export default function FormulaireFiltres({
               </button>
               {ouvert && (
                 <div className="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {sectionsFiltres[section].map(({ cle, étiquette }) => {
-                    const opts = getOptions(cle);
+                  {filtresSection.map((config) => {
+                    const opts = getOptions(config);
+                    const value = (filtres as any)[config.key] || "";
                     return (
-                      <div key={cle}>
+                      <div key={config.key}>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
-                          {étiquette}
+                          {config.label}
                         </label>
                         <select
-                          value={filtres[cle]}
-                          onChange={(e) => mettreAJour(cle, e.target.value)}
+                          value={value}
+                          onChange={(e) => mettreAJour(config.key, e.target.value)}
                           className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                         >
                           <option value="">Tous</option>
                           {opts.map((opt) => {
                             const count = appliquerFiltres(arbres, {
                               ...filtres,
-                              [cle]: opt,
-                            }).length;
+                              [config.key]: opt,
+                            } as any).length;
                             return (
                               <option key={opt} value={opt}>
                                 {formatOption(opt)} ({count})
@@ -397,9 +234,7 @@ export default function FormulaireFiltres({
                     type="number"
                     min={0}
                     value={filtres.envergure_min}
-                    onChange={(e) =>
-                      mettreAJour("envergure_min", e.target.value)
-                    }
+                    onChange={(e) => mettreAJour("envergure_min", e.target.value)}
                     placeholder="0"
                     className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
                   />
@@ -412,9 +247,7 @@ export default function FormulaireFiltres({
                     type="number"
                     min={0}
                     value={filtres.envergure_max}
-                    onChange={(e) =>
-                      mettreAJour("envergure_max", e.target.value)
-                    }
+                    onChange={(e) => mettreAJour("envergure_max", e.target.value)}
                     placeholder="30"
                     className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
                   />
@@ -428,9 +261,7 @@ export default function FormulaireFiltres({
                   <input
                     type="number"
                     value={filtres.rusticite_min}
-                    onChange={(e) =>
-                      mettreAJour("rusticite_min", e.target.value)
-                    }
+                    onChange={(e) => mettreAJour("rusticite_min", e.target.value)}
                     placeholder="-40"
                     className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
                   />
@@ -442,9 +273,7 @@ export default function FormulaireFiltres({
                   <input
                     type="number"
                     value={filtres.rusticite_max}
-                    onChange={(e) =>
-                      mettreAJour("rusticite_max", e.target.value)
-                    }
+                    onChange={(e) => mettreAJour("rusticite_max", e.target.value)}
                     placeholder="0"
                     className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
                   />
