@@ -3,9 +3,9 @@ import { readFileSync } from "fs";
 
 // Calculate version at build time
 function getVersion() {
-  // 1. Vercel: use commit SHA (shallow clone, git rev-list unavailable)
-  if (process.env.VERCEL_GIT_COMMIT_SHA) {
-    return "v" + process.env.VERCEL_GIT_COMMIT_SHA.substring(0, 7);
+  // 1. Vercel: use commit count from env (set in Vercel dashboard)
+  if (process.env.NEXT_PUBLIC_VERSION) {
+    return "v" + process.env.NEXT_PUBLIC_VERSION;
   }
 
   // 2. Try git command locally - commit count for a number
@@ -13,14 +13,14 @@ function getVersion() {
     const commitCount = execSync("git rev-list --count HEAD", {
       encoding: "utf8",
     }).trim();
-    return "v" + commitCount;
+    return commitCount;
   } catch (e) {
     // 3. Fallback to package.json
     try {
       const packageJson = JSON.parse(readFileSync("package.json", "utf8"));
-      return "v" + packageJson.version;
+      return packageJson.version;
     } catch (e2) {
-      return "vunknown";
+      return "0.2.0";
     }
   }
 }
