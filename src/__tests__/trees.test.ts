@@ -1,6 +1,11 @@
 import { describe, it, expect } from "vitest";
 import { Arbre, Filtres } from "@/lib/trees";
-import { FILTERS, applyAllFilters, getFilterByKey, getFiltersBySection } from "@/lib/filters";
+import {
+  FILTERS,
+  applyAllFilters,
+  getFilterByKey,
+  getFiltersBySection,
+} from "@/lib/filters";
 
 const ARBRES_TEST: Arbre[] = [
   {
@@ -297,12 +302,12 @@ describe("applyAllFilters", () => {
     expect(resultat).toHaveLength(5);
   });
 
-   it("filtre par texture de sol (multi)", () => {
-     const filtres: Filtres = { ...filtresVides, sol_texture: "Sablonneux" };
-     const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
-     expect(resultat).toHaveLength(2); // Pin blanc, Chêne pédonculé (has Sablonneux in multi)
-     expect(resultat.map((a) => a.nom_commun)).toContain("Pin blanc");
-   });
+  it("filtre par texture de sol (multi)", () => {
+    const filtres: Filtres = { ...filtresVides, sol_texture: "Sablonneux" };
+    const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
+    expect(resultat).toHaveLength(2); // Pin blanc, Chêne pédonculé (has Sablonneux in multi)
+    expect(resultat.map((a) => a.nom_commun)).toContain("Pin blanc");
+  });
 
   it("filtre par mellifère", () => {
     const filtres: Filtres = { ...filtresVides, mellifere: "oui" };
@@ -653,7 +658,7 @@ describe("applyAllFilters", () => {
       return sections;
     })();
     const filtresSection = bySection[section] || [];
-    const keys = filtresSection.map(f => f.key);
+    const keys = filtresSection.map((f) => f.key);
     expect(keys).toContain("origine");
     expect(keys).toContain("mellifere");
     expect(keys).toContain("ombrage_fort");
@@ -664,7 +669,7 @@ describe("applyAllFilters", () => {
     const section = "Contraintes et risques";
     const bySection = getFiltersBySection();
     const filtresSection = bySection[section] || [];
-    const keys = filtresSection.map(f => f.key);
+    const keys = filtresSection.map((f) => f.key);
     expect(keys).toContain("branches_fragiles");
     expect(keys).toContain("racines_devastatrices");
     expect(keys).toContain("fruits_salissants");
@@ -675,7 +680,7 @@ describe("applyAllFilters", () => {
     const section = "Entretien";
     const bySection = getFiltersBySection();
     const filtresSection = bySection[section] || [];
-    const keys = filtresSection.map(f => f.key);
+    const keys = filtresSection.map((f) => f.key);
     expect(keys).toContain("cout_entretien");
     expect(keys).toContain("frequence_taille");
     expect(keys).toContain("sensibilite_maladies");
@@ -685,7 +690,7 @@ describe("applyAllFilters", () => {
     const section = "Esthétique";
     const bySection = getFiltersBySection();
     const filtresSection = bySection[section] || [];
-    const keys = filtresSection.map(f => f.key);
+    const keys = filtresSection.map((f) => f.key);
     expect(keys).toContain("floraison_remarquable");
     expect(keys).toContain("couleur_automnale");
   });

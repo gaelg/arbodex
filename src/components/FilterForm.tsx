@@ -235,10 +235,14 @@ export default function FormulaireFiltres({
                                 : value
                                   ? `${value},${opt}`
                                   : opt;
-                              const count = applyAllFilters(arbres, {
-                                ...filtres,
-                                [config.key]: newValue,
-                              } as any, FILTERS).length;
+                              const count = applyAllFilters(
+                                arbres,
+                                {
+                                  ...filtres,
+                                  [config.key]: newValue,
+                                } as any,
+                                FILTERS
+                              ).length;
                               return (
                                 <label
                                   key={opt}
@@ -279,10 +283,14 @@ export default function FormulaireFiltres({
                         >
                           <option value="">Tous</option>
                           {opts.map((opt) => {
-                            const count = applyAllFilters(arbres, {
-                              ...filtres,
-                              [config.key]: opt,
-                            } as any, FILTERS).length;
+                            const count = applyAllFilters(
+                              arbres,
+                              {
+                                ...filtres,
+                                [config.key]: opt,
+                              } as any,
+                              FILTERS
+                            ).length;
                             return (
                               <option key={opt} value={opt}>
                                 {formatFilterOption(config, opt)} ({count})
