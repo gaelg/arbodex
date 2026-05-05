@@ -1,43 +1,31 @@
 import { execSync } from "child_process";
-import { readFileSync, writeFileSync, existsSync } from "fs";
+import { readFileSync } from "fs";
 
 // Calculate version once at startup
-const version = (() => {
-  // 1. Check for version file (written by CI/CD)
-  if (existsSync(".version")) {
-    return "v" + readFileSync(".version", "utf8").trim();
-  }
-
-  // 2. Vercel: use commit SHA (auto-set by Vercel)
+function getVersion() {
+  // 1. Vercel: use commit SHA (auto-set by Vercel)
   if (process.env.VERCEL_GIT_COMMIT_SHA) {
-    return "v" + process.env.VERCEL_GIT_COMMIT_SHA.substring(0, 7);
+    return process.env.VERCEL_GIT_COMMIT_SHA.substring(0, 7);
   }
 
-  // 3. Try git command locally - commit count
+  // 2. Try git command locally - commit count
   try {
     const commitCount = execSync("git rev-list --count HEAD", {
       encoding: "utf8",
     }).trim();
-    return "v" + commitCount;
+    return commitCount;
   } catch (e) {
-    // 4. Fallback to package.json
+    // 3. Fallback to package.json
     try {
       const packageJson = JSON.parse(readFileSync("package.json", "utf8"));
-      return "v" + packageJson.version;
+      return packageJson.version;
     } catch (e2) {
-      return "v0.2.0";
+      return "0.2.0";
     }
   }
-})();
-
-// Write version to file for persistence (if not already written by CI)
-try {
-  if (!existsSync(".version")) {
-    writeFileSync(".version", version.replace("v", ""));
-  }
-} catch (e) {
-  // Ignore write errors
 }
+
+const version = getVersion();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
