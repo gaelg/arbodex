@@ -113,13 +113,13 @@ jobs:
         run: npx vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
         continue-on-error: true
 
-      - name: Set NEXT_PUBLIC_VERSION env var
+      - name: Set version in package.json
         run: |
           COMMIT_COUNT=$(git rev-list --count HEAD)
+          npm version --no-git-tag-version $COMMIT_COUNT
           echo "NEXT_PUBLIC_VERSION=$COMMIT_COUNT" >> $GITHUB_ENV
-          echo "COMMIT_COUNT=$COMMIT_COUNT" >> $GITHUB_ENV
 
-      - name: Build with Vercel (debug)
+      - name: Build with Vercel
         run: npx vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
         env:
           NEXT_PUBLIC_VERSION: ${{ env.COMMIT_COUNT }}
