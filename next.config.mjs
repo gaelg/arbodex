@@ -13,14 +13,15 @@ function getVersion() {
     const commitCount = execSync("git rev-list --count HEAD", {
       encoding: "utf8",
     }).trim();
-    return commitCount;
+    // Format as semver: 0.0.X
+    return "0.0." + commitCount;
   } catch (e) {
     // 3. Fallback to package.json
     try {
       const packageJson = JSON.parse(readFileSync("package.json", "utf8"));
       return packageJson.version;
     } catch (e2) {
-      return "111";
+      return "0.0.111";
     }
   }
 }
