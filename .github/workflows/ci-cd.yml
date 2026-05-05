@@ -116,7 +116,7 @@ jobs:
       - name: Set version in package.json
         run: |
           COMMIT_COUNT=$(git rev-list --count HEAD)
-          npm version --no-git-tag-version $COMMIT_COUNT
+          npm version --no-git-tag 0.0.$COMMIT_COUNT
           echo "NEXT_PUBLIC_VERSION=$COMMIT_COUNT" >> $GITHUB_ENV
 
       - name: Build with Vercel
