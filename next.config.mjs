@@ -20,17 +20,9 @@ function getVersion() {
       const packageJson = JSON.parse(readFileSync("package.json", "utf8"));
       return packageJson.version;
     } catch (e2) {
-      return "0.2.0";
+      return "111";
     }
   }
-}
-
-// Write version to file for Vercel to pick up
-try {
-  const version = getVersion();
-  execSync(`echo "${version}" > .version`);
-} catch (e) {
-  // Ignore write errors
 }
 
 const version = getVersion();
