@@ -117,6 +117,7 @@ jobs:
         run: |
           COMMIT_COUNT=$(git rev-list --count HEAD)
           echo "NEXT_PUBLIC_VERSION=$COMMIT_COUNT" >> $GITHUB_ENV
+          echo "COMMIT_COUNT=$COMMIT_COUNT" >> $GITHUB_ENV
 
       - name: Build with Vercel (debug)
         run: npx vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
