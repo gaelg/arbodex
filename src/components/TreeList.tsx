@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Arbre } from "@/lib/trees";
 
 // Dictionnaire de traduction : valeur brute → affichage français correct
@@ -143,6 +144,7 @@ function Badge({
 }
 
 function Barre({ niveau, label }: { niveau: number; label: string }) {
+  const safeLevel = isNaN(niveau) ? 0 : Math.max(0, Math.min(5, niveau));
   return (
     <div className="flex items-center gap-2">
       <span className="text-xs text-gray-500 w-24">{label}</span>
@@ -162,7 +164,7 @@ function Barre({ niveau, label }: { niveau: number; label: string }) {
 }
 
 export default function ListeArbres({ arbres }: Props) {
-  const [vue, setVue] = useState<VueType>("liste");
+  const [vue, setVue] = useState<VueType>("liste"); // Onglet "Liste" en premier
   const [expanded, setExpanded] = useState<number | null>(null);
 
   const toggleExpand = (i: number) => {
@@ -230,24 +232,24 @@ export default function ListeArbres({ arbres }: Props) {
                 </div>
                 <div className="flex gap-2 text-xs">
                   <EmojiBadge
-                    valeur={arbre.type}
-                    map={{ arbre: "", arbuste: "" }}
-                    couleurs={{
-                      arbre: "text-green-700",
-                      arbuste: "text-green-600",
-                    }}
-                    title="Type : arbre ou arbuste"
-                  />
-                  <EmojiBadge
-                    valeur={arbre.pollen_allergisant}
-                    map={{ fort: "", moyen: "", faible: "" }}
-                    couleurs={{
-                      fort: "text-red-600",
-                      moyen: "text-orange-500",
-                      faible: "text-green-600",
-                    }}
-                    title="Allergie : fort, moyen, faible"
-                  />
+                     valeur={arbre.type}
+                     map={{ arbre: "🌳", arbuste: "🌿" }}
+                     couleurs={{
+                       arbre: "text-green-700",
+                       arbuste: "text-green-600",
+                     }}
+                     title="Type : arbre ou arbuste"
+                   />
+                   <EmojiBadge
+                     valeur={arbre.pollen_allergisant}
+                     map={{ fort: "🤧", moyen: "😊", faible: "😌" }}
+                     couleurs={{
+                       fort: "text-red-600",
+                       moyen: "text-orange-500",
+                       faible: "text-green-600",
+                     }}
+                     title="Allergie : fort, moyen, faible"
+                   />
                   <span className="px-2 py-1 rounded-full bg-blue-100 text-blue-800">
                     {arbre.hauteur_max_m}m
                   </span>
@@ -309,48 +311,48 @@ export default function ListeArbres({ arbres }: Props) {
                     </span>{" "}
                     {arbre.rusticite_min_C}°C
                   </p>
-                  <div className="flex flex-wrap gap-1 pt-1">
-                    <Badge
-                      texte="Mellifère"
-                      couleur={
-                        arbre.mellifere === "oui"
-                          ? "bg-green-100 text-green-800"
-                          : "bg-gray-100 text-gray-500"
-                      }
-                    />
-                    <Badge
-                      texte="Fruits sauvages"
-                      couleur={
-                        arbre.fruitière_sauvage === "oui"
-                          ? "bg-green-100 text-green-800"
-                          : "bg-gray-100 text-gray-500"
-                      }
-                    />
-                    <Badge
-                      texte="Floraison remarquable"
-                      couleur={
-                        arbre.floraison_remarquable === "oui"
-                          ? "bg-green-100 text-green-800"
-                          : "bg-gray-100 text-gray-500"
-                      }
-                    />
-                    <Badge
-                      texte="Couleur automnale"
-                      couleur={
-                        arbre.couleur_automnale === "oui"
-                          ? "bg-green-100 text-green-800"
-                          : "bg-gray-100 text-gray-500"
-                      }
-                    />
-                    <Badge
-                      texte="Adapté climat futur"
-                      couleur={
-                        arbre.adapte_changement_climatique === "oui"
-                          ? "bg-green-100 text-green-800"
-                          : "bg-gray-100 text-gray-500"
-                      }
-                    />
-                  </div>
+                   <div className="flex flex-wrap gap-1 pt-1">
+                     <Badge
+                       texte="🐝 Mellifère"
+                       couleur={
+                         arbre.mellifere === "oui"
+                           ? "bg-green-100 text-green-800"
+                           : "bg-gray-100 text-gray-500"
+                       }
+                     />
+                     <Badge
+                       texte="🍇 Fruits sauvages"
+                       couleur={
+                         arbre.fruitière_sauvage === "oui"
+                           ? "bg-green-100 text-green-800"
+                           : "bg-gray-100 text-gray-500"
+                       }
+                     />
+                     <Badge
+                       texte="🌸 Floraison remarquable"
+                       couleur={
+                         arbre.floraison_remarquable === "oui"
+                           ? "bg-green-100 text-green-800"
+                           : "bg-gray-100 text-gray-500"
+                       }
+                     />
+                     <Badge
+                       texte="🍂 Couleur automnale"
+                       couleur={
+                         arbre.couleur_automnale === "oui"
+                           ? "bg-green-100 text-green-800"
+                           : "bg-gray-100 text-gray-500"
+                       }
+                     />
+                     <Badge
+                       texte="🌡️ Adapté climat futur"
+                       couleur={
+                         arbre.adapte_changement_climatique === "oui"
+                           ? "bg-green-100 text-green-800"
+                           : "bg-gray-100 text-gray-500"
+                       }
+                     />
+                   </div>
                   <div className="pt-1 border-t border-gray-100 mt-2">
                     <p className="text-xs text-gray-500">
                       <span className="font-medium text-gray-700">
@@ -487,9 +489,11 @@ export default function ListeArbres({ arbres }: Props) {
               </div>
 
               {arbre.image_port && (
-                <img
+                <Image
                   src={arbre.image_port}
                   alt={`Port de ${arbre.nom_commun}`}
+                  width={400}
+                  height={192}
                   className="w-full h-48 object-cover rounded-lg mb-3"
                   loading="lazy"
                 />
@@ -497,17 +501,21 @@ export default function ListeArbres({ arbres }: Props) {
               {(arbre.image_fleurs || arbre.image_fruits) && (
                 <div className="grid grid-cols-2 gap-2 mb-3">
                   {arbre.image_fleurs && (
-                    <img
+                    <Image
                       src={arbre.image_fleurs}
                       alt={`Fleurs de ${arbre.nom_commun}`}
+                      width={200}
+                      height={128}
                       className="w-full h-32 object-cover rounded-lg"
                       loading="lazy"
                     />
                   )}
                   {arbre.image_fruits && (
-                    <img
+                    <Image
                       src={arbre.image_fruits}
                       alt={`Fruits de ${arbre.nom_commun}`}
+                      width={200}
+                      height={128}
                       className="w-full h-32 object-cover rounded-lg"
                       loading="lazy"
                     />

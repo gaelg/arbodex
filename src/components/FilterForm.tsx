@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Arbre, Filtres, appliquerFiltres } from "@/lib/trees";
+import { Arbre, Filtres } from "@/lib/trees";
 import {
   FILTERS,
   getFiltersBySection,
   getAllSections,
   getDefaultFiltersState,
+  applyAllFilters,
 } from "@/lib/filters";
 import type { FilterConfig } from "@/lib/filters";
 
@@ -120,6 +121,10 @@ export default function FormulaireFiltres({
       .replace("Cout", "Coût");
 
   function formatFilterOption(config: FilterConfig, opt: string): string {
+    // Utiliser optionLabels du registry si disponible
+    if (config.optionLabels && config.optionLabels[opt]) {
+      return config.optionLabels[opt];
+    }
     if (
       config.key === "resistance_vent" ||
       config.key === "resistance_chaleur_urbaine"
@@ -221,18 +226,19 @@ export default function FormulaireFiltres({
                           <div className="space-y-1">
                             {opts.map((opt) => {
                               const selected = isOptionSelected(config, opt);
-                              const count = appliquerFiltres(arbres, {
+                              const newValue = selected
+                                ? value
+                                    .split(",")
+                                    .filter(Boolean)
+                                    .filter((o: string) => o !== opt)
+                                    .join(",")
+                                : value
+                                  ? `${value},${opt}`
+                                  : opt;
+                              const count = applyAllFilters(arbres, {
                                 ...filtres,
-                                [config.key]: selected
-                                  ? value
-                                      .split(",")
-                                      .filter(Boolean)
-                                      .filter((o: string) => o !== opt)
-                                      .join(",")
-                                  : value
-                                    ? `${value},${opt}`
-                                    : opt,
-                              } as any).length;
+                                [config.key]: newValue,
+                              } as any, FILTERS).length;
                               return (
                                 <label
                                   key={opt}
@@ -273,10 +279,10 @@ export default function FormulaireFiltres({
                         >
                           <option value="">Tous</option>
                           {opts.map((opt) => {
-                            const count = appliquerFiltres(arbres, {
+                            const count = applyAllFilters(arbres, {
                               ...filtres,
                               [config.key]: opt,
-                            } as any).length;
+                            } as any, FILTERS).length;
                             return (
                               <option key={opt} value={opt}>
                                 {formatFilterOption(config, opt)} ({count})

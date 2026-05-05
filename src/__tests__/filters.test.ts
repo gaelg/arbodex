@@ -32,7 +32,9 @@ describe("Système de filtres encapsulé", () => {
     expect(f).toBeDefined();
     expect(f?.type).toBe("exact");
     expect(f?.section).toBe("Services écosystémiques");
-    expect(f?.options).toContain("Europe de l'Ouest");
+    expect(f?.options).toContain("local");
+    expect(f?.options).toContain("presque_local");
+    expect(f?.options).toContain("exotique");
   });
 
   it("getFiltersBySection regroupe correctement", () => {
@@ -74,5 +76,43 @@ describe("Système de filtres encapsulé", () => {
     const keys = FILTERS.map((f: FilterConfig) => f.key);
     expect(keys).toContain("ombrage_fort");
     expect(keys).toContain("rafraichissement_fort");
+  });
+
+  it("Filtre origine presque_local fonctionne avec haversine", () => {
+    const f = getFilterByKey("origine");
+    expect(f).toBeDefined();
+    expect(f?.options).toContain("presque_local");
+  });
+
+  it("Filtre mellifere est de type exact", () => {
+    const f = getFilterByKey("mellifere");
+    expect(f?.type).toBe("exact");
+  });
+
+  it("Filtre ombrage_fort est de type exact", () => {
+    const f = getFilterByKey("ombrage_fort");
+    expect(f?.type).toBe("exact");
+  });
+
+  it("Filtre rafraichissement_fort est de type exact", () => {
+    const f = getFilterByKey("rafraichissement_fort");
+    expect(f?.type).toBe("exact");
+  });
+
+  it("Section Sol contient uniquement des filtres Sol", () => {
+    const bySection = getFiltersBySection();
+    const solFilters = bySection["Sol"] || [];
+    solFilters.forEach((f: FilterConfig) => {
+      expect(f.section).toBe("Sol");
+      expect(f.key).toMatch(/^sol_/);
+    });
+  });
+
+  it("Section Climat contient uniquement des filtres Climat", () => {
+    const bySection = getFiltersBySection();
+    const climatFilters = bySection["Climat"] || [];
+    climatFilters.forEach((f: FilterConfig) => {
+      expect(f.section).toBe("Climat");
+    });
   });
 });

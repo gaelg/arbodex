@@ -1,4 +1,8 @@
-import { VERSION } from "@/version";
+declare global {
+  interface Window {
+    __NEXT_PUBLIC_VERSION?: string;
+  }
+}
 
 interface HeaderProps {
   installable: boolean;
@@ -11,6 +15,8 @@ export default function Header({
   installed,
   installer,
 }: HeaderProps) {
+  const version = process.env.NEXT_PUBLIC_VERSION || "0.2.0";
+
   return (
     <>
       {!installed && installable && (
@@ -64,7 +70,7 @@ export default function Header({
         </h1>
         <p className="text-gray-500 mt-1">
           142 essences pour les paysagistes — Hauts-de-France & Benelux (v
-          {VERSION})
+          {version})
         </p>
       </header>
     </>

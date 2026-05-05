@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Arbre, Filtres, chargerArbres, appliquerFiltres } from "@/lib/trees";
+import { Arbre, Filtres, chargerArbres } from "@/lib/trees";
+import { applyAllFilters, FILTERS } from "@/lib/filters";
 import FormulaireFiltres from "@/components/FilterForm";
 import ListeArbres from "@/components/TreeList";
 import Header from "@/components/Header";
@@ -84,7 +85,7 @@ export default function Accueil() {
     setInstallable(false);
   };
 
-  const filtres_appliques = appliquerFiltres(arbres, filtres);
+  const filtres_appliques = applyAllFilters(arbres, filtres, FILTERS);
   const [show_scroll_to_results, set_show_scroll_to_results] = useState(false);
 
   useEffect(() => {

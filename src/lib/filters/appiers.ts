@@ -230,7 +230,8 @@ export function applyAllFilters(
 
 // Calcule l'origine réelle pour le filtrage
 function computeOrigine(arbre: Arbre): string {
-  if (arbre.origine === "local") return "Endémique";
-  // presque_local ou vraiment_exotique -> Europe de l'Ouest
-  return "Europe de l'Ouest";
+  if (arbre.origine === "local") return "local";
+  if (arbre.origine === "presque_local" || isPresqueLocal(arbre))
+    return "presque_local";
+  return "exotique";
 }

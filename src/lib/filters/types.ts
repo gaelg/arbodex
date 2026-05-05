@@ -8,15 +8,13 @@ export type FilterType =
   | "multi"; // Cases à cocher (plusieurs choix possibles)
 
 export interface FilterConfig {
-  key: string; // Clé système (ex: "origine")
-  label: string; // Libellé humain (ex: "Origine")
-  section: string; // Section UI (ex: "Essence")
+  key: string;
+  label: string;
+  section: string;
   type: FilterType;
-  options?: string[]; // Options prédéfinies (pour exact/relative)
-  order?: Record<string, number>; // Échelle ordonnée (pour relative)
-  min?: number; // Min pour range
-  max?: number; // Max pour range
-  compute?: (arbre: any) => string; // Calcul dynamique (ex: presque_local)
+  options?: string[];
+  order?: Record<string, number>;
+  optionLabels?: Record<string, string>;
 }
 
 export interface FiltersState {

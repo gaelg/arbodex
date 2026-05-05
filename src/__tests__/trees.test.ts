@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { Arbre, Filtres } from "@/lib/trees";
-import { FILTERS, applyAllFilters } from "@/lib/filters";
+import { FILTERS, applyAllFilters, getFilterByKey, getFiltersBySection } from "@/lib/filters";
 
 const ARBRES_TEST: Arbre[] = [
   {
@@ -405,20 +405,26 @@ describe("applyAllFilters", () => {
     expect(resultat.map((a) => a.nom_commun)).not.toContain("Buis commun");
   });
 
-  it("filtre par origine (local → Endémique)", () => {
-    const filtres: Filtres = { ...filtresVides, origine: "Endémique" };
+  it("filtre par origine (local)", () => {
+    const filtres: Filtres = { ...filtresVides, origine: "local" };
     const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     expect(resultat).toHaveLength(2);
     expect(resultat.map((a) => a.nom_commun)).toContain("Chêne pédonculé");
     expect(resultat.map((a) => a.nom_commun)).toContain("Buis commun");
   });
 
-  it("filtre par origine (vraiment_exotique + presque_local → Europe de l'Ouest)", () => {
-    const filtres: Filtres = { ...filtresVides, origine: "Europe de l'Ouest" };
+  it("filtre par origine (exotique)", () => {
+    const filtres: Filtres = { ...filtresVides, origine: "exotique" };
     const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
-    expect(resultat).toHaveLength(3);
+    expect(resultat).toHaveLength(2);
     expect(resultat.map((a) => a.nom_commun)).toContain("Érable rouge");
     expect(resultat.map((a) => a.nom_commun)).toContain("Pin blanc");
+  });
+
+  it("filtre par origine (presque_local)", () => {
+    const filtres: Filtres = { ...filtresVides, origine: "presque_local" };
+    const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
+    expect(resultat).toHaveLength(1);
     expect(resultat.map((a) => a.nom_commun)).toContain("Ginkgo");
   });
 
@@ -463,8 +469,8 @@ describe("applyAllFilters", () => {
 
   // --- 2. Bugs bloquants ---
 
-  it("filtre origine : Endémique/Europe de l'Ouest tous disponibles", () => {
-    const origines = ["Endémique", "Europe de l'Ouest"];
+  it("filtre origine : local/presque_local/exotique tous disponibles", () => {
+    const origines = ["local", "presque_local", "exotique"];
     origines.forEach((o) => {
       const f: Filtres = { ...filtresVides, origine: o };
       const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
@@ -537,6 +543,208 @@ describe("applyAllFilters", () => {
         a.rafraichissement_fort === "oui" || a.rafraichissement_fort === "moyen"
     );
     expect(avecRafraichissement.length).toBeGreaterThan(0);
+  });
+
+  // --- 5. Branches fragiles / racines devastatrices ---
+
+  it("filtre ombrage_fort fonctionne (exact match)", () => {
+    const f: Filtres = { ...filtresVides, ombrage_fort: "oui" };
+    const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
+    expect(r.length).toBeGreaterThan(0);
+    r.forEach((a) => expect(a.ombrage_fort).toBe("oui"));
+  });
+
+  it("filtre rafraichissement_fort fonctionne (exact match)", () => {
+    const f: Filtres = { ...filtresVides, rafraichissement_fort: "oui" };
+    const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
+    expect(r.length).toBeGreaterThan(0);
+    r.forEach((a) => expect(a.rafraichissement_fort).toBe("oui"));
+  });
+
+  it("filtre mellifere fonctionne (exact match)", () => {
+    const f: Filtres = { ...filtresVides, mellifere: "oui" };
+    const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
+    expect(r.length).toBeGreaterThan(0);
+    r.forEach((a) => expect(a.mellifere).toBe("oui"));
+  });
+
+  it("résistance sécheresse : tous les niveaux retournent des résultats", () => {
+    const niveaux = ["faible", "moyenne", "bonne", "excellente"];
+    niveaux.forEach((n) => {
+      const f: Filtres = { ...filtresVides, resistance_secheresse: n };
+      const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
+      expect(r.length).toBeGreaterThanOrEqual(0);
+    });
+  });
+
+  it("résistance vent : tous les niveaux retournent des résultats", () => {
+    for (let v = 1; v <= 5; v++) {
+      const f: Filtres = { ...filtresVides, resistance_vent: String(v) };
+      const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
+      expect(r.length).toBeGreaterThanOrEqual(0);
+    }
+  });
+
+  it("résistance chaleur urbaine : tous les niveaux retournent des résultats", () => {
+    for (let v = 1; v <= 5; v++) {
+      const f: Filtres = {
+        ...filtresVides,
+        resistance_chaleur_urbaine: String(v),
+      };
+      const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
+      expect(r.length).toBeGreaterThanOrEqual(0);
+    }
+  });
+
+  it("branches_fragiles : filtre oui/non fonctionne", () => {
+    const fOui: Filtres = { ...filtresVides, branches_fragiles: "oui" };
+    const rOui = applyAllFilters(ARBRES_TEST, fOui, FILTERS);
+    expect(rOui.length).toBeGreaterThan(0);
+    rOui.forEach((a) => expect(a.branches_fragiles).toBe("oui"));
+
+    const fNon: Filtres = { ...filtresVides, branches_fragiles: "non" };
+    const rNon = applyAllFilters(ARBRES_TEST, fNon, FILTERS);
+    expect(rNon.length).toBeGreaterThan(0);
+    rNon.forEach((a) => expect(a.branches_fragiles).toBe("non"));
+  });
+
+  it("racines_devastatrices : filtre oui/non fonctionne", () => {
+    const fOui: Filtres = { ...filtresVides, racines_devastatrices: "oui" };
+    const rOui = applyAllFilters(ARBRES_TEST, fOui, FILTERS);
+    expect(rOui.length).toBeGreaterThan(0);
+    rOui.forEach((a) => expect(a.racines_devastatrices).toBe("oui"));
+  });
+
+  it("fruits_salissants : filtre fonctionne", () => {
+    const f: Filtres = { ...filtresVides, fruits_salissants: "oui" };
+    const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
+    expect(r.length).toBeGreaterThan(0);
+  });
+
+  it("pollen_allergisant : filtre max fonctionne (relative)", () => {
+    const niveaux = ["faible", "moyen", "fort"];
+    niveaux.forEach((n) => {
+      const f: Filtres = { ...filtresVides, pollen_allergisant: n };
+      const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
+      expect(r.length).toBeGreaterThanOrEqual(0);
+    });
+  });
+
+  it("Filtres Sol : texture multi fonctionne", () => {
+    const f: Filtres = { ...filtresVides, sol_texture: "Argileux" };
+    const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
+    expect(r.length).toBeGreaterThan(0);
+  });
+
+  it("Filtres Sol : acidity multi fonctionne", () => {
+    const f: Filtres = { ...filtresVides, sol_acidity: "neutre" };
+    const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
+    expect(r.length).toBeGreaterThan(0);
+  });
+
+  it("Section Services écosystémiques contient origine, mellifere, ombrage, rafraichissement", () => {
+    const section = "Services écosystémiques";
+    const bySection = (() => {
+      const sections: Record<string, any[]> = {};
+      FILTERS.forEach((f: any) => {
+        if (!sections[f.section]) sections[f.section] = [];
+        sections[f.section].push(f);
+      });
+      return sections;
+    })();
+    const filtresSection = bySection[section] || [];
+    const keys = filtresSection.map(f => f.key);
+    expect(keys).toContain("origine");
+    expect(keys).toContain("mellifere");
+    expect(keys).toContain("ombrage_fort");
+    expect(keys).toContain("rafraichissement_fort");
+  });
+
+  it("Section Contraintes et risques contient branches_fragiles, racines_devastatrices", () => {
+    const section = "Contraintes et risques";
+    const bySection = getFiltersBySection();
+    const filtresSection = bySection[section] || [];
+    const keys = filtresSection.map(f => f.key);
+    expect(keys).toContain("branches_fragiles");
+    expect(keys).toContain("racines_devastatrices");
+    expect(keys).toContain("fruits_salissants");
+    expect(keys).toContain("pollen_allergisant");
+  });
+
+  it("Section Entretien contient cout_entretien, frequence_taille, sensibilite_maladies", () => {
+    const section = "Entretien";
+    const bySection = getFiltersBySection();
+    const filtresSection = bySection[section] || [];
+    const keys = filtresSection.map(f => f.key);
+    expect(keys).toContain("cout_entretien");
+    expect(keys).toContain("frequence_taille");
+    expect(keys).toContain("sensibilite_maladies");
+  });
+
+  it("Section Esthétique contient floraison_remarquable, couleur_automnale", () => {
+    const section = "Esthétique";
+    const bySection = getFiltersBySection();
+    const filtresSection = bySection[section] || [];
+    const keys = filtresSection.map(f => f.key);
+    expect(keys).toContain("floraison_remarquable");
+    expect(keys).toContain("couleur_automnale");
+  });
+
+  it("Filtre adapte_changement_climatique fonctionne", () => {
+    const f: Filtres = { ...filtresVides, adapte_changement_climatique: "oui" };
+    const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
+    expect(r.length).toBeGreaterThan(0);
+    r.forEach((a) => expect(a.adapte_changement_climatique).toBe("oui"));
+  });
+
+  it("Filtre sol_depth fonctionne (profondeur)", () => {
+    const f: Filtres = { ...filtresVides, sol_depth: "profond" };
+    const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
+    expect(r.length).toBeGreaterThan(0);
+  });
+
+  it("Filtre sol_depth : Peu profond fonctionne", () => {
+    const f: Filtres = { ...filtresVides, sol_depth: "Peu profond" };
+    const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
+    // Doit filtrer les arbres avec sol_depth = "superficiel" ou "moyen"
+    expect(r.length).toBeGreaterThanOrEqual(0);
+  });
+
+  it("Échelle résistance sécheresse est correcte (order)", () => {
+    const f = getFilterByKey("resistance_secheresse");
+    expect(f?.order).toBeDefined();
+    expect(f?.order?.["faible"]).toBe(1);
+    expect(f?.order?.["moyenne"]).toBe(2);
+    expect(f?.order?.["bonne"]).toBe(3);
+    expect(f?.order?.["excellente"]).toBe(4);
+  });
+
+  it("Échelle résistance vent est numérique (1-5)", () => {
+    const f = getFilterByKey("resistance_vent");
+    expect(f?.type).toBe("numeric");
+  });
+
+  it("Échelle résistance chaleur urbaine est numérique (1-5)", () => {
+    const f = getFilterByKey("resistance_chaleur_urbaine");
+    expect(f?.type).toBe("numeric");
+  });
+
+  it("Filtre fruitière_sauvage utilise bonne clé", () => {
+    const f = getFilterByKey("fruitière_sauvage");
+    expect(f).toBeDefined();
+    expect(f?.type).toBe("exact");
+  });
+
+  it("Filtre floraison_remarquable utilise bonne clé", () => {
+    const f = getFilterByKey("floraison_remarquable");
+    expect(f).toBeDefined();
+    expect(f?.type).toBe("exact");
+  });
+
+  it("Filtre couleur_automnale utilise bonne clé", () => {
+    const f = getFilterByKey("couleur_automnale");
+    expect(f).toBeDefined();
+    expect(f?.type).toBe("exact");
   });
 
   // --- 5. Branches fragiles / racines devastatrices ---

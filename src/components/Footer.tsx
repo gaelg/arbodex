@@ -1,5 +1,3 @@
-import { VERSION } from "@/version";
-
 interface SourceProps {
   titre: string;
   description: string;
@@ -48,6 +46,8 @@ const SOURCES: SourceProps[] = [
 ];
 
 export default function Footer() {
+  const version = process.env.NEXT_PUBLIC_VERSION || "0.2.0";
+
   return (
     <footer className="mt-16 pt-8 border-t border-gray-200">
       <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
@@ -60,7 +60,7 @@ export default function Footer() {
       </div>
       <div className="mt-6 pt-4 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
         <p className="text-xs text-gray-400">
-          Arbodex v{VERSION} — Données fournies à titre indicatif. Toujours
+          Arbodex v{version} — Données fournies à titre indicatif. Toujours
           vérifier auprès de votre pépiniériste pour la disponibilité et
           l&apos;adaptation locale.
         </p>

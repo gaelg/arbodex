@@ -84,33 +84,52 @@ export const FILTERS: FilterConfig[] = [
     label: "Origine",
     section: "Services écosystémiques",
     type: "exact",
-    options: ["Tous", "Europe de l'Ouest", "Endémique"],
+    options: ["local", "presque_local", "exotique"],
+    optionLabels: {
+      local: "Local (HDF)",
+      presque_local: "Presque local (< 700 km)",
+      exotique: "Exotique"
+    }
   },
   {
     key: "mellifere",
     label: "Mellifère",
     section: "Services écosystémiques",
     type: "exact",
+    optionLabels: {
+      oui: "Oui, mellifère",
+      non: "Non"
+    }
   },
   {
     key: "ombrage_fort",
-    label: "Ombrage",
+    label: "Ombrage fort",
     section: "Services écosystémiques",
     type: "exact",
+    optionLabels: {
+      oui: "Oui, ombrage fort",
+      non: "Non"
+    }
   },
   {
     key: "rafraichissement_fort",
-    label: "Rafraîchissement",
+    label: "Rafraîchissement fort",
     section: "Services écosystémiques",
     type: "exact",
+    optionLabels: {
+      oui: "Oui, rafraîchit",
+      non: "Non"
+    }
   },
-
-  // Services écosystémiques
   {
     key: "fruitière_sauvage",
-    label: "Fruits pour la faune",
+    label: "Fruits sauvages",
     section: "Services écosystémiques",
     type: "exact",
+    optionLabels: {
+      oui: "Oui, fruits comestibles",
+      non: "Non"
+    }
   },
   {
     key: "pollen_allergisant",

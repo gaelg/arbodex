@@ -7,6 +7,10 @@ export const metadata: Metadata = {
     "Filtrer les arbres pour trouver ceux qui correspondent à vos critères",
   manifest: "/manifest.json",
   appleWebApp: { capable: true, statusBarStyle: "default" },
+  icons: {
+    icon: "/icon.svg",
+    apple: "/icon-192.png",
+  },
 };
 
 export const viewport: Viewport = {
