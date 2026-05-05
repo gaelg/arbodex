@@ -1,4 +1,4 @@
-import { execSync } from "child_process";
+import { execSync, execSync } from "child_process";
 import { readFileSync } from "fs";
 
 // Calculate version once at startup
