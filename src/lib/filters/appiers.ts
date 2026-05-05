@@ -1,5 +1,5 @@
 import { FilterConfig, FilterType } from "./types";
-import { Arbre } from "../trees";
+import { Arbre, Filtres } from "../trees";
 
 // Normalisation accents pour recherche
 function normalize(text: string): string {
@@ -23,7 +23,8 @@ function matchPartial(filter: string, value: string): boolean {
 function matchRelative(
   filter: string,
   value: string,
-  order: Record<string, number>
+  order: Record<string, number>,
+  isMax: boolean = false
 ): boolean {
   if (!filter) return true;
   const seuil = order[filter];
@@ -31,7 +32,7 @@ function matchRelative(
   if (seuil === undefined || val === undefined) {
     return String(value) === filter;
   }
-  return val >= seuil;
+  return isMax ? val <= seuil : val >= seuil;
 }
 
 function matchNumeric(filter: string, value: number): boolean {
@@ -118,65 +119,6 @@ function isPresqueLocal(arbre: Arbre): boolean {
   return false;
 }
 
-// Parse le champ type_sol pour extraire les propriétés agronomiques
-function getSoilProperties(typeSol: string, pH?: string): Record<string, string[]> {
-  const props: Record<string, string[]> = {
-    acidity: [],
-    moisture: [],
-    texture: [],
-    richness: [],
-    depth: [],
-    drainage: [],
-  };
-
-  if (!typeSol || typeSol === "tous types") {
-    // Tous types = tout est valide
-    return props;
-  }
-
-  const lower = typeSol.toLowerCase();
-
-  // Acidité - depuis pH d'abord, puis type_sol
-  if (pH) {
-    const pHLower = pH.toLowerCase();
-    if (pHLower.includes("acide")) props.acidity.push("Acide");
-    else if (pHLower.includes("basique") || pHLower.includes("calcaire")) props.acidity.push("Calcaire");
-    else if (pHLower.includes("neutre")) props.acidity.push("Neutre");
-  }
-  if (props.acidity.length === 0) {
-    if (lower.includes("acide")) props.acidity.push("Acide");
-    if (lower.includes("calcaire")) props.acidity.push("Calcaire");
-    if (props.acidity.length === 0) props.acidity.push("Neutre");
-  }
-
-  // Humidité
-  if (lower.includes("sec")) props.moisture.push("Sec");
-  if (lower.includes("frais")) props.moisture.push("Frais");
-  if (lower.includes("humide")) props.moisture.push("Humide");
-
-  // Texture
-  if (lower.includes("argileux")) props.texture.push("Argileux");
-  if (lower.includes("limoneux")) props.texture.push("Limoneux");
-  if (lower.includes("sableux")) props.texture.push("Sablonneux");
-
-  // Richesse
-  if (lower.includes("humif")) props.richness.push("Humifère");
-  if (lower.includes("fertile")) props.richness.push("Moyen");
-  if (lower.includes("pauvre")) props.richness.push("Pauvre");
-
-  // Profondeur
-  if (!lower.includes("profond")) props.depth.push("Peu profond");
-  // Si profond ou tous types, pas de restriction
-
-  // Drainage - si pas d'info, tout est valide (tableau vide)
-  if (lower.includes("bien drainé") || lower.includes("drainé")) {
-    props.drainage.push("Bon");
-  }
-  // Si pas de mention de drainage, on ne push rien (tout est valide)
-
-  return props;
-}
-
 // Applique UN filtre selon son type
 export function applyFilter(
   arbre: Arbre,
@@ -191,7 +133,9 @@ export function applyFilter(
     case "partial":
       return matchPartial(value, String(fieldValue));
     case "relative":
-      return matchRelative(value, fieldValue, config.order || {});
+      const isMax =
+        config.key.includes("max") || config.label?.includes("(max)");
+      return matchRelative(value, fieldValue, config.order || {}, isMax);
     case "numeric":
       return matchNumeric(value, Number(fieldValue));
     case "search":
@@ -202,11 +146,9 @@ export function applyFilter(
       const selected = value.split(",").filter(Boolean);
       if (selected.length === 0) return true;
 
-      // Pour les filtres sol, on parse type_sol
+      // Pour les filtres sol, on utilise les nouvelles colonnes directement
       if (config.key.startsWith("sol_")) {
-        const soilProps = getSoilProperties(arbre.type_sol);
-        const propKey = config.key.replace("sol_", "");
-        const arbreValues = soilProps[propKey] || [];
+        const arbreValues = fieldValue ? fieldValue.split(",") : [];
 
         // Si arbre a une valeur vide (tous types), tout passe
         if (arbreValues.length === 0) return true;
@@ -223,7 +165,7 @@ export function applyFilter(
 // Applique tous les filtres
 export function applyAllFilters(
   arbres: Arbre[],
-  filters: Record<string, string>,
+  filters: Filtres,
   filterConfigs: FilterConfig[]
 ): Arbre[] {
   return arbres.filter((arbre) => {
@@ -274,21 +216,9 @@ export function applyAllFilters(
         continue;
       }
 
-        // Gestion spéciale pour pH (champ séparé dans Arbre)
-      if (config.key === "sol_acidity" && filters[config.key]) {
-        const selected = filters[config.key].split(",").filter(Boolean);
-        if (selected.length > 0) {
-          const soilProps = getSoilProperties(arbre.type_sol, arbre.pH);
-          if (!selected.some(s => soilProps.acidity.includes(s))) {
-            return false;
-          }
-        }
-        continue;
-      }
-
       if (
-        filters[config.key] &&
-        !applyFilter(arbre, config, filters[config.key])
+        filters[config.key as keyof Filtres] &&
+        !applyFilter(arbre, config, filters[config.key as keyof Filtres])
       ) {
         return false;
       }

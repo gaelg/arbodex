@@ -11,7 +11,9 @@ if (process.env.VERCEL_GIT_COMMIT_SHA) {
 } else {
   try {
     // 2. Try git command (local builds)
-    version = execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
+    version = execSync("git rev-parse --short HEAD", {
+      encoding: "utf8",
+    }).trim();
   } catch (e) {
     // 3. Fallback to package.json version
     const packageJson = JSON.parse(fs.readFileSync("package.json", "utf8"));

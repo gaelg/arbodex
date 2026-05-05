@@ -11,7 +11,13 @@ export interface Arbre {
   envergure_min_m: number;
   envergure_max_m: number;
   port: string;
-  type_sol: string;
+  type_racines: string;
+  sol_acidity: string;
+  sol_moisture: string;
+  sol_drainage: string;
+  sol_texture: string;
+  sol_richness: string;
+  sol_depth: string;
   resistance_secheresse: string;
   pH: string;
   tolerance_sel: string;
@@ -34,7 +40,6 @@ export interface Arbre {
   ombrage_fort: string;
   rafraichissement_fort: string;
   biodiversite_service: string;
-  type_racines: string;
   allergie_service: string;
   fruits_salissants: string;
   pollen_allergisant: string;
@@ -60,7 +65,12 @@ export interface Filtres {
   recherche: string;
   type: string;
   origine: string;
-  type_sol: string;
+  sol_acidity: string;
+  sol_moisture: string;
+  sol_drainage: string;
+  sol_texture: string;
+  sol_richness: string;
+  sol_depth: string;
   resistance_secheresse: string;
   pH: string;
   rusticite_min: string;
@@ -88,17 +98,6 @@ export interface Filtres {
 }
 
 export async function chargerArbres(): Promise<Arbre[]> {
-  // Essayer d'abord via API SQLite (serveur)
-  try {
-    const res = await fetch("/api/trees");
-    if (res.ok) {
-      return await res.json();
-    }
-  } catch (e) {
-    console.warn("API /api/trees indisponible, fallback CSV", e);
-  }
-
-  // Fallback : lire le CSV directement
   const res = await fetch("/trees.csv");
   const csv = await res.text();
   const resultat = Papa.parse<Arbre>(csv, {
@@ -163,7 +162,11 @@ export function appliquerFiltres(arbres: Arbre[], filtres: Filtres): Arbre[] {
           return false;
       }
       if (!correspond(filtres.origine, arbre.origine)) return false;
-      if (filtres.type_sol && !arbre.type_sol.includes(filtres.type_sol))
+      if (
+        filtres.sol_acidity &&
+        arbre.sol_acidity &&
+        !arbre.sol_acidity.includes(filtres.sol_acidity)
+      )
         return false;
       if (
         !correspondRelatif(

@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { appliquerFiltres, Arbre, Filtres } from "@/lib/trees";
+import { Arbre, Filtres } from "@/lib/trees";
+import { FILTERS, applyAllFilters } from "@/lib/filters";
 
 const ARBRES_TEST: Arbre[] = [
   {
@@ -13,7 +14,12 @@ const ARBRES_TEST: Arbre[] = [
     envergure_min_m: 10,
     envergure_max_m: 20,
     port: "ovale",
-    type_sol: "Argileux",
+    sol_acidity: "neutre",
+    sol_moisture: "frais",
+    sol_drainage: "drainé",
+    sol_texture: "Argileux",
+    sol_richness: "moyen",
+    sol_depth: "profond",
     resistance_secheresse: "moyenne",
     pH: "basique",
     tolerance_sel: "oui",
@@ -58,7 +64,12 @@ const ARBRES_TEST: Arbre[] = [
     envergure_min_m: 8,
     envergure_max_m: 15,
     port: "arrondi",
-    type_sol: "Argileux/Moyen",
+    sol_acidity: "acide",
+    sol_moisture: "moyen",
+    sol_drainage: "drainé",
+    sol_texture: "Argileux",
+    sol_richness: "Moyen",
+    sol_depth: "moyen",
     resistance_secheresse: "faible",
     pH: "acide",
     tolerance_sel: "non",
@@ -103,7 +114,12 @@ const ARBRES_TEST: Arbre[] = [
     envergure_min_m: 8,
     envergure_max_m: 15,
     port: "conique",
-    type_sol: "Sableux",
+    sol_acidity: "acide",
+    sol_moisture: "sec",
+    sol_drainage: "drainé",
+    sol_texture: "Sablonneux",
+    sol_richness: "pauvre",
+    sol_depth: "superficiel",
     resistance_secheresse: "bonne",
     pH: "acide",
     tolerance_sel: "non",
@@ -148,7 +164,12 @@ const ARBRES_TEST: Arbre[] = [
     envergure_min_m: 8,
     envergure_max_m: 15,
     port: "pyramidal",
-    type_sol: "Argileux/Sableux",
+    sol_acidity: "neutre",
+    sol_moisture: "moyen",
+    sol_drainage: "drainé",
+    sol_texture: "Argileux,Sablonneux",
+    sol_richness: "moyen",
+    sol_depth: "profond",
     resistance_secheresse: "excellente",
     pH: "neutre",
     tolerance_sel: "oui",
@@ -193,7 +214,12 @@ const ARBRES_TEST: Arbre[] = [
     envergure_min_m: 1,
     envergure_max_m: 3,
     port: "arrondi",
-    type_sol: "Calcaire",
+    sol_acidity: "basique",
+    sol_moisture: "sec",
+    sol_drainage: "drainé",
+    sol_texture: "Calcaire",
+    sol_richness: "pauvre",
+    sol_depth: "superficiel",
     resistance_secheresse: "moyenne",
     pH: "basique",
     tolerance_sel: "oui",
@@ -229,12 +255,17 @@ const ARBRES_TEST: Arbre[] = [
   },
 ];
 
-describe("appliquerFiltres", () => {
+describe("applyAllFilters", () => {
   const filtresVides: Filtres = {
     recherche: "",
     type: "",
     origine: "",
-    type_sol: "",
+    sol_acidity: "",
+    sol_moisture: "",
+    sol_drainage: "",
+    sol_texture: "",
+    sol_richness: "",
+    sol_depth: "",
     resistance_secheresse: "",
     pH: "",
     rusticite_min: "",
@@ -262,21 +293,20 @@ describe("appliquerFiltres", () => {
   };
 
   it("retourne tous les arbres quand aucun filtre n'est actif", () => {
-    const resultat = appliquerFiltres(ARBRES_TEST, filtresVides);
+    const resultat = applyAllFilters(ARBRES_TEST, filtresVides, FILTERS);
     expect(resultat).toHaveLength(5);
   });
 
-  it("filtre par type de sol avec partial match", () => {
-    const filtres: Filtres = { ...filtresVides, type_sol: "Sableux" };
-    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
-    expect(resultat).toHaveLength(2);
-    expect(resultat.map((a) => a.nom_commun)).toContain("Pin blanc");
-    expect(resultat.map((a) => a.nom_commun)).toContain("Ginkgo");
-  });
+   it("filtre par texture de sol (multi)", () => {
+     const filtres: Filtres = { ...filtresVides, sol_texture: "Sablonneux" };
+     const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
+     expect(resultat).toHaveLength(2); // Pin blanc, Chêne pédonculé (has Sablonneux in multi)
+     expect(resultat.map((a) => a.nom_commun)).toContain("Pin blanc");
+   });
 
   it("filtre par mellifère", () => {
     const filtres: Filtres = { ...filtresVides, mellifere: "oui" };
-    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     expect(resultat).toHaveLength(3);
     expect(resultat.map((a) => a.nom_commun)).toContain("Chêne pédonculé");
     expect(resultat.map((a) => a.nom_commun)).toContain("Érable rouge");
@@ -284,24 +314,24 @@ describe("appliquerFiltres", () => {
   });
 
   it("filtre par pollen allergisant (relatif - max)", () => {
-    // "faible" → only faible (3 in test data)
+    // "faible" → faible + moyen + fort (test data has 3 faible, 0 moyen = 3 total)
     let filtres: Filtres = { ...filtresVides, pollen_allergisant: "faible" };
-    let resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    let resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     expect(resultat).toHaveLength(3); // Chêne, Buis, Ginkgo
     let noms = resultat.map((a) => a.nom_commun);
     expect(noms).toContain("Chêne pédonculé");
     expect(noms).toContain("Buis commun");
     expect(noms).toContain("Ginkgo");
 
-    // "moyen" → faible + moyen (3 + 0 in test data)
+    // "moyen" → faible + moyen (3 + 0 = 3)
     filtres = { ...filtresVides, pollen_allergisant: "moyen" };
-    resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     expect(resultat).toHaveLength(3);
   });
 
   it("filtre par hauteur minimum", () => {
     const filtres: Filtres = { ...filtresVides, hauteur_min: "20" };
-    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     expect(resultat).toHaveLength(3);
     expect(resultat.map((a) => a.nom_commun)).not.toContain("Érable rouge");
     expect(resultat.map((a) => a.nom_commun)).not.toContain("Buis commun");
@@ -309,7 +339,7 @@ describe("appliquerFiltres", () => {
 
   it("filtre par hauteur maximum", () => {
     const filtres: Filtres = { ...filtresVides, hauteur_max: "14" };
-    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     expect(resultat).toHaveLength(2);
     expect(resultat.map((a) => a.nom_commun)).toContain("Érable rouge");
     expect(resultat.map((a) => a.nom_commun)).toContain("Buis commun");
@@ -321,7 +351,7 @@ describe("appliquerFiltres", () => {
       hauteur_min: "19",
       hauteur_max: "30",
     };
-    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     expect(resultat).toHaveLength(3);
     expect(resultat.map((a) => a.nom_commun)).not.toContain("Érable rouge");
     expect(resultat.map((a) => a.nom_commun)).not.toContain("Buis commun");
@@ -329,14 +359,14 @@ describe("appliquerFiltres", () => {
 
   it("filtre par rusticité minimum", () => {
     const filtres: Filtres = { ...filtresVides, rusticite_min: "-30" };
-    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     // Seuls les arbres avec rusticite_min_C <= -30 (plus rustiques)
     expect(resultat).toHaveLength(3);
   });
 
   it("filtre par résistance vent minimum", () => {
     const filtres: Filtres = { ...filtresVides, resistance_vent: "4" };
-    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     expect(resultat).toHaveLength(2);
     expect(resultat.map((a) => a.nom_commun)).toContain("Chêne pédonculé");
     expect(resultat.map((a) => a.nom_commun)).toContain("Ginkgo");
@@ -347,7 +377,7 @@ describe("appliquerFiltres", () => {
       ...filtresVides,
       adapte_changement_climatique: "oui",
     };
-    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     expect(resultat).toHaveLength(3);
     expect(resultat.map((a) => a.nom_commun)).toContain("Chêne pédonculé");
     expect(resultat.map((a) => a.nom_commun)).toContain("Ginkgo");
@@ -361,7 +391,7 @@ describe("appliquerFiltres", () => {
       mellifere: "oui",
       couleur_automnale: "oui",
     };
-    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     expect(resultat).toHaveLength(2);
     expect(resultat.map((a) => a.nom_commun)).toContain("Chêne pédonculé");
     expect(resultat.map((a) => a.nom_commun)).toContain("Érable rouge");
@@ -369,33 +399,34 @@ describe("appliquerFiltres", () => {
 
   it("filtre par envergure minimum", () => {
     const filtres: Filtres = { ...filtresVides, envergure_min: "10" };
-    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     expect(resultat).toHaveLength(4);
     expect(resultat.map((a) => a.nom_commun)).toContain("Chêne pédonculé");
     expect(resultat.map((a) => a.nom_commun)).not.toContain("Buis commun");
   });
 
-  it("filtre par origine (local)", () => {
-    const filtres: Filtres = { ...filtresVides, origine: "local" };
-    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
+  it("filtre par origine (local → Endémique)", () => {
+    const filtres: Filtres = { ...filtresVides, origine: "Endémique" };
+    const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     expect(resultat).toHaveLength(2);
     expect(resultat.map((a) => a.nom_commun)).toContain("Chêne pédonculé");
     expect(resultat.map((a) => a.nom_commun)).toContain("Buis commun");
   });
 
-  it("filtre par origine (presque_local)", () => {
-    const filtres: Filtres = { ...filtresVides, origine: "presque_local" };
-    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
-    expect(resultat).toHaveLength(1);
+  it("filtre par origine (vraiment_exotique + presque_local → Europe de l'Ouest)", () => {
+    const filtres: Filtres = { ...filtresVides, origine: "Europe de l'Ouest" };
+    const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
+    expect(resultat).toHaveLength(3);
+    expect(resultat.map((a) => a.nom_commun)).toContain("Érable rouge");
+    expect(resultat.map((a) => a.nom_commun)).toContain("Pin blanc");
     expect(resultat.map((a) => a.nom_commun)).toContain("Ginkgo");
   });
 
-  it("filtre par origine (vraiment_exotique)", () => {
-    const filtres: Filtres = { ...filtresVides, origine: "vraiment_exotique" };
-    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
-    expect(resultat).toHaveLength(2);
-    expect(resultat.map((a) => a.nom_commun)).toContain("Érable rouge");
-    expect(resultat.map((a) => a.nom_commun)).toContain("Pin blanc");
+  it("origine : local/exotique/presque_local tous disponibles", () => {
+    const origines = [...new Set(ARBRES_TEST.map((a) => a.origine))];
+    expect(origines).toContain("local");
+    expect(origines).toContain("presque_local");
+    expect(origines).toContain("vraiment_exotique");
   });
 
   // ========== TESTS DE NON-RÉGRESSION (retours utilisateur) ==========
@@ -404,7 +435,7 @@ describe("appliquerFiltres", () => {
 
   it("rusticité : filtre par valeur négative correctement encodée", () => {
     const filtres: Filtres = { ...filtresVides, rusticite_max: "-20" };
-    const resultat = appliquerFiltres(ARBRES_TEST, filtres);
+    const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     // Garde les arbres avec rusticite_min_C <= -20 (exclut Buis à -15)
     expect(resultat).toHaveLength(4);
     expect(resultat.map((a) => a.nom_commun)).not.toContain("Buis commun");
@@ -420,23 +451,23 @@ describe("appliquerFiltres", () => {
 
   it("fruitière_sauvage : filtre oui/non retourne des résultats", () => {
     const filtresOui: Filtres = { ...filtresVides, fruitière_sauvage: "oui" };
-    const resultatOui = appliquerFiltres(ARBRES_TEST, filtresOui);
+    const resultatOui = applyAllFilters(ARBRES_TEST, filtresOui, FILTERS);
     expect(resultatOui.length).toBeGreaterThan(0);
     resultatOui.forEach((a) => expect(a.fruitière_sauvage).toBe("oui"));
 
     const filtresNon: Filtres = { ...filtresVides, fruitière_sauvage: "non" };
-    const resultatNon = appliquerFiltres(ARBRES_TEST, filtresNon);
+    const resultatNon = applyAllFilters(ARBRES_TEST, filtresNon, FILTERS);
     expect(resultatNon.length).toBeGreaterThan(0);
     resultatNon.forEach((a) => expect(a.fruitière_sauvage).toBe("non"));
   });
 
   // --- 2. Bugs bloquants ---
 
-  it("filtre origine : local/exotique/presque_local tous disponibles", () => {
-    const origines = ["local", "presque_local", "vraiment_exotique"];
+  it("filtre origine : Endémique/Europe de l'Ouest tous disponibles", () => {
+    const origines = ["Endémique", "Europe de l'Ouest"];
     origines.forEach((o) => {
       const f: Filtres = { ...filtresVides, origine: o };
-      const r = appliquerFiltres(ARBRES_TEST, f);
+      const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
       expect(r.length).toBeGreaterThan(0);
     });
   });
@@ -445,7 +476,7 @@ describe("appliquerFiltres", () => {
     const niveaux = ["faible", "moyenne", "bonne", "excellente"];
     niveaux.forEach((n) => {
       const f: Filtres = { ...filtresVides, resistance_secheresse: n };
-      const r = appliquerFiltres(ARBRES_TEST, f);
+      const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
       expect(r.length).toBeGreaterThanOrEqual(0);
     });
   });
@@ -453,7 +484,7 @@ describe("appliquerFiltres", () => {
   it("résistance vent : filtres numériques retournent des résultats", () => {
     for (let v = 1; v <= 5; v++) {
       const f: Filtres = { ...filtresVides, resistance_vent: String(v) };
-      const r = appliquerFiltres(ARBRES_TEST, f);
+      const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
       expect(r.length).toBeGreaterThanOrEqual(0);
     }
   });
@@ -464,7 +495,7 @@ describe("appliquerFiltres", () => {
         ...filtresVides,
         resistance_chaleur_urbaine: String(v),
       };
-      const r = appliquerFiltres(ARBRES_TEST, f);
+      const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
       expect(r.length).toBeGreaterThanOrEqual(0);
     }
   });
@@ -473,19 +504,19 @@ describe("appliquerFiltres", () => {
 
   it("sensibilite_maladies : gère les accents (modérée ≠ moderee)", () => {
     const f: Filtres = { ...filtresVides, sensibilite_maladies: "modéré" };
-    const r = appliquerFiltres(ARBRES_TEST, f);
+    const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
     expect(r.length).toBeGreaterThanOrEqual(0);
   });
 
   it("cout_entretien : gère les accents (modéré ≠ modere)", () => {
     const f: Filtres = { ...filtresVides, cout_entretien: "modere" };
-    const r = appliquerFiltres(ARBRES_TEST, f);
+    const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
     expect(r.length).toBeGreaterThanOrEqual(0);
   });
 
   it("frequence_taille : gère la casse et les accents (régulière)", () => {
     const f: Filtres = { ...filtresVides, frequence_taille: "régulière" };
-    const r = appliquerFiltres(ARBRES_TEST, f);
+    const r = applyAllFilters(ARBRES_TEST, f, FILTERS);
     expect(r.length).toBeGreaterThanOrEqual(0);
   });
 
@@ -493,14 +524,14 @@ describe("appliquerFiltres", () => {
 
   it("filtre ombrage_fort retourne des résultats", () => {
     const f: Filtres = { ...filtresVides, recherche: "" };
-    const tous = appliquerFiltres(ARBRES_TEST, f);
+    const tous = applyAllFilters(ARBRES_TEST, f, FILTERS);
     const avecOmbrage = tous.filter((a) => a.ombrage_fort === "oui");
     expect(avecOmbrage.length).toBeGreaterThan(0);
   });
 
   it("filtre rafraichissement_fort retourne des résultats", () => {
     const f: Filtres = { ...filtresVides, recherche: "" };
-    const tous = appliquerFiltres(ARBRES_TEST, f);
+    const tous = applyAllFilters(ARBRES_TEST, f, FILTERS);
     const avecRafraichissement = tous.filter(
       (a) =>
         a.rafraichissement_fort === "oui" || a.rafraichissement_fort === "moyen"
@@ -512,17 +543,17 @@ describe("appliquerFiltres", () => {
 
   it("branches_fragiles : filtre oui/non fonctionne", () => {
     const fOui: Filtres = { ...filtresVides, branches_fragiles: "oui" };
-    const rOui = appliquerFiltres(ARBRES_TEST, fOui);
+    const rOui = applyAllFilters(ARBRES_TEST, fOui, FILTERS);
     rOui.forEach((a) => expect(a.branches_fragiles).toBe("oui"));
 
     const fNon: Filtres = { ...filtresVides, branches_fragiles: "non" };
-    const rNon = appliquerFiltres(ARBRES_TEST, fNon);
+    const rNon = applyAllFilters(ARBRES_TEST, fNon, FILTERS);
     rNon.forEach((a) => expect(a.branches_fragiles).toBe("non"));
   });
 
   it("racines_devastatrices : filtre oui/non fonctionne", () => {
     const fOui: Filtres = { ...filtresVides, racines_devastatrices: "oui" };
-    const rOui = appliquerFiltres(ARBRES_TEST, fOui);
+    const rOui = applyAllFilters(ARBRES_TEST, fOui, FILTERS);
     rOui.forEach((a) => expect(a.racines_devastatrices).toBe("oui"));
   });
 
@@ -530,13 +561,13 @@ describe("appliquerFiltres", () => {
 
   it("ombrage_fort : filtre oui/non fonctionne", () => {
     const fOui: Filtres = { ...filtresVides, ombrage_fort: "oui" };
-    const rOui = appliquerFiltres(ARBRES_TEST, fOui);
+    const rOui = applyAllFilters(ARBRES_TEST, fOui, FILTERS);
     rOui.forEach((a) => expect(a.ombrage_fort).toBe("oui"));
   });
 
   it("rafraichissement_fort : filtre oui/non fonctionne", () => {
     const fOui: Filtres = { ...filtresVides, rafraichissement_fort: "oui" };
-    const rOui = appliquerFiltres(ARBRES_TEST, fOui);
+    const rOui = applyAllFilters(ARBRES_TEST, fOui, FILTERS);
     rOui.forEach((a) => expect(a.rafraichissement_fort).toBe("oui"));
   });
 

@@ -105,61 +105,13 @@ export const FILTERS: FilterConfig[] = [
     type: "exact",
   },
 
-  // Caractéristiques
-  {
-    key: "fruitière_sauvage",
-    label: "Fruits sauvages",
-    section: "Caractéristiques",
-    type: "exact",
-  },
-  {
-    key: "floraison_remarquable",
-    label: "Floraison remarquable",
-    section: "Caractéristiques",
-    type: "exact",
-  },
-  {
-    key: "rusticite_min_C",
-    label: "Rusticité minimale (°C)",
-    section: "Climat",
-    type: "numeric",
-  },
-
   // Services écosystémiques
-  {
-    key: "origine",
-    label: "Origine",
-    section: "Services écosystémiques",
-    type: "exact",
-    options: ["Tous", "Europe de l'Ouest", "Endémique"],
-  },
-  {
-    key: "mellifere",
-    label: "Mellifère",
-    section: "Services écosystémiques",
-    type: "exact",
-  },
-  {
-    key: "ombrage_fort",
-    label: "Ombrage",
-    section: "Services écosystémiques",
-    type: "exact",
-  },
-  {
-    key: "rafraichissement_fort",
-    label: "Rafraîchissement (min)",
-    section: "Services écosystémiques",
-    type: "relative",
-    order: { faible: 1, moyen: 2, fort: 3 },
-  },
   {
     key: "fruitière_sauvage",
     label: "Fruits pour la faune",
     section: "Services écosystémiques",
     type: "exact",
   },
-
-  // Contraintes et risques
   {
     key: "pollen_allergisant",
     label: "Allergisant (max)",

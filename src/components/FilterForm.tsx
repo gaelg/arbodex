@@ -81,7 +81,9 @@ export default function FormulaireFiltres({
   // Gère les changements pour les filtres multi
   function toggleMultiFilter(config: FilterConfig, option: string) {
     const currentValue = ((filtres as any)[config.key] || "") as string;
-    const selected = currentValue ? currentValue.split(",").filter(Boolean) : [];
+    const selected = currentValue
+      ? currentValue.split(",").filter(Boolean)
+      : [];
 
     const idx = selected.indexOf(option);
     if (idx >= 0) {
@@ -96,7 +98,9 @@ export default function FormulaireFiltres({
   // Vérifie si une option est sélectionnée dans un filtre multi
   function isOptionSelected(config: FilterConfig, option: string): boolean {
     const currentValue = ((filtres as any)[config.key] || "") as string;
-    const selected = currentValue ? currentValue.split(",").filter(Boolean) : [];
+    const selected = currentValue
+      ? currentValue.split(",").filter(Boolean)
+      : [];
     return selected.includes(option);
   }
 
@@ -116,8 +120,17 @@ export default function FormulaireFiltres({
       .replace("Cout", "Coût");
 
   function formatFilterOption(config: FilterConfig, opt: string): string {
-    if (config.key === "resistance_vent" || config.key === "resistance_chaleur_urbaine") {
-      const numLabels: Record<string, string> = { "1": "Très faible", "2": "Faible", "3": "Moyen", "4": "Fort", "5": "Très fort" };
+    if (
+      config.key === "resistance_vent" ||
+      config.key === "resistance_chaleur_urbaine"
+    ) {
+      const numLabels: Record<string, string> = {
+        "1": "Très faible",
+        "2": "Faible",
+        "3": "Moyen",
+        "4": "Fort",
+        "5": "Très fort",
+      };
       return numLabels[opt] || opt;
     }
     return formatOption(opt);
@@ -211,19 +224,32 @@ export default function FormulaireFiltres({
                               const count = appliquerFiltres(arbres, {
                                 ...filtres,
                                 [config.key]: selected
-                                  ? (value.split(",").filter(Boolean).filter((o: string) => o !== opt).join(","))
-                                  : value ? `${value},${opt}` : opt,
+                                  ? value
+                                      .split(",")
+                                      .filter(Boolean)
+                                      .filter((o: string) => o !== opt)
+                                      .join(",")
+                                  : value
+                                    ? `${value},${opt}`
+                                    : opt,
                               } as any).length;
                               return (
-                                <label key={opt} className="flex items-center gap-2 text-sm">
+                                <label
+                                  key={opt}
+                                  className="flex items-center gap-2 text-sm"
+                                >
                                   <input
                                     type="checkbox"
                                     checked={selected}
-                                    onChange={() => toggleMultiFilter(config, opt)}
+                                    onChange={() =>
+                                      toggleMultiFilter(config, opt)
+                                    }
                                     className="rounded border-gray-300 text-green-600 focus:ring-green-500"
                                   />
                                   <span>{formatOption(opt)}</span>
-                                  <span className="text-xs text-gray-400">({count})</span>
+                                  <span className="text-xs text-gray-400">
+                                    ({count})
+                                  </span>
                                 </label>
                               );
                             })}
