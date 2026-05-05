@@ -25,6 +25,14 @@ function getVersion() {
   }
 }
 
+// Write version to file for Vercel to pick up
+try {
+  const version = getVersion();
+  execSync(`echo "${version}" > .version`);
+} catch (e) {
+  // Ignore write errors
+}
+
 const version = getVersion();
 
 /** @type {import('next').NextConfig} */
