@@ -1,14 +1,14 @@
 import { describe, it, expect } from "vitest";
 import { formatOption } from "@/components/TreeList";
 import { Arbre, Filtres, appliquerFiltres } from "@/lib/trees";
+import { applyAllFilters, FILTERS } from "@/lib/filters";
 
-// Arbre de test avec barres de niveau
+// Arbre de test avec valeurs de niveau
 const ARBRE_AVEC_BARRES: Arbre = {
   nom_commun: "Chêne test",
   nom_scientifique: "Quercus test",
   famille: "Fagaceae",
-  origine: "local",
-  type: "arbre",
+  origine: "Indigène",
   hauteur_min_m: 15,
   hauteur_max_m: 25,
   envergure_min_m: 10,
@@ -16,93 +16,90 @@ const ARBRE_AVEC_BARRES: Arbre = {
   port: "ovale",
   sol_acidity: "neutre",
   sol_moisture: "frais",
-  sol_drainage: "drainé",
+  sol_drainage: "Bon",
   sol_texture: "Argileux",
   sol_richness: "moyen",
   sol_depth: "profond",
-  resistance_secheresse: "moyenne",
-  pH: "basique",
-  tolerance_sel: "oui",
+  resistance_secheresse: "Moyenne",
   rusticite_min_C: -25,
-  resistance_vent: 4,
-  resistance_chaleur_urbaine: 5,
-  adapte_changement_climatique: "oui",
-  mellifere: "oui",
-  fruitière_sauvage: "oui",
-  refuge_oiseaux: "oui",
-  floraison_remarquable: "non",
-  couleur_automnale: "oui",
-  ecorce_decorative: "non",
+  resistance_vent: "Bonne",
+  resistance_chaleur_urbaine: "Bonne",
+  adapte_changement_climatique: "Oui",
+  mellifere: "Oui",
+  fruitiere_sauvage: "Oui",
+  refuge_oiseaux: "Oui",
+  floraison_remarquable: "Non",
+  couleur_automnale: "Oui",
   stockage_carbone: "eleve",
   resilience: "élevé",
   impact_icu: "fort",
   biodiversite: "élevé",
   qualite_air: "bonne",
   potentiel_allergisant: "faible",
-  ombrage_fort: "oui",
-  rafraichissement_fort: "oui",
+  ombrage_fort: "Oui",
+  rafraichissement_fort: "Moyen",
   biodiversite_service: "élevé",
   type_racines: "traçantes",
   allergie_service: "faible",
-  fruits_salissants: "oui",
-  pollen_allergisant: "faible",
-  branches_fragiles: "non",
-  racines_devastatrices: "non",
-  frequence_taille: "occasionnelle",
-  sensibilite_maladies: "modéré",
-  longevite: "tres_longue",
-  cout_entretien: "modere",
+  fruits_salissants: "Non",
+  pollen_allergisant: "Faiblement",
+  branches_fragiles: "Non",
+  racines_devastatrices: "Non",
+  frequence_taille: "Occasionnelle",
+  sensibilite_maladies: "Moyennement",
+  longevite: "très_longue",
+  cout_entretien: "Moyen",
 };
 
 describe("Non-régressions composants", () => {
   // --- Orthographe / accents ---
   it("formatOption utilise le dictionnaire correctement", () => {
-    expect(formatOption("modéré")).toBe("Modéré");
-    expect(formatOption("régulière")).toBe("Régulière");
+    expect(formatOption("Moyennement")).toBe("Moyennement");
+    expect(formatOption("Régulière")).toBe("Régulière");
     expect(formatOption("resistance_secheresse")).toBe("Résistance sécheresse");
-    expect(formatOption("oui")).toBe("Oui");
-    expect(formatOption("non")).toBe("Non");
-    expect(formatOption("local")).toBe("Local");
+    expect(formatOption("Oui")).toBe("Oui");
+    expect(formatOption("Non")).toBe("Non");
+    expect(formatOption("Indigène")).toBe("Indigène");
   });
 
   it("sensibilite_maladies : la valeur est bien comparée avec accent", () => {
     const filtres: Filtres = {
       ...getFiltresVides(),
-      sensibilite_maladies: "modéré",
+      sensibilite_maladies: "Moyennement",
     };
-    const resultat = appliquerFiltres([ARBRE_AVEC_BARRES], filtres);
+    const resultat = applyAllFilters([ARBRE_AVEC_BARRES], filtres, FILTERS);
     expect(resultat).toHaveLength(1);
   });
 
   it("cout_entretien : la valeur est bien comparée avec accent", () => {
-    const filtres: Filtres = { ...getFiltresVides(), cout_entretien: "modere" };
-    const resultat = appliquerFiltres([ARBRE_AVEC_BARRES], filtres);
+    const filtres: Filtres = { ...getFiltresVides(), cout_entretien: "Moyen" };
+    const resultat = applyAllFilters([ARBRE_AVEC_BARRES], filtres, FILTERS);
     expect(resultat).toHaveLength(1);
   });
 
   // --- Filtres écosystémiques ---
   it("filtre ombrage_fort retourne des résultats", () => {
     const arbres: Arbre[] = [
-      { ...ARBRE_AVEC_BARRES, ombrage_fort: "oui" },
-      { ...ARBRE_AVEC_BARRES, nom_commun: "Test2", ombrage_fort: "non" },
+      { ...ARBRE_AVEC_BARRES, ombrage_fort: "Oui" },
+      { ...ARBRE_AVEC_BARRES, nom_commun: "Test2", ombrage_fort: "Non" },
     ];
-    const avecOmbrage = arbres.filter((a) => a.ombrage_fort === "oui");
+    const avecOmbrage = arbres.filter((a) => a.ombrage_fort === "Oui");
     expect(avecOmbrage.length).toBeGreaterThan(0);
   });
 
   it("filtre rafraichissement_fort retourne des résultats", () => {
     const arbres: Arbre[] = [
-      { ...ARBRE_AVEC_BARRES, rafraichissement_fort: "fort" },
+      { ...ARBRE_AVEC_BARRES, rafraichissement_fort: "Fort" },
       {
         ...ARBRE_AVEC_BARRES,
         nom_commun: "Test2",
-        rafraichissement_fort: "faible",
+        rafraichissement_fort: "Moyen",
       },
     ];
     const avecRafraichissement = arbres.filter(
       (a) =>
-        a.rafraichissement_fort === "fort" ||
-        a.rafraichissement_fort === "moyen"
+        a.rafraichissement_fort === "Moyen" ||
+        a.rafraichissement_fort === "Fort"
     );
     expect(avecRafraichissement.length).toBeGreaterThan(0);
   });
@@ -111,17 +108,17 @@ describe("Non-régressions composants", () => {
   it("branches_fragiles : oui doit être considéré comme inconvénient", () => {
     const arbreDanger: Arbre = {
       ...ARBRE_AVEC_BARRES,
-      branches_fragiles: "oui",
+      branches_fragiles: "Oui",
     };
-    expect(arbreDanger.branches_fragiles).toBe("oui");
+    expect(arbreDanger.branches_fragiles).toBe("Oui");
   });
 
   it("racines_devastatrices : oui doit être considéré comme inconvénient", () => {
     const arbreDanger: Arbre = {
       ...ARBRE_AVEC_BARRES,
-      racines_devastatrices: "oui",
+      racines_devastatrices: "Oui",
     };
-    expect(arbreDanger.racines_devastatrices).toBe("oui");
+    expect(arbreDanger.racines_devastatrices).toBe("Oui");
   });
 
   // --- Onglet liste en premier (vérifie via l'interface Filtres/VueType) ---
@@ -140,7 +137,6 @@ describe("Non-régressions composants", () => {
 function getFiltresVides(): Filtres {
   return {
     recherche: "",
-    type: "",
     origine: "",
     sol_acidity: "",
     sol_moisture: "",
@@ -149,7 +145,6 @@ function getFiltresVides(): Filtres {
     sol_richness: "",
     sol_depth: "",
     resistance_secheresse: "",
-    pH: "",
     rusticite_min: "",
     rusticite_max: "",
     resistance_vent: "",
@@ -158,7 +153,7 @@ function getFiltresVides(): Filtres {
     mellifere: "",
     ombrage_fort: "",
     rafraichissement_fort: "",
-    fruitière_sauvage: "",
+    fruitiere_sauvage: "",
     floraison_remarquable: "",
     couleur_automnale: "",
     pollen_allergisant: "",

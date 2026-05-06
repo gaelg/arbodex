@@ -10,7 +10,6 @@ import Footer from "@/components/Footer";
 
 const FILTRES_VIDES: Filtres = {
   recherche: "",
-  type: "",
   origine: "",
   sol_acidity: "",
   sol_moisture: "",
@@ -19,7 +18,6 @@ const FILTRES_VIDES: Filtres = {
   sol_richness: "",
   sol_depth: "",
   resistance_secheresse: "",
-  pH: "",
   rusticite_min: "",
   rusticite_max: "",
   resistance_vent: "",
@@ -28,7 +26,7 @@ const FILTRES_VIDES: Filtres = {
   mellifere: "",
   ombrage_fort: "",
   rafraichissement_fort: "",
-  fruitière_sauvage: "",
+  fruitiere_sauvage: "",
   floraison_remarquable: "",
   couleur_automnale: "",
   pollen_allergisant: "",

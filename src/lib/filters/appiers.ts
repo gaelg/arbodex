@@ -1,6 +1,18 @@
 import { FilterConfig, FilterType } from "./types";
 import { Arbre, Filtres } from "../trees";
 
+// Échelles ordonnées pour les comparaisons (doivent correspondre à l'ideation)
+const ORDER: Record<string, Record<string, number>> = {
+  "resistance_secheresse": { Moyenne: 2, Bonne: 3, Excellente: 4 },
+  "resistance_vent": { Moyenne: 2, Bonne: 3, Excellente: 4 },
+  "resistance_chaleur_urbaine": { Moyenne: 2, Bonne: 3, Excellente: 4 },
+  "pollen_allergisant": { Faiblement: 1, Moyennement: 2 },
+  "sensibilite_maladies": { Faiblement: 1, Moyennement: 2 },
+  "cout_entretien": { Faible: 1, Moyen: 2 },
+  "frequence_taille": { Jamais: 1, Occasionnelle: 2 },
+  "rafraichissement_fort": { Moyen: 2, Fort: 3 },
+};
+
 // Normalisation accents pour recherche
 function normalize(text: string): string {
   return text
@@ -11,7 +23,7 @@ function normalize(text: string): string {
 
 // Types de base pour les comparaisons
 function matchExact(filter: string, value: string | number): boolean {
-  if (!filter) return true;
+  if (!filter || filter === "Tous") return true;
   return String(value) === filter;
 }
 
@@ -26,7 +38,7 @@ function matchRelative(
   order: Record<string, number>,
   isMax: boolean = false
 ): boolean {
-  if (!filter) return true;
+  if (!filter || filter === "Tous") return true;
   const seuil = order[filter];
   const val = order[value];
   if (seuil === undefined || val === undefined) {
@@ -36,7 +48,7 @@ function matchRelative(
 }
 
 function matchNumeric(filter: string, value: number): boolean {
-  if (!filter) return true;
+  if (!filter || filter === "Tous") return true;
   return value >= Number(filter);
 }
 
@@ -230,8 +242,15 @@ export function applyAllFilters(
 
 // Calcule l'origine réelle pour le filtrage
 function computeOrigine(arbre: Arbre): string {
-  if (arbre.origine === "local") return "local";
-  if (arbre.origine === "presque_local" || isPresqueLocal(arbre))
-    return "presque_local";
-  return "exotique";
+  // Règle 1: Indigène = HDF/Benelux in repartition area
+  if (arbre.origine === "Indigène") return "Indigène";
+  
+  // Règle 2: Europe de l'Ouest = Western Europe but NOT HDF/Benelux
+  if (arbre.origine === "Europe de l'Ouest") return "Europe de l'Ouest";
+  
+  // Règle 3: Exotique = NOT in Western Europe
+  if (arbre.origine === "Exotique") return "Exotique";
+  
+  // Par défaut, considérer comme Europe de l'Ouest
+  return arbre.origine || "Europe de l'Ouest";
 }

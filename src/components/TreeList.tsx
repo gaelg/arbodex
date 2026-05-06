@@ -32,7 +32,7 @@ const OPTION_LABELS: Record<string, string> = {
   resistance_vent: "Résistance vent",
   resistance_chaleur_urbaine: "Chaleur urbaine",
   adapte_changement_climatique: "Adapté changement climatique",
-  fruitière_sauvage: "Fruits sauvages",
+  fruitiere_sauvage: "Fruits sauvages",
   fruits_salissants: "Fruits salissants",
   pollen_allergisant: "Pollen allergisant",
   frequence_taille: "Fréquence taille",
@@ -46,7 +46,9 @@ export function formatOption(opt: string) {
   if (label) return label;
   return String(opt)
     .replace(/_/g, " ")
-    .replace(/\b\w/g, (c) => c.toUpperCase());
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
 }
 
 export function formatNumericLevel(val: number | string): string {
@@ -99,7 +101,7 @@ function getBadgeColor(key: string, valeur: string): string {
       negatif: ["vraiment_exotique"],
     },
     mellifere: { positif: ["oui"], negatif: [] },
-    fruitière_sauvage: { positif: ["oui"], negatif: [] },
+    fruitiere_sauvage: { positif: ["oui"], negatif: [] },
     refuge_oiseaux: { positif: ["oui"], negatif: [] },
     floraison_remarquable: { positif: ["oui"], negatif: [] },
     couleur_automnale: { positif: ["oui"], negatif: [] },
@@ -234,13 +236,14 @@ export default function ListeArbres({ arbres }: Props) {
                 </div>
                 <div className="flex gap-2 text-xs">
                   <EmojiBadge
-                    valeur={arbre.type}
-                    map={{ arbre: "🌳", arbuste: "🌿" }}
+                    valeur={arbre.pollen_allergisant}
+                    map={{ fort: "🤧", moyen: "😊", faible: "😌" }}
                     couleurs={{
-                      arbre: "text-green-700",
-                      arbuste: "text-green-600",
+                      fort: "text-red-600",
+                      moyen: "text-yellow-600",
+                      faible: "text-green-600",
                     }}
-                    title="Type : arbre ou arbuste"
+                    title="Potentiel allergisant"
                   />
                   <EmojiBadge
                     valeur={arbre.pollen_allergisant}
@@ -299,7 +302,7 @@ export default function ListeArbres({ arbres }: Props) {
                   </p>
                   <p>
                     <span className="font-medium text-gray-700">Sol :</span>{" "}
-                    {arbre.sol_acidity || "Tous"} (pH {arbre.pH})
+                    {arbre.sol_acidity || "Tous"}
                   </p>
                   <p>
                     <span className="font-medium text-gray-700">
@@ -325,7 +328,7 @@ export default function ListeArbres({ arbres }: Props) {
                     <Badge
                       texte="🍇 Fruits sauvages"
                       couleur={
-                        arbre.fruitière_sauvage === "oui"
+                        arbre.fruitiere_sauvage === "oui"
                           ? "bg-green-100 text-green-800"
                           : "bg-gray-100 text-gray-500"
                       }
@@ -407,12 +410,12 @@ export default function ListeArbres({ arbres }: Props) {
                   <td className="px-3 py-2">
                     <span
                       className={`px-2 py-1 text-xs rounded-full ${
-                        arbre.type === "arbre"
+                        arbre.origine === "Indigène"
                           ? "bg-emerald-100 text-emerald-800"
                           : "bg-amber-100 text-amber-800"
                       }`}
                     >
-                      {arbre.type}
+                      {arbre.origine}
                     </span>
                   </td>
                   <td className="px-3 py-2">
@@ -481,12 +484,12 @@ export default function ListeArbres({ arbres }: Props) {
                 </div>
                 <span
                   className={`px-2 py-0.5 text-xs rounded-full ${
-                    arbre.type === "arbre"
+                    arbre.origine === "Indigène"
                       ? "bg-emerald-100 text-emerald-800"
                       : "bg-amber-100 text-amber-800"
                   }`}
                 >
-                  {arbre.type}
+                  {arbre.origine}
                 </span>
               </div>
 
@@ -561,7 +564,7 @@ export default function ListeArbres({ arbres }: Props) {
                 </p>
                 <p>
                   <span className="font-medium text-gray-700">Sol :</span>{" "}
-                  {arbre.sol_acidity || "Tous"} (pH {arbre.pH})
+                  {arbre.sol_acidity || "Tous"}
                 </p>
                 <p>
                   <span className="font-medium text-gray-700">
