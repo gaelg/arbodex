@@ -6,6 +6,7 @@ import {
   getAllSections,
   getDefaultFiltersState,
   FilterConfig,
+  applyFilter,
 } from "@/lib/filters";
 
 describe("Système de filtres encapsulé", () => {
@@ -140,5 +141,17 @@ describe("Système de filtres encapsulé", () => {
     expect(f?.options).toContain("medium");
     expect(f?.options).toContain("good");
     expect(f?.options).not.toContain("Moyenne");
+  });
+
+  it("Filtre multi sol_acidity filtre correctement (bug #2)", () => {
+    const config = getFilterByKey("sol_acidity")!;
+    // Arbre avec sol_acidity = "acide" (données CSV)
+    const arbreAcide = { sol_acidity: "acide" } as any;
+    const arbreNeutre = { sol_acidity: "neutre" } as any;
+
+    // Filtre sélectionné : "acid" (valeur du filtre)
+    // Ce test doit échouer car "acid" != "acide" (bug actuel)
+    expect(applyFilter(arbreAcide, config, "acid")).toBe(true);
+    expect(applyFilter(arbreNeutre, config, "acid")).toBe(false);
   });
 });

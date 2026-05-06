@@ -98,6 +98,7 @@ export default function FormulaireFiltres({
 
   // Vérifie si une option est sélectionnée dans un filtre multi
   function isOptionSelected(config: FilterConfig, option: string): boolean {
+    if (option === "all") return false; // "Tous" n'est pas une vraie option à cocher
     const currentValue = ((filtres as any)[config.key] || "") as string;
     const selected = currentValue
       ? currentValue.split(",").filter(Boolean)

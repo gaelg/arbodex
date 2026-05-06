@@ -323,7 +323,12 @@ export function getAllSections(): string[] {
 export function getDefaultFiltersState(): Record<string, string> {
   const state: Record<string, string> = { recherche: "" };
   for (const f of FILTERS) {
-    state[f.key] = "";
+    // Pour les filtres multi, tout cocher par défaut (sauf "all")
+    if (f.type === "multi" && f.options) {
+      state[f.key] = f.options.filter((o) => o !== "all").join(",");
+    } else {
+      state[f.key] = "";
+    }
   }
   // Ajouter les filtres de dimension (pas dans le registre central)
   state.hauteur_min = "";

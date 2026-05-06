@@ -165,8 +165,25 @@ export function applyFilter(
         // Si arbre a une valeur vide (tous types), tout passe
         if (arbreValues.length === 0) return true;
 
+        // Si "all" est sélectionné, on ne filtre pas
+        if (selected.includes("all")) return true;
+
+        // Mapping machine names → valeurs CSV (ex: "acid" → "acide")
+        const csvMapping: Record<string, string> = {};
+        if (config.optionLabels) {
+          for (const [machineName, label] of Object.entries(
+            config.optionLabels
+          )) {
+            // Label français avec majuscule → valeur CSV minuscule
+            csvMapping[machineName] = (label as string).toLowerCase();
+          }
+        }
+
         // Vérifie si au moins une valeur de l'arbre correspond aux sélections
-        return selected.some((s) => arbreValues.includes(s));
+        return selected.some((s) => {
+          const csvValue = csvMapping[s] || s;
+          return arbreValues.includes(csvValue);
+        });
       }
       return true;
     default:
