@@ -28,27 +28,27 @@ const ARBRES_TEST: Arbre[] = [
     rusticite_min_C: -30,
     resistance_vent: "good",
     resistance_chaleur_urbaine: "good",
-    adapte_changement_climatique: "yes",
-    mellifere: "yes",
-    fruitiere_sauvage: "yes",
-    refuge_oiseaux: "yes",
-    floraison_remarquable: "no",
-    couleur_automnale: "yes",
+    adapte_changement_climatique: "oui",
+    mellifere: "oui",
+    fruitiere_sauvage: "oui",
+    refuge_oiseaux: "oui",
+    floraison_remarquable: "non",
+    couleur_automnale: "oui",
     stockage_carbone: "élevé",
     resilience: "élevé",
     impact_icu: "fort",
     biodiversite: "élevé",
     qualite_air: "bonne",
     potentiel_allergisant: "faible",
-    ombrage_fort: "yes",
+    ombrage_fort: "oui",
     rafraichissement_fort: "medium",
     biodiversite_service: "élevé",
     type_racines: "traçantes",
     allergie_service: "faible",
-    fruits_salissants: "no",
+    fruits_salissants: "non",
     pollen_allergisant: "low",
-    branches_fragiles: "no",
-    racines_devastatrices: "no",
+    branches_fragiles: "non",
+    racines_devastatrices: "non",
     frequence_taille: "occasional",
     sensibilite_maladies: "medium",
     longevite: "très_longue",
@@ -74,27 +74,27 @@ const ARBRES_TEST: Arbre[] = [
     rusticite_min_C: -35,
     resistance_vent: "medium",
     resistance_chaleur_urbaine: "medium",
-    adapte_changement_climatique: "no",
-    mellifere: "yes",
-    fruitiere_sauvage: "yes",
-    refuge_oiseaux: "yes",
-    floraison_remarquable: "yes",
-    couleur_automnale: "yes",
+    adapte_changement_climatique: "non",
+    mellifere: "oui",
+    fruitiere_sauvage: "oui",
+    refuge_oiseaux: "oui",
+    floraison_remarquable: "oui",
+    couleur_automnale: "oui",
     stockage_carbone: "moyen",
     resilience: "modéré",
     impact_icu: "moyen",
     biodiversite: "moyenne",
     qualite_air: "bonne",
     potentiel_allergisant: "moyen",
-    ombrage_fort: "yes",
+    ombrage_fort: "oui",
     rafraichissement_fort: "medium",
     biodiversite_service: "moyenne",
     type_racines: "fasciculées",
     allergie_service: "moyen",
-    fruits_salissants: "no",
-    pollen_allergisant: "medium",
-    branches_fragiles: "no",
-    racines_devastatrices: "no",
+    fruits_salissants: "non",
+    pollen_allergisant: "low",
+    branches_fragiles: "non",
+    racines_devastatrices: "non",
     frequence_taille: "occasional",
     sensibilite_maladies: "medium",
     longevite: "longue",
@@ -120,27 +120,27 @@ const ARBRES_TEST: Arbre[] = [
     rusticite_min_C: -35,
     resistance_vent: "medium",
     resistance_chaleur_urbaine: "medium",
-    adapte_changement_climatique: "no",
-    mellifere: "no",
-    fruitiere_sauvage: "yes",
-    refuge_oiseaux: "yes",
-    floraison_remarquable: "no",
-    couleur_automnale: "no",
+    adapte_changement_climatique: "non",
+    mellifere: "non",
+    fruitiere_sauvage: "oui",
+    refuge_oiseaux: "oui",
+    floraison_remarquable: "non",
+    couleur_automnale: "non",
     stockage_carbone: "moyen",
     resilience: "modéré",
     impact_icu: "moyen",
     biodiversite: "faible",
     qualite_air: "bonne",
     potentiel_allergisant: "élevé",
-    ombrage_fort: "yes",
+    ombrage_fort: "oui",
     rafraichissement_fort: "medium",
     biodiversite_service: "faible",
     type_racines: "traçantes",
     allergie_service: "élevé",
-    fruits_salissants: "no",
+    fruits_salissants: "non",
     pollen_allergisant: "medium",
-    branches_fragiles: "yes",
-    racines_devastatrices: "yes",
+    branches_fragiles: "oui",
+    racines_devastatrices: "oui",
     frequence_taille: "never",
     sensibilite_maladies: "low",
     longevite: "longue",
@@ -166,10 +166,10 @@ const ARBRES_TEST: Arbre[] = [
     rusticite_min_C: -25,
     resistance_vent: "good",
     resistance_chaleur_urbaine: "excellent",
-    adapte_changement_climatique: "yes",
-    mellifere: "no",
-    fruitiere_sauvage: "yes",
-    refuge_oiseaux: "yes",
+    adapte_changement_climatique: "oui",
+    mellifere: "non",
+    fruitiere_sauvage: "oui",
+    refuge_oiseaux: "oui",
     floraison_remarquable: "no",
     couleur_automnale: "yes",
     stockage_carbone: "moyen",
@@ -178,7 +178,7 @@ const ARBRES_TEST: Arbre[] = [
     biodiversite: "faible",
     qualite_air: "excellente",
     potentiel_allergisant: "faible",
-    ombrage_fort: "yes",
+    ombrage_fort: "oui",
     rafraichissement_fort: "medium",
     biodiversite_service: "faible",
     type_racines: "traçantes",
@@ -229,20 +229,22 @@ describe("applyAllFilters", () => {
     envergure_max: "",
   };
 
-  it("filtre par origine (Indigène)", () => {
-    const filtres: Filtres = { ...filtresVides, origine: "native" };
+  it("filtre par mellifere", () => {
+    const filtres: Filtres = { ...filtresVides, mellifere: "oui" };
     const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
-    expect(resultat).toHaveLength(1);
-    expect(resultat[0].nom_commun).toBe("Chêne pédonculé");
+    expect(resultat.length).toBeGreaterThan(0);
+    resultat.forEach((a) => {
+      expect(a.mellifere).toBe("oui");
+    });
   });
 
-  it("filtre par origine (Europe de l'Ouest)", () => {
-    const filtres: Filtres = { ...filtresVides, origine: "west_europe" };
+  it("filtre par ombrage_fort", () => {
+    const filtres: Filtres = { ...filtresVides, ombrage_fort: "oui" };
     const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
-    expect(resultat).toHaveLength(3);
-    expect(resultat.map((a) => a.nom_commun)).toContain("Érable rouge");
-    expect(resultat.map((a) => a.nom_commun)).toContain("Pin blanc");
-    expect(resultat.map((a) => a.nom_commun)).toContain("Ginkgo");
+    expect(resultat.length).toBeGreaterThan(0);
+    resultat.forEach((a) => {
+      expect(a.ombrage_fort).toBe("oui");
+    });
   });
 
   it("filtre par résistance vent minimum", () => {
@@ -255,17 +257,17 @@ describe("applyAllFilters", () => {
   });
 
   it("filtre par mellifere", () => {
-    const filtres: Filtres = { ...filtresVides, mellifere: "yes" };
+    const filtres: Filtres = { ...filtresVides, mellifere: "oui" };
     const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     expect(resultat.length).toBeGreaterThan(0);
-    resultat.forEach((a) => expect(a.mellifere).toBe("yes"));
+    resultat.forEach((a) => expect(a.mellifere).toBe("oui"));
   });
 
   it("filtre par ombrage_fort", () => {
-    const filtres: Filtres = { ...filtresVides, ombrage_fort: "yes" };
+    const filtres: Filtres = { ...filtresVides, ombrage_fort: "oui" };
     const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     expect(resultat.length).toBeGreaterThan(0);
-    resultat.forEach((a) => expect(a.ombrage_fort).toBe("yes"));
+    resultat.forEach((a) => expect(a.ombrage_fort).toBe("oui"));
   });
 
   it("filtre par rafraichissement_fort", () => {
@@ -302,10 +304,10 @@ describe("applyAllFilters", () => {
     const bySection = getFiltersBySection();
     const services = bySection["Services"] || [];
     const keys = services.map((f) => f.key);
-    expect(keys).toContain("origine");
     expect(keys).toContain("mellifere");
     expect(keys).toContain("ombrage_fort");
     expect(keys).toContain("rafraichissement_fort");
+    expect(keys).toContain("fruitiere_sauvage");
   });
 
   it("Section Esthétique contient les bons filtres", () => {

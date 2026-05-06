@@ -37,7 +37,7 @@ export const FILTERS: FilterConfig[] = [
     optionLabels: {
       all: "Tous",
       good: "Bon",
-      medium: "Moyen",
+      medium: "Moyenne",
       poor: "Mauvais",
     },
   },
@@ -63,7 +63,7 @@ export const FILTERS: FilterConfig[] = [
     optionLabels: {
       all: "Tous",
       humus: "Humifère",
-      medium: "Moyen",
+      medium: "Moyenne",
       poor: "Pauvre",
     },
   },
@@ -85,10 +85,10 @@ export const FILTERS: FilterConfig[] = [
     label: "Adapté changement climatique",
     section: "Climat",
     type: "exact",
-    options: ["all", "yes"],
+    options: ["all", "oui"],
     optionLabels: {
       all: "Tous",
-      yes: "Oui",
+      oui: "Oui",
     },
   },
   {
@@ -96,11 +96,10 @@ export const FILTERS: FilterConfig[] = [
     label: "Résistance sécheresse (mini)",
     section: "Climat",
     type: "relative",
-    order: { low: 1, medium: 2, good: 3, excellent: 4 },
-    options: ["all", "low", "medium", "good", "excellent"],
+    order: { medium: 2, good: 3, excellent: 4 },
+    options: ["all", "medium", "good", "excellent"],
     optionLabels: {
       all: "Tous",
-      low: "Faible",
       medium: "Moyenne",
       good: "Bonne",
       excellent: "Excellente",
@@ -111,11 +110,10 @@ export const FILTERS: FilterConfig[] = [
     label: "Résistance vent (mini)",
     section: "Climat",
     type: "relative",
-    order: { low: 1, medium: 2, good: 3, excellent: 4 },
-    options: ["all", "low", "medium", "good", "excellent"],
+    order: { medium: 2, good: 3, excellent: 4 },
+    options: ["all", "medium", "good", "excellent"],
     optionLabels: {
       all: "Tous",
-      low: "Faible",
       medium: "Moyenne",
       good: "Bonne",
       excellent: "Excellente",
@@ -126,11 +124,10 @@ export const FILTERS: FilterConfig[] = [
     label: "Résistance chaleur urbaine (mini)",
     section: "Climat",
     type: "relative",
-    order: { low: 1, medium: 2, good: 3, excellent: 4 },
-    options: ["all", "low", "medium", "good", "excellent"],
+    order: { medium: 2, good: 3, excellent: 4 },
+    options: ["all", "medium", "good", "excellent"],
     optionLabels: {
       all: "Tous",
-      low: "Faible",
       medium: "Moyenne",
       good: "Bonne",
       excellent: "Excellente",
@@ -145,26 +142,14 @@ export const FILTERS: FilterConfig[] = [
 
   // Services
   {
-    key: "origine",
-    label: "Origine",
-    section: "Services",
-    type: "exact",
-    options: ["all", "west_europe", "native"],
-    optionLabels: {
-      all: "Tous",
-      west_europe: "Europe de l'Ouest",
-      native: "Indigène",
-    },
-  },
-  {
     key: "mellifere",
     label: "Mellifère",
     section: "Services",
     type: "exact",
-    options: ["all", "yes"],
+    options: ["all", "oui"],
     optionLabels: {
       all: "Tous",
-      yes: "Oui",
+      oui: "Oui",
     },
   },
   {
@@ -172,10 +157,10 @@ export const FILTERS: FilterConfig[] = [
     label: "Ombrage",
     section: "Services",
     type: "exact",
-    options: ["all", "yes"],
+    options: ["all", "oui"],
     optionLabels: {
       all: "Tous",
-      yes: "Oui",
+      oui: "Oui",
     },
   },
   {
@@ -187,19 +172,19 @@ export const FILTERS: FilterConfig[] = [
     options: ["all", "medium", "strong"],
     optionLabels: {
       all: "Tous",
-      medium: "Moyen",
+      medium: "Moyenne",
       strong: "Fort",
     },
   },
   {
     key: "fruitiere_sauvage",
-    label: "Fruits pour la faune",
+    label: "Fruits sauvages",
     section: "Services",
     type: "exact",
-    options: ["all", "yes"],
+    options: ["all", "oui"],
     optionLabels: {
       all: "Tous",
-      yes: "Oui",
+      oui: "Oui",
     },
   },
 
@@ -209,10 +194,10 @@ export const FILTERS: FilterConfig[] = [
     label: "Floraison remarquable",
     section: "Esthétique",
     type: "exact",
-    options: ["all", "yes"],
+    options: ["all", "oui"],
     optionLabels: {
       all: "Tous",
-      yes: "Oui",
+      oui: "Oui",
     },
   },
   {
@@ -220,10 +205,10 @@ export const FILTERS: FilterConfig[] = [
     label: "Couleur automnale",
     section: "Esthétique",
     type: "exact",
-    options: ["all", "yes"],
+    options: ["all", "oui"],
     optionLabels: {
       all: "Tous",
-      yes: "Oui",
+      oui: "Oui",
     },
   },
 
@@ -246,10 +231,10 @@ export const FILTERS: FilterConfig[] = [
     label: "Fruits salissants",
     section: "Contraintes et risques",
     type: "exact",
-    options: ["all", "no"],
+    options: ["all", "non"],
     optionLabels: {
       all: "Tous",
-      no: "Non",
+      non: "Non",
     },
   },
   {
@@ -257,10 +242,10 @@ export const FILTERS: FilterConfig[] = [
     label: "Branches fragiles",
     section: "Contraintes et risques",
     type: "exact",
-    options: ["all", "no"],
+    options: ["all", "non"],
     optionLabels: {
       all: "Tous",
-      no: "Non",
+      non: "Non",
     },
   },
   {
@@ -268,10 +253,10 @@ export const FILTERS: FilterConfig[] = [
     label: "Racines problématiques",
     section: "Contraintes et risques",
     type: "exact",
-    options: ["all", "no"],
+    options: ["all", "non"],
     optionLabels: {
       all: "Tous",
-      no: "Non",
+      non: "Non",
     },
   },
 
@@ -286,7 +271,7 @@ export const FILTERS: FilterConfig[] = [
     optionLabels: {
       all: "Tous",
       low: "Faible",
-      medium: "Moyen",
+      medium: "Moyenne",
     },
   },
   {

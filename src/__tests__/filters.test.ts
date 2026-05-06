@@ -11,7 +11,6 @@ import {
 describe("Système de filtres encapsulé", () => {
   it("FILTERS contient tous les filtres essentiels", () => {
     const keys = FILTERS.map((f: FilterConfig) => f.key);
-    expect(keys).toContain("origine");
     expect(keys).toContain("resistance_secheresse");
     expect(keys).toContain("mellifere");
     expect(keys).toContain("branches_fragiles");
@@ -29,14 +28,13 @@ describe("Système de filtres encapsulé", () => {
     expect(sections).toContain("Entretien");
   });
 
-  it("getFilterByKey retourne la bonne config", () => {
-    const f = getFilterByKey("origine");
+  it("getFilterByKey retourne la bonne config pour mellifere", () => {
+    const f = getFilterByKey("mellifere");
     expect(f).toBeDefined();
     expect(f?.type).toBe("exact");
     expect(f?.section).toBe("Services");
     expect(f?.options).toContain("all");
-    expect(f?.optionLabels?.["west_europe"]).toBe("Europe de l'Ouest");
-    expect(f?.optionLabels?.["native"]).toBe("Indigène");
+    expect(f?.optionLabels?.["oui"]).toBe("Oui");
   });
 
   it("getFiltersBySection regroupe correctement", () => {
@@ -49,7 +47,7 @@ describe("Système de filtres encapsulé", () => {
   it("getDefaultFiltersState retourne un état vide", () => {
     const state = getDefaultFiltersState();
     expect(state.recherche).toBe("");
-    expect(state.origine).toBe("");
+    expect(state.mellifere).toBe("");
     expect(state.hauteur_min).toBe("");
   });
 
@@ -81,26 +79,26 @@ describe("Système de filtres encapsulé", () => {
     expect(keys).toContain("rafraichissement_fort");
   });
 
-  it("Filtre origine a les bonnes options", () => {
-    const f = getFilterByKey("origine");
+  it("Filtre mellifere a les bonnes options", () => {
+    const f = getFilterByKey("mellifere");
     expect(f).toBeDefined();
     expect(f?.options).toContain("all");
-    expect(f?.options).toContain("west_europe");
-    expect(f?.options).not.toContain("Europe de l'Ouest");
+    expect(f?.options).toContain("oui");
+    expect(f?.options).not.toContain("yes");
   });
 
   it("Filtre mellifere est de type exact", () => {
     const f = getFilterByKey("mellifere");
     expect(f?.type).toBe("exact");
     expect(f?.options).toContain("all");
-    expect(f?.optionLabels?.["yes"]).toBe("Oui");
+    expect(f?.optionLabels?.["oui"]).toBe("Oui");
   });
 
   it("Filtre ombrage_fort est de type exact", () => {
     const f = getFilterByKey("ombrage_fort");
     expect(f?.type).toBe("exact");
     expect(f?.options).toContain("all");
-    expect(f?.optionLabels?.["yes"]).toBe("Oui");
+    expect(f?.optionLabels?.["oui"]).toBe("Oui");
   });
 
   it("Filtre rafraichissement_fort est de type relative", () => {
@@ -109,7 +107,7 @@ describe("Système de filtres encapsulé", () => {
     expect(f?.options).toContain("all");
     expect(f?.options).toContain("medium");
     expect(f?.options).toContain("strong");
-    expect(f?.optionLabels?.["medium"]).toBe("Moyen");
+    expect(f?.optionLabels?.["medium"]).toBe("Moyenne");
     expect(f?.optionLabels?.["strong"]).toBe("Fort");
   });
 
