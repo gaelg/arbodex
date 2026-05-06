@@ -179,7 +179,10 @@ export default function ListeArbres({ arbres }: Props) {
 
       <div className="space-y-2">
         {arbres.map((arbre, i) => (
-          <div key={i} className="bg-white rounded-lg border border-gray-200 p-3">
+          <div
+            key={i}
+            className="bg-white rounded-lg border border-gray-200 p-3"
+          >
             <div
               className="flex items-center justify-between cursor-pointer"
               onClick={() => toggleExpand(i)}
@@ -274,9 +277,7 @@ export default function ListeArbres({ arbres }: Props) {
                   {arbre.resistance_secheresse}
                 </p>
                 <p>
-                  <span className="font-medium text-gray-700">
-                    Rusticité :
-                  </span>{" "}
+                  <span className="font-medium text-gray-700">Rusticité :</span>{" "}
                   {arbre.rusticite_min_C}°C
                 </p>
                 <div className="flex flex-wrap gap-1 pt-1">
@@ -323,9 +324,7 @@ export default function ListeArbres({ arbres }: Props) {
                 </div>
                 <div className="pt-1 border-t border-gray-100 mt-2">
                   <p className="text-xs text-gray-500">
-                    <span className="font-medium text-gray-700">
-                      Taille :
-                    </span>{" "}
+                    <span className="font-medium text-gray-700">Taille :</span>{" "}
                     {formatOption(arbre.frequence_taille)} ·{" "}
                     <span className="font-medium text-gray-700">
                       Maladies :
