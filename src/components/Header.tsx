@@ -15,7 +15,7 @@ export default function Header({
   installed,
   installer,
 }: HeaderProps) {
-  const version = process.env.NEXT_PUBLIC_VERSION || "0.2.0";
+  const version = process.env.NEXT_PUBLIC_VERSION || "0.0.125";
 
   return (
     <>
