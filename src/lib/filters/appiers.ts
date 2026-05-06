@@ -3,14 +3,14 @@ import { Arbre, Filtres } from "../trees";
 
 // Échelles ordonnées pour les comparaisons (doivent correspondre à l'ideation)
 const ORDER: Record<string, Record<string, number>> = {
-  resistance_secheresse: { Moyenne: 2, Bonne: 3, Excellente: 4 },
-  resistance_vent: { Moyenne: 2, Bonne: 3, Excellente: 4 },
-  resistance_chaleur_urbaine: { Moyenne: 2, Bonne: 3, Excellente: 4 },
-  pollen_allergisant: { Faiblement: 1, Moyennement: 2 },
-  sensibilite_maladies: { Faiblement: 1, Moyennement: 2 },
-  cout_entretien: { Faible: 1, Moyen: 2 },
-  frequence_taille: { Jamais: 1, Occasionnelle: 2 },
-  rafraichissement_fort: { Moyen: 2, Fort: 3 },
+  resistance_secheresse: { low: 1, medium: 2, good: 3, excellent: 4 },
+  resistance_vent: { low: 1, medium: 2, good: 3, excellent: 4 },
+  resistance_chaleur_urbaine: { low: 1, medium: 2, good: 3, excellent: 4 },
+  pollen_allergisant: { low: 1, medium: 2 },
+  sensibilite_maladies: { low: 1, medium: 2 },
+  cout_entretien: { low: 1, medium: 2 },
+  frequence_taille: { never: 1, occasional: 2 },
+  rafraichissement_fort: { medium: 2, strong: 3 },
 };
 
 // Normalisation accents pour recherche

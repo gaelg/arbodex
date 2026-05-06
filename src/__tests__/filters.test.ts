@@ -6,7 +6,6 @@ import {
   getAllSections,
   getDefaultFiltersState,
   FilterConfig,
-  FilterType,
 } from "@/lib/filters";
 
 describe("Système de filtres encapsulé", () => {
@@ -35,9 +34,9 @@ describe("Système de filtres encapsulé", () => {
     expect(f).toBeDefined();
     expect(f?.type).toBe("exact");
     expect(f?.section).toBe("Services");
-    expect(f?.options).toContain("Tous");
-    expect(f?.options).toContain("Europe de l'Ouest");
-    expect(f?.options).toContain("Indigène");
+    expect(f?.options).toContain("all");
+    expect(f?.optionLabels?.["west_europe"]).toBe("Europe de l'Ouest");
+    expect(f?.optionLabels?.["native"]).toBe("Indigène");
   });
 
   it("getFiltersBySection regroupe correctement", () => {
@@ -72,7 +71,7 @@ describe("Système de filtres encapsulé", () => {
     const f = getFilterByKey("resistance_secheresse");
     expect(f?.order).toBeDefined();
     const order = f!.order!;
-    expect(order["Moyenne"]).toBeLessThan(order["Excellente"]);
+    expect(order["medium"]).toBeLessThan(order["excellent"]);
   });
 
   it("Filtres Services présents", () => {
@@ -85,31 +84,33 @@ describe("Système de filtres encapsulé", () => {
   it("Filtre origine a les bonnes options", () => {
     const f = getFilterByKey("origine");
     expect(f).toBeDefined();
-    expect(f?.options).toContain("Tous");
-    expect(f?.options).toContain("Europe de l'Ouest");
-    expect(f?.options).toContain("Indigène");
+    expect(f?.options).toContain("all");
+    expect(f?.options).toContain("west_europe");
+    expect(f?.options).not.toContain("Europe de l'Ouest");
   });
 
   it("Filtre mellifere est de type exact", () => {
     const f = getFilterByKey("mellifere");
     expect(f?.type).toBe("exact");
-    expect(f?.options).toContain("Tous");
-    expect(f?.options).toContain("Oui");
+    expect(f?.options).toContain("all");
+    expect(f?.optionLabels?.["yes"]).toBe("Oui");
   });
 
   it("Filtre ombrage_fort est de type exact", () => {
     const f = getFilterByKey("ombrage_fort");
     expect(f?.type).toBe("exact");
-    expect(f?.options).toContain("Tous");
-    expect(f?.options).toContain("Oui");
+    expect(f?.options).toContain("all");
+    expect(f?.optionLabels?.["yes"]).toBe("Oui");
   });
 
   it("Filtre rafraichissement_fort est de type relative", () => {
     const f = getFilterByKey("rafraichissement_fort");
     expect(f?.type).toBe("relative");
-    expect(f?.options).toContain("Tous");
-    expect(f?.options).toContain("Moyen");
-    expect(f?.options).toContain("Fort");
+    expect(f?.options).toContain("all");
+    expect(f?.options).toContain("medium");
+    expect(f?.options).toContain("strong");
+    expect(f?.optionLabels?.["medium"]).toBe("Moyen");
+    expect(f?.optionLabels?.["strong"]).toBe("Fort");
   });
 
   it("Section Sol contient uniquement des filtres Sol", () => {
@@ -127,5 +128,19 @@ describe("Système de filtres encapsulé", () => {
     climatFilters.forEach((f: FilterConfig) => {
       expect(f.section).toBe("Climat");
     });
+  });
+
+  it("optionLabels fournit le texte d'affichage pour les options", () => {
+    const f = getFilterByKey("resistance_secheresse");
+    expect(f?.optionLabels).toBeDefined();
+    expect(f?.optionLabels?.["medium"]).toBe("Moyenne");
+    expect(f?.optionLabels?.["good"]).toBe("Bonne");
+  });
+
+  it("Options utilisent des machine names", () => {
+    const f = getFilterByKey("resistance_secheresse");
+    expect(f?.options).toContain("medium");
+    expect(f?.options).toContain("good");
+    expect(f?.options).not.toContain("Moyenne");
   });
 });

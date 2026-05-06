@@ -33,6 +33,14 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_VERSION: version,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "upload.wikimedia.org",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

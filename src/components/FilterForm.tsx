@@ -105,40 +105,12 @@ export default function FormulaireFiltres({
     return selected.includes(option);
   }
 
-  const formatOption = (opt: string) =>
-    opt
-      .replace(/_/g, " ")
-      .replace(/\b\w/g, (c) => c.toUpperCase())
-      .replace("Resistance", "Résistance")
-      .replace("Mellifere", "Mellifère")
-      .replace("Fruitiere", "Fruitière")
-      .replace("Floraison", "Floraison")
-      .replace("Couleur", "Couleur")
-      .replace("Adapte", "Adapté")
-      .replace("Pollen", "Pollen")
-      .replace("Frequence", "Fréquence")
-      .replace("Sensibilite", "Sensibilité")
-      .replace("Cout", "Coût");
-
   function formatFilterOption(config: FilterConfig, opt: string): string {
-    // Utiliser optionLabels du registry si disponible
+    // Utiliser optionLabels du registry
     if (config.optionLabels && config.optionLabels[opt]) {
       return config.optionLabels[opt];
     }
-    if (
-      config.key === "resistance_vent" ||
-      config.key === "resistance_chaleur_urbaine"
-    ) {
-      const numLabels: Record<string, string> = {
-        "1": "Très faible",
-        "2": "Faible",
-        "3": "Moyen",
-        "4": "Fort",
-        "5": "Très fort",
-      };
-      return numLabels[opt] || opt;
-    }
-    return formatOption(opt);
+    return opt; // Fallback: retourne la machine name
   }
 
   return (
@@ -256,7 +228,7 @@ export default function FormulaireFiltres({
                                     }
                                     className="rounded border-gray-300 text-green-600 focus:ring-green-500"
                                   />
-                                  <span>{formatOption(opt)}</span>
+                                  <span>{formatFilterOption(config, opt)}</span>
                                   <span className="text-xs text-gray-400">
                                     ({count})
                                   </span>
