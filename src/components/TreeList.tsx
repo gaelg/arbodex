@@ -46,9 +46,9 @@ export function formatOption(opt: string) {
   if (label) return label;
   return String(opt)
     .replace(/_/g, " ")
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(' ');
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ");
 }
 
 export function formatNumericLevel(val: number | string): string {

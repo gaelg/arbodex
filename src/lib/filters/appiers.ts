@@ -3,14 +3,14 @@ import { Arbre, Filtres } from "../trees";
 
 // Échelles ordonnées pour les comparaisons (doivent correspondre à l'ideation)
 const ORDER: Record<string, Record<string, number>> = {
-  "resistance_secheresse": { Moyenne: 2, Bonne: 3, Excellente: 4 },
-  "resistance_vent": { Moyenne: 2, Bonne: 3, Excellente: 4 },
-  "resistance_chaleur_urbaine": { Moyenne: 2, Bonne: 3, Excellente: 4 },
-  "pollen_allergisant": { Faiblement: 1, Moyennement: 2 },
-  "sensibilite_maladies": { Faiblement: 1, Moyennement: 2 },
-  "cout_entretien": { Faible: 1, Moyen: 2 },
-  "frequence_taille": { Jamais: 1, Occasionnelle: 2 },
-  "rafraichissement_fort": { Moyen: 2, Fort: 3 },
+  resistance_secheresse: { Moyenne: 2, Bonne: 3, Excellente: 4 },
+  resistance_vent: { Moyenne: 2, Bonne: 3, Excellente: 4 },
+  resistance_chaleur_urbaine: { Moyenne: 2, Bonne: 3, Excellente: 4 },
+  pollen_allergisant: { Faiblement: 1, Moyennement: 2 },
+  sensibilite_maladies: { Faiblement: 1, Moyennement: 2 },
+  cout_entretien: { Faible: 1, Moyen: 2 },
+  frequence_taille: { Jamais: 1, Occasionnelle: 2 },
+  rafraichissement_fort: { Moyen: 2, Fort: 3 },
 };
 
 // Normalisation accents pour recherche
@@ -244,13 +244,13 @@ export function applyAllFilters(
 function computeOrigine(arbre: Arbre): string {
   // Règle 1: Indigène = HDF/Benelux in repartition area
   if (arbre.origine === "Indigène") return "Indigène";
-  
+
   // Règle 2: Europe de l'Ouest = Western Europe but NOT HDF/Benelux
   if (arbre.origine === "Europe de l'Ouest") return "Europe de l'Ouest";
-  
+
   // Règle 3: Exotique = NOT in Western Europe
   if (arbre.origine === "Exotique") return "Exotique";
-  
+
   // Par défaut, considérer comme Europe de l'Ouest
   return arbre.origine || "Europe de l'Ouest";
 }

@@ -269,7 +269,10 @@ describe("applyAllFilters", () => {
   });
 
   it("filtre par rafraichissement_fort", () => {
-    const filtres: Filtres = { ...filtresVides, rafraichissement_fort: "Moyen" };
+    const filtres: Filtres = {
+      ...filtresVides,
+      rafraichissement_fort: "Moyen",
+    };
     const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     expect(resultat.length).toBeGreaterThan(0);
     resultat.forEach((a) => expect(a.rafraichissement_fort).toBe("Moyen"));
