@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { formatOption } from "@/components/TreeList";
-import { Arbre, Filtres, appliquerFiltres } from "@/lib/trees";
+import { Arbre, Filtres } from "@/lib/trees";
 import { applyAllFilters, FILTERS } from "@/lib/filters";
 
 // Arbre de test avec valeurs de niveau

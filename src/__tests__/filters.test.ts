@@ -71,7 +71,8 @@ describe("Système de filtres encapsulé", () => {
   it("Filtres relatifs ont une échelle ordonnée", () => {
     const f = getFilterByKey("resistance_secheresse");
     expect(f?.order).toBeDefined();
-    expect(f?.order?.["Moyenne"]).toBeLessThan(f?.order?.["Excellente"]);
+    const order = f!.order!;
+    expect(order["Moyenne"]).toBeLessThan(order["Excellente"]);
   });
 
   it("Filtres Services présents", () => {
