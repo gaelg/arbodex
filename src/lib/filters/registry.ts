@@ -87,7 +87,7 @@ export const FILTERS: FilterConfig[] = [
     type: "exact",
     options: ["all", "oui"],
     optionLabels: {
-      all: "Tous",
+      all: "Pas spécialement",
       oui: "Oui",
     },
   },
@@ -149,7 +149,7 @@ export const FILTERS: FilterConfig[] = [
     type: "exact",
     options: ["all", "oui"],
     optionLabels: {
-      all: "Tous",
+      all: "Pas spécialement",
       oui: "Oui",
     },
   },
@@ -160,7 +160,7 @@ export const FILTERS: FilterConfig[] = [
     type: "exact",
     options: ["all", "oui"],
     optionLabels: {
-      all: "Tous",
+      all: "Pas spécialement",
       oui: "Oui",
     },
   },
@@ -172,7 +172,7 @@ export const FILTERS: FilterConfig[] = [
     order: { medium: 2, strong: 3 },
     options: ["all", "medium", "strong"],
     optionLabels: {
-      all: "Tous",
+      all: "Pas spécialement",
       medium: "Moyenne",
       strong: "Fort",
     },
@@ -184,7 +184,7 @@ export const FILTERS: FilterConfig[] = [
     type: "exact",
     options: ["all", "oui"],
     optionLabels: {
-      all: "Tous",
+      all: "Pas spécialement",
       oui: "Oui",
     },
   },
@@ -222,7 +222,7 @@ export const FILTERS: FilterConfig[] = [
     order: { low: 1, medium: 2 },
     options: ["all", "low", "medium"],
     optionLabels: {
-      all: "Tous",
+      all: "Peu importe",
       low: "Faiblement",
       medium: "Moyennement",
     },
@@ -270,7 +270,7 @@ export const FILTERS: FilterConfig[] = [
     order: { low: 1, medium: 2 },
     options: ["all", "low", "medium"],
     optionLabels: {
-      all: "Tous",
+      all: "Peu importe",
       low: "Faible",
       medium: "Moyenne",
     },
@@ -283,7 +283,7 @@ export const FILTERS: FilterConfig[] = [
     order: { never: 1, occasional: 2 },
     options: ["all", "never", "occasional"],
     optionLabels: {
-      all: "Tous",
+      all: "Peu importe",
       never: "Jamais",
       occasional: "Occasionnelle",
     },
@@ -296,7 +296,7 @@ export const FILTERS: FilterConfig[] = [
     order: { low: 1, medium: 2 },
     options: ["all", "low", "medium"],
     optionLabels: {
-      all: "Tous",
+      all: "Peu importe",
       low: "Faiblement",
       medium: "Moyennement",
     },
