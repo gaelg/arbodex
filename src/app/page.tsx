@@ -2,50 +2,22 @@
 
 import { useEffect, useState } from "react";
 import { Arbre, Filtres, chargerArbres } from "@/lib/trees";
-import { applyAllFilters, FILTERS } from "@/lib/filters";
+import {
+  applyAllFilters,
+  FILTERS,
+  getDefaultFiltersState,
+} from "@/lib/filters";
 import FormulaireFiltres from "@/components/FilterForm";
 import ListeArbres from "@/components/TreeList";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const FILTRES_VIDES: Filtres = {
-  recherche: "",
-  origine: "",
-  sol_acidity: "",
-  sol_moisture: "",
-  sol_drainage: "",
-  sol_texture: "",
-  sol_richness: "",
-  sol_depth: "",
-  resistance_secheresse: "",
-  rusticite_min: "",
-  rusticite_max: "",
-  resistance_vent: "",
-  resistance_chaleur_urbaine: "",
-  adapte_changement_climatique: "",
-  mellifere: "",
-  ombrage_fort: "",
-  rafraichissement_fort: "",
-  fruitiere_sauvage: "",
-  floraison_remarquable: "",
-  couleur_automnale: "",
-  pollen_allergisant: "",
-  fruits_salissants: "",
-  branches_fragiles: "",
-  racines_devastatrices: "",
-  frequence_taille: "",
-  sensibilite_maladies: "",
-  cout_entretien: "",
-  hauteur_min: "",
-  hauteur_max: "",
-  envergure_min: "",
-  envergure_max: "",
-};
-
 export default function Accueil() {
   const [arbres, setArbres] = useState<Arbre[]>([]);
   const [chargement, setChargement] = useState(true);
-  const [filtres, setFiltres] = useState<Filtres>(FILTRES_VIDES);
+  const [filtres, setFiltres] = useState<Filtres>(
+    getDefaultFiltersState() as unknown as Filtres
+  );
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
   const [installable, setInstallable] = useState(false);
