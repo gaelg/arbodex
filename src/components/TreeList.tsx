@@ -206,16 +206,6 @@ export default function ListeArbres({ arbres }: Props) {
                   map={{ fort: "🤧", moyen: "😊", faible: "😌" }}
                   couleurs={{
                     fort: "text-red-600",
-                    moyen: "text-yellow-600",
-                    faible: "text-green-600",
-                  }}
-                  title="Potentiel allergisant"
-                />
-                <EmojiBadge
-                  valeur={arbre.pollen_allergisant}
-                  map={{ fort: "🤧", moyen: "😊", faible: "😌" }}
-                  couleurs={{
-                    fort: "text-red-600",
                     moyen: "text-orange-500",
                     faible: "text-green-600",
                   }}
