@@ -255,21 +255,23 @@ export default function FormulaireFiltres({
                           className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                         >
                           <option value="">Tous</option>
-                          {opts.map((opt) => {
-                            const count = applyAllFilters(
-                              arbres,
-                              {
-                                ...filtres,
-                                [config.key]: opt,
-                              } as any,
-                              FILTERS
-                            ).length;
-                            return (
-                              <option key={opt} value={opt}>
-                                {formatFilterOption(config, opt)} ({count})
-                              </option>
-                            );
-                          })}
+                          {opts
+                            .filter((o) => o !== "all")
+                            .map((opt) => {
+                              const count = applyAllFilters(
+                                arbres,
+                                {
+                                  ...filtres,
+                                  [config.key]: opt,
+                                } as any,
+                                FILTERS
+                              ).length;
+                              return (
+                                <option key={opt} value={opt}>
+                                  {formatFilterOption(config, opt)} ({count})
+                                </option>
+                              );
+                            })}
                         </select>
                       </div>
                     );
