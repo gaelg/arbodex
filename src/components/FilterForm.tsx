@@ -29,7 +29,7 @@ export default function FormulaireFiltres({
     Record<string, boolean>
   >(() => {
     const init: Record<string, boolean> = {};
-    for (const s of sections) init[s] = s === "Climat"; // Climat ouvert par défaut
+    for (const s of sections) init[s] = false;
     return init;
   });
 
