@@ -124,7 +124,7 @@ export const FILTERS: FilterConfig[] = [
     label: "Chaleur urbaine",
     section: "Climat",
     type: "relative",
-    order: { "Non": 0, "Faible": 3, "Moyenne": 4, "Forte": 5, "3": 3, "4": 4, "5": 5 },
+    order: { Non: 0, Faible: 3, Moyenne: 4, Forte: 5, "3": 3, "4": 4, "5": 5 },
     options: ["all", "Non", "Faible", "Moyenne", "Forte"],
     optionLabels: {
       all: "Tous",
