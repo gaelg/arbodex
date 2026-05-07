@@ -107,16 +107,15 @@ export const FILTERS: FilterConfig[] = [
   },
   {
     key: "resistance_vent",
-    label: "Résistance vent (mini)",
+    label: "Exposition vent",
     section: "Climat",
     type: "relative",
-    order: { medium: 2, good: 3, excellent: 4 },
-    options: ["all", "medium", "good", "excellent"],
+    order: { Faible: 3, Moyenne: 4, Forte: 5, "3": 3, "4": 4, "5": 5 },
+    options: ["Faible", "Moyenne", "Forte"],
     optionLabels: {
-      all: "Tous",
-      medium: "Moyenne",
-      good: "Bonne",
-      excellent: "Excellente",
+      Faible: "Faible",
+      Moyenne: "Moyenne",
+      Forte: "Forte",
     },
   },
   {
@@ -327,6 +326,8 @@ export function getDefaultFiltersState(): Record<string, string> {
     // Pour les filtres multi, tout cocher par défaut (sauf "all")
     if (f.type === "multi" && f.options) {
       state[f.key] = f.options.filter((o) => o !== "all").join(",");
+    } else if (f.key === "resistance_vent") {
+      state[f.key] = "Faible";
     } else {
       state[f.key] = "";
     }

@@ -22,7 +22,7 @@ const ARBRE_AVEC_BARRES: Arbre = {
   sol_depth: "profond",
   resistance_secheresse: "Moyenne",
   rusticite_min_C: -25,
-  resistance_vent: "Bonne",
+  resistance_vent: "4",
   resistance_chaleur_urbaine: "Bonne",
   adapte_changement_climatique: "Oui",
   mellifere: "Oui",

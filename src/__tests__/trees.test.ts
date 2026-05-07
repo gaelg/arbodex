@@ -26,7 +26,7 @@ const ARBRES_TEST: Arbre[] = [
     sol_depth: "profond",
     resistance_secheresse: "medium",
     rusticite_min_C: -30,
-    resistance_vent: "good",
+    resistance_vent: "4",
     resistance_chaleur_urbaine: "good",
     adapte_changement_climatique: "oui",
     mellifere: "oui",
@@ -72,33 +72,9 @@ const ARBRES_TEST: Arbre[] = [
     sol_depth: "moyen",
     resistance_secheresse: "faible",
     rusticite_min_C: -35,
-    resistance_vent: "medium",
+    resistance_vent: "3",
     resistance_chaleur_urbaine: "medium",
     adapte_changement_climatique: "non",
-    mellifere: "oui",
-    fruitiere_sauvage: "oui",
-    refuge_oiseaux: "oui",
-    floraison_remarquable: "oui",
-    couleur_automnale: "oui",
-    stockage_carbone: "moyen",
-    resilience: "modéré",
-    impact_icu: "moyen",
-    biodiversite: "moyenne",
-    qualite_air: "bonne",
-    potentiel_allergisant: "moyen",
-    ombrage_fort: "oui",
-    rafraichissement_fort: "medium",
-    biodiversite_service: "moyenne",
-    type_racines: "fasciculées",
-    allergie_service: "moyen",
-    fruits_salissants: "non",
-    pollen_allergisant: "low",
-    branches_fragiles: "non",
-    racines_devastatrices: "non",
-    frequence_taille: "occasional",
-    sensibilite_maladies: "medium",
-    longevite: "longue",
-    cout_entretien: "medium",
   },
   {
     nom_commun: "Pin blanc",
@@ -118,33 +94,9 @@ const ARBRES_TEST: Arbre[] = [
     sol_depth: "superficiel",
     resistance_secheresse: "good",
     rusticite_min_C: -35,
-    resistance_vent: "medium",
+    resistance_vent: "3",
     resistance_chaleur_urbaine: "medium",
     adapte_changement_climatique: "non",
-    mellifere: "non",
-    fruitiere_sauvage: "oui",
-    refuge_oiseaux: "oui",
-    floraison_remarquable: "non",
-    couleur_automnale: "non",
-    stockage_carbone: "moyen",
-    resilience: "modéré",
-    impact_icu: "moyen",
-    biodiversite: "faible",
-    qualite_air: "bonne",
-    potentiel_allergisant: "élevé",
-    ombrage_fort: "oui",
-    rafraichissement_fort: "medium",
-    biodiversite_service: "faible",
-    type_racines: "traçantes",
-    allergie_service: "élevé",
-    fruits_salissants: "non",
-    pollen_allergisant: "medium",
-    branches_fragiles: "oui",
-    racines_devastatrices: "oui",
-    frequence_taille: "never",
-    sensibilite_maladies: "low",
-    longevite: "longue",
-    cout_entretien: "low",
   },
   {
     nom_commun: "Ginkgo",
@@ -164,7 +116,7 @@ const ARBRES_TEST: Arbre[] = [
     sol_depth: "profond",
     resistance_secheresse: "excellent",
     rusticite_min_C: -25,
-    resistance_vent: "good",
+    resistance_vent: "4",
     resistance_chaleur_urbaine: "excellent",
     adapte_changement_climatique: "oui",
     mellifere: "non",
@@ -247,12 +199,12 @@ describe("applyAllFilters", () => {
     });
   });
 
-  it("filtre par résistance vent minimum", () => {
-    const filtres: Filtres = { ...filtresVides, resistance_vent: "medium" };
+  it("filtre par exposition vent minimum", () => {
+    const filtres: Filtres = { ...filtresVides, resistance_vent: "Moyenne" };
     const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     expect(resultat.length).toBeGreaterThan(0);
     resultat.forEach((a) => {
-      expect(["medium", "good", "excellent"]).toContain(a.resistance_vent);
+      expect(["4", "5"]).toContain(a.resistance_vent);
     });
   });
 

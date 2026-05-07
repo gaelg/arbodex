@@ -4,7 +4,7 @@ import { Arbre, Filtres } from "../trees";
 // Échelles ordonnées pour les comparaisons (doivent correspondre à l'ideation)
 const ORDER: Record<string, Record<string, number>> = {
   resistance_secheresse: { low: 1, medium: 2, good: 3, excellent: 4 },
-  resistance_vent: { low: 1, medium: 2, good: 3, excellent: 4 },
+  resistance_vent: { Faible: 3, Moyenne: 4, Forte: 5, "3": 3, "4": 4, "5": 5 },
   resistance_chaleur_urbaine: { low: 1, medium: 2, good: 3, excellent: 4 },
   pollen_allergisant: { low: 1, medium: 2 },
   sensibilite_maladies: { low: 1, medium: 2 },
