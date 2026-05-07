@@ -25,7 +25,7 @@ const OPTION_LABELS: Record<string, string> = {
   resistance_vent: "Résistance vent",
   resistance_chaleur_urbaine: "Chaleur urbaine",
   adapte_changement_climatique: "Adapté changement climatique",
-  fruitiere_sauvage: "Fruits sauvages",
+  fruitiere_sauvage: "Fruits pour la faune",
   fruits_salissants: "Fruits salissants",
   pollen_allergisant: "Pollen allergisant",
   frequence_taille: "Fréquence taille",
@@ -280,7 +280,7 @@ export default function ListeArbres({ arbres }: Props) {
                     }
                   />
                   <Badge
-                    texte="🍇 Fruits sauvages"
+                    texte="🍇 Fruits pour la faune"
                     couleur={
                       arbre.fruitiere_sauvage === "oui"
                         ? "bg-green-100 text-green-800"

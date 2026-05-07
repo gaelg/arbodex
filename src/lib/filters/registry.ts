@@ -179,7 +179,7 @@ export const FILTERS: FilterConfig[] = [
   },
   {
     key: "fruitiere_sauvage",
-    label: "Fruits sauvages",
+    label: "Fruits pour la faune",
     section: "Demandes particulières",
     type: "exact",
     options: ["all", "oui"],
