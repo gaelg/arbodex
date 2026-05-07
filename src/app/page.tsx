@@ -83,7 +83,9 @@ export default function Accueil() {
     setInstallable(false);
   };
 
-  const filtres_appliques = applyAllFilters(arbres, filtres, FILTERS);
+  const filtres_appliques = applyAllFilters(arbres, filtres, FILTERS).sort((a, b) =>
+    a.nom_commun.localeCompare(b.nom_commun, "fr")
+  );
   const [show_scroll_to_results, set_show_scroll_to_results] = useState(false);
 
   useEffect(() => {
