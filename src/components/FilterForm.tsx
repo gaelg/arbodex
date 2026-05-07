@@ -197,45 +197,49 @@ export default function FormulaireFiltres({
                             {config.label}
                           </label>
                           <div className="space-y-1">
-                            {opts.map((opt) => {
-                              const selected = isOptionSelected(config, opt);
-                              const newValue = selected
-                                ? value
-                                    .split(",")
-                                    .filter(Boolean)
-                                    .filter((o: string) => o !== opt)
-                                    .join(",")
-                                : value
-                                  ? `${value},${opt}`
-                                  : opt;
-                              const count = applyAllFilters(
-                                arbres,
-                                {
-                                  ...filtres,
-                                  [config.key]: newValue,
-                                } as any,
-                                FILTERS
-                              ).length;
-                              return (
-                                <label
-                                  key={opt}
-                                  className="flex items-center gap-2 text-sm"
-                                >
-                                  <input
-                                    type="checkbox"
-                                    checked={selected}
-                                    onChange={() =>
-                                      toggleMultiFilter(config, opt)
-                                    }
-                                    className="rounded border-gray-300 text-green-600 focus:ring-green-500"
-                                  />
-                                  <span>{formatFilterOption(config, opt)}</span>
-                                  <span className="text-xs text-gray-400">
-                                    ({count})
-                                  </span>
-                                </label>
-                              );
-                            })}
+                            {opts
+                              .filter((o) => o !== "all")
+                              .map((opt) => {
+                                const selected = isOptionSelected(config, opt);
+                                const newValue = selected
+                                  ? value
+                                      .split(",")
+                                      .filter(Boolean)
+                                      .filter((o: string) => o !== opt)
+                                      .join(",")
+                                  : value
+                                    ? `${value},${opt}`
+                                    : opt;
+                                const count = applyAllFilters(
+                                  arbres,
+                                  {
+                                    ...filtres,
+                                    [config.key]: newValue,
+                                  } as any,
+                                  FILTERS
+                                ).length;
+                                return (
+                                  <label
+                                    key={opt}
+                                    className="flex items-center gap-2 text-sm"
+                                  >
+                                    <input
+                                      type="checkbox"
+                                      checked={selected}
+                                      onChange={() =>
+                                        toggleMultiFilter(config, opt)
+                                      }
+                                      className="rounded border-gray-300 text-green-600 focus:ring-green-500"
+                                    />
+                                    <span>
+                                      {formatFilterOption(config, opt)}
+                                    </span>
+                                    <span className="text-xs text-gray-400">
+                                      ({count})
+                                    </span>
+                                  </label>
+                                );
+                              })}
                           </div>
                         </div>
                       );

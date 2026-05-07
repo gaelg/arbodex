@@ -156,6 +156,17 @@ describe("Système de filtres encapsulé", () => {
   });
 });
 
+it("Multi-filtres Sol : 'all' ne doit pas être dans l'état par défaut", () => {
+  const state = getDefaultFiltersState();
+  for (const f of FILTERS) {
+    if (f.type === "multi") {
+      const selected = (state[f.key] || "").split(",").filter(Boolean);
+      expect(selected).not.toContain("all");
+      expect(selected.length).toBeGreaterThan(0); // tout coché sauf "all"
+    }
+  }
+});
+
 it("Filtre texture : rien coché = tous les résultats", () => {
   const config = getFilterByKey("sol_texture")!;
   const arbre1 = { sol_texture: "sablonneux" } as any;
