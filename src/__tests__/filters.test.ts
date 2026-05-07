@@ -155,3 +155,27 @@ describe("Système de filtres encapsulé", () => {
     expect(applyFilter(arbreNeutre, config, "acid")).toBe(false);
   });
 });
+
+  it("Filtre texture : rien coché = tous les résultats", () => {
+    const config = getFilterByKey("sol_texture")!;
+    const arbre1 = { sol_texture: "sablonneux" } as any;
+    const arbre2 = { sol_texture: "" } as any;
+    const arbre3 = { sol_texture: "argileux" } as any;
+    
+    // Rien coché (valeur vide)
+    expect(applyFilter(arbre1, config, "")).toBe(true);
+    expect(applyFilter(arbre2, config, "")).toBe(true);
+    expect(applyFilter(arbre3, config, "")).toBe(true);
+  });
+
+  it("Filtre texture : sablonneux coché = sablonneux + sans contrainte", () => {
+    const config = getFilterByKey("sol_texture")!;
+    const arbreSablonneux = { sol_texture: "sablonneux" } as any;
+    const arbreSansContrainte = { sol_texture: "" } as any;
+    const arbreArgileux = { sol_texture: "argileux" } as any;
+    
+    // "sandy" coché (machine name pour "Sablonneux")
+    expect(applyFilter(arbreSablonneux, config, "sandy")).toBe(true);
+    expect(applyFilter(arbreSansContrainte, config, "sandy")).toBe(true);
+    expect(applyFilter(arbreArgileux, config, "sandy")).toBe(false);
+  });
