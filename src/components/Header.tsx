@@ -69,7 +69,7 @@ export default function Header({
           Arbodex
         </h1>
         <p className="text-gray-500 mt-1">
-          142 essences pour les paysagistes — Hauts-de-France & Benelux (v
+          137 essences pour les paysagistes — Hauts-de-France & Benelux (v
           {version})
         </p>
       </header>
