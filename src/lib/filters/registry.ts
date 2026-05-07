@@ -141,11 +141,11 @@ export const FILTERS: FilterConfig[] = [
     type: "numeric",
   },
 
-  // Services
+  // Demandes particulières
   {
     key: "mellifere",
     label: "Mellifère",
-    section: "Services",
+    section: "Demandes particulières",
     type: "exact",
     options: ["all", "oui"],
     optionLabels: {
@@ -156,7 +156,7 @@ export const FILTERS: FilterConfig[] = [
   {
     key: "ombrage_fort",
     label: "Ombrage",
-    section: "Services",
+    section: "Demandes particulières",
     type: "exact",
     options: ["all", "oui"],
     optionLabels: {
@@ -167,7 +167,7 @@ export const FILTERS: FilterConfig[] = [
   {
     key: "rafraichissement_fort",
     label: "Rafraîchissement minimal",
-    section: "Services",
+    section: "Demandes particulières",
     type: "relative",
     order: { medium: 2, strong: 3 },
     options: ["all", "medium", "strong"],
@@ -180,7 +180,7 @@ export const FILTERS: FilterConfig[] = [
   {
     key: "fruitiere_sauvage",
     label: "Fruits sauvages",
-    section: "Services",
+    section: "Demandes particulières",
     type: "exact",
     options: ["all", "oui"],
     optionLabels: {

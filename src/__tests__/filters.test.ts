@@ -23,7 +23,7 @@ describe("Système de filtres encapsulé", () => {
     expect(sections).not.toContain("Essence");
     expect(sections).toContain("Sol");
     expect(sections).toContain("Climat");
-    expect(sections).toContain("Services");
+    expect(sections).toContain("Demandes particulières");
     expect(sections).toContain("Esthétique");
     expect(sections).toContain("Contraintes et risques");
     expect(sections).toContain("Entretien");
@@ -33,7 +33,7 @@ describe("Système de filtres encapsulé", () => {
     const f = getFilterByKey("mellifere");
     expect(f).toBeDefined();
     expect(f?.type).toBe("exact");
-    expect(f?.section).toBe("Services");
+    expect(f?.section).toBe("Demandes particulières");
     expect(f?.options).toContain("all");
     expect(f?.optionLabels?.["oui"]).toBe("Oui");
   });

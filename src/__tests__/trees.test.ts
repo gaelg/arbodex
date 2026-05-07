@@ -300,9 +300,9 @@ describe("applyAllFilters", () => {
     expect(f?.order?.["strong"]).toBe(3);
   });
 
-  it("Section Services contient les bons filtres", () => {
+  it("Section Demandes particulières contient les bons filtres", () => {
     const bySection = getFiltersBySection();
-    const services = bySection["Services"] || [];
+    const services = bySection["Demandes particulières"] || [];
     const keys = services.map((f) => f.key);
     expect(keys).toContain("mellifere");
     expect(keys).toContain("ombrage_fort");
