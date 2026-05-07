@@ -1,11 +1,11 @@
 import { FilterConfig } from "./types";
 
 export const FILTERS: FilterConfig[] = [
-  // Sol
+  // Sols
   {
     key: "sol_acidity",
     label: "Acidité",
-    section: "Sol",
+    section: "Sols",
     type: "multi",
     options: ["all", "acid", "neutral", "alkaline"],
     optionLabels: {
@@ -18,7 +18,7 @@ export const FILTERS: FilterConfig[] = [
   {
     key: "sol_moisture",
     label: "Humidité",
-    section: "Sol",
+    section: "Sols",
     type: "multi",
     options: ["all", "dry", "fresh", "wet"],
     optionLabels: {
@@ -31,7 +31,7 @@ export const FILTERS: FilterConfig[] = [
   {
     key: "sol_drainage",
     label: "Drainage",
-    section: "Sol",
+    section: "Sols",
     type: "multi",
     options: ["all", "good", "medium", "poor"],
     optionLabels: {
@@ -44,7 +44,7 @@ export const FILTERS: FilterConfig[] = [
   {
     key: "sol_texture",
     label: "Texture",
-    section: "Sol",
+    section: "Sols",
     type: "multi",
     options: ["all", "loamy", "clay", "sandy"],
     optionLabels: {
@@ -57,7 +57,7 @@ export const FILTERS: FilterConfig[] = [
   {
     key: "sol_richness",
     label: "Richesse",
-    section: "Sol",
+    section: "Sols",
     type: "multi",
     options: ["all", "humus", "medium", "poor"],
     optionLabels: {
@@ -70,7 +70,7 @@ export const FILTERS: FilterConfig[] = [
   {
     key: "sol_depth",
     label: "Profondeur",
-    section: "Sol",
+    section: "Sols",
     type: "exact",
     options: ["all", "shallow"],
     optionLabels: {
@@ -301,6 +301,16 @@ export const FILTERS: FilterConfig[] = [
     },
   },
 ];
+
+export function isFilterActive(config: FilterConfig, value: string): boolean {
+  if (!value) return false;
+  if (config.type === "multi" && config.options) {
+    const allNonAll = config.options.filter((o) => o !== "all");
+    const selected = value.split(",").filter(Boolean);
+    if (selected.length === allNonAll.length) return false;
+  }
+  return true;
+}
 
 // Helpers pour récupérer les infos
 export function getFilterByKey(key: string): FilterConfig | undefined {

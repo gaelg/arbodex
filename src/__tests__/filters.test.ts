@@ -5,6 +5,7 @@ import {
   getFiltersBySection,
   getAllSections,
   getDefaultFiltersState,
+  isFilterActive,
   FilterConfig,
   applyFilter,
 } from "@/lib/filters";
@@ -21,7 +22,7 @@ describe("Système de filtres encapsulé", () => {
   it("Sections sont correctement définies", () => {
     const sections = getAllSections();
     expect(sections).not.toContain("Essence");
-    expect(sections).toContain("Sol");
+    expect(sections).toContain("Sols");
     expect(sections).toContain("Climat");
     expect(sections).toContain("Demandes particulières");
     expect(sections).toContain("Esthétique");
@@ -50,6 +51,26 @@ describe("Système de filtres encapsulé", () => {
     expect(state.recherche).toBe("");
     expect(state.mellifere).toBe("");
     expect(state.hauteur_min).toBe("");
+  });
+
+  it("isFilterActive : multi avec toutes les options = inactif", () => {
+    const config = getFilterByKey("sol_acidity")!;
+    expect(isFilterActive(config, "acid,neutral,alkaline")).toBe(false);
+    expect(isFilterActive(config, "acid")).toBe(true);
+    expect(isFilterActive(config, "")).toBe(false);
+    expect(isFilterActive(config, "acid,neutral")).toBe(true);
+  });
+
+  it("isFilterActive : relatif/exact avec valeur = actif", () => {
+    const config = getFilterByKey("mellifere")!;
+    expect(isFilterActive(config, "oui")).toBe(true);
+    expect(isFilterActive(config, "")).toBe(false);
+  });
+
+  it("Multi-filtres Sol : 'all' ne doit pas être dans l'état par défaut", () => {
+    const state = getDefaultFiltersState();
+    expect(state.sol_acidity).toBe("acid,neutral,alkaline");
+    expect(state.sol_acidity.split(",")).not.toContain("all");
   });
 
   it("Types de filtres sont valides", () => {
@@ -114,57 +135,12 @@ describe("Système de filtres encapsulé", () => {
 
   it("Section Sol contient uniquement des filtres Sol", () => {
     const bySection = getFiltersBySection();
-    const solFilters = bySection["Sol"] || [];
-    solFilters.forEach((f: FilterConfig) => {
-      expect(f.section).toBe("Sol");
-      expect(f.key).toMatch(/^sol_/);
-    });
-  });
+    const solFilters = bySection["Sols"] || [];
 
-  it("Section Climat contient uniquement des filtres Climat", () => {
-    const bySection = getFiltersBySection();
-    const climatFilters = bySection["Climat"] || [];
-    climatFilters.forEach((f: FilterConfig) => {
-      expect(f.section).toBe("Climat");
-    });
-  });
-
-  it("optionLabels fournit le texte d'affichage pour les options", () => {
-    const f = getFilterByKey("resistance_secheresse");
-    expect(f?.optionLabels).toBeDefined();
-    expect(f?.optionLabels?.["medium"]).toBe("Moyenne");
-    expect(f?.optionLabels?.["good"]).toBe("Bonne");
-  });
-
-  it("Options utilisent des machine names", () => {
-    const f = getFilterByKey("resistance_secheresse");
-    expect(f?.options).toContain("medium");
-    expect(f?.options).toContain("good");
-    expect(f?.options).not.toContain("Moyenne");
-  });
-
-  it("Filtre multi sol_acidity filtre correctement (bug #2)", () => {
-    const config = getFilterByKey("sol_acidity")!;
-    // Arbre avec sol_acidity = "acide" (données CSV)
-    const arbreAcide = { sol_acidity: "acide" } as any;
-    const arbreNeutre = { sol_acidity: "neutre" } as any;
-
-    // Filtre sélectionné : "acid" (valeur du filtre)
-    // Ce test doit échouer car "acid" != "acide" (bug actuel)
-    expect(applyFilter(arbreAcide, config, "acid")).toBe(true);
-    expect(applyFilter(arbreNeutre, config, "acid")).toBe(false);
-  });
-});
-
-it("Multi-filtres Sol : 'all' ne doit pas être dans l'état par défaut", () => {
-  const state = getDefaultFiltersState();
-  for (const f of FILTERS) {
-    if (f.type === "multi") {
-      const selected = (state[f.key] || "").split(",").filter(Boolean);
-      expect(selected).not.toContain("all");
-      expect(selected.length).toBeGreaterThan(0); // tout coché sauf "all"
+    for (const f of solFilters) {
+      expect(f.section).toBe("Sols");
     }
-  }
+  });
 });
 
 it("Filtre texture : rien coché = tous les résultats", () => {

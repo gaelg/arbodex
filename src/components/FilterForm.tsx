@@ -7,6 +7,7 @@ import {
   getFiltersBySection,
   getAllSections,
   getDefaultFiltersState,
+  isFilterActive,
   applyAllFilters,
 } from "@/lib/filters";
 import type { FilterConfig } from "@/lib/filters";
@@ -135,7 +136,7 @@ export default function FormulaireFiltres({
       </div>
 
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-lg font-semibold text-green-800">Filtres</h2>
+        <h2 className="text-lg font-semibold text-green-800">Mon projet</h2>
         <button
           onClick={replierTout}
           className="text-xs text-green-700 hover:text-green-900 font-medium"
@@ -148,9 +149,10 @@ export default function FormulaireFiltres({
         {sections.map((section) => {
           const filtresSection = sectionsFiltres[section] || [];
           const ouvert = sectionsOuvertes[section] ?? false;
-          const nbActifs = filtresSection.filter(
-            ({ key }) => (filtres as any)[key]
-          ).length;
+          const nbActifs = filtresSection.filter((config) => {
+            const value = (filtres as any)[config.key];
+            return isFilterActive(config, value || "");
+          }).length;
 
           return (
             <div
