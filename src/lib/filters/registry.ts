@@ -46,10 +46,9 @@ export const FILTERS: FilterConfig[] = [
     label: "Texture",
     section: "Sols",
     type: "multi",
-    options: ["all", "loamy", "clay", "sandy"],
+    options: ["all", "clay", "sandy"],
     optionLabels: {
       all: "Tous",
-      loamy: "Limoneux",
       clay: "Argileux",
       sandy: "Sablonneux",
     },
