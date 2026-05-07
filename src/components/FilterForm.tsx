@@ -205,7 +205,7 @@ export default function FormulaireFiltres({
                               .filter((o) => o !== "all")
                               .map((opt) => {
                                 const selected = isOptionSelected(config, opt);
-                                const newValue = selected
+                                const toggleValue = selected
                                   ? value
                                       .split(",")
                                       .filter(Boolean)
@@ -214,18 +214,34 @@ export default function FormulaireFiltres({
                                   : value
                                     ? `${value},${opt}`
                                     : opt;
-                                const count = applyAllFilters(
+                                const toggleCount = applyAllFilters(
                                   arbres,
                                   {
                                     ...filtres,
-                                    [config.key]: newValue,
+                                    [config.key]: toggleValue,
                                   } as any,
                                   FILTERS
                                 ).length;
-                                return { opt, selected, count };
+                                const displayCount = applyAllFilters(
+                                  arbres,
+                                  {
+                                    ...filtres,
+                                    [config.key]: opt,
+                                  } as any,
+                                  FILTERS
+                                ).length;
+                                return {
+                                  opt,
+                                  selected,
+                                  toggleCount,
+                                  displayCount,
+                                };
                               })
-                              .filter(({ count }) => count !== currentCount)
-                              .map(({ opt, selected, count }) => (
+                              .filter(
+                                ({ toggleCount }) =>
+                                  toggleCount !== currentCount
+                              )
+                              .map(({ opt, selected, displayCount }) => (
                                 <label
                                   key={opt}
                                   className="flex items-center gap-2 text-sm"
@@ -240,7 +256,7 @@ export default function FormulaireFiltres({
                                   />
                                   <span>{formatFilterOption(config, opt)}</span>
                                   <span className="text-xs text-gray-400">
-                                    ({count})
+                                    ({displayCount})
                                   </span>
                                 </label>
                               ))}
