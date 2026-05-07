@@ -69,13 +69,12 @@ export const FILTERS: FilterConfig[] = [
   },
   {
     key: "sol_depth",
-    label: "Profondeur",
+    label: "Sol profond",
     section: "Sols",
-    type: "exact",
-    options: ["all", "shallow"],
+    type: "multi",
+    options: ["profond"],
     optionLabels: {
-      all: "Tous",
-      shallow: "Peu profond",
+      profond: "Sol profond",
     },
   },
 
@@ -304,6 +303,7 @@ export const FILTERS: FilterConfig[] = [
 
 export function isFilterActive(config: FilterConfig, value: string): boolean {
   if (!value) return false;
+  if (config.key === "sol_depth") return value !== "profond";
   if (config.type === "multi" && config.options) {
     const allNonAll = config.options.filter((o) => o !== "all");
     const selected = value.split(",").filter(Boolean);

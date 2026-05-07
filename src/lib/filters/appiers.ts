@@ -158,6 +158,13 @@ export function applyFilter(
       const selected = value.split(",").filter(Boolean);
       if (selected.length === 0) return true;
 
+      // Filtre inversé : "Sol profond" coché = pas de filtre, décoché = exclut profond
+      if (config.key === "sol_depth") {
+        if (value === "profond") return true;
+        const arbreValues = fieldValue ? fieldValue.split(",") : [];
+        return arbreValues.length === 0 || !arbreValues.includes("profond");
+      }
+
       // Pour les filtres sol, on utilise les nouvelles colonnes directement
       if (config.key.startsWith("sol_")) {
         const arbreValues = fieldValue ? fieldValue.split(",") : [];
