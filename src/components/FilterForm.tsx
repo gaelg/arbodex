@@ -115,6 +115,8 @@ export default function FormulaireFiltres({
     return opt; // Fallback: retourne la machine name
   }
 
+  const currentCount = applyAllFilters(arbres, filtres as any, FILTERS).length;
+
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
       {/* Barre de recherche */}
@@ -220,28 +222,28 @@ export default function FormulaireFiltres({
                                   } as any,
                                   FILTERS
                                 ).length;
-                                return (
-                                  <label
-                                    key={opt}
-                                    className="flex items-center gap-2 text-sm"
-                                  >
-                                    <input
-                                      type="checkbox"
-                                      checked={selected}
-                                      onChange={() =>
-                                        toggleMultiFilter(config, opt)
-                                      }
-                                      className="rounded border-gray-300 text-green-600 focus:ring-green-500"
-                                    />
-                                    <span>
-                                      {formatFilterOption(config, opt)}
-                                    </span>
-                                    <span className="text-xs text-gray-400">
-                                      ({count})
-                                    </span>
-                                  </label>
-                                );
-                              })}
+                                return { opt, selected, count };
+                              })
+                              .filter(({ count }) => count !== currentCount)
+                              .map(({ opt, selected, count }) => (
+                                <label
+                                  key={opt}
+                                  className="flex items-center gap-2 text-sm"
+                                >
+                                  <input
+                                    type="checkbox"
+                                    checked={selected}
+                                    onChange={() =>
+                                      toggleMultiFilter(config, opt)
+                                    }
+                                    className="rounded border-gray-300 text-green-600 focus:ring-green-500"
+                                  />
+                                  <span>{formatFilterOption(config, opt)}</span>
+                                  <span className="text-xs text-gray-400">
+                                    ({count})
+                                  </span>
+                                </label>
+                              ))}
                           </div>
                         </div>
                       );
