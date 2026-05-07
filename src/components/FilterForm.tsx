@@ -222,26 +222,19 @@ export default function FormulaireFiltres({
                                   } as any,
                                   FILTERS
                                 ).length;
-                                const displayCount = applyAllFilters(
-                                  arbres,
-                                  {
-                                    ...filtres,
-                                    [config.key]: opt,
-                                  } as any,
-                                  FILTERS
-                                ).length;
+                                const delta = toggleCount - currentCount;
                                 return {
                                   opt,
                                   selected,
                                   toggleCount,
-                                  displayCount,
+                                  delta,
                                 };
                               })
                               .filter(
                                 ({ toggleCount }) =>
                                   toggleCount !== currentCount
                               )
-                              .map(({ opt, selected, displayCount }) => (
+                              .map(({ opt, selected, delta }) => (
                                 <label
                                   key={opt}
                                   className="flex items-center gap-2 text-sm"
@@ -255,8 +248,8 @@ export default function FormulaireFiltres({
                                     className="rounded border-gray-300 text-green-600 focus:ring-green-500"
                                   />
                                   <span>{formatFilterOption(config, opt)}</span>
-                                  <span className="text-xs text-gray-400">
-                                    ({displayCount})
+                                  <span className="text-xs font-mono text-gray-400">
+                                    {delta > 0 ? `+${delta}` : `${delta}`}
                                   </span>
                                 </label>
                               ))}
