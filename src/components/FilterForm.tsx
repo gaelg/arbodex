@@ -150,6 +150,54 @@ export default function FormulaireFiltres({
       <div className="space-y-2">
         {sections.map((section) => {
           const filtresSection = sectionsFiltres[section] || [];
+
+          const filtresVisibles = filtresSection.filter((config) => {
+            const val = (filtres as any)[config.key] || "";
+            if (val) return true;
+            if (config.type === "multi") {
+              const opts = getOptions(config).filter((o) => o !== "all");
+              return opts.some((opt) => {
+                const selected = isOptionSelected(config, opt);
+                const toggleValue = selected
+                  ? val
+                      .split(",")
+                      .filter(Boolean)
+                      .filter((o: string) => o !== opt)
+                      .join(",")
+                  : val
+                    ? `${val},${opt}`
+                    : opt;
+                const tc = applyAllFilters(
+                  arbres,
+                  { ...filtres, [config.key]: toggleValue } as any,
+                  FILTERS
+                ).length;
+                return tc !== currentCount;
+              });
+            }
+            if (config.type === "slider") {
+              return getOptions(config).some((opt) => {
+                const tc = applyAllFilters(
+                  arbres,
+                  { ...filtres, [config.key]: opt } as any,
+                  FILTERS
+                ).length;
+                return tc !== currentCount;
+              });
+            }
+            const opts = getOptions(config).filter((o) => o !== "all");
+            return opts.some((opt) => {
+              const tc = applyAllFilters(
+                arbres,
+                { ...filtres, [config.key]: opt } as any,
+                FILTERS
+              ).length;
+              return tc !== currentCount;
+            });
+          });
+
+          if (filtresVisibles.length === 0) return null;
+
           const ouvert = sectionsOuvertes[section] ?? false;
           const nbActifs = filtresSection.filter((config) => {
             const value = (filtres as any)[config.key];
@@ -195,11 +243,12 @@ export default function FormulaireFiltres({
                     </p>
                   )}
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {filtresSection.map((config) => {
+                    {filtresVisibles.map((config) => {
                       const opts = getOptions(config);
                       const value = (filtres as any)[config.key] || "";
 
                       if (config.type === "slider") {
+                        // Filtres slider : curseurs à crans (implanté plus haut)
                         const opts = getOptions(config);
                         const optionData = opts.map((opt) => {
                           const toggleCount = applyAllFilters(
@@ -377,75 +426,77 @@ export default function FormulaireFiltres({
 
                       // Filtres multi : cases à cocher
                       if (isMultiFilter(config)) {
+                        const optionData = opts
+                          .filter((o) => o !== "all")
+                          .map((opt) => {
+                            const selected = isOptionSelected(config, opt);
+                            const toggleValue = selected
+                              ? value
+                                  .split(",")
+                                  .filter(Boolean)
+                                  .filter((o: string) => o !== opt)
+                                  .join(",")
+                              : value
+                                ? `${value},${opt}`
+                                : opt;
+                            const toggleCount = applyAllFilters(
+                              arbres,
+                              { ...filtres, [config.key]: toggleValue } as any,
+                              FILTERS
+                            ).length;
+                            const delta = toggleCount - currentCount;
+                            return { opt, selected, toggleCount, delta };
+                          })
+                          .filter(
+                            ({ toggleCount }) => toggleCount !== currentCount
+                          );
+
+                        if (optionData.length === 0) return null;
+
                         return (
                           <div key={config.key}>
                             <label className="block text-sm font-medium text-gray-700 mb-2">
                               {config.label}
                             </label>
                             <div className="space-y-1">
-                              {opts
-                                .filter((o) => o !== "all")
-                                .map((opt) => {
-                                  const selected = isOptionSelected(
-                                    config,
-                                    opt
-                                  );
-                                  const toggleValue = selected
-                                    ? value
-                                        .split(",")
-                                        .filter(Boolean)
-                                        .filter((o: string) => o !== opt)
-                                        .join(",")
-                                    : value
-                                      ? `${value},${opt}`
-                                      : opt;
-                                  const toggleCount = applyAllFilters(
-                                    arbres,
-                                    {
-                                      ...filtres,
-                                      [config.key]: toggleValue,
-                                    } as any,
-                                    FILTERS
-                                  ).length;
-                                  const delta = toggleCount - currentCount;
-                                  return {
-                                    opt,
-                                    selected,
-                                    toggleCount,
-                                    delta,
-                                  };
-                                })
-                                .filter(
-                                  ({ toggleCount }) =>
-                                    toggleCount !== currentCount
-                                )
-                                .map(({ opt, selected, delta }) => (
-                                  <label
-                                    key={opt}
-                                    className="flex items-center gap-2 text-sm"
-                                  >
-                                    <input
-                                      type="checkbox"
-                                      checked={selected}
-                                      onChange={() =>
-                                        toggleMultiFilter(config, opt)
-                                      }
-                                      className="rounded border-gray-300 text-green-600 focus:ring-green-500"
-                                    />
-                                    <span>
-                                      {formatFilterOption(config, opt)}
-                                    </span>
-                                    <span className="text-xs font-mono text-gray-400">
-                                      {delta > 0 ? `+${delta}` : `${delta}`}
-                                    </span>
-                                  </label>
-                                ))}
+                              {optionData.map(({ opt, selected, delta }) => (
+                                <label
+                                  key={opt}
+                                  className="flex items-center gap-2 text-sm"
+                                >
+                                  <input
+                                    type="checkbox"
+                                    checked={selected}
+                                    onChange={() =>
+                                      toggleMultiFilter(config, opt)
+                                    }
+                                    className="rounded border-gray-300 text-green-600 focus:ring-green-500"
+                                  />
+                                  <span>{formatFilterOption(config, opt)}</span>
+                                  <span className="text-xs font-mono text-gray-400">
+                                    {delta > 0 ? `+${delta}` : `${delta}`}
+                                  </span>
+                                </label>
+                              ))}
                             </div>
                           </div>
                         );
                       }
 
                       // Filtres standard : select
+                      const selectOptions = opts
+                        .filter((o) => o !== "all")
+                        .filter((opt) => {
+                          const count = applyAllFilters(
+                            arbres,
+                            { ...filtres, [config.key]: opt } as any,
+                            FILTERS
+                          ).length;
+                          return count !== currentCount;
+                        });
+
+                      if (selectOptions.length === 0) return null;
+
                       return (
                         <div key={config.key}>
                           <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -461,23 +512,18 @@ export default function FormulaireFiltres({
                             <option value="">
                               {formatFilterOption(config, "all")}
                             </option>
-                            {opts
-                              .filter((o) => o !== "all")
-                              .map((opt) => {
-                                const count = applyAllFilters(
-                                  arbres,
-                                  {
-                                    ...filtres,
-                                    [config.key]: opt,
-                                  } as any,
-                                  FILTERS
-                                ).length;
-                                return (
-                                  <option key={opt} value={opt}>
-                                    {formatFilterOption(config, opt)} ({count})
-                                  </option>
-                                );
-                              })}
+                            {selectOptions.map((opt) => {
+                              const count = applyAllFilters(
+                                arbres,
+                                { ...filtres, [config.key]: opt } as any,
+                                FILTERS
+                              ).length;
+                              return (
+                                <option key={opt} value={opt}>
+                                  {formatFilterOption(config, opt)} ({count})
+                                </option>
+                              );
+                            })}
                           </select>
                         </div>
                       );
