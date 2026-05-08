@@ -669,7 +669,10 @@ function DualRangeSlider({
     let closestDist = Infinity;
     steps.forEach((s, i) => {
       const d = Math.abs(s - v);
-      if (d < closestDist) { closestDist = d; closest = i; }
+      if (d < closestDist) {
+        closestDist = d;
+        closest = i;
+      }
     });
     return closest;
   };
@@ -699,9 +702,17 @@ function DualRangeSlider({
     doSet(pickHandle(steps[idx]), idx);
   };
 
-  const handleKeyDown = (which: "min" | "max", curIdx: number, e: React.KeyboardEvent) => {
-    const dir = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1
-      : e.key === "ArrowLeft" || e.key === "ArrowUp" ? -1 : 0;
+  const handleKeyDown = (
+    which: "min" | "max",
+    curIdx: number,
+    e: React.KeyboardEvent
+  ) => {
+    const dir =
+      e.key === "ArrowRight" || e.key === "ArrowDown"
+        ? 1
+        : e.key === "ArrowLeft" || e.key === "ArrowUp"
+          ? -1
+          : 0;
     if (!dir) return;
     e.preventDefault();
     const next = curIdx + dir;
@@ -718,10 +729,16 @@ function DualRangeSlider({
       </label>
       <div className="flex justify-between text-xs text-gray-500 mb-2">
         <span>
-          Min : <strong className={minActive ? "text-green-700" : ""}>{minActive ? `${minVal}m` : "—"}</strong>
+          Min :{" "}
+          <strong className={minActive ? "text-green-700" : ""}>
+            {minActive ? `${minVal}m` : "—"}
+          </strong>
         </span>
         <span>
-          Max : <strong className={maxActive ? "text-green-700" : ""}>{maxActive ? `${maxVal}m` : "—"}</strong>
+          Max :{" "}
+          <strong className={maxActive ? "text-green-700" : ""}>
+            {maxActive ? `${maxVal}m` : "—"}
+          </strong>
         </span>
       </div>
       <div
@@ -758,8 +775,14 @@ function DualRangeSlider({
                 }`}
                 onClick={(e) => {
                   e.stopPropagation();
-                  if (isMin) { onChangeMin(""); return; }
-                  if (isMax) { onChangeMax(""); return; }
+                  if (isMin) {
+                    onChangeMin("");
+                    return;
+                  }
+                  if (isMax) {
+                    onChangeMax("");
+                    return;
+                  }
                   doSet(pickHandle(step), i);
                 }}
                 onKeyDown={(e) => {
