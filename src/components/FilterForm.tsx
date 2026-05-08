@@ -661,66 +661,69 @@ function DualRangeSlider({
   const minVal = valueMin ? Number(valueMin) : steps[0];
   const maxVal = valueMax ? Number(valueMax) : steps[steps.length - 1];
   const maxRaw = steps.length - 1;
+  const minActive = valueMin !== "";
+  const maxActive = valueMax !== "";
 
   const toIdx = (v: number) => {
     let closest = 0;
     let closestDist = Infinity;
     steps.forEach((s, i) => {
       const d = Math.abs(s - v);
-      if (d < closestDist) {
-        closestDist = d;
-        closest = i;
-      }
+      if (d < closestDist) { closestDist = d; closest = i; }
     });
     return closest;
   };
 
   const minIdx = toIdx(minVal);
   const maxIdx = toIdx(maxVal);
-  const minActive = valueMin !== "";
-  const maxActive = valueMax !== "";
 
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const pct = (e.clientX - rect.left) / rect.width;
-    const idx = Math.round(pct * maxRaw);
-    const stepVal = steps[idx];
-    const distToMin = Math.abs(stepVal - minVal);
-    const distToMax = Math.abs(stepVal - maxVal);
-    if (distToMin <= distToMax) {
-      onChangeMin(idx === 0 ? "" : String(stepVal));
+  const pickHandle = (stepVal: number): "min" | "max" => {
+    if (!minActive) return "min";
+    if (!maxActive) return "max";
+    const dMin = Math.abs(stepVal - minVal);
+    const dMax = Math.abs(stepVal - maxVal);
+    return dMin <= dMax ? "min" : "max";
+  };
+
+  const doSet = (which: "min" | "max", idx: number) => {
+    if (which === "min") {
+      onChangeMin(idx === 0 ? "" : String(steps[idx]));
     } else {
-      onChangeMax(idx === maxRaw ? "" : String(stepVal));
+      onChangeMax(idx === maxRaw ? "" : String(steps[idx]));
     }
   };
 
-  const handleKeyDown = (
-    which: "min" | "max",
-    curIdx: number,
-    e: React.KeyboardEvent
-  ) => {
-    const dir =
-      e.key === "ArrowRight" || e.key === "ArrowDown"
-        ? 1
-        : e.key === "ArrowLeft" || e.key === "ArrowUp"
-          ? -1
-          : 0;
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const idx = Math.round(((e.clientX - rect.left) / rect.width) * maxRaw);
+    doSet(pickHandle(steps[idx]), idx);
+  };
+
+  const handleKeyDown = (which: "min" | "max", curIdx: number, e: React.KeyboardEvent) => {
+    const dir = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1
+      : e.key === "ArrowLeft" || e.key === "ArrowUp" ? -1 : 0;
     if (!dir) return;
     e.preventDefault();
     const next = curIdx + dir;
     if (next < 0 || next > maxRaw) return;
     if (which === "min" && next > maxIdx) return;
     if (which === "max" && next < minIdx) return;
-    const val = String(steps[next]);
-    if (which === "min") onChangeMin(next === 0 ? "" : val);
-    else onChangeMax(next === maxRaw ? "" : val);
+    doSet(which, next);
   };
 
   return (
     <div className="relative pt-1 pb-2">
-      <label className="block text-sm font-medium text-gray-700 mb-3">
+      <label className="block text-sm font-medium text-gray-700 mb-1">
         {label}
       </label>
+      <div className="flex justify-between text-xs text-gray-500 mb-2">
+        <span>
+          Min : <strong className={minActive ? "text-green-700" : ""}>{minActive ? `${minVal}m` : "—"}</strong>
+        </span>
+        <span>
+          Max : <strong className={maxActive ? "text-green-700" : ""}>{maxActive ? `${maxVal}m` : "—"}</strong>
+        </span>
+      </div>
       <div
         role="presentation"
         className="relative h-10 mx-1"
@@ -755,21 +758,9 @@ function DualRangeSlider({
                 }`}
                 onClick={(e) => {
                   e.stopPropagation();
-                  if (isMin) {
-                    onChangeMin("");
-                    return;
-                  }
-                  if (isMax) {
-                    onChangeMax("");
-                    return;
-                  }
-                  const distToMin = Math.abs(step - minVal);
-                  const distToMax = Math.abs(step - maxVal);
-                  if (distToMin <= distToMax) {
-                    onChangeMin(i === 0 ? "" : String(step));
-                  } else {
-                    onChangeMax(i === maxRaw ? "" : String(step));
-                  }
+                  if (isMin) { onChangeMin(""); return; }
+                  if (isMax) { onChangeMax(""); return; }
+                  doSet(pickHandle(step), i);
                 }}
                 onKeyDown={(e) => {
                   if (isMin) handleKeyDown("min", minIdx, e);
@@ -788,15 +779,7 @@ function DualRangeSlider({
             <button
               key={step}
               type="button"
-              onClick={() => {
-                const distToMin = Math.abs(step - minVal);
-                const distToMax = Math.abs(step - maxVal);
-                if (distToMin <= distToMax) {
-                  onChangeMin(i === 0 ? "" : String(step));
-                } else {
-                  onChangeMax(i === maxRaw ? "" : String(step));
-                }
-              }}
+              onClick={() => doSet(pickHandle(step), i)}
               className={`text-xs text-center transition-colors ${
                 isMin || isMax
                   ? "text-green-700 font-semibold"
