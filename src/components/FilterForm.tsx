@@ -449,6 +449,14 @@ export default function FormulaireFiltres({
               <DualRangeSlider
                 label="Hauteur (m)"
                 steps={[0, 5, 10, 15, 20, 30, 50]}
+                stepCounts={[0, 5, 10, 15, 20, 30, 50].map((s) =>
+                  applyAllFilters(
+                    arbres,
+                    { ...filtres, hauteur_min: String(s), hauteur_max: String(s) } as any,
+                    FILTERS
+                  ).length
+                )}
+                currentCount={currentCount}
                 valueMin={filtres.hauteur_min}
                 valueMax={filtres.hauteur_max}
                 onChangeMin={(v) => mettreAJour("hauteur_min", v)}
@@ -459,6 +467,14 @@ export default function FormulaireFiltres({
               <DualRangeSlider
                 label="Envergure (m)"
                 steps={[0, 5, 10, 15, 20, 30]}
+                stepCounts={[0, 5, 10, 15, 20, 30].map((s) =>
+                  applyAllFilters(
+                    arbres,
+                    { ...filtres, envergure_min: String(s), envergure_max: String(s) } as any,
+                    FILTERS
+                  ).length
+                )}
+                currentCount={currentCount}
                 valueMin={filtres.envergure_min}
                 valueMax={filtres.envergure_max}
                 onChangeMin={(v) => mettreAJour("envergure_min", v)}
@@ -482,6 +498,8 @@ export default function FormulaireFiltres({
 function DualRangeSlider({
   label,
   steps,
+  stepCounts,
+  currentCount,
   valueMin,
   valueMax,
   onChangeMin,
@@ -489,6 +507,8 @@ function DualRangeSlider({
 }: {
   label: string;
   steps: number[];
+  stepCounts?: number[];
+  currentCount?: number;
   valueMin: string;
   valueMax: string;
   onChangeMin: (v: string) => void;
@@ -524,6 +544,8 @@ function DualRangeSlider({
     const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
     return Math.round(pct * maxRaw);
   };
+
+  const isStepActive = (i: number) => i >= minIdx && i <= maxIdx;
 
   const onPointerDown = (which: "min" | "max") => (e: React.PointerEvent) => {
     e.preventDefault();
@@ -600,17 +622,30 @@ function DualRangeSlider({
         {steps.map((step, i) => (
           <div
             key={step}
-            className="absolute top-1/2 -translate-y-1/2 w-1 h-1 -ml-0.5 rounded-full bg-gray-400 pointer-events-none"
+            className={`absolute top-1/2 -translate-y-1/2 w-1 h-1 -ml-0.5 rounded-full pointer-events-none ${
+              isStepActive(i) ? "bg-green-600" : "bg-gray-300"
+            }`}
             style={{ left: `${(i / maxRaw) * 100}%` }}
           />
         ))}
       </div>
       <div className="flex justify-between px-0.5 mt-1">
-        {steps.map((step) => (
-          <span key={step} className="text-[10px] text-gray-400">
-            {step}
-          </span>
-        ))}
+        {steps.map((step, i) => {
+          const active = isStepActive(i);
+          const delta = currentCount && stepCounts ? stepCounts[i] - currentCount : 0;
+          return (
+            <div key={step} className="text-center">
+              <span className={`text-[10px] ${active ? "text-green-700 font-semibold" : "text-gray-400"}`}>
+                {step}
+              </span>
+              {stepCounts && currentCount && stepCounts[i] > 0 && (
+                <div className={`text-[9px] font-mono ${delta > 0 ? "text-green-600" : delta < 0 ? "text-red-400" : "text-gray-400"}`}>
+                  {delta > 0 ? `+${delta}` : delta < 0 ? `${delta}` : `${stepCounts[i]}`}
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -632,6 +667,7 @@ function SingleSlider({
   mettreAJour: (key: string, val: string) => void;
 }) {
   const opts = config.options || [];
+  const firstOpt = opts[0];
   const optionData = opts.map((opt) => {
     const toggleCount = applyAllFilters(
       arbres,
@@ -642,30 +678,66 @@ function SingleSlider({
       opt,
       toggleCount,
       delta: toggleCount - currentCount,
-      disabled: toggleCount === currentCount && value !== opt,
+      disabled: opt !== firstOpt && toggleCount === currentCount && value !== opt,
     };
   });
 
   const trackRef = useRef<HTMLDivElement>(null);
   const [dragging, setDragging] = useState(false);
+  const [dragIdx, setDragIdx] = useState<number | null>(null);
+  const dragValueRef = useRef<string>(value);
+  const maxRaw = optionData.length - 1;
   const anyActionable = optionData.some((o) => !o.disabled);
   if (!anyActionable && !value) return null;
 
-  const selectedIdx = value ? optionData.findIndex((o) => o.opt === value) : -1;
-  const maxRaw = optionData.length - 1;
-
-  const optFromPointer = (clientX: number) => {
-    const rect = trackRef.current!.getBoundingClientRect();
-    const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-    return Math.round(pct * maxRaw);
-  };
+  const selectedIdx = value ? optionData.findIndex((o) => o.opt === value) : 0;
+  const displayIdx = selectedIdx >= 0 ? selectedIdx : 0;
+  const visualIdx = dragging && dragIdx !== null ? dragIdx : displayIdx;
 
   const commitValue = (idx: number) => {
-    if (idx < 0 || idx > maxRaw) return;
-    if (optionData[idx].disabled) return;
-    const opt = optionData[idx].opt;
-    const isFirst = opt === optionData[0].opt;
-    mettreAJour(config.key, isFirst ? "" : opt === value ? "" : opt);
+    if (idx < 0 || idx > maxRaw || optionData[idx].disabled) return;
+    mettreAJour(config.key, optionData[idx].opt === optionData[0].opt ? "" : optionData[idx].opt);
+  };
+
+  const idxFromPointer = (clientX: number) => {
+    const rect = trackRef.current!.getBoundingClientRect();
+    return Math.round(Math.max(0, Math.min(1, (clientX - rect.left) / rect.width)) * maxRaw);
+  };
+
+  const nearestEnabled = (idx: number) => {
+    if (!optionData[idx].disabled) return idx;
+    for (let dist = 1; dist <= maxRaw; dist++) {
+      if (idx - dist >= 0 && !optionData[idx - dist].disabled) return idx - dist;
+      if (idx + dist <= maxRaw && !optionData[idx + dist].disabled) return idx + dist;
+    }
+    return idx;
+  };
+
+  const handlePointerDown = (e: React.PointerEvent) => {
+    e.preventDefault();
+    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+    dragValueRef.current = value;
+    setDragIdx(visualIdx);
+    setDragging(true);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!dragging) return;
+    setDragIdx(Math.max(0, Math.min(maxRaw, idxFromPointer(e.clientX))));
+  };
+
+  const handlePointerUp = () => {
+    setDragging(false);
+    if (dragIdx !== null) {
+      const enabled = nearestEnabled(dragIdx);
+      if (enabled >= 0 && enabled <= maxRaw) commitValue(enabled);
+      setDragIdx(null);
+    }
+  };
+
+  const handleTrackPointerDown = (e: React.PointerEvent) => {
+    if ((e.target as HTMLElement).closest("[data-single-handle]")) return;
+    commitValue(nearestEnabled(idxFromPointer(e.clientX)));
   };
 
   return (
@@ -675,88 +747,40 @@ function SingleSlider({
       </label>
       <div
         ref={trackRef}
-        role="slider"
-        tabIndex={selectedIdx >= 0 ? 0 : -1}
-        aria-label={config.label}
-        aria-valuemin={0}
-        aria-valuemax={maxRaw}
-        aria-valuenow={Math.max(0, selectedIdx)}
         className="relative h-10 mx-1 select-none touch-none"
-        onClick={(e) => {
-          if (dragging) return;
-          commitValue(optFromPointer(e.clientX));
-        }}
-        onPointerMove={(e) => {
-          if (!dragging) return;
-          const idx = optFromPointer(e.clientX);
-          if (idx >= 0 && idx <= maxRaw && !optionData[idx].disabled) {
-            const opt = optionData[idx].opt;
-            mettreAJour(
-              config.key,
-              opt === optionData[0].opt ? "" : opt === value ? "" : opt
-            );
-          }
-        }}
-        onPointerUp={() => setDragging(false)}
-        onPointerCancel={() => setDragging(false)}
-        onKeyDown={(e) => {
-          const cur = Math.max(0, selectedIdx);
-          if (e.key === "ArrowRight" || e.key === "ArrowDown") {
-            for (let i = cur + 1; i <= maxRaw; i++) {
-              if (!optionData[i].disabled) {
-                commitValue(i);
-                break;
-              }
-            }
-          } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
-            for (let i = cur - 1; i >= 0; i--) {
-              if (!optionData[i].disabled) {
-                commitValue(i);
-                break;
-              }
-            }
-          }
-        }}
+        onPointerDown={handleTrackPointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerUp}
       >
         <div className="absolute top-1/2 -translate-y-1/2 w-full h-2 bg-gray-200 rounded-full pointer-events-none" />
         <div
-          className="absolute top-1/2 -translate-y-1/2 h-2 bg-green-500 rounded-full transition-all pointer-events-none"
-          style={{
-            width: selectedIdx >= 0 ? `${(selectedIdx / maxRaw) * 100}%` : "0%",
-          }}
+          className="absolute top-1/2 -translate-y-1/2 h-2 bg-green-500 rounded-full pointer-events-none transition-all"
+          style={{ width: `${(visualIdx / maxRaw) * 100}%` }}
         />
-        {optionData.map(({ opt, disabled }) => {
-          const isSelected = value === opt;
-          const pct =
-            (optionData.findIndex((o) => o.opt === opt) / maxRaw) * 100;
-          return (
+        {optionData.map(({ opt, disabled }, i) => (
+          <div
+            key={opt}
+            className="absolute top-1/2 -translate-y-1/2 pointer-events-none"
+            style={{ left: `${(i / maxRaw) * 100}%`, marginLeft: i === maxRaw ? "-1px" : "-2px" }}
+          >
             <div
-              key={opt}
-              className="absolute top-1/2 -translate-y-1/2"
-              style={{ left: `${pct}%`, marginLeft: "-8px" }}
-            >
-              <div
-                role="button"
-                tabIndex={-1}
-                aria-label={config.optionLabels?.[opt] || opt}
-                className={`w-4 h-4 rounded-full border-2 bg-white transition-colors ${
-                  isSelected
-                    ? "border-green-600 bg-green-600"
-                    : disabled
-                      ? "border-gray-200 bg-gray-100"
-                      : "border-gray-400 hover:border-green-400 cursor-pointer"
-                }`}
-                onPointerDown={(e) => {
-                  if (disabled) return;
-                  e.stopPropagation();
-                  commitValue(optionData.findIndex((o) => o.opt === opt));
-                  setDragging(true);
-                  (e.target as HTMLElement).setPointerCapture(e.pointerId);
-                }}
-              />
-            </div>
-          );
-        })}
+              className={`w-1 h-1 rounded-full ${
+                i <= visualIdx ? "bg-green-600" : disabled ? "bg-gray-200" : "bg-gray-400"
+              }`}
+            />
+          </div>
+        ))}
+        <div
+          data-single-handle
+          className="absolute top-1/2 -translate-y-1/2 w-6 h-6 -ml-3 rounded-full border-2 border-green-600 bg-white shadow cursor-grab active:cursor-grabbing touch-none z-10"
+          style={{ left: `${(visualIdx / maxRaw) * 100}%` }}
+          onPointerDown={handlePointerDown}
+        >
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-2 h-0.5 bg-green-700 rounded" />
+          </div>
+        </div>
       </div>
       <div className="flex justify-between px-0.5 mt-1">
         {optionData.map(({ opt, delta, disabled }) => {
@@ -777,9 +801,7 @@ function SingleSlider({
             >
               <div>{config.optionLabels?.[opt] || opt}</div>
               {delta !== 0 && !disabled && (
-                <div
-                  className={`text-[10px] font-mono ${delta < 0 ? "text-red-400" : "text-green-500"}`}
-                >
+                <div className={`text-[10px] font-mono ${delta < 0 ? "text-red-400" : "text-green-500"}`}>
                   {delta > 0 ? `+${delta}` : `${delta}`}
                 </div>
               )}
