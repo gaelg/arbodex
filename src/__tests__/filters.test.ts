@@ -122,12 +122,10 @@ describe("Système de filtres encapsulé", () => {
     expect(f?.optionLabels?.["oui"]).toBe("Oui");
   });
 
-  it("Filtre rafraichissement_fort est de type slider", () => {
+  it("Filtre rafraichissement_fort est de type exact", () => {
     const f = getFilterByKey("rafraichissement_fort");
-    expect(f?.type).toBe("slider");
-    expect(f?.options).toContain("moyen");
+    expect(f?.type).toBe("exact");
     expect(f?.options).toContain("fort");
-    expect(f?.optionLabels?.["moyen"]).toBe("Moyenne");
     expect(f?.optionLabels?.["fort"]).toBe("Fort");
   });
 

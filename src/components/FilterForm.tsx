@@ -487,9 +487,7 @@ export default function FormulaireFiltres({
                       // Filtres exact à option unique : cases à cocher
                       const nonAllOpts =
                         config.options?.filter((o) => o !== "all") || [];
-                      const isSingleOpt =
-                        nonAllOpts.length === 1 &&
-                        (nonAllOpts[0] === "oui" || nonAllOpts[0] === "non");
+                      const isSingleOpt = nonAllOpts.length === 1;
                       if (isSingleOpt) {
                         const optValue = nonAllOpts[0];
                         const checked = value === optValue;

@@ -211,6 +211,17 @@ export const FILTERS: FilterConfig[] = [
     },
   },
   {
+    key: "rafraichissement_fort",
+    label: "Rafraîchissement fort",
+    section: "Demandes particulières",
+    type: "exact",
+    options: ["all", "fort"],
+    optionLabels: {
+      all: "Pas spécialement",
+      fort: "Fort",
+    },
+  },
+  {
     key: "fruitiere_sauvage",
     label: "Fruits pour la faune",
     section: "Demandes particulières",
@@ -253,18 +264,6 @@ export const FILTERS: FilterConfig[] = [
     optionLabels: {
       faible: "Faible",
       moyen: "Moyen",
-      fort: "Fort",
-    },
-  },
-  {
-    key: "rafraichissement_fort",
-    label: "Rafraîchissement",
-    section: "Demandes particulières",
-    type: "slider",
-    order: { moyen: 2, fort: 3 },
-    options: ["moyen", "fort"],
-    optionLabels: {
-      moyen: "Moyenne",
       fort: "Fort",
     },
   },

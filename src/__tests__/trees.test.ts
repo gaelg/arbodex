@@ -292,11 +292,10 @@ describe("applyAllFilters", () => {
     expect(f?.order?.["élevé"]).toBe(3);
   });
 
-  it("Filtre rafraichissement_fort est de type slider", () => {
+  it("Filtre rafraichissement_fort est de type exact", () => {
     const f = getFilterByKey("rafraichissement_fort");
-    expect(f?.type).toBe("slider");
-    expect(f?.order?.["moyen"]).toBe(2);
-    expect(f?.order?.["fort"]).toBe(3);
+    expect(f?.type).toBe("exact");
+    expect(f?.options).toContain("fort");
   });
 
   it("Section Demandes particulières contient les bons filtres", () => {
