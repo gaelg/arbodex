@@ -13,7 +13,6 @@ import {
 describe("Système de filtres encapsulé", () => {
   it("FILTERS contient tous les filtres essentiels", () => {
     const keys = FILTERS.map((f: FilterConfig) => f.key);
-    expect(keys).toContain("resistance_secheresse");
     expect(keys).toContain("mellifere");
     expect(keys).toContain("branches_fragiles");
     expect(keys).toContain("frequence_taille");
@@ -26,8 +25,7 @@ describe("Système de filtres encapsulé", () => {
     expect(sections).toContain("Climat");
     expect(sections).toContain("Demandes particulières");
     expect(sections).toContain("Esthétique");
-    expect(sections).toContain("Contraintes et risques");
-    expect(sections).toContain("Entretien");
+    expect(sections).toContain("Contraintes du projet");
   });
 
   it("getFilterByKey retourne la bonne config pour mellifere", () => {
@@ -83,15 +81,16 @@ describe("Système de filtres encapsulé", () => {
         "numeric",
         "search",
         "multi",
+        "slider",
       ]).toContain(f.type);
     });
   });
 
   it("Filtres relatifs ont une échelle ordonnée", () => {
-    const f = getFilterByKey("resistance_secheresse");
+    const f = getFilterByKey("cout_entretien");
     expect(f?.order).toBeDefined();
     const order = f!.order!;
-    expect(order["medium"]).toBeLessThan(order["excellent"]);
+    expect(order["low"]).toBeLessThan(order["medium"]);
   });
 
   it("Filtres Services présents", () => {
@@ -153,6 +152,24 @@ it("Filtre texture : rien coché = tous les résultats", () => {
   expect(applyFilter(arbre1, config, "")).toBe(true);
   expect(applyFilter(arbre2, config, "")).toBe(true);
   expect(applyFilter(arbre3, config, "")).toBe(true);
+});
+
+it("sol_depth : coché (profond) = tous les arbres", () => {
+  const config = getFilterByKey("sol_depth")!;
+  const arbreProfond = { sol_depth: "profond" } as any;
+  const arbreVide = { sol_depth: "" } as any;
+
+  expect(applyFilter(arbreProfond, config, "profond")).toBe(true);
+  expect(applyFilter(arbreVide, config, "profond")).toBe(true);
+});
+
+it("sol_depth : décoché (vide) = exclut les sols profonds", () => {
+  const config = getFilterByKey("sol_depth")!;
+  const arbreProfond = { sol_depth: "profond" } as any;
+  const arbreVide = { sol_depth: "" } as any;
+
+  expect(applyFilter(arbreProfond, config, "")).toBe(false);
+  expect(applyFilter(arbreVide, config, "")).toBe(true);
 });
 
 it("Filtre texture : sablonneux coché = sablonneux + sans contrainte", () => {

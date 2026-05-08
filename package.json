@@ -11,6 +11,7 @@
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:e2e": "playwright test",
     "test:watch": "vitest",
     "validate-filters": "python3 scripts/validate_filters.py",
     "spellcheck": "python3 scripts/spellcheck.py",
@@ -19,7 +20,7 @@
   },
   "dependencies": {
     "next": "^15.5.15",
-    "papaparse": "^5.4.1",
+    "papaparse": "5.4.1",
     "react": "^19.2.5",
     "react-dom": "^19.2.5"
   },

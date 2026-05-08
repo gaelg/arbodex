@@ -203,7 +203,7 @@ describe("applyAllFilters", () => {
     sol_drainage: "",
     sol_texture: "",
     sol_richness: "",
-    sol_depth: "",
+    sol_depth: "profond",
     resistance_secheresse: "",
     rusticite_min: "",
     rusticite_max: "",
@@ -287,10 +287,9 @@ describe("applyAllFilters", () => {
   });
 
   it("Filtres relatifs utilisent les bonnes échelles", () => {
-    const f = getFilterByKey("resistance_secheresse");
+    const f = getFilterByKey("cout_entretien");
+    expect(f?.order?.["low"]).toBe(1);
     expect(f?.order?.["medium"]).toBe(2);
-    expect(f?.order?.["good"]).toBe(3);
-    expect(f?.order?.["excellent"]).toBe(4);
   });
 
   it("Filtre rafraichissement_fort est de type relative", () => {

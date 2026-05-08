@@ -152,18 +152,33 @@ export function applyFilter(
       return matchNumeric(value, Number(fieldValue));
     case "search":
       return matchSearch(value, arbre);
-    case "multi":
-      // value est une chaîne d'options séparées par des virgules
+    case "slider": {
       if (!value) return true;
-      const selected = value.split(",").filter(Boolean);
-      if (selected.length === 0) return true;
+      const seuil = config.order?.[value];
+      if (seuil === undefined) return true;
 
+      // Pour rusticite_min_C (numérique) : tree <= seuil (plus négatif = + rustique)
+      if (config.key === "rusticite_min_C" && typeof fieldValue === "number") {
+        return fieldValue <= seuil;
+      }
+
+      // Pour les champs texte ou numériques type vent/chaleur : tree >= seuil
+      const valArbre = config.order?.[String(fieldValue)];
+      if (valArbre === undefined) return String(fieldValue) === value;
+      return valArbre >= seuil;
+    }
+
+    case "multi":
       // Filtre inversé : "Sol profond" coché = pas de filtre, décoché = exclut profond
       if (config.key === "sol_depth") {
         if (value === "profond") return true;
         const arbreValues = fieldValue ? fieldValue.split(",") : [];
         return arbreValues.length === 0 || !arbreValues.includes("profond");
       }
+
+      if (!value) return true;
+      const selected = value.split(",").filter(Boolean);
+      if (selected.length === 0) return true;
 
       // Pour les filtres sol, on utilise les nouvelles colonnes directement
       if (config.key.startsWith("sol_")) {
@@ -252,6 +267,14 @@ export function applyAllFilters(
         continue;
       }
 
+      if (config.key === "sol_depth") {
+        // sol_depth : "" = exclure les profonds (valeur significative même vide)
+        if (!applyFilter(arbre, config, (filters as any)[config.key] || "")) {
+          return false;
+        }
+        continue;
+      }
+
       if (
         filters[config.key as keyof Filtres] &&
         !applyFilter(arbre, config, filters[config.key as keyof Filtres])
@@ -266,15 +289,8 @@ export function applyAllFilters(
 
 // Calcule l'origine réelle pour le filtrage
 function computeOrigine(arbre: Arbre): string {
-  // Règle 1: Indigène = HDF/Benelux in repartition area
   if (arbre.origine === "Indigène") return "Indigène";
-
-  // Règle 2: Europe de l'Ouest = Western Europe but NOT HDF/Benelux
-  if (arbre.origine === "Europe de l'Ouest") return "Europe de l'Ouest";
-
-  // Règle 3: Exotique = NOT in Western Europe
-  if (arbre.origine === "Exotique") return "Exotique";
-
-  // Par défaut, considérer comme Europe de l'Ouest
-  return arbre.origine || "Europe de l'Ouest";
+  if (arbre.origine === "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux")
+    return "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux";
+  return "Vraiment exotique";
 }

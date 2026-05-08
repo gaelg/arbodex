@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { formatOption } from "@/components/TreeList";
 import { Arbre, Filtres } from "@/lib/trees";
-import { applyAllFilters, FILTERS } from "@/lib/filters";
+import { applyAllFilters, FILTERS, getFilterByKey } from "@/lib/filters";
 
 // Arbre de test avec valeurs de niveau
 const ARBRE_AVEC_BARRES: Arbre = {
@@ -134,6 +134,59 @@ describe("Non-régressions composants", () => {
   });
 });
 
+it("slider : option qui donne le même compte que l'état courant est redondante", () => {
+  const ventConfig = getFilterByKey("resistance_vent")!;
+  const arbres: Arbre[] = [
+    { ...ARBRE_AVEC_BARRES, resistance_vent: "3" },
+    { ...ARBRE_AVEC_BARRES, nom_commun: "B", resistance_vent: "4" },
+  ];
+
+  const filtres = getFiltresVides();
+  const currentCount = applyAllFilters(arbres, filtres, FILTERS).length;
+  expect(currentCount).toBe(2);
+
+  // "Faible" (seuil=3) : tous les arbres passent → count 2 = redondant
+  const countFaible = applyAllFilters(
+    arbres,
+    { ...filtres, resistance_vent: "Faible" },
+    FILTERS
+  ).length;
+  expect(countFaible).toBe(currentCount);
+
+  // "Moyenne" (seuil=4) : seul l'arbre à 4 passe → count 1 = différent
+  const countMoyenne = applyAllFilters(
+    arbres,
+    { ...filtres, resistance_vent: "Moyenne" },
+    FILTERS
+  ).length;
+  expect(countMoyenne).toBe(1);
+  expect(countMoyenne).not.toBe(currentCount);
+});
+
+it("slider : chaleur urbaine valeur 2 non rejetée par option Non", () => {
+  const chaleurConfig = getFilterByKey("resistance_chaleur_urbaine")!;
+  const arbreVent2 = {
+    ...ARBRE_AVEC_BARRES,
+    resistance_chaleur_urbaine: "2",
+  } as Arbre;
+
+  // Le défaut "" (aucune contrainte) inclut tous les arbres
+  const filtres = getFiltresVides();
+  const count = applyAllFilters([arbreVent2], filtres, FILTERS).length;
+  expect(count).toBe(1);
+
+  // "Non" (seuil=0) via order : value "2" non présente dans order,
+  // doit passer par valArbre >= seuil si "2" est dans order
+  // sinon String(fieldValue) === value → "2" === "Non" → false
+  // Ce test capture le bug : si le mapping order manque "2", l'arbre est éliminé
+  const countNon = applyAllFilters(
+    [arbreVent2],
+    { ...filtres, resistance_chaleur_urbaine: "Non" },
+    FILTERS
+  ).length;
+  expect(countNon).toBe(1);
+});
+
 function getFiltresVides(): Filtres {
   return {
     recherche: "",
@@ -143,7 +196,7 @@ function getFiltresVides(): Filtres {
     sol_drainage: "",
     sol_texture: "",
     sol_richness: "",
-    sol_depth: "",
+    sol_depth: "profond",
     resistance_secheresse: "",
     rusticite_min: "",
     rusticite_max: "",
