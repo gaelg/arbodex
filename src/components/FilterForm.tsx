@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Arbre, Filtres } from "@/lib/trees";
 import {
   FILTERS,
@@ -658,15 +658,15 @@ function DualRangeSlider({
   onChangeMin: (v: string) => void;
   onChangeMax: (v: string) => void;
 }) {
+  const maxRaw = steps.length - 1;
   const minVal = valueMin ? Number(valueMin) : steps[0];
   const maxVal = valueMax ? Number(valueMax) : steps[steps.length - 1];
-  const maxRaw = steps.length - 1;
   const minActive = valueMin !== "";
   const maxActive = valueMax !== "";
 
   const toIdx = (v: number) => {
-    let closest = 0;
-    let closestDist = Infinity;
+    let closest = 0,
+      closestDist = Infinity;
     steps.forEach((s, i) => {
       const d = Math.abs(s - v);
       if (d < closestDist) {
@@ -680,54 +680,41 @@ function DualRangeSlider({
   const minIdx = toIdx(minVal);
   const maxIdx = toIdx(maxVal);
 
-  const pickHandle = (stepVal: number): "min" | "max" => {
-    if (!minActive) return "min";
-    if (!maxActive) return "max";
-    const dMin = Math.abs(stepVal - minVal);
-    const dMax = Math.abs(stepVal - maxVal);
-    return dMin <= dMax ? "min" : "max";
+  const [dragging, setDragging] = useState<"min" | "max" | null>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const valFromPointer = (clientX: number) => {
+    const rect = trackRef.current!.getBoundingClientRect();
+    const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+    return Math.round(pct * maxRaw);
   };
 
-  const doSet = (which: "min" | "max", idx: number) => {
-    if (which === "min") {
-      onChangeMin(idx === 0 ? "" : String(steps[idx]));
+  const onPointerDown = (which: "min" | "max") => (e: React.PointerEvent) => {
+    e.preventDefault();
+    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+    setDragging(which);
+  };
+
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (!dragging) return;
+    const idx = valFromPointer(e.clientX);
+    if (dragging === "min") {
+      const clamped = Math.min(idx, maxActive ? maxIdx : maxRaw);
+      onChangeMin(clamped === 0 ? "" : String(steps[clamped]));
     } else {
-      onChangeMax(idx === maxRaw ? "" : String(steps[idx]));
+      const clamped = Math.max(idx, minActive ? minIdx : 0);
+      onChangeMax(clamped === maxRaw ? "" : String(steps[clamped]));
     }
   };
 
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const idx = Math.round(((e.clientX - rect.left) / rect.width) * maxRaw);
-    doSet(pickHandle(steps[idx]), idx);
-  };
-
-  const handleKeyDown = (
-    which: "min" | "max",
-    curIdx: number,
-    e: React.KeyboardEvent
-  ) => {
-    const dir =
-      e.key === "ArrowRight" || e.key === "ArrowDown"
-        ? 1
-        : e.key === "ArrowLeft" || e.key === "ArrowUp"
-          ? -1
-          : 0;
-    if (!dir) return;
-    e.preventDefault();
-    const next = curIdx + dir;
-    if (next < 0 || next > maxRaw) return;
-    if (which === "min" && next > maxIdx) return;
-    if (which === "max" && next < minIdx) return;
-    doSet(which, next);
-  };
+  const onPointerUp = () => setDragging(null);
 
   return (
     <div className="relative pt-1 pb-2">
       <label className="block text-sm font-medium text-gray-700 mb-1">
         {label}
       </label>
-      <div className="flex justify-between text-xs text-gray-500 mb-2">
+      <div className="flex justify-between text-xs text-gray-500 mb-1">
         <span>
           Min :{" "}
           <strong className={minActive ? "text-green-700" : ""}>
@@ -742,77 +729,52 @@ function DualRangeSlider({
         </span>
       </div>
       <div
-        role="presentation"
-        className="relative h-10 mx-1"
-        onClick={handleClick}
-        onKeyDown={() => {}}
+        ref={trackRef}
+        className="relative h-10 mx-1 select-none touch-none"
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
       >
         <div className="absolute top-1/2 -translate-y-1/2 w-full h-2 bg-gray-200 rounded-full pointer-events-none" />
         <div
-          className="absolute top-1/2 -translate-y-1/2 h-2 bg-green-500 rounded-full transition-all pointer-events-none"
+          className="absolute top-1/2 -translate-y-1/2 h-2 bg-green-500 rounded-full pointer-events-none"
           style={{
             left: `${(minIdx / maxRaw) * 100}%`,
             width: `${((maxIdx - minIdx) / maxRaw) * 100}%`,
           }}
         />
-        {steps.map((step, i) => {
-          const isMin = minActive && i === minIdx;
-          const isMax = maxActive && i === maxIdx;
-          return (
-            <div
-              key={step}
-              className="absolute top-1/2 -translate-y-1/2"
-              style={{ left: `${(i / maxRaw) * 100}%`, marginLeft: "-8px" }}
-            >
-              <div
-                role="button"
-                tabIndex={isMin || isMax ? 0 : -1}
-                aria-label={`${step}m`}
-                className={`w-4 h-4 rounded-full border-2 bg-white transition-colors ${
-                  isMin || isMax
-                    ? "border-green-600 bg-green-600"
-                    : "border-gray-300 hover:border-green-400 cursor-pointer"
-                }`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  if (isMin) {
-                    onChangeMin("");
-                    return;
-                  }
-                  if (isMax) {
-                    onChangeMax("");
-                    return;
-                  }
-                  doSet(pickHandle(step), i);
-                }}
-                onKeyDown={(e) => {
-                  if (isMin) handleKeyDown("min", minIdx, e);
-                  if (isMax) handleKeyDown("max", maxIdx, e);
-                }}
-              />
-            </div>
-          );
-        })}
+        <div
+          className="absolute top-1/2 -translate-y-1/2 w-6 h-6 -ml-3 rounded-full border-2 border-green-600 bg-white shadow cursor-grab active:cursor-grabbing touch-none z-10"
+          style={{ left: `${(minIdx / maxRaw) * 100}%` }}
+          onPointerDown={onPointerDown("min")}
+        >
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-2 h-0.5 bg-green-700 rounded" />
+          </div>
+        </div>
+        <div
+          className="absolute top-1/2 -translate-y-1/2 w-6 h-6 -ml-3 rounded-full border-2 border-green-600 bg-white shadow cursor-grab active:cursor-grabbing touch-none z-10"
+          style={{ left: `${(maxIdx / maxRaw) * 100}%` }}
+          onPointerDown={onPointerDown("max")}
+        >
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-2 h-0.5 bg-green-700 rounded" />
+          </div>
+        </div>
+        {steps.map((step, i) => (
+          <div
+            key={step}
+            className="absolute top-1/2 -translate-y-1/2 w-1 h-1 -ml-0.5 rounded-full bg-gray-400 pointer-events-none"
+            style={{ left: `${(i / maxRaw) * 100}%` }}
+          />
+        ))}
       </div>
       <div className="flex justify-between px-0.5 mt-1">
-        {steps.map((step, i) => {
-          const isMin = minActive && i === minIdx;
-          const isMax = maxActive && i === maxIdx;
-          return (
-            <button
-              key={step}
-              type="button"
-              onClick={() => doSet(pickHandle(step), i)}
-              className={`text-xs text-center transition-colors ${
-                isMin || isMax
-                  ? "text-green-700 font-semibold"
-                  : "text-gray-500 hover:text-gray-700"
-              }`}
-            >
-              <div>{step}</div>
-            </button>
-          );
-        })}
+        {steps.map((step) => (
+          <span key={step} className="text-[10px] text-gray-400">
+            {step}
+          </span>
+        ))}
       </div>
     </div>
   );
