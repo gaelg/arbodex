@@ -256,7 +256,7 @@ export const FILTERS: FilterConfig[] = [
   },
   {
     key: "pollen_allergisant",
-    label: "Allergisant",
+    label: "Allergisants acceptables",
     section: "Demandes particulières",
     type: "slider",
     invertDir: true,
@@ -270,7 +270,7 @@ export const FILTERS: FilterConfig[] = [
   },
   {
     key: "cout_entretien",
-    label: "Coût entretien",
+    label: "Coût d'entretien acceptable",
     section: "Demandes particulières",
     type: "slider",
     invertDir: true,
@@ -284,7 +284,7 @@ export const FILTERS: FilterConfig[] = [
   },
   {
     key: "frequence_taille",
-    label: "Fréquence taille",
+    label: "Fréquence de taille acceptable",
     section: "Demandes particulières",
     type: "slider",
     invertDir: true,
@@ -298,7 +298,7 @@ export const FILTERS: FilterConfig[] = [
   },
   {
     key: "sensibilite_maladies",
-    label: "Sensible aux maladies",
+    label: "Sensibilité aux maladies acceptable",
     section: "Demandes particulières",
     type: "slider",
     invertDir: true,
@@ -385,7 +385,5 @@ export function getDefaultFiltersState(): Record<string, string> {
   state.hauteur_max = "";
   state.envergure_min = "";
   state.envergure_max = "";
-  state.rusticite_min = "";
-  state.rusticite_max = "";
   return state;
 }

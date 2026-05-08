@@ -65,8 +65,6 @@ export interface Filtres {
   sol_richness: string;
   sol_depth: string;
   resistance_secheresse: string;
-  rusticite_min: string;
-  rusticite_max: string;
   resistance_vent: string;
   resistance_chaleur_urbaine: string;
   adapte_changement_climatique: string;

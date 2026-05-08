@@ -252,19 +252,7 @@ export function applyAllFilters(
     )
       return false;
 
-    // 3. Rusticité (range numérique)
-    if (
-      filters.rusticite_min &&
-      arbre.rusticite_min_C < Number(filters.rusticite_min)
-    )
-      return false;
-    if (
-      filters.rusticite_max &&
-      arbre.rusticite_min_C > Number(filters.rusticite_max)
-    )
-      return false;
-
-    // 4. Autres filtres via la config
+    // 3. Autres filtres via la config
     for (const config of filterConfigs) {
       if (config.key === "sol_depth") {
         // sol_depth : "" = exclure les profonds (valeur significative même vide)

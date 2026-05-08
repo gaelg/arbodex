@@ -27,10 +27,10 @@ const OPTION_LABELS: Record<string, string> = {
   adapte_changement_climatique: "Adapté changement climatique",
   fruitiere_sauvage: "Fruits pour la faune",
   fruits_salissants: "Fruits salissants",
-  pollen_allergisant: "Pollen allergisant",
-  frequence_taille: "Fréquence taille",
-  sensibilite_maladies: "Sensibilité maladies",
-  cout_entretien: "Coût entretien",
+  pollen_allergisant: "Allergisants acceptables",
+  frequence_taille: "Fréquence de taille acceptable",
+  sensibilite_maladies: "Sensibilité aux maladies acceptable",
+  cout_entretien: "Coût d'entretien acceptable",
 };
 
 export function formatOption(opt: string) {

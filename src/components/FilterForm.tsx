@@ -590,7 +590,7 @@ export default function FormulaireFiltres({
             onClick={() => toggleSection("Dimensions")}
             className="w-full flex items-center justify-between px-4 py-3 bg-gray-50 hover:bg-gray-100 text-left"
           >
-            <h3 className="text-sm font-semibold text-gray-700">Dimensions</h3>
+            <h3 className="text-sm font-semibold text-gray-700">Dimensions adaptées</h3>
             <svg
               className={`w-4 h-4 text-gray-500 transition-transform ${sectionsOuvertes["Dimensions"] ? "rotate-180" : ""}`}
               fill="none"
@@ -606,95 +606,26 @@ export default function FormulaireFiltres({
             </svg>
           </button>
           {sectionsOuvertes["Dimensions"] && (
-            <div className="p-4 space-y-4">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div>
-                  <label className="block text-xs font-medium text-gray-600 mb-1">
-                    H. min (m)
-                  </label>
-                  <input
-                    type="number"
-                    min={0}
-                    value={filtres.hauteur_min}
-                    onChange={(e) => mettreAJour("hauteur_min", e.target.value)}
-                    placeholder="0"
-                    className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-medium text-gray-600 mb-1">
-                    H. max (m)
-                  </label>
-                  <input
-                    type="number"
-                    min={0}
-                    value={filtres.hauteur_max}
-                    onChange={(e) => mettreAJour("hauteur_max", e.target.value)}
-                    placeholder="50"
-                    className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-medium text-gray-600 mb-1">
-                    E. min (m)
-                  </label>
-                  <input
-                    type="number"
-                    min={0}
-                    value={filtres.envergure_min}
-                    onChange={(e) =>
-                      mettreAJour("envergure_min", e.target.value)
-                    }
-                    placeholder="0"
-                    className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-medium text-gray-600 mb-1">
-                    E. max (m)
-                  </label>
-                  <input
-                    type="number"
-                    min={0}
-                    value={filtres.envergure_max}
-                    onChange={(e) =>
-                      mettreAJour("envergure_max", e.target.value)
-                    }
-                    placeholder="30"
-                    className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-                  />
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-medium text-gray-600 mb-1">
-                    Rusticité min (°C)
-                  </label>
-                  <input
-                    type="number"
-                    value={filtres.rusticite_min}
-                    onChange={(e) =>
-                      mettreAJour("rusticite_min", e.target.value)
-                    }
-                    placeholder="-40"
-                    className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-medium text-gray-600 mb-1">
-                    Rusticité max (°C)
-                  </label>
-                  <input
-                    type="number"
-                    value={filtres.rusticite_max}
-                    onChange={(e) =>
-                      mettreAJour("rusticite_max", e.target.value)
-                    }
-                    placeholder="0"
-                    className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-                  />
-                </div>
-              </div>
+            <div className="p-4 space-y-6">
+              {/* Hauteur - curseur double */}
+              <DualRangeSlider
+                label="Hauteur (m)"
+                steps={[0, 2, 5, 10, 15, 20, 25, 30, 40, 50]}
+                valueMin={filtres.hauteur_min}
+                valueMax={filtres.hauteur_max}
+                onChangeMin={(v) => mettreAJour("hauteur_min", v)}
+                onChangeMax={(v) => mettreAJour("hauteur_max", v)}
+              />
+
+              {/* Envergure - curseur double */}
+              <DualRangeSlider
+                label="Envergure (m)"
+                steps={[0, 2, 5, 10, 15, 20, 25, 30]}
+                valueMin={filtres.envergure_min}
+                valueMax={filtres.envergure_max}
+                onChangeMin={(v) => mettreAJour("envergure_min", v)}
+                onChangeMax={(v) => mettreAJour("envergure_max", v)}
+              />
             </div>
           )}
         </div>
@@ -706,6 +637,159 @@ export default function FormulaireFiltres({
       >
         Effacer tous les filtres
       </button>
+    </div>
+  );
+}
+
+function DualRangeSlider({
+  label,
+  steps,
+  valueMin,
+  valueMax,
+  onChangeMin,
+  onChangeMax,
+}: {
+  label: string;
+  steps: number[];
+  valueMin: string;
+  valueMax: string;
+  onChangeMin: (v: string) => void;
+  onChangeMax: (v: string) => void;
+}) {
+  const minVal = valueMin ? Number(valueMin) : steps[0];
+  const maxVal = valueMax ? Number(valueMax) : steps[steps.length - 1];
+  const maxRaw = steps.length - 1;
+
+  const toIdx = (v: number) => {
+    let closest = 0;
+    let closestDist = Infinity;
+    steps.forEach((s, i) => {
+      const d = Math.abs(s - v);
+      if (d < closestDist) { closestDist = d; closest = i; }
+    });
+    return closest;
+  };
+
+  const minIdx = toIdx(minVal);
+  const maxIdx = toIdx(maxVal);
+  const minActive = valueMin !== "";
+  const maxActive = valueMax !== "";
+
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const pct = (e.clientX - rect.left) / rect.width;
+    const idx = Math.round(pct * maxRaw);
+    const stepVal = steps[idx];
+    const distToMin = Math.abs(stepVal - minVal);
+    const distToMax = Math.abs(stepVal - maxVal);
+    if (distToMin <= distToMax) {
+      onChangeMin(idx === 0 ? "" : String(stepVal));
+    } else {
+      onChangeMax(idx === maxRaw ? "" : String(stepVal));
+    }
+  };
+
+  const handleKeyDown = (which: "min" | "max", curIdx: number, e: React.KeyboardEvent) => {
+    const dir = (e.key === "ArrowRight" || e.key === "ArrowDown") ? 1
+      : (e.key === "ArrowLeft" || e.key === "ArrowUp") ? -1
+      : 0;
+    if (!dir) return;
+    e.preventDefault();
+    const next = curIdx + dir;
+    if (next < 0 || next > maxRaw) return;
+    if (which === "min" && next > maxIdx) return;
+    if (which === "max" && next < minIdx) return;
+    const val = String(steps[next]);
+    if (which === "min") onChangeMin(next === 0 ? "" : val);
+    else onChangeMax(next === maxRaw ? "" : val);
+  };
+
+  return (
+    <div className="relative pt-1 pb-2">
+      <label className="block text-sm font-medium text-gray-700 mb-3">
+        {label}
+      </label>
+      <div
+        role="presentation"
+        className="relative h-10 mx-1"
+        onClick={handleClick}
+        onKeyDown={() => {}}
+      >
+        <div className="absolute top-1/2 -translate-y-1/2 w-full h-2 bg-gray-200 rounded-full pointer-events-none" />
+        <div
+          className="absolute top-1/2 -translate-y-1/2 h-2 bg-green-500 rounded-full transition-all pointer-events-none"
+          style={{
+            left: `${(minIdx / maxRaw) * 100}%`,
+            width: `${((maxIdx - minIdx) / maxRaw) * 100}%`,
+          }}
+        />
+        {steps.map((step, i) => {
+          const isMin = minActive && i === minIdx;
+          const isMax = maxActive && i === maxIdx;
+          return (
+            <div
+              key={step}
+              className="absolute top-1/2 -translate-y-1/2"
+              style={{ left: `${(i / maxRaw) * 100}%`, marginLeft: "-8px" }}
+            >
+              <div
+                role="button"
+                tabIndex={isMin || isMax ? 0 : -1}
+                aria-label={`${step}m`}
+                className={`w-4 h-4 rounded-full border-2 bg-white transition-colors ${
+                  isMin || isMax
+                    ? "border-green-600 bg-green-600"
+                    : "border-gray-300 hover:border-green-400 cursor-pointer"
+                }`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (isMin) { onChangeMin(""); return; }
+                  if (isMax) { onChangeMax(""); return; }
+                  const distToMin = Math.abs(step - minVal);
+                  const distToMax = Math.abs(step - maxVal);
+                  if (distToMin <= distToMax) {
+                    onChangeMin(i === 0 ? "" : String(step));
+                  } else {
+                    onChangeMax(i === maxRaw ? "" : String(step));
+                  }
+                }}
+                onKeyDown={(e) => {
+                  if (isMin) handleKeyDown("min", minIdx, e);
+                  if (isMax) handleKeyDown("max", maxIdx, e);
+                }}
+              />
+            </div>
+          );
+        })}
+      </div>
+      <div className="flex justify-between px-0.5 mt-1">
+        {steps.map((step, i) => {
+          const isMin = minActive && i === minIdx;
+          const isMax = maxActive && i === maxIdx;
+          return (
+            <button
+              key={step}
+              type="button"
+              onClick={() => {
+                const distToMin = Math.abs(step - minVal);
+                const distToMax = Math.abs(step - maxVal);
+                if (distToMin <= distToMax) {
+                  onChangeMin(i === 0 ? "" : String(step));
+                } else {
+                  onChangeMax(i === maxRaw ? "" : String(step));
+                }
+              }}
+              className={`text-xs text-center transition-colors ${
+                isMin || isMax
+                  ? "text-green-700 font-semibold"
+                  : "text-gray-500 hover:text-gray-700"
+              }`}
+            >
+              <div>{step}</div>
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }
