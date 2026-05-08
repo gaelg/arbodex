@@ -449,18 +449,37 @@ export default function FormulaireFiltres({
               <DualRangeSlider
                 label="Hauteur (m)"
                 steps={[0, 5, 10, 15, 20, 30, 50]}
-                stepCounts={[0, 5, 10, 15, 20, 30, 50].map(
-                  (s) =>
-                    applyAllFilters(
+                stepCounts={[0, 5, 10, 15, 20, 30, 50].map((s) => {
+                  const curMin = filtres.hauteur_min
+                    ? Number(filtres.hauteur_min)
+                    : 0;
+                  const curMax = filtres.hauteur_max
+                    ? Number(filtres.hauteur_max)
+                    : 50;
+                  if (s < curMin) {
+                    return applyAllFilters(
                       arbres,
-                      {
-                        ...filtres,
-                        hauteur_min: String(s),
-                        hauteur_max: String(s),
-                      } as any,
+                      { ...filtres, hauteur_min: String(s) } as any,
                       FILTERS
-                    ).length
-                )}
+                    ).length;
+                  }
+                  if (s > curMax) {
+                    return applyAllFilters(
+                      arbres,
+                      { ...filtres, hauteur_max: String(s) } as any,
+                      FILTERS
+                    ).length;
+                  }
+                  return applyAllFilters(
+                    arbres,
+                    {
+                      ...filtres,
+                      hauteur_min: String(s),
+                      hauteur_max: String(s),
+                    } as any,
+                    FILTERS
+                  ).length;
+                })}
                 currentCount={currentCount}
                 valueMin={filtres.hauteur_min}
                 valueMax={filtres.hauteur_max}
@@ -472,18 +491,37 @@ export default function FormulaireFiltres({
               <DualRangeSlider
                 label="Envergure (m)"
                 steps={[0, 5, 10, 15, 20, 30]}
-                stepCounts={[0, 5, 10, 15, 20, 30].map(
-                  (s) =>
-                    applyAllFilters(
+                stepCounts={[0, 5, 10, 15, 20, 30].map((s) => {
+                  const curMin = filtres.envergure_min
+                    ? Number(filtres.envergure_min)
+                    : 0;
+                  const curMax = filtres.envergure_max
+                    ? Number(filtres.envergure_max)
+                    : 30;
+                  if (s < curMin) {
+                    return applyAllFilters(
                       arbres,
-                      {
-                        ...filtres,
-                        envergure_min: String(s),
-                        envergure_max: String(s),
-                      } as any,
+                      { ...filtres, envergure_min: String(s) } as any,
                       FILTERS
-                    ).length
-                )}
+                    ).length;
+                  }
+                  if (s > curMax) {
+                    return applyAllFilters(
+                      arbres,
+                      { ...filtres, envergure_max: String(s) } as any,
+                      FILTERS
+                    ).length;
+                  }
+                  return applyAllFilters(
+                    arbres,
+                    {
+                      ...filtres,
+                      envergure_min: String(s),
+                      envergure_max: String(s),
+                    } as any,
+                    FILTERS
+                  ).length;
+                })}
                 currentCount={currentCount}
                 valueMin={filtres.envergure_min}
                 valueMax={filtres.envergure_max}
