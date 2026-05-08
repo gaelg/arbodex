@@ -338,7 +338,8 @@ export function isFilterActive(config: FilterConfig, value: string): boolean {
     const selected = value.split(",").filter(Boolean);
     if (selected.length === allNonAll.length) return false;
   }
-  if (config.type === "slider" && config.options && value === config.options[0]) return false;
+  if (config.type === "slider" && config.options && value === config.options[0])
+    return false;
   return true;
 }
 
