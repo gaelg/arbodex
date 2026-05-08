@@ -198,8 +198,6 @@ function getFiltresVides(): Filtres {
     sol_richness: "",
     sol_depth: "profond",
     resistance_secheresse: "",
-    rusticite_min: "",
-    rusticite_max: "",
     resistance_vent: "",
     resistance_chaleur_urbaine: "",
     adapte_changement_climatique: "",
