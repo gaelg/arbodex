@@ -1,5 +1,6 @@
 node_modules/
 .next/
+tsconfig.tsbuildinfo
 arbodex.log
 .vercel
 .opencode/
