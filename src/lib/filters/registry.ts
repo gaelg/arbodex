@@ -176,47 +176,16 @@ export const FILTERS: FilterConfig[] = [
     },
   },
 
-  // Demandes particulières
-  {
-    key: "origine",
-    label: "Aire d'origine",
-    section: "Demandes particulières",
-    type: "exact",
-    options: [
-      "all",
-      "Indigène",
-      "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux",
-      "Vraiment exotique",
-    ],
-    optionLabels: {
-      all: "Peu importe",
-      Indigène: "Local (HDF/BeNeLux)",
-      "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux": "Presque local",
-      "Vraiment exotique": "Vraiment exotique",
-    },
-  },
+  // Demandes particulières — cases à cocher (haut)
   {
     key: "adapte_changement_climatique",
-    label: "Adapté changement climatique",
+    label: "Adapté au changement climatique",
     section: "Demandes particulières",
     type: "exact",
     options: ["all", "oui"],
     optionLabels: {
       all: "Pas spécialement",
       oui: "Oui",
-    },
-  },
-  {
-    key: "pollen_allergisant",
-    label: "Allergisant (maxi)",
-    section: "Demandes particulières",
-    type: "relative",
-    order: { low: 1, medium: 2 },
-    options: ["all", "low", "medium"],
-    optionLabels: {
-      all: "Peu importe",
-      low: "Faiblement",
-      medium: "Moyennement",
     },
   },
   {
@@ -242,19 +211,6 @@ export const FILTERS: FilterConfig[] = [
     },
   },
   {
-    key: "rafraichissement_fort",
-    label: "Rafraîchissement minimal",
-    section: "Demandes particulières",
-    type: "relative",
-    order: { medium: 2, strong: 3 },
-    options: ["all", "medium", "strong"],
-    optionLabels: {
-      all: "Pas spécialement",
-      medium: "Moyenne",
-      strong: "Fort",
-    },
-  },
-  {
     key: "fruitiere_sauvage",
     label: "Fruits pour la faune",
     section: "Demandes particulières",
@@ -265,43 +221,92 @@ export const FILTERS: FilterConfig[] = [
       oui: "Oui",
     },
   },
+
+  // Demandes particulières — curseurs (bas)
+  {
+    key: "origine",
+    label: "Aire d'origine",
+    section: "Demandes particulières",
+    type: "slider",
+    invertDir: true,
+    order: {
+      Indigène: 1,
+      "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux": 2,
+      "Vraiment exotique": 3,
+    },
+    options: [
+      "Indigène",
+      "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux",
+      "Vraiment exotique",
+    ],
+    optionLabels: {
+      Indigène: "Indigène",
+      "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux": "Presque local",
+      "Vraiment exotique": "Tous",
+    },
+  },
+  {
+    key: "pollen_allergisant",
+    label: "Allergisant",
+    section: "Demandes particulières",
+    type: "slider",
+    order: { faible: 1, moyen: 2, fort: 3 },
+    options: ["faible", "moyen", "fort"],
+    optionLabels: {
+      faible: "Faible",
+      moyen: "Moyen",
+      fort: "Fort",
+    },
+  },
+  {
+    key: "rafraichissement_fort",
+    label: "Rafraîchissement",
+    section: "Demandes particulières",
+    type: "slider",
+    order: { moyen: 2, fort: 3 },
+    options: ["moyen", "fort"],
+    optionLabels: {
+      moyen: "Moyenne",
+      fort: "Fort",
+    },
+  },
   {
     key: "cout_entretien",
-    label: "Coût entretien (maxi)",
+    label: "Coût entretien",
     section: "Demandes particulières",
-    type: "relative",
-    order: { low: 1, medium: 2 },
-    options: ["all", "low", "medium"],
+    type: "slider",
+    order: { faible: 1, modéré: 2, élevé: 3 },
+    options: ["faible", "modéré", "élevé"],
     optionLabels: {
-      all: "Peu importe",
-      low: "Faible",
-      medium: "Moyenne",
+      faible: "Faible",
+      modéré: "Modéré",
+      élevé: "Élevé",
     },
   },
   {
     key: "frequence_taille",
-    label: "Fréquence taille (maxi)",
+    label: "Fréquence taille",
     section: "Demandes particulières",
-    type: "relative",
-    order: { never: 1, occasional: 2 },
-    options: ["all", "never", "occasional"],
+    type: "slider",
+    order: { jamais: 1, occasionnelle: 2, reguliere: 3 },
+    options: ["jamais", "occasionnelle", "reguliere"],
     optionLabels: {
-      all: "Peu importe",
-      never: "Jamais",
-      occasional: "Occasionnelle",
+      jamais: "Jamais",
+      occasionnelle: "Occasionnelle",
+      reguliere: "Régulière",
     },
   },
   {
     key: "sensibilite_maladies",
-    label: "Sensible aux maladies (maxi)",
+    label: "Sensible aux maladies",
     section: "Demandes particulières",
-    type: "relative",
-    order: { low: 1, medium: 2 },
-    options: ["all", "low", "medium"],
+    type: "slider",
+    order: { faible: 1, modérée: 2, élevée: 3 },
+    options: ["faible", "modérée", "élevée"],
     optionLabels: {
-      all: "Peu importe",
-      low: "Faiblement",
-      medium: "Moyennement",
+      faible: "Faible",
+      modérée: "Modérée",
+      élevée: "Élevée",
     },
   },
 
@@ -338,8 +343,15 @@ export function isFilterActive(config: FilterConfig, value: string): boolean {
     const selected = value.split(",").filter(Boolean);
     if (selected.length === allNonAll.length) return false;
   }
-  if (config.type === "slider" && config.options && value === config.options[0])
-    return false;
+  if (config.type === "slider" && config.options) {
+    if (config.invertDir) {
+      // Dernière option = pas de contrainte (Aire d'origine : "Tous")
+      if (value === config.options[config.options.length - 1]) return false;
+    } else {
+      // Première option = pas de contrainte
+      if (value === config.options[0]) return false;
+    }
+  }
   return true;
 }
 

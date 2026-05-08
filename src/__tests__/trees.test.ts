@@ -286,17 +286,17 @@ describe("applyAllFilters", () => {
     expect(origines).toContain("west_europe");
   });
 
-  it("Filtres relatifs utilisent les bonnes échelles", () => {
+  it("Filtres slider ont les bonnes échelles", () => {
     const f = getFilterByKey("cout_entretien");
-    expect(f?.order?.["low"]).toBe(1);
-    expect(f?.order?.["medium"]).toBe(2);
+    expect(f?.order?.["faible"]).toBe(1);
+    expect(f?.order?.["élevé"]).toBe(3);
   });
 
-  it("Filtre rafraichissement_fort est de type relative", () => {
+  it("Filtre rafraichissement_fort est de type slider", () => {
     const f = getFilterByKey("rafraichissement_fort");
-    expect(f?.type).toBe("relative");
-    expect(f?.order?.["medium"]).toBe(2);
-    expect(f?.order?.["strong"]).toBe(3);
+    expect(f?.type).toBe("slider");
+    expect(f?.order?.["moyen"]).toBe(2);
+    expect(f?.order?.["fort"]).toBe(3);
   });
 
   it("Section Demandes particulières contient les bons filtres", () => {

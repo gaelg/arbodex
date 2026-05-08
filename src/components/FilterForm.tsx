@@ -271,6 +271,7 @@ export default function FormulaireFiltres({
                           ? optionData.findIndex((o) => o.opt === value)
                           : -1;
                         const maxRaw = optionData.length - 1;
+                        const isInvert = config.invertDir;
 
                         return (
                           <div key={config.key} className="relative pt-1 pb-2">
@@ -297,10 +298,16 @@ export default function FormulaireFiltres({
                                 );
                                 const opt = optionData[idx].opt;
                                 if (optionData[idx].disabled) return;
-                                const isFirst = opt === optionData[0].opt;
+                                const resetOpt = isInvert
+                                  ? optionData[optionData.length - 1].opt
+                                  : optionData[0].opt;
                                 mettreAJour(
                                   config.key,
-                                  isFirst ? "" : opt === value ? "" : opt
+                                  opt === resetOpt
+                                    ? ""
+                                    : opt === value
+                                      ? ""
+                                      : opt
                                 );
                               }}
                               onKeyDown={(e) => {
@@ -324,9 +331,12 @@ export default function FormulaireFiltres({
                                 ) {
                                   for (let i = cur - 1; i >= 0; i--) {
                                     if (!optionData[i].disabled) {
+                                      const isEnd = isInvert
+                                        ? i === optionData.length - 1
+                                        : i === 0;
                                       mettreAJour(
                                         config.key,
-                                        i === 0 ? "" : optionData[i].opt
+                                        isEnd ? "" : optionData[i].opt
                                       );
                                       break;
                                     }
@@ -346,10 +356,11 @@ export default function FormulaireFiltres({
                               />
                               {optionData.map(({ opt, disabled }) => {
                                 const isSelected = value === opt;
-                                const pct =
-                                  (optionData.findIndex((o) => o.opt === opt) /
-                                    maxRaw) *
-                                  100;
+                                const idx = optionData.findIndex(
+                                  (o) => o.opt === opt
+                                );
+                                const isFixedMarker = isInvert && idx === 0;
+                                const pct = (idx / maxRaw) * 100;
                                 return (
                                   <div
                                     key={opt}
@@ -369,16 +380,26 @@ export default function FormulaireFiltres({
                                       className={`w-4 h-4 rounded-full border-2 bg-white transition-colors ${
                                         isSelected
                                           ? "border-green-600 bg-green-600"
-                                          : disabled
-                                            ? "border-gray-200 bg-gray-100"
-                                            : "border-gray-400 hover:border-green-400 cursor-pointer"
+                                          : isFixedMarker
+                                            ? "border-green-400 bg-green-100"
+                                            : disabled
+                                              ? "border-gray-200 bg-gray-100"
+                                              : "border-gray-400 hover:border-green-400 cursor-pointer"
                                       }`}
                                       onClick={(e) => {
                                         e.stopPropagation();
                                         if (disabled) return;
+                                        const resetOpt = isInvert
+                                          ? optionData[optionData.length - 1]
+                                              .opt
+                                          : optionData[0].opt;
                                         mettreAJour(
                                           config.key,
-                                          isSelected ? "" : opt
+                                          opt === resetOpt
+                                            ? ""
+                                            : isSelected
+                                              ? ""
+                                              : opt
                                         );
                                       }}
                                       onKeyDown={() => {}}
@@ -395,12 +416,19 @@ export default function FormulaireFiltres({
                                     key={opt}
                                     type="button"
                                     disabled={disabled}
-                                    onClick={() =>
+                                    onClick={() => {
+                                      const resetOpt = isInvert
+                                        ? optionData[optionData.length - 1].opt
+                                        : optionData[0].opt;
                                       mettreAJour(
                                         config.key,
-                                        isSelected ? "" : opt
-                                      )
-                                    }
+                                        opt === resetOpt
+                                          ? ""
+                                          : isSelected
+                                            ? ""
+                                            : opt
+                                      );
+                                    }}
                                     className={`text-xs text-center transition-colors ${
                                       isSelected
                                         ? "text-green-700 font-semibold"
@@ -484,14 +512,21 @@ export default function FormulaireFiltres({
                         );
                       }
 
-                      // Contraintes du projet : cases à cocher "Pas de..."
-                      if (config.section === "Contraintes du projet") {
-                        const checked = value === "non";
+                      // Filtres exact à option unique : cases à cocher
+                      const nonAllOpts =
+                        config.options?.filter((o) => o !== "all") || [];
+                      const isSingleOpt =
+                        nonAllOpts.length === 1 &&
+                        (nonAllOpts[0] === "oui" || nonAllOpts[0] === "non");
+                      if (isSingleOpt) {
+                        const optValue = nonAllOpts[0];
+                        const checked = value === optValue;
+                        const toggleValue = checked ? "" : optValue;
                         const toggleCount = applyAllFilters(
                           arbres,
                           {
                             ...filtres,
-                            [config.key]: checked ? "" : "non",
+                            [config.key]: toggleValue,
                           } as any,
                           FILTERS
                         ).length;
@@ -508,12 +543,14 @@ export default function FormulaireFiltres({
                                 checked={checked}
                                 disabled={disabled}
                                 onChange={() =>
-                                  mettreAJour(config.key, checked ? "" : "non")
+                                  mettreAJour(config.key, toggleValue)
                                 }
                                 className="rounded border-gray-300 text-green-600 focus:ring-green-500"
                               />
                               <span className={disabled ? "text-gray-300" : ""}>
-                                Pas de {config.label.toLowerCase()}
+                                {optValue === "non"
+                                  ? `Pas de ${config.label.toLowerCase()}`
+                                  : config.label}
                               </span>
                               {delta !== 0 && !disabled && (
                                 <span className="text-xs font-mono text-gray-400">

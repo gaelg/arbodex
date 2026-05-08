@@ -86,11 +86,11 @@ describe("Système de filtres encapsulé", () => {
     });
   });
 
-  it("Filtres relatifs ont une échelle ordonnée", () => {
+  it("Filtres slider ont une échelle ordonnée", () => {
     const f = getFilterByKey("cout_entretien");
     expect(f?.order).toBeDefined();
     const order = f!.order!;
-    expect(order["low"]).toBeLessThan(order["medium"]);
+    expect(order["faible"]).toBeLessThan(order["élevé"]);
   });
 
   it("Filtres Services présents", () => {
@@ -122,14 +122,13 @@ describe("Système de filtres encapsulé", () => {
     expect(f?.optionLabels?.["oui"]).toBe("Oui");
   });
 
-  it("Filtre rafraichissement_fort est de type relative", () => {
+  it("Filtre rafraichissement_fort est de type slider", () => {
     const f = getFilterByKey("rafraichissement_fort");
-    expect(f?.type).toBe("relative");
-    expect(f?.options).toContain("all");
-    expect(f?.options).toContain("medium");
-    expect(f?.options).toContain("strong");
-    expect(f?.optionLabels?.["medium"]).toBe("Moyenne");
-    expect(f?.optionLabels?.["strong"]).toBe("Fort");
+    expect(f?.type).toBe("slider");
+    expect(f?.options).toContain("moyen");
+    expect(f?.options).toContain("fort");
+    expect(f?.optionLabels?.["moyen"]).toBe("Moyenne");
+    expect(f?.optionLabels?.["fort"]).toBe("Fort");
   });
 
   it("Section Sol contient uniquement des filtres Sol", () => {

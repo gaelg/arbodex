@@ -16,6 +16,8 @@ export interface FilterConfig {
   options?: string[];
   order?: Record<string, number>;
   optionLabels?: Record<string, string>;
+  /** Pour sliders : true = intervalle avec borne supérieure (valArbre <= seuil) */
+  invertDir?: boolean;
 }
 
 export interface FiltersState {

@@ -162,9 +162,17 @@ export function applyFilter(
         return fieldValue <= seuil;
       }
 
-      // Pour les champs texte ou numériques type vent/chaleur : tree >= seuil
-      const valArbre = config.order?.[String(fieldValue)];
+      let sliderVal = fieldValue;
+      if (config.key === "origine") {
+        sliderVal = computeOrigine(arbre);
+      }
+
+      const valArbre = config.order?.[String(sliderVal)];
       if (valArbre === undefined) return String(fieldValue) === value;
+
+      // invertDir : intervalle avec borne supérieure (val <= seuil)
+      if (config.invertDir) return valArbre <= seuil;
+      // Normal : seuil minimal requis (val >= seuil)
       return valArbre >= seuil;
     }
 
@@ -258,15 +266,6 @@ export function applyAllFilters(
 
     // 4. Autres filtres via la config
     for (const config of filterConfigs) {
-      if (config.key === "origine") {
-        // Logique spéciale pour l'origine
-        const expected = computeOrigine(arbre);
-        if (filters[config.key] && expected !== filters[config.key]) {
-          return false;
-        }
-        continue;
-      }
-
       if (config.key === "sol_depth") {
         // sol_depth : "" = exclure les profonds (valeur significative même vide)
         if (!applyFilter(arbre, config, (filters as any)[config.key] || "")) {
