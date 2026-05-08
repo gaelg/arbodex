@@ -271,7 +271,6 @@ export default function FormulaireFiltres({
                           ? optionData.findIndex((o) => o.opt === value)
                           : -1;
                         const maxRaw = optionData.length - 1;
-                        const isInvert = config.invertDir;
 
                         return (
                           <div key={config.key} className="relative pt-1 pb-2">
@@ -298,16 +297,10 @@ export default function FormulaireFiltres({
                                 );
                                 const opt = optionData[idx].opt;
                                 if (optionData[idx].disabled) return;
-                                const resetOpt = isInvert
-                                  ? optionData[optionData.length - 1].opt
-                                  : optionData[0].opt;
+                                const isFirst = opt === optionData[0].opt;
                                 mettreAJour(
                                   config.key,
-                                  opt === resetOpt
-                                    ? ""
-                                    : opt === value
-                                      ? ""
-                                      : opt
+                                  isFirst ? "" : opt === value ? "" : opt
                                 );
                               }}
                               onKeyDown={(e) => {
@@ -331,12 +324,9 @@ export default function FormulaireFiltres({
                                 ) {
                                   for (let i = cur - 1; i >= 0; i--) {
                                     if (!optionData[i].disabled) {
-                                      const isEnd = isInvert
-                                        ? i === optionData.length - 1
-                                        : i === 0;
                                       mettreAJour(
                                         config.key,
-                                        isEnd ? "" : optionData[i].opt
+                                        i === 0 ? "" : optionData[i].opt
                                       );
                                       break;
                                     }
@@ -356,11 +346,10 @@ export default function FormulaireFiltres({
                               />
                               {optionData.map(({ opt, disabled }) => {
                                 const isSelected = value === opt;
-                                const idx = optionData.findIndex(
-                                  (o) => o.opt === opt
-                                );
-                                const isFixedMarker = isInvert && idx === 0;
-                                const pct = (idx / maxRaw) * 100;
+                                const pct =
+                                  (optionData.findIndex((o) => o.opt === opt) /
+                                    maxRaw) *
+                                  100;
                                 return (
                                   <div
                                     key={opt}
@@ -380,26 +369,16 @@ export default function FormulaireFiltres({
                                       className={`w-4 h-4 rounded-full border-2 bg-white transition-colors ${
                                         isSelected
                                           ? "border-green-600 bg-green-600"
-                                          : isFixedMarker
-                                            ? "border-green-400 bg-green-100"
-                                            : disabled
-                                              ? "border-gray-200 bg-gray-100"
-                                              : "border-gray-400 hover:border-green-400 cursor-pointer"
+                                          : disabled
+                                            ? "border-gray-200 bg-gray-100"
+                                            : "border-gray-400 hover:border-green-400 cursor-pointer"
                                       }`}
                                       onClick={(e) => {
                                         e.stopPropagation();
                                         if (disabled) return;
-                                        const resetOpt = isInvert
-                                          ? optionData[optionData.length - 1]
-                                              .opt
-                                          : optionData[0].opt;
                                         mettreAJour(
                                           config.key,
-                                          opt === resetOpt
-                                            ? ""
-                                            : isSelected
-                                              ? ""
-                                              : opt
+                                          isSelected ? "" : opt
                                         );
                                       }}
                                       onKeyDown={() => {}}
@@ -416,19 +395,12 @@ export default function FormulaireFiltres({
                                     key={opt}
                                     type="button"
                                     disabled={disabled}
-                                    onClick={() => {
-                                      const resetOpt = isInvert
-                                        ? optionData[optionData.length - 1].opt
-                                        : optionData[0].opt;
+                                    onClick={() =>
                                       mettreAJour(
                                         config.key,
-                                        opt === resetOpt
-                                          ? ""
-                                          : isSelected
-                                            ? ""
-                                            : opt
-                                      );
-                                    }}
+                                        isSelected ? "" : opt
+                                      )
+                                    }
                                     className={`text-xs text-center transition-colors ${
                                       isSelected
                                         ? "text-green-700 font-semibold"

@@ -230,19 +230,17 @@ export const FILTERS: FilterConfig[] = [
     type: "slider",
     invertDir: true,
     order: {
+      Tous: 3,
+      "Europe de l'Ouest": 2,
       Indigène: 1,
       "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux": 2,
       "Vraiment exotique": 3,
     },
-    options: [
-      "Indigène",
-      "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux",
-      "Vraiment exotique",
-    ],
+    options: ["Tous", "Europe de l'Ouest", "Indigène"],
     optionLabels: {
+      Tous: "Tous",
+      "Europe de l'Ouest": "Europe de l'Ouest",
       Indigène: "Indigène",
-      "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux": "Presque local",
-      "Vraiment exotique": "Tous",
     },
   },
   {
@@ -344,13 +342,7 @@ export function isFilterActive(config: FilterConfig, value: string): boolean {
     if (selected.length === allNonAll.length) return false;
   }
   if (config.type === "slider" && config.options) {
-    if (config.invertDir) {
-      // Dernière option = pas de contrainte (Aire d'origine : "Tous")
-      if (value === config.options[config.options.length - 1]) return false;
-    } else {
-      // Première option = pas de contrainte
-      if (value === config.options[0]) return false;
-    }
+    if (value === config.options[0]) return false;
   }
   return true;
 }
