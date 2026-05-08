@@ -248,180 +248,16 @@ export default function FormulaireFiltres({
                       const value = (filtres as any)[config.key] || "";
 
                       if (config.type === "slider") {
-                        // Filtres slider : curseurs à crans (implanté plus haut)
-                        const opts = getOptions(config);
-                        const optionData = opts.map((opt) => {
-                          const toggleCount = applyAllFilters(
-                            arbres,
-                            { ...filtres, [config.key]: opt } as any,
-                            FILTERS
-                          ).length;
-                          const delta = toggleCount - currentCount;
-                          const disabled =
-                            toggleCount === currentCount && value !== opt;
-                          return { opt, toggleCount, delta, disabled };
-                        });
-
-                        const anyActionable = optionData.some(
-                          (o) => !o.disabled
-                        );
-                        if (!anyActionable && !value) return null;
-
-                        const selectedIdx = value
-                          ? optionData.findIndex((o) => o.opt === value)
-                          : -1;
-                        const maxRaw = optionData.length - 1;
-
                         return (
-                          <div key={config.key} className="relative pt-1 pb-2">
-                            <label className="block text-sm font-medium text-gray-700 mb-3">
-                              {config.label}
-                            </label>
-                            <div
-                              role="slider"
-                              tabIndex={selectedIdx >= 0 ? 0 : -1}
-                              aria-label={config.label}
-                              aria-valuemin={0}
-                              aria-valuemax={maxRaw}
-                              aria-valuenow={Math.max(0, selectedIdx)}
-                              className="relative h-10 mx-1"
-                              onClick={(e) => {
-                                const rect =
-                                  e.currentTarget.getBoundingClientRect();
-                                const x = e.clientX - rect.left;
-                                const pct = x / rect.width;
-                                const rawIdx = Math.round(pct * maxRaw);
-                                const idx = Math.min(
-                                  Math.max(0, rawIdx),
-                                  maxRaw
-                                );
-                                const opt = optionData[idx].opt;
-                                if (optionData[idx].disabled) return;
-                                const isFirst = opt === optionData[0].opt;
-                                mettreAJour(
-                                  config.key,
-                                  isFirst ? "" : opt === value ? "" : opt
-                                );
-                              }}
-                              onKeyDown={(e) => {
-                                const cur = Math.max(0, selectedIdx);
-                                if (
-                                  e.key === "ArrowRight" ||
-                                  e.key === "ArrowDown"
-                                ) {
-                                  for (let i = cur + 1; i <= maxRaw; i++) {
-                                    if (!optionData[i].disabled) {
-                                      mettreAJour(
-                                        config.key,
-                                        optionData[i].opt
-                                      );
-                                      break;
-                                    }
-                                  }
-                                } else if (
-                                  e.key === "ArrowLeft" ||
-                                  e.key === "ArrowUp"
-                                ) {
-                                  for (let i = cur - 1; i >= 0; i--) {
-                                    if (!optionData[i].disabled) {
-                                      mettreAJour(
-                                        config.key,
-                                        i === 0 ? "" : optionData[i].opt
-                                      );
-                                      break;
-                                    }
-                                  }
-                                }
-                              }}
-                            >
-                              <div className="absolute top-1/2 -translate-y-1/2 w-full h-2 bg-gray-200 rounded-full pointer-events-none" />
-                              <div
-                                className="absolute top-1/2 -translate-y-1/2 h-2 bg-green-500 rounded-full transition-all pointer-events-none"
-                                style={{
-                                  width:
-                                    selectedIdx >= 0
-                                      ? `${(selectedIdx / maxRaw) * 100}%`
-                                      : "0%",
-                                }}
-                              />
-                              {optionData.map(({ opt, disabled }) => {
-                                const isSelected = value === opt;
-                                const pct =
-                                  (optionData.findIndex((o) => o.opt === opt) /
-                                    maxRaw) *
-                                  100;
-                                return (
-                                  <div
-                                    key={opt}
-                                    className="absolute top-1/2 -translate-y-1/2"
-                                    style={{
-                                      left: `${pct}%`,
-                                      marginLeft: "-8px",
-                                    }}
-                                  >
-                                    <div
-                                      role="button"
-                                      tabIndex={-1}
-                                      aria-label={formatFilterOption(
-                                        config,
-                                        opt
-                                      )}
-                                      className={`w-4 h-4 rounded-full border-2 bg-white transition-colors ${
-                                        isSelected
-                                          ? "border-green-600 bg-green-600"
-                                          : disabled
-                                            ? "border-gray-200 bg-gray-100"
-                                            : "border-gray-400 hover:border-green-400 cursor-pointer"
-                                      }`}
-                                      onClick={(e) => {
-                                        e.stopPropagation();
-                                        if (disabled) return;
-                                        mettreAJour(
-                                          config.key,
-                                          isSelected ? "" : opt
-                                        );
-                                      }}
-                                      onKeyDown={() => {}}
-                                    />
-                                  </div>
-                                );
-                              })}
-                            </div>
-                            <div className="flex justify-between px-0.5 mt-1">
-                              {optionData.map(({ opt, delta, disabled }) => {
-                                const isSelected = value === opt;
-                                return (
-                                  <button
-                                    key={opt}
-                                    type="button"
-                                    disabled={disabled}
-                                    onClick={() =>
-                                      mettreAJour(
-                                        config.key,
-                                        isSelected ? "" : opt
-                                      )
-                                    }
-                                    className={`text-xs text-center transition-colors ${
-                                      isSelected
-                                        ? "text-green-700 font-semibold"
-                                        : disabled
-                                          ? "text-gray-300 cursor-not-allowed"
-                                          : "text-gray-500 hover:text-gray-700"
-                                    }`}
-                                  >
-                                    <div>{formatFilterOption(config, opt)}</div>
-                                    {delta !== 0 && !disabled && (
-                                      <div
-                                        className={`text-[10px] font-mono ${delta < 0 ? "text-red-400" : "text-green-500"}`}
-                                      >
-                                        {delta > 0 ? `+${delta}` : `${delta}`}
-                                      </div>
-                                    )}
-                                  </button>
-                                );
-                              })}
-                            </div>
-                          </div>
+                          <SingleSlider
+                            key={config.key}
+                            config={config}
+                            value={value}
+                            arbres={arbres}
+                            filtres={filtres}
+                            currentCount={currentCount}
+                            mettreAJour={mettreAJour}
+                          />
                         );
                       }
 
@@ -775,6 +611,181 @@ function DualRangeSlider({
             {step}
           </span>
         ))}
+      </div>
+    </div>
+  );
+}
+
+function SingleSlider({
+  config,
+  value,
+  arbres,
+  filtres,
+  currentCount,
+  mettreAJour,
+}: {
+  config: FilterConfig;
+  value: string;
+  arbres: Arbre[];
+  filtres: Filtres;
+  currentCount: number;
+  mettreAJour: (key: string, val: string) => void;
+}) {
+  const opts = config.options || [];
+  const optionData = opts.map((opt) => {
+    const toggleCount = applyAllFilters(
+      arbres,
+      { ...filtres, [config.key]: opt } as any,
+      FILTERS
+    ).length;
+    return {
+      opt,
+      toggleCount,
+      delta: toggleCount - currentCount,
+      disabled: toggleCount === currentCount && value !== opt,
+    };
+  });
+
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [dragging, setDragging] = useState(false);
+  const anyActionable = optionData.some((o) => !o.disabled);
+  if (!anyActionable && !value) return null;
+
+  const selectedIdx = value ? optionData.findIndex((o) => o.opt === value) : -1;
+  const maxRaw = optionData.length - 1;
+
+  const optFromPointer = (clientX: number) => {
+    const rect = trackRef.current!.getBoundingClientRect();
+    const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+    return Math.round(pct * maxRaw);
+  };
+
+  const commitValue = (idx: number) => {
+    if (idx < 0 || idx > maxRaw) return;
+    if (optionData[idx].disabled) return;
+    const opt = optionData[idx].opt;
+    const isFirst = opt === optionData[0].opt;
+    mettreAJour(config.key, isFirst ? "" : opt === value ? "" : opt);
+  };
+
+  return (
+    <div className="relative pt-1 pb-2">
+      <label className="block text-sm font-medium text-gray-700 mb-3">
+        {config.label}
+      </label>
+      <div
+        ref={trackRef}
+        role="slider"
+        tabIndex={selectedIdx >= 0 ? 0 : -1}
+        aria-label={config.label}
+        aria-valuemin={0}
+        aria-valuemax={maxRaw}
+        aria-valuenow={Math.max(0, selectedIdx)}
+        className="relative h-10 mx-1 select-none touch-none"
+        onClick={(e) => {
+          if (dragging) return;
+          commitValue(optFromPointer(e.clientX));
+        }}
+        onPointerMove={(e) => {
+          if (!dragging) return;
+          const idx = optFromPointer(e.clientX);
+          if (idx >= 0 && idx <= maxRaw && !optionData[idx].disabled) {
+            const opt = optionData[idx].opt;
+            mettreAJour(
+              config.key,
+              opt === optionData[0].opt ? "" : opt === value ? "" : opt
+            );
+          }
+        }}
+        onPointerUp={() => setDragging(false)}
+        onPointerCancel={() => setDragging(false)}
+        onKeyDown={(e) => {
+          const cur = Math.max(0, selectedIdx);
+          if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+            for (let i = cur + 1; i <= maxRaw; i++) {
+              if (!optionData[i].disabled) {
+                commitValue(i);
+                break;
+              }
+            }
+          } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+            for (let i = cur - 1; i >= 0; i--) {
+              if (!optionData[i].disabled) {
+                commitValue(i);
+                break;
+              }
+            }
+          }
+        }}
+      >
+        <div className="absolute top-1/2 -translate-y-1/2 w-full h-2 bg-gray-200 rounded-full pointer-events-none" />
+        <div
+          className="absolute top-1/2 -translate-y-1/2 h-2 bg-green-500 rounded-full transition-all pointer-events-none"
+          style={{
+            width: selectedIdx >= 0 ? `${(selectedIdx / maxRaw) * 100}%` : "0%",
+          }}
+        />
+        {optionData.map(({ opt, disabled }) => {
+          const isSelected = value === opt;
+          const pct =
+            (optionData.findIndex((o) => o.opt === opt) / maxRaw) * 100;
+          return (
+            <div
+              key={opt}
+              className="absolute top-1/2 -translate-y-1/2"
+              style={{ left: `${pct}%`, marginLeft: "-8px" }}
+            >
+              <div
+                role="button"
+                tabIndex={-1}
+                aria-label={config.optionLabels?.[opt] || opt}
+                className={`w-4 h-4 rounded-full border-2 bg-white transition-colors ${
+                  isSelected
+                    ? "border-green-600 bg-green-600"
+                    : disabled
+                      ? "border-gray-200 bg-gray-100"
+                      : "border-gray-400 hover:border-green-400 cursor-pointer"
+                }`}
+                onPointerDown={(e) => {
+                  if (disabled) return;
+                  e.stopPropagation();
+                  commitValue(optionData.findIndex((o) => o.opt === opt));
+                  setDragging(true);
+                  (e.target as HTMLElement).setPointerCapture(e.pointerId);
+                }}
+              />
+            </div>
+          );
+        })}
+      </div>
+      <div className="flex justify-between px-0.5 mt-1">
+        {optionData.map(({ opt, delta, disabled }) => {
+          const isSelected = value === opt;
+          return (
+            <button
+              key={opt}
+              type="button"
+              disabled={disabled}
+              onClick={() => mettreAJour(config.key, isSelected ? "" : opt)}
+              className={`text-xs text-center transition-colors ${
+                isSelected
+                  ? "text-green-700 font-semibold"
+                  : disabled
+                    ? "text-gray-300 cursor-not-allowed"
+                    : "text-gray-500 hover:text-gray-700"
+              }`}
+            >
+              <div>{config.optionLabels?.[opt] || opt}</div>
+              {delta !== 0 && !disabled && (
+                <div
+                  className={`text-[10px] font-mono ${delta < 0 ? "text-red-400" : "text-green-500"}`}
+                >
+                  {delta > 0 ? `+${delta}` : `${delta}`}
+                </div>
+              )}
+            </button>
+          );
+        })}
       </div>
     </div>
   );
