@@ -612,7 +612,7 @@ export default function FormulaireFiltres({
               {/* Hauteur - curseur double */}
               <DualRangeSlider
                 label="Hauteur (m)"
-                steps={[0, 2, 5, 10, 15, 20, 25, 30, 40, 50]}
+                steps={[0, 5, 10, 15, 20, 30, 50]}
                 valueMin={filtres.hauteur_min}
                 valueMax={filtres.hauteur_max}
                 onChangeMin={(v) => mettreAJour("hauteur_min", v)}
@@ -622,7 +622,7 @@ export default function FormulaireFiltres({
               {/* Envergure - curseur double */}
               <DualRangeSlider
                 label="Envergure (m)"
-                steps={[0, 2, 5, 10, 15, 20, 25, 30]}
+                steps={[0, 5, 10, 15, 20, 30]}
                 valueMin={filtres.envergure_min}
                 valueMax={filtres.envergure_max}
                 onChangeMin={(v) => mettreAJour("envergure_min", v)}
