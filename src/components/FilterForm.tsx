@@ -449,12 +449,17 @@ export default function FormulaireFiltres({
               <DualRangeSlider
                 label="Hauteur (m)"
                 steps={[0, 5, 10, 15, 20, 30, 50]}
-                stepCounts={[0, 5, 10, 15, 20, 30, 50].map((s) =>
-                  applyAllFilters(
-                    arbres,
-                    { ...filtres, hauteur_min: String(s), hauteur_max: String(s) } as any,
-                    FILTERS
-                  ).length
+                stepCounts={[0, 5, 10, 15, 20, 30, 50].map(
+                  (s) =>
+                    applyAllFilters(
+                      arbres,
+                      {
+                        ...filtres,
+                        hauteur_min: String(s),
+                        hauteur_max: String(s),
+                      } as any,
+                      FILTERS
+                    ).length
                 )}
                 currentCount={currentCount}
                 valueMin={filtres.hauteur_min}
@@ -467,12 +472,17 @@ export default function FormulaireFiltres({
               <DualRangeSlider
                 label="Envergure (m)"
                 steps={[0, 5, 10, 15, 20, 30]}
-                stepCounts={[0, 5, 10, 15, 20, 30].map((s) =>
-                  applyAllFilters(
-                    arbres,
-                    { ...filtres, envergure_min: String(s), envergure_max: String(s) } as any,
-                    FILTERS
-                  ).length
+                stepCounts={[0, 5, 10, 15, 20, 30].map(
+                  (s) =>
+                    applyAllFilters(
+                      arbres,
+                      {
+                        ...filtres,
+                        envergure_min: String(s),
+                        envergure_max: String(s),
+                      } as any,
+                      FILTERS
+                    ).length
                 )}
                 currentCount={currentCount}
                 valueMin={filtres.envergure_min}
@@ -632,15 +642,24 @@ function DualRangeSlider({
       <div className="flex justify-between px-0.5 mt-1">
         {steps.map((step, i) => {
           const active = isStepActive(i);
-          const delta = currentCount && stepCounts ? stepCounts[i] - currentCount : 0;
+          const delta =
+            currentCount && stepCounts ? stepCounts[i] - currentCount : 0;
           return (
             <div key={step} className="text-center">
-              <span className={`text-[10px] ${active ? "text-green-700 font-semibold" : "text-gray-400"}`}>
+              <span
+                className={`text-[10px] ${active ? "text-green-700 font-semibold" : "text-gray-400"}`}
+              >
                 {step}
               </span>
               {stepCounts && currentCount && stepCounts[i] > 0 && (
-                <div className={`text-[9px] font-mono ${delta > 0 ? "text-green-600" : delta < 0 ? "text-red-400" : "text-gray-400"}`}>
-                  {delta > 0 ? `+${delta}` : delta < 0 ? `${delta}` : `${stepCounts[i]}`}
+                <div
+                  className={`text-[9px] font-mono ${delta > 0 ? "text-green-600" : delta < 0 ? "text-red-400" : "text-gray-400"}`}
+                >
+                  {delta > 0
+                    ? `+${delta}`
+                    : delta < 0
+                      ? `${delta}`
+                      : `${stepCounts[i]}`}
                 </div>
               )}
             </div>
@@ -678,7 +697,8 @@ function SingleSlider({
       opt,
       toggleCount,
       delta: toggleCount - currentCount,
-      disabled: opt !== firstOpt && toggleCount === currentCount && value !== opt,
+      disabled:
+        opt !== firstOpt && toggleCount === currentCount && value !== opt,
     };
   });
 
@@ -696,19 +716,26 @@ function SingleSlider({
 
   const commitValue = (idx: number) => {
     if (idx < 0 || idx > maxRaw || optionData[idx].disabled) return;
-    mettreAJour(config.key, optionData[idx].opt === optionData[0].opt ? "" : optionData[idx].opt);
+    mettreAJour(
+      config.key,
+      optionData[idx].opt === optionData[0].opt ? "" : optionData[idx].opt
+    );
   };
 
   const idxFromPointer = (clientX: number) => {
     const rect = trackRef.current!.getBoundingClientRect();
-    return Math.round(Math.max(0, Math.min(1, (clientX - rect.left) / rect.width)) * maxRaw);
+    return Math.round(
+      Math.max(0, Math.min(1, (clientX - rect.left) / rect.width)) * maxRaw
+    );
   };
 
   const nearestEnabled = (idx: number) => {
     if (!optionData[idx].disabled) return idx;
     for (let dist = 1; dist <= maxRaw; dist++) {
-      if (idx - dist >= 0 && !optionData[idx - dist].disabled) return idx - dist;
-      if (idx + dist <= maxRaw && !optionData[idx + dist].disabled) return idx + dist;
+      if (idx - dist >= 0 && !optionData[idx - dist].disabled)
+        return idx - dist;
+      if (idx + dist <= maxRaw && !optionData[idx + dist].disabled)
+        return idx + dist;
     }
     return idx;
   };
@@ -762,11 +789,18 @@ function SingleSlider({
           <div
             key={opt}
             className="absolute top-1/2 -translate-y-1/2 pointer-events-none"
-            style={{ left: `${(i / maxRaw) * 100}%`, marginLeft: i === maxRaw ? "-1px" : "-2px" }}
+            style={{
+              left: `${(i / maxRaw) * 100}%`,
+              marginLeft: i === maxRaw ? "-1px" : "-2px",
+            }}
           >
             <div
               className={`w-1 h-1 rounded-full ${
-                i <= visualIdx ? "bg-green-600" : disabled ? "bg-gray-200" : "bg-gray-400"
+                i <= visualIdx
+                  ? "bg-green-600"
+                  : disabled
+                    ? "bg-gray-200"
+                    : "bg-gray-400"
               }`}
             />
           </div>
@@ -801,7 +835,9 @@ function SingleSlider({
             >
               <div>{config.optionLabels?.[opt] || opt}</div>
               {delta !== 0 && !disabled && (
-                <div className={`text-[10px] font-mono ${delta < 0 ? "text-red-400" : "text-green-500"}`}>
+                <div
+                  className={`text-[10px] font-mono ${delta < 0 ? "text-red-400" : "text-green-500"}`}
+                >
                   {delta > 0 ? `+${delta}` : `${delta}`}
                 </div>
               )}
