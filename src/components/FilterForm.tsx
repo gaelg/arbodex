@@ -483,6 +483,47 @@ export default function FormulaireFiltres({
                         );
                       }
 
+                      // Contraintes du projet : cases à cocher "Pas de..."
+                      if (config.section === "Contraintes du projet") {
+                        const checked = value === "non";
+                        const toggleCount = applyAllFilters(
+                          arbres,
+                          {
+                            ...filtres,
+                            [config.key]: checked ? "" : "non",
+                          } as any,
+                          FILTERS
+                        ).length;
+                        const delta = toggleCount - currentCount;
+                        const disabled = toggleCount === currentCount;
+
+                        if (!checked && disabled) return null;
+
+                        return (
+                          <div key={config.key}>
+                            <label className="flex items-center gap-2 text-sm cursor-pointer">
+                              <input
+                                type="checkbox"
+                                checked={checked}
+                                disabled={disabled}
+                                onChange={() =>
+                                  mettreAJour(config.key, checked ? "" : "non")
+                                }
+                                className="rounded border-gray-300 text-green-600 focus:ring-green-500"
+                              />
+                              <span className={disabled ? "text-gray-300" : ""}>
+                                Pas de {config.label.toLowerCase()}
+                              </span>
+                              {delta !== 0 && !disabled && (
+                                <span className="text-xs font-mono text-gray-400">
+                                  {delta > 0 ? `+${delta}` : `${delta}`}
+                                </span>
+                              )}
+                            </label>
+                          </div>
+                        );
+                      }
+
                       // Filtres standard : select
                       const selectOptions = opts
                         .filter((o) => o !== "all")
