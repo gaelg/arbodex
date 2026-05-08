@@ -85,8 +85,11 @@ function getBadgeColor(key: string, valeur: string): string {
   const v = valeur.toLowerCase();
   const sémantique: Record<string, { positif: string[]; negatif: string[] }> = {
     origine: {
-      positif: ["local", "presque_local"],
-      negatif: ["vraiment_exotique"],
+      positif: [
+        "indigène",
+        "indigène en europe de l'ouest mais pas en hdf/belux",
+      ],
+      negatif: ["vraiment exotique"],
     },
     mellifere: { positif: ["oui"], negatif: [] },
     fruitiere_sauvage: { positif: ["oui"], negatif: [] },
@@ -239,9 +242,10 @@ export default function ListeArbres({ arbres }: Props) {
                 </p>
                 <p>
                   <span className="font-medium text-gray-700">Origine :</span>{" "}
-                  {arbre.origine === "local"
+                  {arbre.origine === "Indigène"
                     ? "Local"
-                    : arbre.origine === "presque_local"
+                    : arbre.origine ===
+                        "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux"
                       ? "Presque local"
                       : "Vraiment exotique"}
                 </p>

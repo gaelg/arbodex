@@ -25,6 +25,20 @@ export default function Accueil() {
 
   useEffect(() => {
     chargerArbres().then((donnees) => {
+      console.log("DEBUG: loaded", donnees.length, "trees");
+      if (donnees.length > 0) {
+        console.log("DEBUG: first tree", donnees[0].nom_commun);
+        console.log(
+          "DEBUG: first tree fields",
+          JSON.stringify({
+            nom: donnees[0].nom_commun,
+            famille: donnees[0].famille,
+            origine: donnees[0].origine,
+            hauteur: donnees[0].hauteur_max_m,
+            type: typeof donnees[0].hauteur_max_m,
+          })
+        );
+      }
       setArbres(donnees);
       setChargement(false);
     });
@@ -65,7 +79,6 @@ export default function Accueil() {
       const el = document.getElementById("liste-arbres");
       if (!el) return;
       const rect = el.getBoundingClientRect();
-      // Afficher si on a scrolle assez et que la liste n'est pas visible
       set_show_scroll_to_results(
         window.scrollY > 400 && rect.top > window.innerHeight
       );

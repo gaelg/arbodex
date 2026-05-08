@@ -5,7 +5,8 @@ export type FilterType =
   | "relative" // Échelle ordonnée (faible ≤ moyen ≤ fort)
   | "numeric" // Comparaison numérique directe (vent ≥ 4)
   | "search" // Recherche textuelle avec normalisation accents
-  | "multi"; // Cases à cocher (plusieurs choix possibles)
+  | "multi" // Cases à cocher (plusieurs choix possibles)
+  | "slider"; // Curseur à crans (vent, chaleur, grands froids)
 
 export interface FilterConfig {
   key: string;

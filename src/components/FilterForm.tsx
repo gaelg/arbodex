@@ -297,9 +297,10 @@ export default function FormulaireFiltres({
                                 );
                                 const opt = optionData[idx].opt;
                                 if (optionData[idx].disabled) return;
+                                const isFirst = opt === optionData[0].opt;
                                 mettreAJour(
                                   config.key,
-                                  opt === value ? "" : opt
+                                  isFirst ? "" : opt === value ? "" : opt
                                 );
                               }}
                               onKeyDown={(e) => {
@@ -325,7 +326,7 @@ export default function FormulaireFiltres({
                                     if (!optionData[i].disabled) {
                                       mettreAJour(
                                         config.key,
-                                        optionData[i].opt
+                                        i === 0 ? "" : optionData[i].opt
                                       );
                                       break;
                                     }

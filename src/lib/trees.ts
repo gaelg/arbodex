@@ -1,5 +1,3 @@
-import Papa from "papaparse";
-
 export interface Arbre {
   nom_commun: string;
   nom_scientifique: string;
@@ -91,14 +89,40 @@ export interface Filtres {
   envergure_max: string;
 }
 
+function parseCSV(csv: string): Record<string, unknown>[] {
+  const lines = csv.split("\n");
+  const headers = lines[0].split(";");
+  const data: Record<string, unknown>[] = [];
+
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line) continue;
+
+    const values = line.split(";");
+    const row: Record<string, unknown> = {};
+
+    for (let j = 0; j < headers.length; j++) {
+      const raw = values[j] ?? "";
+      if (raw === "") {
+        row[headers[j]] = "";
+        continue;
+      }
+      const num = Number(raw);
+      if (!isNaN(num) && raw !== "" && raw !== "true" && raw !== "false") {
+        row[headers[j]] = num;
+      } else {
+        row[headers[j]] = raw;
+      }
+    }
+
+    data.push(row);
+  }
+
+  return data;
+}
+
 export async function chargerArbres(): Promise<Arbre[]> {
   const res = await fetch("/trees.csv");
   const csv = await res.text();
-  const resultat = Papa.parse<Arbre>(csv, {
-    header: true,
-    skipEmptyLines: true,
-    dynamicTyping: true,
-    delimiter: ";",
-  });
-  return resultat.data as Arbre[];
+  return parseCSV(csv) as unknown as Arbre[];
 }
