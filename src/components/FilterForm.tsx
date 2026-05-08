@@ -590,7 +590,9 @@ export default function FormulaireFiltres({
             onClick={() => toggleSection("Dimensions")}
             className="w-full flex items-center justify-between px-4 py-3 bg-gray-50 hover:bg-gray-100 text-left"
           >
-            <h3 className="text-sm font-semibold text-gray-700">Dimensions adaptées</h3>
+            <h3 className="text-sm font-semibold text-gray-700">
+              Dimensions adaptées
+            </h3>
             <svg
               className={`w-4 h-4 text-gray-500 transition-transform ${sectionsOuvertes["Dimensions"] ? "rotate-180" : ""}`}
               fill="none"
@@ -665,7 +667,10 @@ function DualRangeSlider({
     let closestDist = Infinity;
     steps.forEach((s, i) => {
       const d = Math.abs(s - v);
-      if (d < closestDist) { closestDist = d; closest = i; }
+      if (d < closestDist) {
+        closestDist = d;
+        closest = i;
+      }
     });
     return closest;
   };
@@ -689,10 +694,17 @@ function DualRangeSlider({
     }
   };
 
-  const handleKeyDown = (which: "min" | "max", curIdx: number, e: React.KeyboardEvent) => {
-    const dir = (e.key === "ArrowRight" || e.key === "ArrowDown") ? 1
-      : (e.key === "ArrowLeft" || e.key === "ArrowUp") ? -1
-      : 0;
+  const handleKeyDown = (
+    which: "min" | "max",
+    curIdx: number,
+    e: React.KeyboardEvent
+  ) => {
+    const dir =
+      e.key === "ArrowRight" || e.key === "ArrowDown"
+        ? 1
+        : e.key === "ArrowLeft" || e.key === "ArrowUp"
+          ? -1
+          : 0;
     if (!dir) return;
     e.preventDefault();
     const next = curIdx + dir;
@@ -743,8 +755,14 @@ function DualRangeSlider({
                 }`}
                 onClick={(e) => {
                   e.stopPropagation();
-                  if (isMin) { onChangeMin(""); return; }
-                  if (isMax) { onChangeMax(""); return; }
+                  if (isMin) {
+                    onChangeMin("");
+                    return;
+                  }
+                  if (isMax) {
+                    onChangeMax("");
+                    return;
+                  }
                   const distToMin = Math.abs(step - minVal);
                   const distToMax = Math.abs(step - maxVal);
                   if (distToMin <= distToMax) {
