@@ -8,12 +8,14 @@ interface HeaderProps {
   installable: boolean;
   installed: boolean;
   installer: () => Promise<void>;
+  essencesCount?: number;
 }
 
 export default function Header({
   installable,
   installed,
   installer,
+  essencesCount,
 }: HeaderProps) {
   const version = process.env.NEXT_PUBLIC_VERSION || "0.0.125";
 
@@ -69,8 +71,8 @@ export default function Header({
           Arbodex
         </h1>
         <p className="text-gray-500 mt-1">
-          137 essences pour les paysagistes — Hauts-de-France & Benelux (v
-          {version})
+          {essencesCount ?? "..."} essence{essencesCount !== 1 ? "s" : ""} pour
+          les paysagistes — Hauts-de-France & Benelux (v{version})
         </p>
       </header>
     </>

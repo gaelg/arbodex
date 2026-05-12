@@ -5,9 +5,9 @@ test("la page charge et affiche le titre", async ({ page }) => {
   await expect(page).toHaveTitle(/Arbodex|arbres|essences/i);
 });
 
-test("compte 137 essences dans l'entête", async ({ page }) => {
+test("compte le nombre d'essences dans l'entête", async ({ page }) => {
   await page.goto("/");
-  await expect(page.locator("header p")).toContainText("137 essences");
+  await expect(page.locator("header p")).toContainText("essences");
 });
 
 test("la liste d'arbres s'affiche après chargement", async ({ page }) => {

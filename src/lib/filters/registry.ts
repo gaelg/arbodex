@@ -69,12 +69,54 @@ export const FILTERS: FilterConfig[] = [
   },
   {
     key: "sol_depth",
-    label: "Profondeur",
+    label: "Profondeur de sol",
     section: "Sols",
-    type: "multi",
-    options: ["profond"],
+    type: "slider",
+    invertDir: true,
+    order: {
+      "10": 10,
+      "20": 20,
+      "30": 30,
+      "40": 40,
+      "50": 50,
+      "60": 60,
+      "80": 80,
+      "100": 100,
+      "120": 120,
+      "150": 150,
+      "200": 200,
+      "300": 300,
+      "500": 500,
+    },
+    options: [
+      "10",
+      "20",
+      "30",
+      "40",
+      "50",
+      "60",
+      "80",
+      "100",
+      "120",
+      "150",
+      "200",
+      "300",
+      "500",
+    ],
     optionLabels: {
-      profond: "Sol profond",
+      "10": "10 cm",
+      "20": "20 cm",
+      "30": "30 cm",
+      "40": "40 cm",
+      "50": "50 cm",
+      "60": "60 cm",
+      "80": "80 cm",
+      "100": "100 cm",
+      "120": "120 cm",
+      "150": "150 cm",
+      "200": "200 cm",
+      "300": "300 cm",
+      "500": "500 cm",
     },
   },
 
@@ -338,7 +380,6 @@ export const FILTERS: FilterConfig[] = [
 
 export function isFilterActive(config: FilterConfig, value: string): boolean {
   if (!value) return false;
-  if (config.key === "sol_depth") return value !== "profond";
   if (config.type === "multi" && config.options) {
     const allNonAll = config.options.filter((o) => o !== "all");
     const selected = value.split(",").filter(Boolean);
@@ -369,7 +410,7 @@ export function getAllSections(): string[] {
 }
 
 export function getDefaultFiltersState(): Record<string, string> {
-  const state: Record<string, string> = { recherche: "" };
+  const state: Record<string, string> = { recherche: "", optimiste: "" };
   for (const f of FILTERS) {
     // Pour les filtres multi, tout cocher par défaut (sauf "all")
     if (f.type === "multi" && f.options) {

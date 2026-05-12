@@ -135,9 +135,18 @@ function isPresqueLocal(arbre: Arbre): boolean {
 export function applyFilter(
   arbre: Arbre,
   config: FilterConfig,
-  value: string
+  value: string,
+  optimiste: boolean = false
 ): boolean {
   const fieldValue = (arbre as any)[config.key];
+
+  // Mode optimiste : pas de donnée → on laisse passer
+  if (
+    optimiste &&
+    (fieldValue === "" || fieldValue === undefined || fieldValue === null)
+  ) {
+    return true;
+  }
 
   switch (config.type) {
     case "exact":
@@ -154,6 +163,16 @@ export function applyFilter(
       return matchSearch(value, arbre);
     case "slider": {
       if (!value) return true;
+
+      // sol_depth : l'utilisateur indique la profondeur de son sol (cm).
+      // On cache les essences dont l'enracinement est plus profond que cette valeur.
+      if (config.key === "sol_depth") {
+        const seuil = Number(value);
+        if (isNaN(seuil)) return true;
+        if (!fieldValue && fieldValue !== 0) return true;
+        return Number(fieldValue) <= seuil;
+      }
+
       const seuil = config.order?.[value];
       if (seuil === undefined) return true;
 
@@ -177,13 +196,6 @@ export function applyFilter(
     }
 
     case "multi":
-      // Filtre inversé : "Sol profond" coché = pas de filtre, décoché = exclut profond
-      if (config.key === "sol_depth") {
-        if (value === "profond") return true;
-        const arbreValues = fieldValue ? fieldValue.split(",") : [];
-        return arbreValues.length === 0 || !arbreValues.includes("profond");
-      }
-
       if (!value) return true;
       const selected = value.split(",").filter(Boolean);
       if (selected.length === 0) return true;
@@ -227,6 +239,7 @@ export function applyAllFilters(
   filters: Filtres,
   filterConfigs: FilterConfig[]
 ): Arbre[] {
+  const optimiste = !!filters.optimiste;
   return arbres.filter((arbre) => {
     // 1. Recherche textuelle
     if (!matchSearch(filters.recherche || "", arbre)) return false;
@@ -254,17 +267,14 @@ export function applyAllFilters(
 
     // 3. Autres filtres via la config
     for (const config of filterConfigs) {
-      if (config.key === "sol_depth") {
-        // sol_depth : "" = exclure les profonds (valeur significative même vide)
-        if (!applyFilter(arbre, config, (filters as any)[config.key] || "")) {
-          return false;
-        }
-        continue;
-      }
-
       if (
         filters[config.key as keyof Filtres] &&
-        !applyFilter(arbre, config, filters[config.key as keyof Filtres])
+        !applyFilter(
+          arbre,
+          config,
+          filters[config.key as keyof Filtres],
+          optimiste
+        )
       ) {
         return false;
       }

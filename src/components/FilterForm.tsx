@@ -137,6 +137,28 @@ export default function FormulaireFiltres({
         />
       </div>
 
+      {/* Mode optimiste */}
+      <div className="mb-4 flex items-center gap-2">
+        <input
+          id="optimiste"
+          type="checkbox"
+          checked={!!filtres.optimiste}
+          onChange={(e) =>
+            mettreAJour("optimiste", e.target.checked ? "oui" : "")
+          }
+          className="rounded border-gray-300 text-green-600 focus:ring-green-500"
+        />
+        <label
+          htmlFor="optimiste"
+          className="text-sm text-gray-600 cursor-pointer"
+        >
+          Mode optimiste{" "}
+          <span className="text-xs text-gray-400">
+            (si donnée manquante, on garde le résultat)
+          </span>
+        </label>
+      </div>
+
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold text-green-800">Mon projet</h2>
         <button

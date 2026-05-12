@@ -1,0 +1,78 @@
+categoryGroup,categoryName,n,species,locations,studies,description
+growth_Form,Forb,1715,1205,528,116,Forbs; herbaceous plants that are not grasses
+growth_Form,Grass,991,466,374,158,Grasses
+growth_Form,Semi-shrub,574,317,206,111,Semi-shrub
+growth_Form,Shrub,694,366,351,194,Shrub
+growth_Form,Succulent,89,67,54,49,Succulent
+growth_Form,Tree,1576,609,1010,350,Tree
+Life_span,A,557,367,198,82,Annual plants (whole life cycle within 1 year)
+Life_span,P,5082,2625,1941,611,Perennial plants (includes biennials and all non-annual plants)
+Tissue,Herbaceous,2706,1671,764,211,Herbaceous plants
+Tissue,Woody,2844,1258,1427,530,Woody plants
+Seed_Cat,Dicot,3947,2248,1514,506,Dicot Plants (Magnoliopsida)
+Seed_Cat,Gymnosperm,523,134,340,118,Gymnosperm Plants
+Seed_Cat,Monocot,1135,577,420,170,Plants with only one cotyledon
+Seed_Cat,Pteridophyte,24,19,19,16,Pteridophyte plants
+Leaf_strategy,D,1130,465,721,265,Deciduous (including winter-deciduous and drought-deciduous)
+Leaf_strategy,E,1385,599,144,363,Evergreen (including some semi-evergreen)
+Leaf_form,B,1640,777,967,403,Broad-leaf
+Leaf_form,N,557,161,352,127,Needle-leaf
+Leaf_form,P,9,8,9,8,Palm
+PS_type,C3,4918,2650,1899,583,C3 Photosynthetic Pathway
+PS_type,C4,617,255,261,138,C4 Photosynthetic Pathway
+PS_type,C3-C4,10,4,7,6,C3/C4 intermediates
+PS_type,CAM,103,75,59,52,Crassulacean Acid Metabolism Photosynthesis
+Biome,1,1240,729,306,191,Deserts & xeric shrublands
+Biome,2,144,106,75,47,Tropical & subtropical moist broadleaf forests
+Biome,3,247,128,222,22,Tropical & subtropical dry broadleaf forests
+Biome,4,3,3,3,2,Tropical & subtropical coniferous forests
+Biome,5,649,414,324,103,Temperate broadleaf & mixed forests
+Biome,6,1111,707,383,43,Temperate Conifer Forests
+Biome,7,187,50,108,26,Boreal forests/Taiga
+Biome,8,301,165,103,63,Tropical & Subtropical Grasslands; Savannas & Shrublands
+Biome,9,1020,549,350,86,Temperate Grasslands; Savannas & Shrublands
+Biome,10,65,59,26,9,Flooded Grasslands & Savannas
+Biome,11,222,171,25,15,Montane Grasslands & Shrublands
+Biome,12,25,21,6,4,Tundra
+Biome,13,379,253,142,73,Mediterranean Forests; Woodlands & Scrub
+Biome,14,0,0,0,0,Mangroves
+Realm,AA,205,137,67,36,Australasia
+Realm,AT,512,270,315,85,Afrotropical
+Realm,IM,143,97,36,30,Indo-Malayan
+Realm,NA.,1803,798,733,235,Nearctic
+Realm,NT,333,218,105,66,Neotropical
+Realm,OC,1,1,1,1,Oceania
+Realm,PA,2560,1539,757,154,Palearctic
+Vegetation,G,804,527,120,61,Grasses
+Vegetation,S,1024,642,160,120,Shrubs
+Vegetation,T,423,249,124,91,Trees
+USDA_soil_texture,Cl,222,177,105,61,Clay
+USDA_soil_texture,SiCl,33,27,19,14,Silty clay
+USDA_soil_texture,SaCl,201,108,96,37,Sandy clay
+USDA_soil_texture,ClLo,248,221,107,53,Clay loam
+USDA_soil_texture,SiClLo,74,51,45,23,Silty clay loam
+USDA_soil_texture,SaClLo,97,84,64,33,Sandy clay loam
+USDA_soil_texture,Lo,897,615,248,86,Loam
+USDA_soil_texture,SiLo,366,251,181,60,Silty loam
+USDA_soil_texture,SaLo,798,536,302,116,Sandy loam
+USDA_soil_texture,Si,115,89,75,23,Silt
+USDA_soil_texture,LoSa,588,401,261,62,Loamy sand
+USDA_soil_texture,Sa,1205,821,496,225,Sand
+USDA_soil_texture,Wa,126,104,55,23,Wetland
+USDA_soil_texture,Ro,212,160,110,44,Rock
+EU_soil_texture,F,704,499,316,289,Fine
+EU_soil_texture,M,1442,909,522,544,Medium
+EU_soil_texture,C,2916,1772,1152,1400,Coarse
+Rclass,A,281,201,80,56,MAP is less than or equal to 0.125
+Rclass,B,710,434,164,103,MAP is greater than 0.125 and less than or equal to 0.25
+Rclass,C,1154,692,319,142,MAP is greater than 0.25 and less than or equal to 0.5
+Rclass,D,3444,1958,1469,364,MAP is greater than 0.5
+Rregime,E,704,454,207,104,all year; climates where BIO18/BIO19 is greater than 0.75 and less than 1.25
+Rregime,S,3140,1684,1090,235,summer; temperate and subtropical climates where BIO18/BIO19 is greater than or equal to 1.25
+Rregime,TS,711,394,420,142,tropical seasonal; seasonally dry climates lacking a cold season
+Rregime,W,1059,690,336,182,winter; temperate and subtropical climates where BIO18/BIO19 is less than or equal to 0.75
+Aclass,ha,76,65,25,20,hyper-arid; AI is less than 0.03
+Aclass,ar,882,530,233,142,arid; AI is greater than or equal to 0.03 and less than 0.2
+Aclass,sa,1346,775,459,164,semi-arid; AI is greater than or equal to 0.2 and less than 0.5
+Aclass,sh,595,406,265,80,sub-humid; AI is greater than or equal to 0.5 and less than 0.65
+Aclass,hu,2687,1594,1054,277,humid; AI is greater than or equal to 0.65

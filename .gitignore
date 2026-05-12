@@ -5,5 +5,9 @@ arbodex.log
 .vercel
 .opencode/
 *.backup
+# Fichiers trop volumineux pour GitHub (> 50 Mo)
+data/GRooTFullVersion.csv
+data/floriscope_plants.jsonl
+
 # Version générée au build (ne pas tracker - générée au build)
 src/version.ts

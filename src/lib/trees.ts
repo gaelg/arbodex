@@ -22,19 +22,14 @@ export interface Arbre {
   adapte_changement_climatique: string;
   mellifere: string;
   fruitiere_sauvage: string;
-  refuge_oiseaux: string;
   floraison_remarquable: string;
   couleur_automnale: string;
   stockage_carbone: string;
-  resilience: string;
-  impact_icu: string;
   biodiversite: string;
   qualite_air: string;
-  potentiel_allergisant: string;
   ombrage_fort: string;
   rafraichissement_fort: string;
-  biodiversite_service: string;
-  allergie_service: string;
+  ecorce_decorative: string;
   fruits_salissants: string;
   pollen_allergisant: string;
   branches_fragiles: string;
@@ -43,19 +38,17 @@ export interface Arbre {
   sensibilite_maladies: string;
   longevite: string;
   cout_entretien: string;
-  // Nouveau : aire de répartition native (pour presque_local)
   regions_natives?: string;
-  // Photos fiables (URLs)
   photos_port?: string;
   photos_fleurs?: string;
   photos_fruits?: string;
-  // URLs d'images (Wikimedia Commons ou autres sources libres)
   image_port?: string;
   image_fleurs?: string;
   image_fruits?: string;
 }
 
 export interface Filtres {
+  optimiste: string;
   recherche: string;
   origine: string;
   sol_acidity: string;

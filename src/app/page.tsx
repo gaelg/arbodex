@@ -98,6 +98,7 @@ export default function Accueil() {
         installable={installable}
         installed={installed}
         installer={installer}
+        essencesCount={arbres.length}
       />
 
       {chargement ? (

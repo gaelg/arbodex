@@ -1,12 +1,26 @@
 interface SourceProps {
   titre: string;
   description: string;
+  url?: string;
 }
 
-function Source({ titre, description }: SourceProps) {
+function Source({ titre, description, url }: SourceProps) {
   return (
     <div>
-      <p className="font-medium text-gray-700">{titre}</p>
+      <p className="font-medium text-gray-700">
+        {url ? (
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-green-700 underline underline-offset-2"
+          >
+            {titre}
+          </a>
+        ) : (
+          titre
+        )}
+      </p>
       <p className="text-xs text-gray-500 mt-1">{description}</p>
     </div>
   );
@@ -14,34 +28,58 @@ function Source({ titre, description }: SourceProps) {
 
 const SOURCES: SourceProps[] = [
   {
-    titre: "Arboclimat (HDF)",
+    titre: "Floriscope",
     description:
-      "68 espèces — Données climat, services écosystémiques et résilience. Source : Hauts-de-France.",
+      "2 501 espèces — Base principale : sol (pH, humidité, texture), rusticité, dimensions, port. Flore des Hauts-de-France.",
+    url: "https://www.floriscope.com/",
   },
   {
-    titre: "Sésame (Metz)",
+    titre: "WCVP (Kew)",
     description:
-      "85 espèces — Critères de sélection pour projets urbains. Climat similaire au Nord de la France.",
+      "2 249 espèces — Aire de répartition native (origine). Référence botanique mondiale.",
+    url: "https://powo.science.kew.org/",
   },
   {
-    titre: "ClimEssences (ONF)",
+    titre: "AVEC ADEME",
     description:
-      "149 espèces — Adaptation des essences forestières au changement climatique. Source : ONF / CRPF.",
+      "1 469 espèces — Ombrage, résistance à la sécheresse, stockage carbone. Données climatiques.",
+    url: "https://avec.ademe.fr/",
   },
   {
-    titre: "Pépinières locales",
+    titre: "PFAF (Plants For A Future)",
     description:
-      "Tortefontaine, Haendries, Plant'Haies, Avenir — Disponibilité réelle en Nord France / Benelux.",
+      "700 espèces — Tolérances édaphiques (drainage, richesse), résistance au vent, origine.",
+    url: "https://pfaf.org/",
   },
   {
-    titre: "Végébase",
+    titre: "NC Extension Gardener",
     description:
-      "Base de 197 000+ plantes — Référence pour caractéristiques botaniques et culturales.",
+      "676 espèces — Coût d'entretien, fréquence de taille, écorce décorative, sensibilité maladies.",
+    url: "https://plants.ces.ncsu.edu/",
   },
   {
-    titre: "Grenoble Métropole",
+    titre: "Baseflor / CATMINAT",
     description:
-      "305 espèces, 31 critères — Données techniques pour l'aménagement urbain.",
+      "5 511 espèces — Niveau trophique (richesse du sol), pH, humidité édaphique. Tela Botanica.",
+    url: "https://www.tela-botanica.org/projets/phytosociologie",
+  },
+  {
+    titre: "Sésame13 (Cerema)",
+    description:
+      "241 espèces — Longévité, type racines, vitesse croissance, danger mécanique, allergènes.",
+    url: "https://sesame13.cerema.fr/",
+  },
+  {
+    titre: "ARB Arboclimat",
+    description:
+      "68 espèces — Stockage carbone, qualité air, pollinisation, biodiversité. Hauts-de-France.",
+    url: "https://www.arboclimat.org/",
+  },
+  {
+    titre: "Grenoble-Alpes Métropole",
+    description:
+      "162 espèces — Fruits salissants, écorce décorative, racines, adaptation climatique.",
+    url: "https://www.data.gouv.fr/datasets/20250327-test-cra",
   },
 ];
 

@@ -1,0 +1,474 @@
+{
+  "crataegus germanica": {
+    "famille": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "Rosaceae"
+    },
+    "sol_acidity": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "acide/neutre/calcaire"
+    },
+    "sol_moisture": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "frais"
+    },
+    "sol_texture": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "argilo-sableuse/argileuse/argilo-limoneuse/limoneuse"
+    },
+    "rusticite_min_C": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "-15"
+    },
+    "ombrage_fort": {
+      "source": "avec",
+      "source_label": "AVEC ADEME",
+      "url": "https://avec.ademe.fr/",
+      "value": "faible"
+    },
+    "floraison_remarquable": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "oui"
+    },
+    "hauteur_min_m": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "3.5"
+    },
+    "hauteur_max_m": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "7.0"
+    },
+    "envergure_min_m": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "3.5"
+    },
+    "envergure_max_m": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "7.0"
+    },
+    "port": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "arbuste"
+    },
+    "origine": {
+      "source": "wcvp",
+      "source_label": "WCVP (World Checklist of Vascular Plants)",
+      "url": "https://powo.science.kew.org/",
+      "value": "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux"
+    },
+    "stockage_carbone": {
+      "source": "avec",
+      "source_label": "AVEC ADEME",
+      "url": "https://avec.ademe.fr/",
+      "value": "faible"
+    }
+  },
+  "melica ciliata": {
+    "famille": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "Poaceae"
+    },
+    "sol_acidity": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "neutre/calcaire"
+    },
+    "sol_moisture": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "sec"
+    },
+    "rusticite_min_C": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "-15"
+    },
+    "frequence_taille": {
+      "source": "nc_extension",
+      "source_label": "NC Extension Gardener",
+      "url": "https://plants.ces.ncsu.edu/plants/melica-ciliata/",
+      "value": "moyenne"
+    },
+    "floraison_remarquable": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "oui"
+    },
+    "hauteur_min_m": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "0.5"
+    },
+    "hauteur_max_m": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "0.8"
+    },
+    "envergure_min_m": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "0.2"
+    },
+    "envergure_max_m": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "0.5"
+    },
+    "port": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "herbacée"
+    },
+    "origine": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "Indigène"
+    }
+  },
+  "magnolia stellata": {
+    "famille": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "Magnoliaceae"
+    },
+    "sol_acidity": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "très acide/acide/neutre"
+    },
+    "sol_moisture": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "humide/frais"
+    },
+    "sol_texture": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "argilo-sableuse/argileuse/argilo-limoneuse/limoneuse"
+    },
+    "rusticite_min_C": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "-15"
+    },
+    "cout_entretien": {
+      "source": "nc_extension",
+      "source_label": "NC Extension Gardener",
+      "url": "https://plants.ces.ncsu.edu/plants/magnolia-stellata/",
+      "value": "medium"
+    },
+    "frequence_taille": {
+      "source": "nc_extension",
+      "source_label": "NC Extension Gardener",
+      "url": "https://plants.ces.ncsu.edu/plants/magnolia-stellata/",
+      "value": "lente"
+    },
+    "floraison_remarquable": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "oui"
+    },
+    "hauteur_min_m": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "3.5"
+    },
+    "hauteur_max_m": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "7.0"
+    },
+    "envergure_min_m": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "3.5"
+    },
+    "envergure_max_m": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "7.0"
+    },
+    "port": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "arbuste"
+    },
+    "origine": {
+      "source": "wcvp",
+      "source_label": "WCVP (World Checklist of Vascular Plants)",
+      "url": "https://powo.science.kew.org/",
+      "value": "Vraiment exotique"
+    },
+    "stockage_carbone": {
+      "source": "avec",
+      "source_label": "AVEC ADEME",
+      "url": "https://avec.ademe.fr/",
+      "value": "faible"
+    }
+  },
+  "magnolia x soulangeana": {
+    "famille": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "Magnoliaceae"
+    },
+    "sol_acidity": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "très acide/acide/neutre"
+    },
+    "sol_moisture": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "frais"
+    },
+    "sol_texture": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "argilo-sableuse/argilo-limoneuse/limoneuse/limono-sableuse"
+    },
+    "resistance_vent": {
+      "source": "sesame13",
+      "source_label": "Sésame13 Cerema",
+      "url": "https://sesame13.cerema.fr/",
+      "value": "moyenne"
+    },
+    "rusticite_min_C": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "-14"
+    },
+    "racines_devastatrices": {
+      "source": "sesame13",
+      "source_label": "Sésame13 Cerema",
+      "url": "https://sesame13.cerema.fr/",
+      "value": "non"
+    },
+    "pollen_allergisant": {
+      "source": "sesame13",
+      "source_label": "Sésame13 Cerema",
+      "url": "https://sesame13.cerema.fr/",
+      "value": "fort"
+    },
+    "mellifere": {
+      "source": "sesame13",
+      "source_label": "Sésame13 Cerema",
+      "url": "https://sesame13.cerema.fr/",
+      "value": "oui"
+    },
+    "fruitiere_sauvage": {
+      "source": "sesame13",
+      "source_label": "Sésame13 Cerema",
+      "url": "https://sesame13.cerema.fr/",
+      "value": "oui"
+    },
+    "frequence_taille": {
+      "source": "nc_extension",
+      "source_label": "NC Extension Gardener",
+      "url": "https://plants.ces.ncsu.edu/plants/magnolia-x-soulangeana/",
+      "value": "moyenne"
+    },
+    "floraison_remarquable": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "oui"
+    },
+    "couleur_automnale": {
+      "source": "nc_extension",
+      "source_label": "NC Extension Gardener",
+      "url": "https://plants.ces.ncsu.edu/plants/magnolia-x-soulangeana/",
+      "value": "oui"
+    },
+    "hauteur_min_m": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "7.0"
+    },
+    "hauteur_max_m": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "10.0"
+    },
+    "envergure_min_m": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "3.5"
+    },
+    "envergure_max_m": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "7.0"
+    },
+    "type_racines": {
+      "source": "sesame13",
+      "source_label": "Sésame13 Cerema",
+      "url": "https://sesame13.cerema.fr/",
+      "value": "pivotant"
+    },
+    "port": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "arbre"
+    },
+    "resistance_secheresse": {
+      "source": "sesame13",
+      "source_label": "Sésame13 Cerema",
+      "url": "https://sesame13.cerema.fr/",
+      "value": "bonne"
+    },
+    "origine": {
+      "source": "wcvp",
+      "source_label": "WCVP (World Checklist of Vascular Plants)",
+      "url": "https://powo.science.kew.org/",
+      "value": "Vraiment exotique"
+    },
+    "longevite": {
+      "source": "sesame13",
+      "source_label": "Sésame13 Cerema",
+      "url": "https://sesame13.cerema.fr/",
+      "value": "longue"
+    },
+    "stockage_carbone": {
+      "source": "avec",
+      "source_label": "AVEC ADEME",
+      "url": "https://avec.ademe.fr/",
+      "value": "faible"
+    }
+  },
+  "melissa officinalis": {
+    "famille": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "Lamiaceae"
+    },
+    "sol_acidity": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "neutre/calcaire"
+    },
+    "sol_moisture": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "humide/frais"
+    },
+    "rusticite_min_C": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "-15"
+    },
+    "cout_entretien": {
+      "source": "nc_extension",
+      "source_label": "NC Extension Gardener",
+      "url": "https://plants.ces.ncsu.edu/plants/melissa-officinalis/",
+      "value": "low"
+    },
+    "frequence_taille": {
+      "source": "nc_extension",
+      "source_label": "NC Extension Gardener",
+      "url": "https://plants.ces.ncsu.edu/plants/melissa-officinalis/",
+      "value": "rapide"
+    },
+    "floraison_remarquable": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "oui"
+    },
+    "hauteur_min_m": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "0.5"
+    },
+    "hauteur_max_m": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "0.8"
+    },
+    "envergure_min_m": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "0.2"
+    },
+    "envergure_max_m": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "0.5"
+    },
+    "port": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "herbacée"
+    },
+    "origine": {
+      "source": "floriscope",
+      "source_label": "Floriscope",
+      "url": "https://www.floriscope.com/",
+      "value": "Indigène"
+    }
+  }
+}

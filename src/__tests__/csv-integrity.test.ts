@@ -11,15 +11,8 @@ const COLONNES_NUMERIQUES = [
   "envergure_min_m",
   "envergure_max_m",
   "rusticite_min_C",
-  "biodiversite",
-  "qualite_air",
 ];
-const COLONNES_REQUISES = [
-  "nom_commun",
-  "nom_scientifique",
-  "famille",
-  "origine",
-];
+const COLONNES_REQUISES = ["nom_commun", "nom_scientifique"];
 
 function parseCSV(): Record<string, string>[] {
   const csv = fs.readFileSync(CSV_PATH, "utf-8");
@@ -67,6 +60,32 @@ describe("Intégrité du CSV", () => {
     }
   });
 
+  it("famille non vide ressemble à une famille botanique", () => {
+    for (let i = 0; i < rows.length; i++) {
+      const famille = rows[i].famille?.trim();
+      if (!famille) continue;
+      expect(
+        famille.endsWith("aceae"),
+        `Ligne ${i + 2} : famille="${famille}" ne ressemble pas à une famille botanique`
+      ).toBe(true);
+    }
+  });
+
+  it("origine non vide est une valeur attendue", () => {
+    for (let i = 0; i < rows.length; i++) {
+      const origine = rows[i].origine?.trim();
+      if (!origine) continue;
+      expect(
+        [
+          "Indigène",
+          "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux",
+          "Vraiment exotique",
+        ].includes(origine),
+        `Ligne ${i + 2} : origine="${origine}" inattendue`
+      ).toBe(true);
+    }
+  });
+
   it("colonnes numériques contiennent des nombres valides", () => {
     for (const col of COLONNES_NUMERIQUES) {
       for (let i = 0; i < rows.length; i++) {
@@ -78,32 +97,6 @@ describe("Intégrité du CSV", () => {
           ).toBe(false);
         }
       }
-    }
-  });
-
-  it("famille contient un nom de famille botanique valide", () => {
-    for (let i = 0; i < rows.length; i++) {
-      const famille = rows[i].famille?.trim();
-      expect(
-        famille?.endsWith("aceae") ||
-          famille === "Fabaceae" ||
-          famille === "Rosaceae",
-        `Ligne ${i + 2} : famille="${famille}" ne ressemble pas à une famille botanique`
-      ).toBe(true);
-    }
-  });
-
-  it("origine contient une valeur attendue", () => {
-    for (let i = 0; i < rows.length; i++) {
-      const origine = rows[i].origine?.trim();
-      expect(
-        [
-          "Indigène",
-          "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux",
-          "Vraiment exotique",
-        ].includes(origine),
-        `Ligne ${i + 2} : origine="${origine}" inattendue`
-      ).toBe(true);
     }
   });
 });

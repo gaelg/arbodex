@@ -151,22 +151,22 @@ it("Filtre texture : rien coché = tous les résultats", () => {
   expect(applyFilter(arbre3, config, "")).toBe(true);
 });
 
-it("sol_depth : coché (profond) = tous les arbres", () => {
+it("sol_depth : slider profondeur de sol (cm)", () => {
   const config = getFilterByKey("sol_depth")!;
-  const arbreProfond = { sol_depth: "profond" } as any;
+  expect(config.type).toBe("slider");
+
+  const arbre60 = { sol_depth: "60" } as any;
+  const arbre150 = { sol_depth: "150" } as any;
   const arbreVide = { sol_depth: "" } as any;
 
-  expect(applyFilter(arbreProfond, config, "profond")).toBe(true);
-  expect(applyFilter(arbreVide, config, "profond")).toBe(true);
-});
+  // User sets soil depth to 80cm → species rooting >80cm are hidden
+  expect(applyFilter(arbre60, config, "80")).toBe(true); // 60 ≤ 80 → ok
+  expect(applyFilter(arbre150, config, "80")).toBe(false); // 150 > 80 → caché
+  expect(applyFilter(arbreVide, config, "80")).toBe(true); // pas de donnée → ok
 
-it("sol_depth : décoché (vide) = exclut les sols profonds", () => {
-  const config = getFilterByKey("sol_depth")!;
-  const arbreProfond = { sol_depth: "profond" } as any;
-  const arbreVide = { sol_depth: "" } as any;
-
-  expect(applyFilter(arbreProfond, config, "")).toBe(false);
-  expect(applyFilter(arbreVide, config, "")).toBe(true);
+  // No filter selected → all pass
+  expect(applyFilter(arbre60, config, "")).toBe(true);
+  expect(applyFilter(arbre150, config, "")).toBe(true);
 });
 
 it("Filtre texture : sablonneux coché = sablonneux + sans contrainte", () => {
