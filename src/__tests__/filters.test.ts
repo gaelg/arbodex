@@ -8,14 +8,16 @@ import {
   isFilterActive,
   FilterConfig,
   applyFilter,
+  applyAllFilters,
 } from "@/lib/filters";
 
 describe("Système de filtres encapsulé", () => {
   it("FILTERS contient tous les filtres essentiels", () => {
     const keys = FILTERS.map((f: FilterConfig) => f.key);
-    expect(keys).toContain("mellifere");
     expect(keys).toContain("branches_fragiles");
-    expect(keys).toContain("frequence_taille");
+    expect(keys).toContain("ph_sol");
+    expect(keys).toContain("floraison_remarquable");
+    expect(keys).toContain("strate");
   });
 
   it("Sections sont correctement définies", () => {
@@ -28,47 +30,38 @@ describe("Système de filtres encapsulé", () => {
     expect(sections).toContain("Contraintes du projet");
   });
 
-  it("getFilterByKey retourne la bonne config pour mellifere", () => {
-    const f = getFilterByKey("mellifere");
-    expect(f).toBeDefined();
-    expect(f?.type).toBe("exact");
-    expect(f?.section).toBe("Demandes particulières");
-    expect(f?.options).toContain("all");
-    expect(f?.optionLabels?.["oui"]).toBe("Oui");
-  });
-
   it("getFiltersBySection regroupe correctement", () => {
     const bySection = getFiltersBySection();
     expect(bySection["Climat"].length).toBeGreaterThan(0);
     expect(bySection["Climat"][0].section).toBe("Climat");
-    expect(bySection["Esthétique"].length).toBe(2);
+    expect(bySection["Esthétique"].length).toBe(1);
   });
 
   it("getDefaultFiltersState retourne un état vide", () => {
     const state = getDefaultFiltersState();
     expect(state.recherche).toBe("");
-    expect(state.mellifere).toBe("");
+    expect(state.branches_fragiles).toBe("");
     expect(state.hauteur_min).toBe("");
   });
 
   it("isFilterActive : multi avec toutes les options = inactif", () => {
-    const config = getFilterByKey("sol_acidity")!;
+    const config = getFilterByKey("ph_sol")!;
     expect(isFilterActive(config, "acid,neutral,alkaline")).toBe(false);
     expect(isFilterActive(config, "acid")).toBe(true);
     expect(isFilterActive(config, "")).toBe(false);
     expect(isFilterActive(config, "acid,neutral")).toBe(true);
   });
 
-  it("isFilterActive : relatif/exact avec valeur = actif", () => {
-    const config = getFilterByKey("mellifere")!;
-    expect(isFilterActive(config, "oui")).toBe(true);
+  it("isFilterActive : exact avec valeur = actif", () => {
+    const config = getFilterByKey("branches_fragiles")!;
+    expect(isFilterActive(config, "non")).toBe(true);
     expect(isFilterActive(config, "")).toBe(false);
   });
 
   it("Multi-filtres Sol : 'all' ne doit pas être dans l'état par défaut", () => {
     const state = getDefaultFiltersState();
-    expect(state.sol_acidity).toBe("acid,neutral,alkaline");
-    expect(state.sol_acidity.split(",")).not.toContain("all");
+    expect(state.ph_sol).toBe("acid,neutral,alkaline");
+    expect(state.ph_sol.split(",")).not.toContain("all");
   });
 
   it("Types de filtres sont valides", () => {
@@ -93,42 +86,6 @@ describe("Système de filtres encapsulé", () => {
     expect(order["faible"]).toBeLessThan(order["élevé"]);
   });
 
-  it("Filtres Services présents", () => {
-    const keys = FILTERS.map((f: FilterConfig) => f.key);
-    expect(keys).toContain("mellifere");
-    expect(keys).toContain("ombrage_fort");
-    expect(keys).toContain("rafraichissement_fort");
-  });
-
-  it("Filtre mellifere a les bonnes options", () => {
-    const f = getFilterByKey("mellifere");
-    expect(f).toBeDefined();
-    expect(f?.options).toContain("all");
-    expect(f?.options).toContain("oui");
-    expect(f?.options).not.toContain("yes");
-  });
-
-  it("Filtre mellifere est de type exact", () => {
-    const f = getFilterByKey("mellifere");
-    expect(f?.type).toBe("exact");
-    expect(f?.options).toContain("all");
-    expect(f?.optionLabels?.["oui"]).toBe("Oui");
-  });
-
-  it("Filtre ombrage_fort est de type exact", () => {
-    const f = getFilterByKey("ombrage_fort");
-    expect(f?.type).toBe("exact");
-    expect(f?.options).toContain("all");
-    expect(f?.optionLabels?.["oui"]).toBe("Oui");
-  });
-
-  it("Filtre rafraichissement_fort est de type exact", () => {
-    const f = getFilterByKey("rafraichissement_fort");
-    expect(f?.type).toBe("exact");
-    expect(f?.options).toContain("fort");
-    expect(f?.optionLabels?.["fort"]).toBe("Fort");
-  });
-
   it("Section Sol contient uniquement des filtres Sol", () => {
     const bySection = getFiltersBySection();
     const solFilters = bySection["Sols"] || [];
@@ -140,42 +97,41 @@ describe("Système de filtres encapsulé", () => {
 });
 
 it("Filtre texture : rien coché = tous les résultats", () => {
-  const config = getFilterByKey("sol_texture")!;
-  const arbre1 = { sol_texture: "sablonneux" } as any;
-  const arbre2 = { sol_texture: "" } as any;
-  const arbre3 = { sol_texture: "argileux" } as any;
+  const config = getFilterByKey("texture_sol")!;
+  const arbre1 = { texture_sol: "sablonneux" } as any;
+  const arbre2 = { texture_sol: "" } as any;
+  const arbre3 = { texture_sol: "argileux" } as any;
 
-  // Rien coché (valeur vide)
   expect(applyFilter(arbre1, config, "")).toBe(true);
   expect(applyFilter(arbre2, config, "")).toBe(true);
   expect(applyFilter(arbre3, config, "")).toBe(true);
 });
 
-it("sol_depth : slider profondeur de sol (cm)", () => {
-  const config = getFilterByKey("sol_depth")!;
-  expect(config.type).toBe("slider");
+it("BUG stepCount : hauteur_max=20 ne doit filtrer que les arbres avec hauteur_min > 20", () => {
+  const arbrePetit = { hauteur_min_m: 0.5, hauteur_max_m: 1 } as any;
+  const arbreGrand = { hauteur_min_m: 15, hauteur_max_m: 25 } as any;
+  const arbreTresGrand = { hauteur_min_m: 25, hauteur_max_m: 35 } as any;
+  const arbreVide = { hauteur_min_m: "", hauteur_max_m: "" } as any;
 
-  const arbre60 = { sol_depth: "60" } as any;
-  const arbre150 = { sol_depth: "150" } as any;
-  const arbreVide = { sol_depth: "" } as any;
+  // hauteur_max=20 : ne filtre que si hauteur_min > 20
+  const config = { key: "hauteur_max" } as any;
 
-  // User sets soil depth to 80cm → species rooting >80cm are hidden
-  expect(applyFilter(arbre60, config, "80")).toBe(true); // 60 ≤ 80 → ok
-  expect(applyFilter(arbre150, config, "80")).toBe(false); // 150 > 80 → caché
-  expect(applyFilter(arbreVide, config, "80")).toBe(true); // pas de donnée → ok
-
-  // No filter selected → all pass
-  expect(applyFilter(arbre60, config, "")).toBe(true);
-  expect(applyFilter(arbre150, config, "")).toBe(true);
+  // matchRange("", "20", 0.5, 1) → 0.5 > 20 ? non → true
+  expect(
+    applyAllFilters(
+      [arbrePetit, arbreGrand, arbreTresGrand, arbreVide],
+      { hauteur_min: "", hauteur_max: "20" } as any,
+      []
+    )
+  ).toHaveLength(3); // tous sauf arbreTresGrand (hauteur_min=25 > 20)
 });
 
 it("Filtre texture : sablonneux coché = sablonneux + sans contrainte", () => {
-  const config = getFilterByKey("sol_texture")!;
-  const arbreSablonneux = { sol_texture: "sablonneux" } as any;
-  const arbreSansContrainte = { sol_texture: "" } as any;
-  const arbreArgileux = { sol_texture: "argileux" } as any;
+  const config = getFilterByKey("texture_sol")!;
+  const arbreSablonneux = { texture_sol: "sablonneux" } as any;
+  const arbreSansContrainte = { texture_sol: "" } as any;
+  const arbreArgileux = { texture_sol: "argileux" } as any;
 
-  // "sandy" coché (machine name pour "Sablonneux")
   expect(applyFilter(arbreSablonneux, config, "sandy")).toBe(true);
   expect(applyFilter(arbreSansContrainte, config, "sandy")).toBe(true);
   expect(applyFilter(arbreArgileux, config, "sandy")).toBe(false);

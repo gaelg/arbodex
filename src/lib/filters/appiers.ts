@@ -3,14 +3,8 @@ import { Arbre, Filtres } from "../trees";
 
 // Échelles ordonnées pour les comparaisons (doivent correspondre à l'ideation)
 const ORDER: Record<string, Record<string, number>> = {
-  resistance_secheresse: { low: 1, medium: 2, good: 3, excellent: 4 },
-  resistance_vent: { Faible: 3, Moyenne: 4, Forte: 5, "3": 3, "4": 4, "5": 5 },
-  resistance_chaleur_urbaine: { low: 1, medium: 2, good: 3, excellent: 4 },
   pollen_allergisant: { low: 1, medium: 2 },
-  sensibilite_maladies: { low: 1, medium: 2 },
   cout_entretien: { low: 1, medium: 2 },
-  frequence_taille: { never: 1, occasional: 2 },
-  rafraichissement_fort: { medium: 2, strong: 3 },
 };
 
 // Normalisation accents pour recherche
@@ -69,7 +63,7 @@ function matchSearch(query: string, arbre: Arbre): boolean {
   return (
     normalize(arbre.nom_commun).includes(q) ||
     normalize(arbre.nom_scientifique).includes(q) ||
-    normalize(arbre.famille).includes(q)
+    normalize(arbre.famille_botanique).includes(q)
   );
 }
 
@@ -164,20 +158,14 @@ export function applyFilter(
     case "slider": {
       if (!value) return true;
 
-      // sol_depth : l'utilisateur indique la profondeur de son sol (cm).
-      // On cache les essences dont l'enracinement est plus profond que cette valeur.
-      if (config.key === "sol_depth") {
-        const seuil = Number(value);
-        if (isNaN(seuil)) return true;
-        if (!fieldValue && fieldValue !== 0) return true;
-        return Number(fieldValue) <= seuil;
-      }
-
       const seuil = config.order?.[value];
       if (seuil === undefined) return true;
 
-      // Pour rusticite_min_C (numérique) : tree <= seuil (plus négatif = + rustique)
-      if (config.key === "rusticite_min_C" && typeof fieldValue === "number") {
+      // Pour rusticite_celsius (numérique) : tree <= seuil (plus négatif = + rustique)
+      if (
+        config.key === "rusticite_celsius" &&
+        typeof fieldValue === "number"
+      ) {
         return fieldValue <= seuil;
       }
 
@@ -201,7 +189,9 @@ export function applyFilter(
       if (selected.length === 0) return true;
 
       // Pour les filtres sol, on utilise les nouvelles colonnes directement
-      if (config.key.startsWith("sol_")) {
+      if (
+        ["ph_sol", "humidite_sol", "texture_sol", "strate"].includes(config.key)
+      ) {
         const arbreValues = fieldValue ? fieldValue.split(",") : [];
 
         // Si arbre a une valeur vide (tous types), tout passe

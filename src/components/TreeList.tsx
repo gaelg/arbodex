@@ -21,15 +21,8 @@ const OPTION_LABELS: Record<string, string> = {
   local: "Local",
   presque_local: "Presque local",
   vraiment_exotique: "Vraiment exotique",
-  resistance_secheresse: "Résistance sécheresse",
-  resistance_vent: "Résistance vent",
-  resistance_chaleur_urbaine: "Chaleur urbaine",
-  adapte_changement_climatique: "Adapté changement climatique",
-  fruitiere_sauvage: "Fruits pour la faune",
-  fruits_salissants: "Fruits salissants",
+  resiste_changement_climatique: "Adapté changement climatique",
   pollen_allergisant: "Allergisants acceptables",
-  frequence_taille: "Fréquence de taille acceptable",
-  sensibilite_maladies: "Sensibilité aux maladies acceptable",
   cout_entretien: "Coût d'entretien acceptable",
 };
 
@@ -57,84 +50,224 @@ export function formatNumericLevel(val: number | string): string {
   return map[n] || String(n);
 }
 
+function formatOrigine(origine: string): string {
+  if (!origine) return "";
+  if (origine === "Indigène") return "Local";
+  if (origine === "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux")
+    return "Presque local";
+  if (origine === "Europe de l'Ouest") return "Europe de l'Ouest";
+  return origine;
+}
+
+function formatStrate(strate: string): string {
+  const labels: Record<string, string> = {
+    tree: "Arbre",
+    shrub: "Arbuste",
+    herbaceous: "Herbacée",
+    climbing: "Grimpant",
+    groundcover: "Couvre-sol",
+  };
+  return labels[strate] || strate || "";
+}
+
+function formatPH(val: string): string {
+  const labels: Record<string, string> = {
+    acid: "Acide",
+    neutral: "Neutre",
+    alkaline: "Calcaire",
+  };
+  return labels[val] || val || "Tous";
+}
+
+function formatHumidite(val: string): string {
+  const labels: Record<string, string> = {
+    dry: "Sec",
+    fresh: "Frais",
+    wet: "Humide",
+  };
+  return labels[val] || val || "Tous";
+}
+
+function formatTexture(val: string): string {
+  const labels: Record<string, string> = {
+    loamy: "Limoneux",
+    clay: "Argileux",
+    sandy: "Sablonneux",
+  };
+  return labels[val] || val || "Tous";
+}
+
+export interface FieldDef {
+  label: string;
+  value: string;
+  hasData: boolean;
+}
+
+export interface BadgeDef {
+  text: string;
+  color: string;
+}
+
+function qualiteCouleur(
+  valeur: string,
+  map: Record<string, string>
+): string | null {
+  return map[valeur] || null;
+}
+
+export function getNonQualiFields(arbre: Arbre): FieldDef[] {
+  return [
+    {
+      label: "Nom scientifique",
+      value: arbre.nom_scientifique,
+      hasData: !!arbre.nom_scientifique,
+    },
+    {
+      label: "Famille",
+      value: arbre.famille_botanique,
+      hasData: !!arbre.famille_botanique,
+    },
+    {
+      label: "Strate",
+      value: formatStrate(arbre.strate),
+      hasData: !!arbre.strate,
+    },
+    {
+      label: "Dimensions",
+      value: `${arbre.hauteur_min_m}–${arbre.hauteur_max_m}m H × ${arbre.envergure_min_m}–${arbre.envergure_max_m}m L`,
+      hasData: true,
+    },
+    {
+      label: "pH tolérés",
+      value: formatPH(arbre.ph_sol),
+      hasData: !!arbre.ph_sol,
+    },
+    {
+      label: "Humidité",
+      value: formatHumidite(arbre.humidite_sol),
+      hasData: !!arbre.humidite_sol,
+    },
+    {
+      label: "Texture",
+      value: formatTexture(arbre.texture_sol),
+      hasData: !!arbre.texture_sol,
+    },
+    {
+      label: "Rusticité",
+      value: arbre.rusticite_celsius ? `${arbre.rusticite_celsius}°C` : "",
+      hasData: !!arbre.rusticite_celsius,
+    },
+  ];
+}
+
+export function getBadgesForTree(arbre: Arbre): BadgeDef[] {
+  const badges: BadgeDef[] = [];
+
+  const pollenMap: Record<string, string> = {
+    faible: "bg-green-100 text-green-800",
+    moyen: "bg-orange-100 text-orange-800",
+    fort: "bg-red-100 text-red-800",
+  };
+  const pollenCouleur = qualiteCouleur(arbre.pollen_allergisant, pollenMap);
+  if (pollenCouleur) {
+    const label: Record<string, string> = {
+      faible: "Pollen peu allergisant",
+      moyen: "Pollen modérément allergisant",
+      fort: "Pollen très allergisant",
+    };
+    badges.push({
+      text: label[arbre.pollen_allergisant],
+      color: pollenCouleur,
+    });
+  }
+
+  const branchesMap: Record<string, string> = {
+    non: "bg-green-100 text-green-800",
+    oui: "bg-red-100 text-red-800",
+  };
+  const branchesCouleur = qualiteCouleur(arbre.branches_fragiles, branchesMap);
+  if (branchesCouleur) {
+    badges.push({
+      text:
+        arbre.branches_fragiles === "oui"
+          ? "Branches fragiles"
+          : "Branches solides",
+      color: branchesCouleur,
+    });
+  }
+
+  const racinesMap: Record<string, string> = {
+    non: "bg-green-100 text-green-800",
+    moyen: "bg-orange-100 text-orange-800",
+    oui: "bg-red-100 text-red-800",
+  };
+  const racinesCouleur = qualiteCouleur(
+    arbre.racines_problematiques,
+    racinesMap
+  );
+  if (racinesCouleur) {
+    const label: Record<string, string> = {
+      non: "Racines non-problématiques",
+      moyen: "Racines modérément problématiques",
+      oui: "Racines problématiques",
+    };
+    badges.push({
+      text: label[arbre.racines_problematiques],
+      color: racinesCouleur,
+    });
+  }
+
+  const coutMap: Record<string, string> = {
+    faible: "bg-green-100 text-green-800",
+    modéré: "bg-yellow-100 text-yellow-800",
+    élevé: "bg-red-100 text-red-800",
+  };
+  const coutCouleur = qualiteCouleur(arbre.cout_entretien, coutMap);
+  if (coutCouleur) {
+    const label: Record<string, string> = {
+      faible: "Coût faible",
+      modéré: "Coût modéré",
+      élevé: "Coût élevé",
+    };
+    badges.push({ text: label[arbre.cout_entretien], color: coutCouleur });
+  }
+
+  if (arbre.floraison_remarquable === "oui") {
+    badges.push({
+      text: "Floraison remarquable",
+      color: "bg-green-100 text-green-800",
+    });
+  }
+
+  if (arbre.resiste_changement_climatique === "oui") {
+    badges.push({
+      text: "Adapté au changement climatique",
+      color: "bg-green-100 text-green-800",
+    });
+  }
+
+  const origineMap: Record<string, string> = {
+    Indigène: "bg-green-100 text-green-800",
+    "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux":
+      "bg-orange-100 text-orange-800",
+    "Vraiment exotique": "bg-red-100 text-red-800",
+  };
+  const origineCouleur = qualiteCouleur(arbre.origine, origineMap);
+  if (origineCouleur) {
+    const label: Record<string, string> = {
+      Indigène: "Origine locale",
+      "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux":
+        "Origine presque locale",
+      "Vraiment exotique": "Origine exotique",
+    };
+    badges.push({ text: label[arbre.origine], color: origineCouleur });
+  }
+
+  return badges;
+}
+
 interface Props {
   arbres: Arbre[];
-}
-
-function EmojiBadge({
-  valeur,
-  map,
-  couleurs,
-  title,
-}: {
-  valeur: string;
-  map: Record<string, string>;
-  couleurs?: Record<string, string>;
-  title?: string;
-}) {
-  const emoji = map[valeur] || "";
-  const couleur = couleurs?.[valeur] || "text-green-600";
-  return (
-    <span className={`text-sm ${couleur}`} title={title}>
-      {emoji}
-    </span>
-  );
-}
-
-function getBadgeColor(key: string, valeur: string): string {
-  const v = valeur.toLowerCase();
-  const sémantique: Record<string, { positif: string[]; negatif: string[] }> = {
-    origine: {
-      positif: [
-        "indigène",
-        "indigène en europe de l'ouest mais pas en hdf/belux",
-      ],
-      negatif: ["vraiment exotique"],
-    },
-    mellifere: { positif: ["oui"], negatif: [] },
-    fruitiere_sauvage: { positif: ["oui"], negatif: [] },
-    refuge_oiseaux: { positif: ["oui"], negatif: [] },
-    floraison_remarquable: { positif: ["oui"], negatif: [] },
-    couleur_automnale: { positif: ["oui"], negatif: [] },
-    adapte_changement_climatique: { positif: ["oui"], negatif: [] },
-    ombrage_fort: { positif: ["oui"], negatif: [] },
-    rafraichissement_fort: { positif: ["oui"], negatif: [] },
-    resistance_secheresse: {
-      positif: ["bonne", "excellente"],
-      negatif: ["faible"],
-    },
-    cout_entretien: { positif: ["faible", "modéré"], negatif: ["élevé"] },
-    sensibilite_maladies: { positif: ["faible"], negatif: ["élevée"] },
-    frequence_taille: { positif: ["jamais"], negatif: ["régulière"] },
-    pollen_allergisant: { positif: [], negatif: ["fort"] },
-    fruits_salissants: { positif: [], negatif: ["oui"] },
-    branches_fragiles: { positif: [], negatif: ["oui"] },
-    racines_devastatrices: { positif: [], negatif: ["oui"] },
-  };
-  const config = sémantique[key];
-  if (!config) return "bg-gray-100 text-gray-500";
-  if (config.positif.includes(v)) return "bg-green-100 text-green-800";
-  if (config.negatif.includes(v)) return "bg-red-100 text-red-800";
-  return "bg-gray-100 text-gray-500";
-}
-
-function Badge({
-  texte,
-  couleur,
-  filterKey,
-  valeur,
-}: {
-  texte: string;
-  couleur?: string;
-  filterKey?: string;
-  valeur?: string;
-}) {
-  const base = "inline-block px-2 py-0.5 text-xs rounded-full";
-  const autoCouleur =
-    filterKey && valeur
-      ? getBadgeColor(filterKey, valeur)
-      : "bg-gray-100 text-gray-500";
-  return <span className={`${base} ${couleur || autoCouleur}`}>{texte}</span>;
 }
 
 function Barre({ niveau, label }: { niveau: number; label: string }) {
@@ -203,131 +336,105 @@ export default function ListeArbres({ arbres }: Props) {
                   {arbre.nom_scientifique}
                 </p>
               </div>
-              <div className="flex gap-2 text-xs">
-                <EmojiBadge
-                  valeur={arbre.pollen_allergisant}
-                  map={{ fort: "🤧", moyen: "😊", faible: "😌" }}
-                  couleurs={{
-                    fort: "text-red-600",
-                    moyen: "text-orange-500",
-                    faible: "text-green-600",
-                  }}
-                  title="Allergie : fort, moyen, faible"
+              <svg
+                className={`w-4 h-4 text-gray-500 transition-transform ${
+                  expanded === i ? "rotate-180" : ""
+                }`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
                 />
-                <span className="px-2 py-1 rounded-full bg-blue-100 text-blue-800">
-                  {arbre.hauteur_max_m}m
-                </span>
-                <svg
-                  className={`w-4 h-4 text-gray-500 transition-transform ${
-                    expanded === i ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </div>
+              </svg>
             </div>
             {expanded === i && (
-              <div className="mt-3 pt-3 border-t border-gray-100 text-sm text-gray-600">
-                <p>
-                  <span className="font-medium text-gray-700">Famille :</span>{" "}
-                  {arbre.famille}
-                </p>
-                <p>
-                  <span className="font-medium text-gray-700">Origine :</span>{" "}
-                  {arbre.origine === "Indigène"
-                    ? "Local"
-                    : arbre.origine ===
-                        "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux"
-                      ? "Presque local"
-                      : "Vraiment exotique"}
-                </p>
-                <p>
-                  <span className="font-medium text-gray-700">
-                    Dimensions :
-                  </span>{" "}
-                  {arbre.hauteur_min_m}–{arbre.hauteur_max_m}m H ×{" "}
-                  {arbre.envergure_min_m}–{arbre.envergure_max_m}m L
-                </p>
-                <p>
-                  <span className="font-medium text-gray-700">Port :</span>{" "}
-                  {arbre.port}
-                </p>
-                <p>
-                  <span className="font-medium text-gray-700">Sol :</span>{" "}
-                  {arbre.sol_acidity || "Tous"}
-                </p>
-                <p>
-                  <span className="font-medium text-gray-700">
-                    Sécheresse :
-                  </span>{" "}
-                  {arbre.resistance_secheresse}
-                </p>
-                <p>
-                  <span className="font-medium text-gray-700">Rusticité :</span>{" "}
-                  {arbre.rusticite_min_C}°C
-                </p>
-                <div className="flex flex-wrap gap-1 pt-1">
-                  <Badge
-                    texte="🐝 Mellifère"
-                    couleur={
-                      arbre.mellifere === "oui"
-                        ? "bg-green-100 text-green-800"
-                        : "bg-gray-100 text-gray-500"
-                    }
-                  />
-                  <Badge
-                    texte="🍇 Fruits pour la faune"
-                    couleur={
-                      arbre.fruitiere_sauvage === "oui"
-                        ? "bg-green-100 text-green-800"
-                        : "bg-gray-100 text-gray-500"
-                    }
-                  />
-                  <Badge
-                    texte="🌸 Floraison remarquable"
-                    couleur={
-                      arbre.floraison_remarquable === "oui"
-                        ? "bg-green-100 text-green-800"
-                        : "bg-gray-100 text-gray-500"
-                    }
-                  />
-                  <Badge
-                    texte="🍂 Couleur automnale"
-                    couleur={
-                      arbre.couleur_automnale === "oui"
-                        ? "bg-green-100 text-green-800"
-                        : "bg-gray-100 text-gray-500"
-                    }
-                  />
-                  <Badge
-                    texte="🌡️ Adapté climat futur"
-                    couleur={
-                      arbre.adapte_changement_climatique === "oui"
-                        ? "bg-green-100 text-green-800"
-                        : "bg-gray-100 text-gray-500"
-                    }
-                  />
-                </div>
-                <div className="pt-1 border-t border-gray-100 mt-2">
-                  <p className="text-xs text-gray-500">
-                    <span className="font-medium text-gray-700">Taille :</span>{" "}
-                    {formatOption(arbre.frequence_taille)} ·{" "}
-                    <span className="font-medium text-gray-700">
-                      Maladies :
-                    </span>{" "}
-                    {formatOption(arbre.sensibilite_maladies)} ·{" "}
-                    <span className="font-medium text-gray-700">Coût :</span>{" "}
-                    {formatOption(arbre.cout_entretien)}
-                  </p>
-                </div>
+              <div className="mt-3 pt-3 border-t border-gray-100 text-sm text-gray-600 space-y-1">
+                {getNonQualiFields(arbre)
+                  .filter((r) => r.hasData)
+                  .map((row) => (
+                    <p key={row.label}>
+                      <span className="font-medium text-gray-700">
+                        {row.label} :
+                      </span>{" "}
+                      {row.label === "Nom scientifique" ? (
+                        <span className="italic">{row.value}</span>
+                      ) : (
+                        row.value
+                      )}
+                    </p>
+                  ))}
+
+                {/* Badges qualitatifs : couleur selon la valeur */}
+                {getBadgesForTree(arbre).length > 0 && (
+                  <div className="flex flex-wrap gap-1 pt-1">
+                    {getBadgesForTree(arbre).map((b) => (
+                      <span
+                        key={b.text}
+                        className={`inline-block px-2 py-0.5 text-xs rounded-full ${b.color}`}
+                      >
+                        {b.text}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {/* Images */}
+                {[
+                  arbre.image_port,
+                  arbre.image_fleurs,
+                  arbre.image_fruits,
+                ].some(Boolean) && (
+                  <div className="grid grid-cols-3 gap-2 pt-2">
+                    {arbre.image_port && (
+                      <Image
+                        src={arbre.image_port}
+                        alt="Port"
+                        width={120}
+                        height={120}
+                        className="rounded object-cover w-full h-24"
+                      />
+                    )}
+                    {arbre.image_fleurs && (
+                      <Image
+                        src={arbre.image_fleurs}
+                        alt="Fleurs"
+                        width={120}
+                        height={120}
+                        className="rounded object-cover w-full h-24"
+                      />
+                    )}
+                    {arbre.image_fruits && (
+                      <Image
+                        src={arbre.image_fruits}
+                        alt="Fruits"
+                        width={120}
+                        height={120}
+                        className="rounded object-cover w-full h-24"
+                      />
+                    )}
+                  </div>
+                )}
+
+                {/* Données manquantes */}
+                {getNonQualiFields(arbre).filter((r) => !r.hasData).length >
+                  0 && (
+                  <div className="pt-2 mt-2 border-t border-gray-100">
+                    <p className="text-xs text-gray-400 font-medium">
+                      Données non renseignées :
+                    </p>
+                    <p className="text-xs text-gray-400">
+                      {getNonQualiFields(arbre)
+                        .filter((r) => !r.hasData)
+                        .map((r) => r.label)
+                        .join(", ")}
+                    </p>
+                  </div>
+                )}
               </div>
             )}
           </div>

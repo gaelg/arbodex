@@ -32,7 +32,7 @@ export default function Accueil() {
           "DEBUG: first tree fields",
           JSON.stringify({
             nom: donnees[0].nom_commun,
-            famille: donnees[0].famille,
+            famille: donnees[0].famille_botanique,
             origine: donnees[0].origine,
             hauteur: donnees[0].hauteur_max_m,
             type: typeof donnees[0].hauteur_max_m,

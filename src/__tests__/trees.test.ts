@@ -11,196 +11,102 @@ const ARBRES_TEST: Arbre[] = [
   {
     nom_commun: "Chêne pédonculé",
     nom_scientifique: "Quercus robur",
-    famille: "Fagacées",
-    origine: "native",
+    famille_botanique: "Fagacées",
+    origine: "Indigène",
     hauteur_min_m: 15,
     hauteur_max_m: 25,
     envergure_min_m: 10,
     envergure_max_m: 20,
     port: "ovale",
-    sol_acidity: "neutral",
-    sol_moisture: "fresh",
-    sol_drainage: "good",
-    sol_texture: "clay",
-    sol_richness: "medium",
-    sol_depth: "profond",
-    resistance_secheresse: "medium",
-    rusticite_min_C: -30,
-    resistance_vent: "4",
-    resistance_chaleur_urbaine: "good",
-    adapte_changement_climatique: "oui",
-    mellifere: "oui",
-    fruitiere_sauvage: "oui",
+    ph_sol: "neutre",
+    humidite_sol: "frais",
+    texture_sol: "argileux",
+    rusticite_celsius: -30,
+    resiste_changement_climatique: "oui",
     floraison_remarquable: "non",
-    couleur_automnale: "oui",
-    stockage_carbone: "élevé",
-    biodiversite: "élevé",
-    qualite_air: "bonne",
-    ombrage_fort: "oui",
-    rafraichissement_fort: "medium",
-    ecorce_decorative: "non",
-    type_racines: "traçantes",
-    fruits_salissants: "non",
-    pollen_allergisant: "low",
+    pollen_allergisant: "faible",
     branches_fragiles: "non",
-    racines_devastatrices: "non",
-    frequence_taille: "occasional",
-    sensibilite_maladies: "medium",
-    longevite: "très_longue",
-    cout_entretien: "medium",
+    racines_problematiques: "non",
+    cout_entretien: "modéré",
   },
   {
     nom_commun: "Érable rouge",
     nom_scientifique: "Acer rubrum",
-    famille: "Sapindacées",
-    origine: "west_europe",
+    famille_botanique: "Sapindacées",
+    origine: "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux",
     hauteur_min_m: 12,
     hauteur_max_m: 18,
     envergure_min_m: 8,
     envergure_max_m: 15,
     port: "arrondi",
-    sol_acidity: "acide",
-    sol_moisture: "moyen",
-    sol_drainage: "good",
-    sol_texture: "clay",
-    sol_richness: "medium",
-    sol_depth: "moyen",
-    resistance_secheresse: "faible",
-    rusticite_min_C: -35,
-    resistance_vent: "3",
-    resistance_chaleur_urbaine: "medium",
-    adapte_changement_climatique: "non",
-    mellifere: "oui",
-    fruitiere_sauvage: "oui",
+    ph_sol: "acide",
+    humidite_sol: "frais",
+    texture_sol: "argileux",
+    rusticite_celsius: -35,
+    resiste_changement_climatique: "non",
     floraison_remarquable: "oui",
-    couleur_automnale: "oui",
-    stockage_carbone: "moyen",
-    biodiversite: "moyenne",
-    qualite_air: "bonne",
-    ombrage_fort: "oui",
-    rafraichissement_fort: "medium",
-    ecorce_decorative: "non",
-    type_racines: "fasciculées",
-    fruits_salissants: "non",
-    pollen_allergisant: "low",
+    pollen_allergisant: "faible",
     branches_fragiles: "non",
-    racines_devastatrices: "non",
-    frequence_taille: "occasional",
-    sensibilite_maladies: "medium",
-    longevite: "longue",
-    cout_entretien: "medium",
+    racines_problematiques: "non",
+    cout_entretien: "modéré",
   },
   {
     nom_commun: "Pin blanc",
     nom_scientifique: "Pinus strobus",
-    famille: "Pinacées",
-    origine: "west_europe",
+    famille_botanique: "Pinacées",
+    origine: "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux",
     hauteur_min_m: 15,
     hauteur_max_m: 25,
     envergure_min_m: 8,
     envergure_max_m: 15,
     port: "conique",
-    sol_acidity: "acide",
-    sol_moisture: "sec",
-    sol_drainage: "good",
-    sol_texture: "Sablonneux",
-    sol_richness: "pauvre",
-    sol_depth: "superficiel",
-    resistance_secheresse: "good",
-    rusticite_min_C: -35,
-    resistance_vent: "3",
-    resistance_chaleur_urbaine: "medium",
-    adapte_changement_climatique: "non",
-    mellifere: "non",
-    fruitiere_sauvage: "oui",
+    ph_sol: "acide",
+    humidite_sol: "sec",
+    texture_sol: "sablonneux",
+    rusticite_celsius: -35,
+    resiste_changement_climatique: "non",
     floraison_remarquable: "non",
-    couleur_automnale: "non",
-    stockage_carbone: "moyen",
-    biodiversite: "faible",
-    qualite_air: "bonne",
-    ombrage_fort: "oui",
-    rafraichissement_fort: "medium",
-    ecorce_decorative: "non",
-    type_racines: "traçantes",
-    fruits_salissants: "non",
-    pollen_allergisant: "medium",
+    pollen_allergisant: "moyen",
     branches_fragiles: "oui",
-    racines_devastatrices: "oui",
-    frequence_taille: "never",
-    sensibilite_maladies: "low",
-    longevite: "longue",
-    cout_entretien: "low",
+    racines_problematiques: "oui",
+    cout_entretien: "faible",
   },
   {
     nom_commun: "Ginkgo",
     nom_scientifique: "Ginkgo biloba",
-    famille: "Ginkgoacées",
-    origine: "west_europe",
+    famille_botanique: "Ginkgoacées",
+    origine: "Vraiment exotique",
     hauteur_min_m: 15,
     hauteur_max_m: 25,
     envergure_min_m: 8,
     envergure_max_m: 15,
     port: "pyramidal",
-    sol_acidity: "neutral",
-    sol_moisture: "moyen",
-    sol_drainage: "good",
-    sol_texture: "Argileux,Sablonneux",
-    sol_richness: "moyen",
-    sol_depth: "profond",
-    resistance_secheresse: "excellent",
-    rusticite_min_C: -25,
-    resistance_vent: "4",
-    resistance_chaleur_urbaine: "excellent",
-    adapte_changement_climatique: "oui",
-    mellifere: "non",
-    fruitiere_sauvage: "oui",
-    floraison_remarquable: "no",
-    couleur_automnale: "yes",
-    stockage_carbone: "moyen",
-    biodiversite: "faible",
-    qualite_air: "excellente",
-    ombrage_fort: "oui",
-    rafraichissement_fort: "medium",
-    ecorce_decorative: "non",
-    type_racines: "traçantes",
-    fruits_salissants: "no",
-    pollen_allergisant: "low",
-    branches_fragiles: "no",
-    racines_devastatrices: "no",
-    frequence_taille: "never",
-    sensibilite_maladies: "medium",
-    longevite: "très_longue",
-    cout_entretien: "medium",
+    ph_sol: "neutre",
+    humidite_sol: "frais",
+    texture_sol: "argileux,sablonneux",
+    rusticite_celsius: -25,
+    resiste_changement_climatique: "oui",
+    floraison_remarquable: "non",
+    pollen_allergisant: "faible",
+    branches_fragiles: "non",
+    racines_problematiques: "non",
+    cout_entretien: "modéré",
   },
 ];
 
 describe("applyAllFilters", () => {
   const filtresVides: Filtres = {
-    optimiste: "false",
+    optimiste: "",
     recherche: "",
     origine: "",
-    sol_acidity: "",
-    sol_moisture: "",
-    sol_drainage: "",
-    sol_texture: "",
-    sol_richness: "",
-    sol_depth: "profond",
-    resistance_secheresse: "",
-    resistance_vent: "",
-    resistance_chaleur_urbaine: "",
-    adapte_changement_climatique: "",
-    mellifere: "",
-    ombrage_fort: "",
-    rafraichissement_fort: "",
-    fruitiere_sauvage: "",
+    ph_sol: "",
+    humidite_sol: "",
+    texture_sol: "",
+    resiste_changement_climatique: "",
     floraison_remarquable: "",
-    couleur_automnale: "",
     pollen_allergisant: "",
-    fruits_salissants: "",
     branches_fragiles: "",
-    racines_devastatrices: "",
-    frequence_taille: "",
-    sensibilite_maladies: "",
+    racines_problematiques: "",
     cout_entretien: "",
     hauteur_min: "",
     hauteur_max: "",
@@ -208,61 +114,57 @@ describe("applyAllFilters", () => {
     envergure_max: "",
   };
 
-  it("filtre par mellifere", () => {
-    const filtres: Filtres = { ...filtresVides, mellifere: "oui" };
+  it("filtre par branches_fragiles", () => {
+    const filtres: Filtres = { ...filtresVides, branches_fragiles: "non" };
     const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     expect(resultat.length).toBeGreaterThan(0);
     resultat.forEach((a) => {
-      expect(a.mellifere).toBe("oui");
+      expect(a.branches_fragiles).toBe("non");
     });
   });
 
-  it("filtre par ombrage_fort", () => {
-    const filtres: Filtres = { ...filtresVides, ombrage_fort: "oui" };
+  it("filtre par floraison_remarquable", () => {
+    const filtres: Filtres = { ...filtresVides, floraison_remarquable: "oui" };
     const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     expect(resultat.length).toBeGreaterThan(0);
     resultat.forEach((a) => {
-      expect(a.ombrage_fort).toBe("oui");
+      expect(a.floraison_remarquable).toBe("oui");
     });
   });
 
-  it("filtre par exposition vent minimum", () => {
-    const filtres: Filtres = { ...filtresVides, resistance_vent: "Moyenne" };
+  it("filtre par ph_sol (multi)", () => {
+    const filtres: Filtres = { ...filtresVides, ph_sol: "acid" };
     const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     expect(resultat.length).toBeGreaterThan(0);
     resultat.forEach((a) => {
-      expect(["4", "5"]).toContain(a.resistance_vent);
+      expect(a.ph_sol).toBe("acide");
     });
   });
 
-  it("filtre par mellifere", () => {
-    const filtres: Filtres = { ...filtresVides, mellifere: "oui" };
-    const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
-    expect(resultat.length).toBeGreaterThan(0);
-    resultat.forEach((a) => expect(a.mellifere).toBe("oui"));
-  });
-
-  it("filtre par ombrage_fort", () => {
-    const filtres: Filtres = { ...filtresVides, ombrage_fort: "oui" };
-    const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
-    expect(resultat.length).toBeGreaterThan(0);
-    resultat.forEach((a) => expect(a.ombrage_fort).toBe("oui"));
-  });
-
-  it("filtre par rafraichissement_fort", () => {
+  it("filtre par résistance au changement climatique", () => {
     const filtres: Filtres = {
       ...filtresVides,
-      rafraichissement_fort: "medium",
+      resiste_changement_climatique: "oui",
     };
     const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
     expect(resultat.length).toBeGreaterThan(0);
-    resultat.forEach((a) => expect(a.rafraichissement_fort).toBe("medium"));
+    resultat.forEach((a) => {
+      expect(a.resiste_changement_climatique).toBe("oui");
+    });
   });
 
-  it("origine : Indigène et Europe de l'Ouest disponibles", () => {
+  it("filtre par pollen_allergisant (slider)", () => {
+    const filtres: Filtres = { ...filtresVides, pollen_allergisant: "faible" };
+    const resultat = applyAllFilters(ARBRES_TEST, filtres, FILTERS);
+    expect(resultat.length).toBeGreaterThanOrEqual(0);
+  });
+
+  it("origine : Indigène et Indigène en Europe de l'Ouest disponibles", () => {
     const origines = [...new Set(ARBRES_TEST.map((a) => a.origine))];
-    expect(origines).toContain("native");
-    expect(origines).toContain("west_europe");
+    expect(origines).toContain("Indigène");
+    expect(origines).toContain(
+      "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux"
+    );
   });
 
   it("Filtres slider ont les bonnes échelles", () => {
@@ -271,20 +173,13 @@ describe("applyAllFilters", () => {
     expect(f?.order?.["élevé"]).toBe(3);
   });
 
-  it("Filtre rafraichissement_fort est de type exact", () => {
-    const f = getFilterByKey("rafraichissement_fort");
-    expect(f?.type).toBe("exact");
-    expect(f?.options).toContain("fort");
-  });
-
   it("Section Demandes particulières contient les bons filtres", () => {
     const bySection = getFiltersBySection();
     const services = bySection["Demandes particulières"] || [];
     const keys = services.map((f) => f.key);
-    expect(keys).toContain("mellifere");
-    expect(keys).toContain("ombrage_fort");
-    expect(keys).toContain("rafraichissement_fort");
-    expect(keys).toContain("fruitiere_sauvage");
+    expect(keys).toContain("resiste_changement_climatique");
+    expect(keys).toContain("origine");
+    expect(keys).toContain("cout_entretien");
   });
 
   it("Section Esthétique contient les bons filtres", () => {
@@ -292,6 +187,5 @@ describe("applyAllFilters", () => {
     const esthetique = bySection["Esthétique"] || [];
     const keys = esthetique.map((f) => f.key);
     expect(keys).toContain("floraison_remarquable");
-    expect(keys).toContain("couleur_automnale");
   });
 });

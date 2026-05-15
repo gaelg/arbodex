@@ -470,38 +470,25 @@ export default function FormulaireFiltres({
               {/* Hauteur - curseur double */}
               <DualRangeSlider
                 label="Hauteur (m)"
-                steps={[0, 5, 10, 15, 20, 30, 50]}
-                stepCounts={[0, 5, 10, 15, 20, 30, 50].map((s) => {
-                  const curMin = filtres.hauteur_min
-                    ? Number(filtres.hauteur_min)
-                    : 0;
-                  const curMax = filtres.hauteur_max
-                    ? Number(filtres.hauteur_max)
-                    : 50;
-                  if (s < curMin) {
-                    return applyAllFilters(
-                      arbres,
-                      { ...filtres, hauteur_min: String(s) } as any,
-                      FILTERS
-                    ).length;
-                  }
-                  if (s > curMax) {
-                    return applyAllFilters(
-                      arbres,
-                      { ...filtres, hauteur_max: String(s) } as any,
-                      FILTERS
-                    ).length;
-                  }
-                  return applyAllFilters(
-                    arbres,
-                    {
-                      ...filtres,
-                      hauteur_min: String(s),
-                      hauteur_max: String(s),
-                    } as any,
-                    FILTERS
-                  ).length;
-                })}
+                steps={[0, 0.2, 0.5, 1, 2, 3, 5, 10, 20, 50]}
+                stepCountsMin={computeStepCounts(
+                  [0, 0.2, 0.5, 1, 2, 3, 5, 10, 20, 50],
+                  "hauteur_min",
+                  "hauteur_max",
+                  filtres,
+                  arbres,
+                  currentCount,
+                  true
+                )}
+                stepCountsMax={computeStepCounts(
+                  [0, 0.2, 0.5, 1, 2, 3, 5, 10, 20, 50],
+                  "hauteur_min",
+                  "hauteur_max",
+                  filtres,
+                  arbres,
+                  currentCount,
+                  false
+                )}
                 currentCount={currentCount}
                 valueMin={filtres.hauteur_min}
                 valueMax={filtres.hauteur_max}
@@ -512,38 +499,25 @@ export default function FormulaireFiltres({
               {/* Envergure - curseur double */}
               <DualRangeSlider
                 label="Envergure (m)"
-                steps={[0, 5, 10, 15, 20, 30]}
-                stepCounts={[0, 5, 10, 15, 20, 30].map((s) => {
-                  const curMin = filtres.envergure_min
-                    ? Number(filtres.envergure_min)
-                    : 0;
-                  const curMax = filtres.envergure_max
-                    ? Number(filtres.envergure_max)
-                    : 30;
-                  if (s < curMin) {
-                    return applyAllFilters(
-                      arbres,
-                      { ...filtres, envergure_min: String(s) } as any,
-                      FILTERS
-                    ).length;
-                  }
-                  if (s > curMax) {
-                    return applyAllFilters(
-                      arbres,
-                      { ...filtres, envergure_max: String(s) } as any,
-                      FILTERS
-                    ).length;
-                  }
-                  return applyAllFilters(
-                    arbres,
-                    {
-                      ...filtres,
-                      envergure_min: String(s),
-                      envergure_max: String(s),
-                    } as any,
-                    FILTERS
-                  ).length;
-                })}
+                steps={[0, 0.2, 0.5, 1, 2, 3, 5, 10, 20, 30]}
+                stepCountsMin={computeStepCounts(
+                  [0, 0.2, 0.5, 1, 2, 3, 5, 10, 20, 30],
+                  "envergure_min",
+                  "envergure_max",
+                  filtres,
+                  arbres,
+                  currentCount,
+                  true
+                )}
+                stepCountsMax={computeStepCounts(
+                  [0, 0.2, 0.5, 1, 2, 3, 5, 10, 20, 30],
+                  "envergure_min",
+                  "envergure_max",
+                  filtres,
+                  arbres,
+                  currentCount,
+                  false
+                )}
                 currentCount={currentCount}
                 valueMin={filtres.envergure_min}
                 valueMax={filtres.envergure_max}
@@ -565,10 +539,44 @@ export default function FormulaireFiltres({
   );
 }
 
+function computeStepCounts(
+  steps: number[],
+  minKey: string,
+  maxKey: string,
+  filtres: Filtres,
+  arbres: Arbre[],
+  currentCount: number,
+  isMin: boolean
+): number[] {
+  const curMin = (filtres as any)[minKey]
+    ? Number((filtres as any)[minKey])
+    : steps[0];
+  const curMax = (filtres as any)[maxKey]
+    ? Number((filtres as any)[maxKey])
+    : steps[steps.length - 1];
+  return steps.map((s) => {
+    if (isMin) {
+      if (s <= curMin) return currentCount;
+      return applyAllFilters(
+        arbres,
+        { ...filtres, [minKey]: String(s), [maxKey]: "" } as any,
+        FILTERS
+      ).length;
+    }
+    if (s >= curMax) return currentCount;
+    return applyAllFilters(
+      arbres,
+      { ...filtres, [maxKey]: String(s), [minKey]: "" } as any,
+      FILTERS
+    ).length;
+  });
+}
+
 function DualRangeSlider({
   label,
   steps,
-  stepCounts,
+  stepCountsMin,
+  stepCountsMax,
   currentCount,
   valueMin,
   valueMax,
@@ -577,7 +585,8 @@ function DualRangeSlider({
 }: {
   label: string;
   steps: number[];
-  stepCounts?: number[];
+  stepCountsMin?: number[];
+  stepCountsMax?: number[];
   currentCount?: number;
   valueMin: string;
   valueMax: string;
@@ -702,24 +711,53 @@ function DualRangeSlider({
       <div className="flex justify-between px-0.5 mt-1">
         {steps.map((step, i) => {
           const active = isStepActive(i);
-          const delta =
-            currentCount && stepCounts ? stepCounts[i] - currentCount : 0;
+          const deltaMin =
+            currentCount && stepCountsMin
+              ? stepCountsMin[i] - currentCount
+              : null;
+          const deltaMax =
+            currentCount && stepCountsMax
+              ? stepCountsMax[i] - currentCount
+              : null;
           return (
             <div key={step} className="text-center">
+              {deltaMin !== null && (
+                <div
+                  className={`text-[9px] font-mono leading-tight ${
+                    deltaMin > 0
+                      ? "text-green-600"
+                      : deltaMin < 0
+                        ? "text-red-400"
+                        : "text-gray-400"
+                  }`}
+                >
+                  {deltaMin > 0
+                    ? `+${deltaMin}`
+                    : deltaMin < 0
+                      ? `${deltaMin}`
+                      : `${stepCountsMin![i]}`}
+                </div>
+              )}
               <span
                 className={`text-[10px] ${active ? "text-green-700 font-semibold" : "text-gray-400"}`}
               >
                 {step}
               </span>
-              {stepCounts && currentCount && stepCounts[i] > 0 && (
+              {deltaMax !== null && (
                 <div
-                  className={`text-[9px] font-mono ${delta > 0 ? "text-green-600" : delta < 0 ? "text-red-400" : "text-gray-400"}`}
+                  className={`text-[9px] font-mono leading-tight ${
+                    deltaMax > 0
+                      ? "text-green-600"
+                      : deltaMax < 0
+                        ? "text-red-400"
+                        : "text-gray-400"
+                  }`}
                 >
-                  {delta > 0
-                    ? `+${delta}`
-                    : delta < 0
-                      ? `${delta}`
-                      : `${stepCounts[i]}`}
+                  {deltaMax > 0
+                    ? `+${deltaMax}`
+                    : deltaMax < 0
+                      ? `${deltaMax}`
+                      : `${stepCountsMax![i]}`}
                 </div>
               )}
             </div>

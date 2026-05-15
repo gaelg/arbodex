@@ -1,6 +1,6 @@
 {
   "name": "arbodex",
-  "version": "111",
+  "version": "1.0-alpha1",
   "private": true,
   "scripts": {
     "dev": "next dev",

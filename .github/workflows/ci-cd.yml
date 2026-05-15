@@ -115,8 +115,8 @@ jobs:
 
       - name: Set NEXT_PUBLIC_VERSION
         run: |
-          COMMIT_COUNT=$(git rev-list --count HEAD)
-          echo "NEXT_PUBLIC_VERSION=$COMMIT_COUNT" >> $GITHUB_ENV
+          VERSION=$(node -e "console.log(require('./package.json').version)")
+          echo "NEXT_PUBLIC_VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Build with Vercel
         run: npx vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
