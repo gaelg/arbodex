@@ -1,0 +1,4 @@
+*.provenance.json
+data/trees_enriched.csv
+public/trees.csv
+.next/
