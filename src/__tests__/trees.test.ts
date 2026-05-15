@@ -11,6 +11,7 @@ const ARBRES_TEST: Arbre[] = [
   {
     nom_commun: "Chêne pédonculé",
     nom_scientifique: "Quercus robur",
+    cultivar: "",
     famille_botanique: "Fagacées",
     origine: "Indigène",
     hauteur_min_m: 15,
@@ -32,6 +33,7 @@ const ARBRES_TEST: Arbre[] = [
   {
     nom_commun: "Érable rouge",
     nom_scientifique: "Acer rubrum",
+    cultivar: "",
     famille_botanique: "Sapindacées",
     origine: "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux",
     hauteur_min_m: 12,
@@ -53,6 +55,7 @@ const ARBRES_TEST: Arbre[] = [
   {
     nom_commun: "Pin blanc",
     nom_scientifique: "Pinus strobus",
+    cultivar: "",
     famille_botanique: "Pinacées",
     origine: "Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux",
     hauteur_min_m: 15,
@@ -74,6 +77,7 @@ const ARBRES_TEST: Arbre[] = [
   {
     nom_commun: "Ginkgo",
     nom_scientifique: "Ginkgo biloba",
+    cultivar: "",
     famille_botanique: "Ginkgoacées",
     origine: "Vraiment exotique",
     hauteur_min_m: 15,

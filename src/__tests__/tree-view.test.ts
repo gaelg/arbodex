@@ -5,6 +5,7 @@ import { Arbre } from "@/lib/trees";
 const BASE: Arbre = {
   nom_commun: "Test",
   nom_scientifique: "Testus testus",
+  cultivar: "",
   famille_botanique: "Testaceae",
   origine: "Indigène",
   hauteur_min_m: 5,

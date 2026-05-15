@@ -12,7 +12,7 @@ import {
 import type { Arbre } from "@/lib/trees";
 
 const CSV_PATH = path.resolve(__dirname, "../../public/trees.csv");
-const NB_COLONNES = 19;
+const NB_COLONNES = 20;
 const COLONNES_NUMERIQUES = [
   "hauteur_min_m",
   "hauteur_max_m",

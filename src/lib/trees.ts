@@ -1,6 +1,7 @@
 export interface Arbre {
   nom_commun: string;
   nom_scientifique: string;
+  cultivar: string;
   famille_botanique: string;
   origine: string;
   hauteur_min_m: number;
