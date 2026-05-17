@@ -125,6 +125,22 @@ function qualiteCouleur(
   return map[valeur] || null;
 }
 
+export function getMissingBadgeFields(arbre: Arbre): string[] {
+  const labels: string[] = [];
+  if (!arbre.origine) labels.push("Origine");
+  if (!arbre.pollen_allergisant) labels.push("Pollen allergisant");
+  if (!arbre.cout_entretien) labels.push("Coût d'entretien");
+  if (!arbre.branches_fragiles) labels.push("Branches fragiles");
+  if (!arbre.racines_problematiques) labels.push("Racines problématiques");
+  if (!arbre.floraison_remarquable) labels.push("Floraison remarquable");
+  if (!arbre.resiste_changement_climatique)
+    labels.push("Résistance changement climatique");
+  if (!arbre.envergure_min_m && !arbre.envergure_max_m)
+    labels.push("Envergure");
+  if (!arbre.cout_entretien) labels.push("Coût d'entretien");
+  return labels;
+}
+
 export function getNonQualiFields(arbre: Arbre): FieldDef[] {
   return [
     {
@@ -146,8 +162,20 @@ export function getNonQualiFields(arbre: Arbre): FieldDef[] {
     },
     {
       label: "Dimensions",
-      value: `${arbre.hauteur_min_m}–${arbre.hauteur_max_m}m H × ${arbre.envergure_min_m}–${arbre.envergure_max_m}m L`,
-      hasData: true,
+      value: (() => {
+        const parts: string[] = [];
+        if (arbre.hauteur_min_m || arbre.hauteur_max_m)
+          parts.push(`${arbre.hauteur_min_m}–${arbre.hauteur_max_m}m H`);
+        if (arbre.envergure_min_m || arbre.envergure_max_m)
+          parts.push(`${arbre.envergure_min_m}–${arbre.envergure_max_m}m L`);
+        return parts.join(" × ");
+      })(),
+      hasData: !!(
+        arbre.hauteur_min_m ||
+        arbre.hauteur_max_m ||
+        arbre.envergure_min_m ||
+        arbre.envergure_max_m
+      ),
       fieldKey: "hauteur_max_m",
     },
     {
@@ -470,17 +498,20 @@ export default function ListeArbres({ arbres, provenance }: Props) {
                 )}
 
                 {/* Données manquantes */}
-                {getNonQualiFields(arbre).filter((r) => !r.hasData).length >
-                  0 && (
+                {(getNonQualiFields(arbre).filter((r) => !r.hasData).length >
+                  0 ||
+                  getMissingBadgeFields(arbre).length > 0) && (
                   <div className="pt-2 mt-2 border-t border-gray-100">
                     <p className="text-xs text-gray-400 font-medium">
                       Données non renseignées :
                     </p>
                     <p className="text-xs text-gray-400">
-                      {getNonQualiFields(arbre)
-                        .filter((r) => !r.hasData)
-                        .map((r) => r.label)
-                        .join(", ")}
+                      {[
+                        ...getNonQualiFields(arbre)
+                          .filter((r) => !r.hasData)
+                          .map((r) => r.label),
+                        ...getMissingBadgeFields(arbre),
+                      ].join(", ")}
                     </p>
                   </div>
                 )}
