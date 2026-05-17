@@ -7,7 +7,6 @@ import { applyAllFilters, FILTERS, getFilterByKey } from "@/lib/filters";
 const ARBRE_AVEC_BARRES: Arbre = {
   nom_commun: "Chêne test",
   nom_scientifique: "Quercus test",
-  cultivar: "",
   famille_botanique: "Fagaceae",
   origine: "Indigène",
   hauteur_min_m: 15,

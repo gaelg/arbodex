@@ -28,12 +28,6 @@ function Source({ titre, description, url }: SourceProps) {
 
 const SOURCES: SourceProps[] = [
   {
-    titre: "Floriscope",
-    description:
-      "2 501 espèces — Base principale : sol (pH, humidité, texture), rusticité, dimensions, port. Flore des Hauts-de-France.",
-    url: "https://www.floriscope.com/",
-  },
-  {
     titre: "WCVP (Kew)",
     description:
       "2 249 espèces — Aire de répartition native (origine). Référence botanique mondiale.",
@@ -50,12 +44,6 @@ const SOURCES: SourceProps[] = [
     description:
       "700 espèces — Tolérances édaphiques (drainage, richesse), résistance au vent, origine.",
     url: "https://pfaf.org/",
-  },
-  {
-    titre: "NC Extension Gardener",
-    description:
-      "676 espèces — Coût d'entretien, fréquence de taille, écorce décorative, sensibilité maladies.",
-    url: "https://plants.ces.ncsu.edu/",
   },
   {
     titre: "Baseflor / CATMINAT",
