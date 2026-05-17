@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Arbre } from "@/lib/trees";
+import { Arbre, normalizeScientifique } from "@/lib/trees";
+import type { ProvenanceMap } from "@/lib/provenance";
+import ProvenanceTooltip from "@/components/ProvenanceTooltip";
 
 const OPTION_LABELS: Record<string, string> = {
   faible: "Faible",
@@ -101,11 +103,19 @@ export interface FieldDef {
   label: string;
   value: string;
   hasData: boolean;
+  fieldKey?: string;
 }
 
 export interface BadgeDef {
   text: string;
   color: string;
+  fieldKey?: string;
+}
+
+export interface BadgeEntry {
+  text: string;
+  color: string;
+  fieldKey: string;
 }
 
 function qualiteCouleur(
@@ -126,42 +136,49 @@ export function getNonQualiFields(arbre: Arbre): FieldDef[] {
       label: "Famille",
       value: arbre.famille_botanique,
       hasData: !!arbre.famille_botanique,
+      fieldKey: "famille_botanique",
     },
     {
       label: "Strate",
       value: formatStrate(arbre.strate),
       hasData: !!arbre.strate,
+      fieldKey: "strate",
     },
     {
       label: "Dimensions",
       value: `${arbre.hauteur_min_m}–${arbre.hauteur_max_m}m H × ${arbre.envergure_min_m}–${arbre.envergure_max_m}m L`,
       hasData: true,
+      fieldKey: "hauteur_max_m",
     },
     {
       label: "pH tolérés",
       value: formatPH(arbre.ph_sol),
       hasData: !!arbre.ph_sol,
+      fieldKey: "ph_sol",
     },
     {
       label: "Humidité",
       value: formatHumidite(arbre.humidite_sol),
       hasData: !!arbre.humidite_sol,
+      fieldKey: "humidite_sol",
     },
     {
       label: "Texture",
       value: formatTexture(arbre.texture_sol),
       hasData: !!arbre.texture_sol,
+      fieldKey: "texture_sol",
     },
     {
       label: "Rusticité",
       value: arbre.rusticite_celsius ? `${arbre.rusticite_celsius}°C` : "",
       hasData: !!arbre.rusticite_celsius,
+      fieldKey: "rusticite_celsius",
     },
   ];
 }
 
-export function getBadgesForTree(arbre: Arbre): BadgeDef[] {
-  const badges: BadgeDef[] = [];
+export function getBadgesForTree(arbre: Arbre): BadgeEntry[] {
+  const badges: BadgeEntry[] = [];
 
   const pollenMap: Record<string, string> = {
     faible: "bg-green-100 text-green-800",
@@ -178,6 +195,7 @@ export function getBadgesForTree(arbre: Arbre): BadgeDef[] {
     badges.push({
       text: label[arbre.pollen_allergisant],
       color: pollenCouleur,
+      fieldKey: "pollen_allergisant",
     });
   }
 
@@ -193,6 +211,7 @@ export function getBadgesForTree(arbre: Arbre): BadgeDef[] {
           ? "Branches fragiles"
           : "Branches solides",
       color: branchesCouleur,
+      fieldKey: "branches_fragiles",
     });
   }
 
@@ -214,6 +233,7 @@ export function getBadgesForTree(arbre: Arbre): BadgeDef[] {
     badges.push({
       text: label[arbre.racines_problematiques],
       color: racinesCouleur,
+      fieldKey: "racines_problematiques",
     });
   }
 
@@ -229,13 +249,18 @@ export function getBadgesForTree(arbre: Arbre): BadgeDef[] {
       modéré: "Coût modéré",
       élevé: "Coût élevé",
     };
-    badges.push({ text: label[arbre.cout_entretien], color: coutCouleur });
+    badges.push({
+      text: label[arbre.cout_entretien],
+      color: coutCouleur,
+      fieldKey: "cout_entretien",
+    });
   }
 
   if (arbre.floraison_remarquable === "oui") {
     badges.push({
       text: "Floraison remarquable",
       color: "bg-green-100 text-green-800",
+      fieldKey: "floraison_remarquable",
     });
   }
 
@@ -243,6 +268,7 @@ export function getBadgesForTree(arbre: Arbre): BadgeDef[] {
     badges.push({
       text: "Adapté au changement climatique",
       color: "bg-green-100 text-green-800",
+      fieldKey: "resiste_changement_climatique",
     });
   }
 
@@ -260,7 +286,11 @@ export function getBadgesForTree(arbre: Arbre): BadgeDef[] {
         "Origine presque locale",
       "Vraiment exotique": "Origine exotique",
     };
-    badges.push({ text: label[arbre.origine], color: origineCouleur });
+    badges.push({
+      text: label[arbre.origine],
+      color: origineCouleur,
+      fieldKey: "origine",
+    });
   }
 
   return badges;
@@ -268,6 +298,7 @@ export function getBadgesForTree(arbre: Arbre): BadgeDef[] {
 
 interface Props {
   arbres: Arbre[];
+  provenance?: ProvenanceMap;
 }
 
 function Barre({ niveau, label }: { niveau: number; label: string }) {
@@ -290,11 +321,17 @@ function Barre({ niveau, label }: { niveau: number; label: string }) {
   );
 }
 
-export default function ListeArbres({ arbres }: Props) {
+export default function ListeArbres({ arbres, provenance }: Props) {
   const [expanded, setExpanded] = useState<number | null>(null);
 
   const toggleExpand = (i: number) => {
     setExpanded(expanded === i ? null : i);
+  };
+
+  const getProv = (arbre: Arbre, fieldKey: string) => {
+    if (!provenance) return undefined;
+    const norm = normalizeScientifique(arbre.nom_scientifique);
+    return provenance[norm]?.[fieldKey];
   };
 
   if (arbres.length === 0) {
@@ -364,7 +401,15 @@ export default function ListeArbres({ arbres }: Props) {
                       {row.label === "Nom scientifique" ? (
                         <span className="italic">{row.value}</span>
                       ) : (
-                        row.value
+                        <ProvenanceTooltip
+                          provenance={
+                            row.fieldKey
+                              ? getProv(arbre, row.fieldKey)
+                              : undefined
+                          }
+                        >
+                          <span>{row.value}</span>
+                        </ProvenanceTooltip>
                       )}
                     </p>
                   ))}
@@ -373,12 +418,16 @@ export default function ListeArbres({ arbres }: Props) {
                 {getBadgesForTree(arbre).length > 0 && (
                   <div className="flex flex-wrap gap-1 pt-1">
                     {getBadgesForTree(arbre).map((b) => (
-                      <span
+                      <ProvenanceTooltip
                         key={b.text}
-                        className={`inline-block px-2 py-0.5 text-xs rounded-full ${b.color}`}
+                        provenance={getProv(arbre, b.fieldKey)}
                       >
-                        {b.text}
-                      </span>
+                        <span
+                          className={`inline-block px-2 py-0.5 text-xs rounded-full ${b.color}`}
+                        >
+                          {b.text}
+                        </span>
+                      </ProvenanceTooltip>
                     ))}
                   </div>
                 )}

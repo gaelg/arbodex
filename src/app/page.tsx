@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { Arbre, Filtres, chargerArbres } from "@/lib/trees";
+import { chargerProvenance } from "@/lib/provenance";
+import type { ProvenanceMap } from "@/lib/provenance";
 import {
   applyAllFilters,
   FILTERS,
@@ -10,10 +12,10 @@ import {
 import FormulaireFiltres from "@/components/FilterForm";
 import ListeArbres from "@/components/TreeList";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 
 export default function Accueil() {
   const [arbres, setArbres] = useState<Arbre[]>([]);
+  const [provenance, setProvenance] = useState<ProvenanceMap | null>(null);
   const [chargement, setChargement] = useState(true);
   const [filtres, setFiltres] = useState<Filtres>(
     getDefaultFiltersState() as unknown as Filtres
@@ -24,24 +26,13 @@ export default function Accueil() {
   const [installed, setInstalled] = useState(false);
 
   useEffect(() => {
-    chargerArbres().then((donnees) => {
-      console.log("DEBUG: loaded", donnees.length, "trees");
-      if (donnees.length > 0) {
-        console.log("DEBUG: first tree", donnees[0].nom_commun);
-        console.log(
-          "DEBUG: first tree fields",
-          JSON.stringify({
-            nom: donnees[0].nom_commun,
-            famille: donnees[0].famille_botanique,
-            origine: donnees[0].origine,
-            hauteur: donnees[0].hauteur_max_m,
-            type: typeof donnees[0].hauteur_max_m,
-          })
-        );
+    Promise.all([chargerArbres(), chargerProvenance()]).then(
+      ([donnees, prov]) => {
+        setArbres(donnees);
+        setProvenance(prov);
+        setChargement(false);
       }
-      setArbres(donnees);
-      setChargement(false);
-    });
+    );
   }, []);
 
   useEffect(() => {
@@ -115,7 +106,10 @@ export default function Accueil() {
             />
           </div>
           <div className="mb-6" id="liste-arbres">
-            <ListeArbres arbres={filtres_appliques} />
+            <ListeArbres
+              arbres={filtres_appliques}
+              provenance={provenance ?? undefined}
+            />
           </div>
         </>
       )}
@@ -131,7 +125,14 @@ export default function Accueil() {
           </button>
         )}
 
-      <Footer />
+      <footer className="mt-16 pt-8 border-t border-gray-200 text-center">
+        <a
+          href="/mentions-legales"
+          className="text-xs text-gray-400 hover:text-green-700 underline"
+        >
+          Mentions légales
+        </a>
+      </footer>
     </div>
   );
 }

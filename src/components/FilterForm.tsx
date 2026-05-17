@@ -116,6 +116,19 @@ export default function FormulaireFiltres({
   }
 
   const currentCount = applyAllFilters(arbres, filtres as any, FILTERS).length;
+  const countAvecOptimiste = applyAllFilters(
+    arbres,
+    { ...filtres, optimiste: "oui" } as any,
+    FILTERS
+  ).length;
+  const countSansOptimiste = applyAllFilters(
+    arbres,
+    { ...filtres, optimiste: "" } as any,
+    FILTERS
+  ).length;
+  const deltaToggle = filtres.optimiste
+    ? countSansOptimiste - currentCount
+    : countAvecOptimiste - currentCount;
 
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
@@ -137,8 +150,17 @@ export default function FormulaireFiltres({
         />
       </div>
 
-      {/* Mode optimiste */}
-      <div className="mb-4 flex items-center gap-2">
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-lg font-semibold text-green-800">Mon projet</h2>
+        <button
+          onClick={replierTout}
+          className="text-xs text-green-700 hover:text-green-900 font-medium"
+        >
+          Replier tout
+        </button>
+      </div>
+
+      <div className="mb-4 flex items-center gap-2 pl-0.5">
         <input
           id="optimiste"
           type="checkbox"
@@ -150,23 +172,18 @@ export default function FormulaireFiltres({
         />
         <label
           htmlFor="optimiste"
-          className="text-sm text-gray-600 cursor-pointer"
+          className="text-sm text-gray-600 cursor-pointer flex items-center gap-1.5"
         >
-          Mode optimiste{" "}
-          <span className="text-xs text-gray-400">
-            (si donnée manquante, on garde le résultat)
-          </span>
+          Mode optimiste
+          {deltaToggle !== 0 && (
+            <span
+              className={`text-xs font-medium ${deltaToggle > 0 ? "text-green-600" : "text-red-600"}`}
+            >
+              {deltaToggle > 0 ? "+" : ""}
+              {deltaToggle}
+            </span>
+          )}
         </label>
-      </div>
-
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-lg font-semibold text-green-800">Mon projet</h2>
-        <button
-          onClick={replierTout}
-          className="text-xs text-green-700 hover:text-green-900 font-medium"
-        >
-          Replier tout
-        </button>
       </div>
 
       <div className="space-y-2">

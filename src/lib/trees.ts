@@ -79,6 +79,36 @@ function parseCSV(csv: string): Record<string, unknown>[] {
   return data;
 }
 
+export function normalizeScientifique(nom: string): string {
+  const s = nom
+    .toLowerCase()
+    .replace(/\(.*?\)/g, "")
+    .replace(/'[^']*'/g, "")
+    .replace(/"/g, "")
+    .replace(/\u00d7/g, "x")
+    .replace(/^\+/, "")
+    .trim();
+  const parts = s.split(/\s+/).filter((p) => p);
+  const kept: string[] = [];
+  for (let i = 0; i < parts.length; i++) {
+    const p = parts[i].replace(/[.,;:!?]/g, "");
+    if (p === "x") {
+      if (kept.length > 0) kept.push("x");
+      continue;
+    }
+    kept.push(p);
+    if (kept.length >= 2) {
+      if (
+        i + 1 < parts.length &&
+        parts[i + 1].replace(/[.,;:!?]/g, "").toLowerCase() === "x"
+      )
+        continue;
+      break;
+    }
+  }
+  return kept.join(" ");
+}
+
 export async function chargerArbres(): Promise<Arbre[]> {
   const res = await fetch("/trees.csv");
   const csv = await res.text();
