@@ -175,7 +175,12 @@ export function applyFilter(
       }
 
       const valArbre = config.order?.[String(sliderVal)];
-      if (valArbre === undefined) return String(fieldValue) === value;
+      if (valArbre === undefined) {
+        // Valeur vide : ne filtrer que si le seuil n'est pas le plus permissif
+        const maxOrder = Math.max(...Object.values(config.order || {}));
+        if (seuil >= maxOrder) return true;
+        return String(fieldValue) === value;
+      }
 
       // invertDir : intervalle avec borne supérieure (val <= seuil)
       if (config.invertDir) return valArbre <= seuil;

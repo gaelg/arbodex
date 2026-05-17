@@ -786,9 +786,11 @@ function SingleSlider({
   const opts = config.options || [];
   const firstOpt = opts[0];
   const optionData = opts.map((opt) => {
+    // 1ère option = pas de filtre (cf. commitValue → "")
+    const filterVal = opt === firstOpt ? "" : opt;
     const toggleCount = applyAllFilters(
       arbres,
-      { ...filtres, [config.key]: opt } as any,
+      { ...filtres, [config.key]: filterVal } as any,
       FILTERS
     ).length;
     return {
