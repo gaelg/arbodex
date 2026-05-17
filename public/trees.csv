@@ -4,23 +4,23 @@ Abélia d'Engler;Abelia macrotera var. engleriana;Caprifoliaceae;acide,neutre;fr
 Abelia à grandes fleurs;Abelia x grandiflora;Caprifoliaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-15;non;non;;faible;faible;oui;2.0;3.5;1.6;1.6;arbuste;Vraiment exotique
 Forsythia de Corée;Abeliophyllum distichum;Oleaceae;neutre;frais;argileux,limoneux;-15;;non;;faible;faible;oui;1.6;1.6;1.6;1.6;arbuste;Vraiment exotique
 Sapin argenté;Abies alba;Pinaceae;neutre;humide,frais;argileux,limoneux,sablonneux;-25;non;;non;faible;;non;20.0;20.0;3.5;7.0;arbre;Indigène
-Sapin baumier Nana;Abies balsamea 'Nana';Pinaceae;acide,neutre,calcaire;humide,frais;limoneux;-15;;;non;faible;;oui;0.8;0.8;1.2;1.2;arbuste;Vraiment exotique
+Sapin baumier Nana;Abies balsamea 'Nana';Pinaceae;acide,neutre,calcaire;humide,frais;limoneux;-15;;;oui;faible;;oui;0.8;0.8;1.2;1.2;arbuste;Vraiment exotique
 Sapin de Céphalonie;Abies cephalonica J.W.Loudon;Pinaceae;calcaire;frais;limoneux;;;;non;faible;;oui;0;40.0;;;arbre;
 Sapin de Cilicie;Abies cilicica;Pinaceae;;;;;;;oui;faible;;;;;;;;
-Sapin du Colorado;Abies concolor;Pinaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-35;non;non;non;faible;faible;non;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
+Sapin du Colorado;Abies concolor;Pinaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-35;non;non;oui;faible;faible;non;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
 Sapin de Fraser;Abies fraseri;Pinaceae;;;;;;;non;faible;;;;;;;;
-Sapin de Vancouver;Abies grandis;Pinaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-25;;;non;faible;;oui;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
-Sapin de Nikko;Abies homolepis;Pinaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-30;;;;faible;;;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
+Sapin de Vancouver;Abies grandis;Pinaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-25;;;oui;faible;;oui;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
+Sapin de Nikko;Abies homolepis;Pinaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-30;;;non;faible;;;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
 Sapin de Corée;Abies koreana;Pinaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;non;;non;faible;;non;7.0;10.0;2.0;3.5;arbre;Vraiment exotique
-Sapin subalpin;Abies lasiocarpa (Hook.) Nutt.;Pinaceae;neutre;frais;limoneux;;;;non;faible;;oui;0;34.0;;;arbre;
-Sapin de Nordmann;Abies nordmanniana;Pinaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;non;;non;faible;;non;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
+Sapin subalpin;Abies lasiocarpa (Hook.) Nutt.;Pinaceae;neutre;frais;limoneux;;;;oui;faible;;oui;0;34.0;;;arbre;
+Sapin de Nordmann;Abies nordmanniana;Pinaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;non;;oui;faible;;non;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
 Sapin de Numidie;Abies numidica Lannoy ex Carriere;Pinaceae;calcaire;sec,frais;;;non;;oui;faible;;oui;20.0;20.0;6.5;10.0;conique;
 Sapin d'Espagne;Abies pinsapo;Pinaceae;neutre,calcaire;sec;limoneux;-15;oui;non;oui;faible;;non;15.0;20.0;3.5;7.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Sapin noble;Abies procera;Pinaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-15;;;non;faible;;;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
 Sapin de Veitch;Abies veitchii;Pinaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-35;;;non;faible;;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
 Acacia baileyana;Acacia baileyana;Fabaceae;calcaire;frais;limoneux;;;;oui;faible;;oui;;;;;arbre;
 Acacia cultriformis;Acacia cultriformis;Fabaceae;calcaire;frais;limoneux;;;;oui;faible;;oui;;;;;;
-Mimosa argenté;Acacia dealbata Link;Fabaceae;calcaire;frais;limoneux;;;;non;faible;;oui;0;23.0;;;;Vraiment exotique
+Mimosa argenté;Acacia dealbata Link;Fabaceae;calcaire;frais;limoneux;;;;oui;faible;;oui;0;23.0;;;;Vraiment exotique
 Acacia floribunda;Acacia floribunda;;;;;;;;non;;;;;;;;;Vraiment exotique
 Acacia longifolia;Acacia longifolia;Fabaceae;calcaire;frais;limoneux;;;;non;faible;;oui;;;;;;Vraiment exotique
 Acacia à bois noir;Acacia melanoxylon R.Br.;Fabaceae;calcaire;frais;limoneux;;;;non;faible;;oui;0;25.0;;;arbre;
@@ -28,46 +28,46 @@ Acacia pravissima;Acacia pravissima;;;;;;;;non;;;;;;;;;
 Acacia retinodes;Acacia retinodes;Fabaceae;calcaire;frais;limoneux;-15;non;oui;oui;fort;;oui;5.5;8.0;4.5;7;buissonnant;Vraiment exotique
 Erable hybride Norwegian Sunset;Acer 'Keithsform' NORWEGIAN SUNSET;Sapindaceae;très acide,acide,neutre,calcaire;frais;;-15;;;;moyen;;oui;7.0;10.0;7.0;10.0;arbre;
 Erable Pacific Sunset;Acer 'Warrenred' PACIFIC SUNSET;Sapindaceae;acide,neutre,calcaire;frais;;-15;;;;moyen;;oui;10.0;15.0;7.0;10.0;arbre;
-Erable trident;Acer buergerianum;Sapindaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-15;;non;;moyen;faible;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
+Erable trident;Acer buergerianum;Sapindaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-15;;non;oui;moyen;faible;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
 Erable champêtre;Acer campestre;Sapindaceae;acide,neutre,calcaire,très basique;humide,frais,sec;argileux,limoneux,sablonneux;-30;non;non;non;moyen;faible;oui;10.0;15.0;7.0;10.0;arbre;Indigène
 Erable oriental;Acer capillipes;Sapindaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-15;moyen;non;non;moyen;faible;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
 Erable de Colchide;Acer cappadocicum;Sapindaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-15;non;non;oui;moyen;faible;oui;15.0;20.0;7.0;10.0;arbre;Vraiment exotique
-Erable à feuilles de charme;Acer carpinifolium;Sapindaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-30;;;;moyen;;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
+Erable à feuilles de charme;Acer carpinifolium;Sapindaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-30;;;non;moyen;;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
 Acer circinatum;Acer circinatum;;;;;;;;non;;;;;;;;;
 Acer cissifolium;Acer cissifolium;;;;;;;;non;;;;;;;;;
-Erable du père David;Acer davidii;Sapindaceae;très acide,acide;frais;argileux,limoneux,sablonneux;-15;;non;;moyen;modéré;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
+Erable du père David;Acer davidii;Sapindaceae;très acide,acide;frais;argileux,limoneux,sablonneux;-15;;non;oui;moyen;modéré;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
 Acer grandidentatum;Acer grandidentatum;;;;;;;;;;;;;;;;;
 Erable à écorce de papier;Acer griseum;Sapindaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-15;;non;oui;moyen;faible;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
 Erable du Japon Aconitifolium;Acer japonicum 'Aconitifolium';Sapindaceae;acide,neutre;humide,frais;;-15;;non;non;moyen;faible;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
 Acer miyabei;Acer miyabei;;;;;;;;oui;;;;;;;;;
 Erable de Montpellier;Acer monspessulanum;Sapindaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-15;non;non;oui;moyen;;oui;7.0;10.0;3.5;7.0;arbre;Indigène
-Erable à feuilles de frêne;Acer negundo;Sapindaceae;acide,neutre,calcaire,très basique;humide,frais,sec;argileux,limoneux,sablonneux;-15;;oui;non;moyen;faible;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
+Erable à feuilles de frêne;Acer negundo;Sapindaceae;acide,neutre,calcaire,très basique;humide,frais,sec;argileux,limoneux,sablonneux;-15;;oui;oui;moyen;faible;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Acer oblongum;Acer oblongum;;;;;;;;oui;;;;;;;;;
 Erable syrien;Acer obtusifolium;Sapindaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-14;;;oui;moyen;;oui;7.0;10.0;3.5;7.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Acer opalus;Acer opalus;Sapindaceae;calcaire;frais;sablonneux;-10;oui;non;non;moyen;;oui;6.9;10.0;4.5;7;etalé;Indigène
 Erable japonais;Acer palmatum;Sapindaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-20;;non;non;moyen;élevé;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
 Erable de Pensylvanie;Acer pensylvanicum;Sapindaceae;très acide,acide,neutre;humide,frais;argileux,limoneux;-35;;non;non;moyen;faible;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
-Erable plane;Acer platanoides;Sapindaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-35;moyen;non;non;moyen;élevé;oui;20.0;20.0;15.0;20.0;arbre;Indigène
-Erable sycomore;Acer pseudoplatanus;Sapindaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-30;oui;non;oui;moyen;élevé;oui;20.0;20.0;15.0;20.0;arbre;Indigène
+Erable plane;Acer platanoides;Sapindaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-35;moyen;non;oui;moyen;élevé;oui;20.0;20.0;15.0;20.0;arbre;Indigène
+Erable sycomore;Acer pseudoplatanus;Sapindaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-30;oui;non;non;moyen;élevé;oui;20.0;20.0;15.0;20.0;arbre;Indigène
 Acer pseudosieboldianum;Acer pseudosieboldianum;;;;;;;;non;;;;;;;;;
-Erable rouge d'Amérique;Acer rubrum;Sapindaceae;très acide,acide,neutre;humide,frais;argileux,limoneux;-15;non;non;non;moyen;faible;oui;15.0;20.0;3.5;7.0;arbre;Vraiment exotique
+Erable rouge d'Amérique;Acer rubrum;Sapindaceae;très acide,acide,neutre;humide,frais;argileux,limoneux;-15;non;non;oui;moyen;faible;oui;15.0;20.0;3.5;7.0;arbre;Vraiment exotique
 Erable rufinerve;Acer rufinerve;Sapindaceae;acide,neutre;frais;;-15;;non;non;moyen;modéré;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
-Erable argenté;Acer saccharinum;Sapindaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-35;non;oui;non;moyen;modéré;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
-Erable à sucre;Acer saccharum;Sapindaceae;acide,neutre;humide,frais;argileux,limoneux;-15;;non;;moyen;modéré;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Erable argenté;Acer saccharinum;Sapindaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-35;non;oui;oui;moyen;modéré;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
+Erable à sucre;Acer saccharum;Sapindaceae;acide,neutre;humide,frais;argileux,limoneux;-15;;non;oui;moyen;modéré;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
 Acer sempervirens;Acer sempervirens;;;;;;;;oui;;;;;;;;;
-Erable du Japon Aureum;Acer shirasawanum 'Aureum';Sapindaceae;acide,neutre;humide,frais;;-15;;non;;moyen;faible;oui;3.5;7.0;2.0;3.5;arbre;Vraiment exotique
+Erable du Japon Aureum;Acer shirasawanum 'Aureum';Sapindaceae;acide,neutre;humide,frais;;-15;;non;non;moyen;faible;oui;3.5;7.0;2.0;3.5;arbre;Vraiment exotique
 Erable à épis;Acer spicatum;Sapindaceae;;;;;;;non;faible;;;;;;;;
-Erable de Tartarie;Acer tataricum;Sapindaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-35;non;non;non;moyen;élevé;oui;7.0;10.0;3.5;7.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
-Erable à trois fleurs;Acer triflorum;Sapindaceae;acide,neutre;frais;;-15;;non;;moyen;modéré;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
-Erable de Shangtung;Acer truncatum;Sapindaceae;acide,neutre;humide,frais,sec;argileux,limoneux,sablonneux;-15;;non;;moyen;faible;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
-Erable de Freeman Amstrong;Acer x freemanii 'Armstrong';Sapindaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;non;;moyen;faible;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
+Erable de Tartarie;Acer tataricum;Sapindaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-35;non;non;oui;moyen;élevé;oui;7.0;10.0;3.5;7.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
+Erable à trois fleurs;Acer triflorum;Sapindaceae;acide,neutre;frais;;-15;;non;non;moyen;modéré;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
+Erable de Shangtung;Acer truncatum;Sapindaceae;acide,neutre;humide,frais,sec;argileux,limoneux,sablonneux;-15;;non;oui;moyen;faible;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
+Erable de Freeman Amstrong;Acer x freemanii 'Armstrong';Sapindaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;non;oui;moyen;faible;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
 Erable de Zoeschen Annae;Acer x zoeschense 'Annae';Sapindaceae;acide,neutre,calcaire;frais,sec;;-15;non;;oui;moyen;;oui;10.0;15.0;7.0;10.0;arbre;
 Kiwaï Issai;Actinidia arguta 'Issai';Actinidiaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-14;;;;faible;;oui;3.5;7.0;2.0;3.5;grimpant;Vraiment exotique
 Kiwi HERMA;Actinidia chinensis var. deliciosa 'HERMA';Actinidiaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-20;non;non;;fort;modéré;oui;3.5;7.0;3.5;7.0;grimpant;Vraiment exotique
 Kiwi arctique;Actinidia kolomikta;Actinidiaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-35;;;;faible;;oui;3.5;7.0;3.5;7.0;grimpant;Vraiment exotique
 Actinidia pilosula des horticulteurs;Actinidia tetramera;Actinidiaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-14;;;;faible;;oui;3.5;7.0;1.6;1.6;grimpant;Vraiment exotique
 Aesculus chinensis;Aesculus chinensis;;;;;;;;oui;;;;;;;;;
-Marronnier jaune;Aesculus flava;Sapindaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux;-30;non;non;oui;faible;élevé;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Marronnier jaune;Aesculus flava;Sapindaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux;-30;non;non;non;faible;élevé;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
 Aesculus glabra;Aesculus glabra;;;;;;;;oui;;;;;;;;;
 Marronnier d'Inde;Aesculus hippocastanum;Sapindaceae;très acide,acide,neutre;frais;argileux,limoneux,sablonneux;-30;oui;non;non;fort;;oui;20.0;20.0;15.0;20.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Marronnier de l'Himalaya Sydney Pearce;Aesculus indica 'Sydney Pearce';Sapindaceae;neutre;humide,frais;;-15;;;oui;faible;;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
@@ -83,9 +83,9 @@ Akébie à cinq folioles;Akebia quinata;Lardizabalaceae;acide,neutre,calcaire;fr
 Arbre à soie type;Albizia julibrissin var. julibrissin;Fabaceae;neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-20;oui;oui;oui;fort;élevé;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
 Allocasuarina fraseriana;Allocasuarina fraseriana;;;;;;;;oui;;;;;;;;;
 Allocasuarina littoralis;Allocasuarina littoralis;;;;;;;;non;;;;;;;;;
-Aulne de Corse;Alnus cordata;Betulaceae;acide,neutre;humide,frais,sec;argileux,limoneux,sablonneux;-25;oui;oui;non;fort;;oui;15.0;20.0;3.5;7.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
+Aulne de Corse;Alnus cordata;Betulaceae;acide,neutre;humide,frais,sec;argileux,limoneux,sablonneux;-25;oui;oui;oui;fort;;oui;15.0;20.0;3.5;7.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Alnus firma;Alnus firma;;;;;;;;non;;;;;;;;;
-Aulne glutineux;Alnus glutinosa;Betulaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-35;oui;oui;oui;fort;élevé;oui;15.0;20.0;7.0;10.0;arbre;Indigène
+Aulne glutineux;Alnus glutinosa;Betulaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-35;oui;oui;non;fort;élevé;oui;15.0;20.0;7.0;10.0;arbre;Indigène
 Aulne blanc;Alnus incana;Betulaceae;neutre,calcaire;humide,frais,sec;argileux,limoneux,sablonneux;-15;non;;non;fort;;oui;10.0;15.0;7.0;10.0;arbre;Indigène
 Aulne du Japon;Alnus japonica;Betulaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-30;;;non;fort;;oui;15.0;20.0;7.0;10.0;arbre;Vraiment exotique
 Aulne maritime;Alnus maritima (Marshall) Muhl. ex Nutt.;Betulaceae;;;;;;;non;fort;;oui;;;;;;
@@ -93,23 +93,23 @@ Alnus maximowiczii;Alnus maximowiczii;;;;;;;;non;;;;;;;;;
 Aulne rouge;Alnus rubra;Betulaceae;;;;;;;non;faible;;;;;;;;
 Aulne de Späth;Alnus x spaethii;Betulaceae;acide,neutre,calcaire,très basique;humide,frais,sec;argileux,limoneux,sablonneux;-15;;;non;fort;;oui;15.0;20.0;7.0;10.0;arbre;
 Verveine odorante;Aloysia citrodora;Verbenaceae;;;;;;;;faible;;;;;;;;Vraiment exotique
-Amélanchier à feuilles d'aulne Smokey;Amelanchier alnifolia 'Smokey';Rosaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-40;non;non;non;faible;faible;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
+Amélanchier à feuilles d'aulne Smokey;Amelanchier alnifolia 'Smokey';Rosaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-40;non;non;oui;faible;faible;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Amélanchier arborescent Robin Hill;Amelanchier arborea 'Robin Hill';Rosaceae;acide,neutre;humide,frais;;-15;;non;;faible;faible;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
 Amélanchier d'Amérique;Amelanchier canadensis;Rosaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-30;non;non;non;faible;modéré;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
 Amélanchier à feuilles lisses;Amelanchier laevis;Rosaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux;-25;non;non;non;faible;modéré;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
 Amélanchier des bois;Amelanchier ovalis;Rosaceae;neutre,calcaire;frais,sec;argileux,limoneux;-25;oui;non;oui;faible;;oui;3.5;7.0;3.5;7.0;arbuste;Indigène
 Amélanchier en épi;Amelanchier spicata (Lam.) Koch;Rosaceae;;;;;;;;faible;;;0;4.0;;;arbuste;
-Amélanchier de Lamarck;Amelanchier x lamarckii;Rosaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-30;;non;;faible;faible;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
+Amélanchier de Lamarck;Amelanchier x lamarckii;Rosaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-30;;non;non;faible;faible;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
 Faux indigo arbustif;Amorpha fruticosa;Fabaceae;acide,neutre,calcaire;humide,frais,sec;limoneux,sablonneux;-30;;non;;faible;faible;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Anisodontea capensis;Anisodontea capensis;;;;;;;;;;;;;;;;;Vraiment exotique
-Angélique du Japon;Aralia elata;Araliaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-30;;non;;faible;élevé;oui;3.5;7.0;2.0;3.5;arbre;Vraiment exotique
+Angélique du Japon;Aralia elata;Araliaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-30;;non;non;faible;élevé;oui;3.5;7.0;2.0;3.5;arbre;Vraiment exotique
 Aralia spinosa;Aralia spinosa;;;;;;;;non;;;;;;;;;
 Désespoir des singes;Araucaria araucana;Araucariaceae;très acide,acide,neutre;frais;argileux,limoneux,sablonneux;-14;;;non;fort;;;15.0;20.0;7.0;10.0;arbre;Vraiment exotique
 Araucaria de Bidwill;Araucaria bidwillii;Araucariaceae;;;;;;;oui;faible;;;;;;;;
 Araucarie de Norfolk;Araucaria heterophylla;Araucariaceae;;;;;;;oui;faible;;;;;;;;
 Arbousier andrachne;Arbutus andrachne;Ericaceae;neutre,calcaire;frais,sec;limoneux,sablonneux;-15;oui;non;oui;faible;;oui;7.0;10.0;3.5;7.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Arbutus menziesii;Arbutus menziesii;;;;;;;;oui;;;;;;;;;Vraiment exotique
-Arbousier commun;Arbutus unedo;Ericaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-15;non;non;non;faible;modéré;oui;10.0;15.0;7.0;10.0;arbre;Indigène
+Arbousier commun;Arbutus unedo;Ericaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-15;non;non;oui;faible;modéré;oui;10.0;15.0;7.0;10.0;arbre;Indigène
 Arbousier faux andrachné;Arbutus x andrachnoides;;;;;-15;oui;non;;faible;;;10.3;15.0;4.5;7;arrondi;Vraiment exotique
 Argyrocytisus battandieri;Argyrocytisus battandieri;;;;;-10;non;non;oui;faible;;;3.4;5.0;2.0;3;arrondi;Vraiment exotique
 Alisier blanc;Aria edulis;Rosaceae;neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-15;;;;faible;;oui;10.0;15.0;7.0;10.0;arbre;Indigène
@@ -121,7 +121,7 @@ Canne de Provence;Arundo donax L.;Poaceae;calcaire;humide;sablonneux;;;;;fort;;o
 Asimina triloba;Asimina triloba;;;;;;;;non;;;;;;;;;Vraiment exotique
 Pourpier de mer;Atriplex halimus;Amaranthaceae;neutre,calcaire,très basique;frais,sec;limoneux,sablonneux;-15;;;;faible;;oui;1.6;1.6;2.0;3.5;arbuste;Indigène
 Aucuba du Japon;Aucuba japonica;Garryaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-14;;non;;faible;faible;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
-Mimosa du Chili panaché;Azara microphylla 'Variegata';Salicaceae;acide,neutre;frais;;-14;;;;faible;;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
+Mimosa du Chili panaché;Azara microphylla 'Variegata';Salicaceae;acide,neutre;frais;;-14;;;oui;faible;;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
 Baccharis à feuilles d'Halimium;Baccharis halimifolia;Asteraceae;;;;;;;non;faible;;;;;;;;Vraiment exotique
 Banksia integrifolia;Banksia integrifolia;;;;;;;;non;;;;6.9;10.0;3.2;5.0;;Vraiment exotique
 Banksia menziesii;Banksia menziesii;;;;;;;;oui;;;;;;;;;
@@ -139,17 +139,17 @@ Epine-vinette de Thunberg;Berberis thunbergii;Berberidaceae;acide,neutre,calcair
 Berberis x miethkeana;Berberis x miethkeana;;;;;;;;;;;;;;;;;
 Épine-vinette à feuilles étroites;Berberis x stenophylla Lindl. [Berberis darwinii Hook. x Berberis empetrifolia Lam.];Berberidaceae;;;;;;;;faible;;oui;;;;;;
 Bouleau jaune;Betula alleghaniensis;Betulaceae;;;;;;;non;faible;;;;;;;;
-Bouleau d'Or;Betula ermanii;Betulaceae;acide,neutre;humide,frais,sec;argileux,limoneux,sablonneux;-35;;;;fort;;oui;15.0;20.0;7.0;10.0;arbre;Vraiment exotique
+Bouleau d'Or;Betula ermanii;Betulaceae;acide,neutre;humide,frais,sec;argileux,limoneux,sablonneux;-35;;;non;fort;;oui;15.0;20.0;7.0;10.0;arbre;Vraiment exotique
 Betula grossa;Betula grossa;;;;;;;;non;;;;;;;;;
 Betula lenta;Betula lenta;;;;;;;;non;;;;;;;;;
-Bouleau monarque;Betula maximowicziana;Betulaceae;très acide,acide,neutre,calcaire;humide,frais;;-15;;non;;fort;élevé;oui;15.0;20.0;7.0;10.0;arbre;Vraiment exotique
+Bouleau monarque;Betula maximowicziana;Betulaceae;très acide,acide,neutre,calcaire;humide,frais;;-15;;non;non;fort;élevé;oui;15.0;20.0;7.0;10.0;arbre;Vraiment exotique
 Betula medwediewii;Betula medwediewii;;;;;;;;;;;;;;;;;
 Bouleau nain;Betula nana L.;Betulaceae;acide;humide;sablonneux;;;;;fort;;oui;0;1.0;;;;
-Bouleau noir;Betula nigra;Betulaceae;très acide,acide,neutre;humide,frais,sec;argileux,limoneux;-15;;non;;fort;modéré;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
-Bouleau à canots;Betula papyrifera;Betulaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-15;;non;non;fort;élevé;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
-Bouleau pendant;Betula pendula;Betulaceae;très acide,acide,neutre;frais;argileux,limoneux,sablonneux;-40;moyen;non;oui;fort;élevé;oui;20.0;20.0;7.0;10.0;arbre;Indigène
-Bouleau pubescent;Betula pubescens;Betulaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-40;non;;oui;fort;;oui;15.0;20.0;7.0;10.0;arbre;Indigène
-Bouleau à écorce rouge;Betula utilis subsp. albosinensis;Betulaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-25;non;;non;fort;;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
+Bouleau noir;Betula nigra;Betulaceae;très acide,acide,neutre;humide,frais,sec;argileux,limoneux;-15;;non;oui;fort;modéré;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Bouleau à canots;Betula papyrifera;Betulaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-15;;non;oui;fort;élevé;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Bouleau pendant;Betula pendula;Betulaceae;très acide,acide,neutre;frais;argileux,limoneux,sablonneux;-40;moyen;non;non;fort;élevé;oui;20.0;20.0;7.0;10.0;arbre;Indigène
+Bouleau pubescent;Betula pubescens;Betulaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-40;non;;non;fort;;oui;15.0;20.0;7.0;10.0;arbre;Indigène
+Bouleau à écorce rouge;Betula utilis subsp. albosinensis;Betulaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-25;non;;oui;fort;;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
 Bignone à vrilles;Bignonia capreolata;Bignoniaceae;neutre,calcaire;;;-14;;non;;faible;modéré;oui;3.5;7.0;2.0;3.5;grimpant;Vraiment exotique
 Billardiéra hétérophylle;Billardiera heterophylla;Pittosporaceae;;;;;;;;faible;;;;;;;;
 Bismarckie noble;Bismarckia nobilis;Arecaceae;;;;;;;oui;faible;;;;;;;;
@@ -167,7 +167,7 @@ Broussonetia kazinoki;Broussonetia kazinoki;;;;;;;;oui;;;;;;;;;
 Broussonetia papyrifera;Broussonetia papyrifera;Moraceae;calcaire;frais;sablonneux;-10;oui;non;non;fort;;oui;0;15.0;4.5;7;arrondi;Vraiment exotique
 Arbre aux papillons à feuilles alternes;Buddleja alternifolia;Scrophulariaceae;acide,neutre,calcaire,très basique;sec;argileux,limoneux,sablonneux;-15;;non;oui;faible;faible;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Arbre aux papillons du père David;Buddleja davidii;Scrophulariaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-15;;non;;faible;élevé;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
-Arbre à papillon à fleurs en boules;Buddleja globosa;Scrophulariaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-20;oui;non;oui;faible;faible;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
+Arbre à papillon à fleurs en boules;Buddleja globosa;Scrophulariaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-20;oui;non;non;faible;faible;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
 Buddleja officinalis;Buddleja officinalis;;;;;;;;oui;;;;;;;;;Vraiment exotique
 Buddleja salviifolia;Buddleja salviifolia;;;;;;;;oui;;;;;;;;;Vraiment exotique
 Buplèvre ligneux;Bupleurum fruticosum L.;Apiaceae;neutre;frais;limoneux;-15;non;non;;fort;;oui;0;2.0;2.0;3;arbuste;Indigène
@@ -175,8 +175,8 @@ Butia capité;Butia capitata (Mart.) Becc.;Arecaceae;;;;;;;oui;faible;;;;;;;;Vra
 Butia eriospatha;Butia eriospatha;;;;;;;;non;;;;;;;;;
 Palmier argentin;Butia yatay;Arecaceae;acide,neutre,calcaire;frais,sec;;-14;;;non;faible;;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
 Buis des Baléares;Buxus balearica Lam.;Buxaceae;;;;;;;oui;faible;;oui;;;;;arbuste;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
-Buis à petites feuilles Faulkner;Buxus microphylla 'Faulkner';Buxaceae;neutre,calcaire;frais,sec;;-15;;non;;faible;modéré;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
-Buis commun;Buxus sempervirens;Buxaceae;neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-20;non;oui;non;fort;modéré;oui;3.5;7.0;3.5;7.0;arbuste;Indigène
+Buis à petites feuilles Faulkner;Buxus microphylla 'Faulkner';Buxaceae;neutre,calcaire;frais,sec;;-15;;non;oui;faible;modéré;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
+Buis commun;Buxus sempervirens;Buxaceae;neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-20;non;oui;oui;fort;modéré;oui;3.5;7.0;3.5;7.0;arbuste;Indigène
 Abutilon du grand fleuve;Callianthe megapotamica;Malvaceae;;;;;;;;faible;;;;;;;;Vraiment exotique
 Arbre à perles;Callicarpa bodinieri;Lamiaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-15;;non;;faible;faible;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Cyprès de Nootka;Callitropsis nootkatensis;Cupressaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;non;non;fort;modéré;non;15.0;20.0;7.0;10.0;arbre;Vraiment exotique
@@ -191,13 +191,13 @@ Bignone de Virginie;Campsis radicans;Bignoniaceae;acide,neutre,calcaire;frais,se
 Arbre aux pois nain;Caragana arborescens 'Nana';Fabaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-15;;;non;faible;;oui;0.5;0.8;0.5;0.8;arbuste;Vraiment exotique
 Carisse à grands fruits;Carissa macrocarpa;Apocynaceae;;;;;;;oui;faible;;;;;;;;
 Charme commun;Carpinus betulus;Betulaceae;acide,neutre,calcaire,très basique;humide,frais,sec;argileux,limoneux,sablonneux;-25;non;non;non;moyen;faible;oui;15.0;20.0;7.0;10.0;arbre;Indigène
-Charme du Japon;Carpinus japonica;Betulaceae;très acide,acide,neutre,calcaire;humide,frais;;-15;;non;;moyen;faible;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
+Charme du Japon;Carpinus japonica;Betulaceae;très acide,acide,neutre,calcaire;humide,frais;;-15;;non;non;moyen;faible;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Charme oriental;Carpinus orientalis;Betulaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-14;;non;oui;moyen;faible;non;3.5;7.0;3.5;7.0;arbuste;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
-Charme de Turczaninow;Carpinus turczaninovii;Betulaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-15;;non;;moyen;élevé;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
+Charme de Turczaninow;Carpinus turczaninovii;Betulaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-15;;non;oui;moyen;élevé;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Caryer cordiforme;Carya cordiformis;Juglandaceae;acide;frais;;;non;;oui;faible;;non;20.0;20.0;6.5;10.0;ovoide;
 Carya glabra;Carya glabra;;;;;;;;non;;;;;;;;;
 Carya illinoinensis;Carya illinoinensis;Juglandaceae;acide;frais;;-10;non;oui;oui;fort;;non;20.0;25.0;7.8;12;arrondi;Vraiment exotique
-Caryer lacinié;Carya laciniosa;Juglandaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-25;;;;fort;;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Caryer lacinié;Carya laciniosa;Juglandaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-25;;;non;fort;;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
 Caryer ovale;Carya ovata (Mill.) K.Koch;Juglandaceae;;frais;;;non;;oui;faible;;non;10.0;15.0;1.3;2.0;etalé;
 Carya texana;Carya texana;;;;;;;;non;;;;;;;;;
 Caryer tomenteux;Carya tomentosa;Juglandaceae;acide;sec;;;non;;oui;faible;;non;20.0;20.0;6.5;10.0;ovoide;
@@ -210,11 +210,11 @@ Catalpa bungei;Catalpa bungei;;;;;;;;oui;;;;6.9;10.0;2.6;4.0;;
 Catalpa ovale;Catalpa ovata;Bignoniaceae;;;;;;;oui;faible;;;;;;;;
 Catalpa à feuilles cordées;Catalpa speciosa;Bignoniaceae;neutre,calcaire;frais;argileux,limoneux,sablonneux;-30;non;non;oui;faible;modéré;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
 Catalpa rougissant;Catalpa x erubescens 'Purpurea';;;;;;;;;faible;;;;;;;;
-Céanothe arborescent;Ceanothus arboreus;Rhamnaceae;acide,neutre;frais,sec;;-14;;;;faible;;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
+Céanothe arborescent;Ceanothus arboreus;Rhamnaceae;acide,neutre;frais,sec;;-14;;;oui;faible;;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
 Céanothe de Santa-Barbara;Ceanothus impressus;Rhamnaceae;;;;;;;oui;faible;;;;;;;;Vraiment exotique
 Céanothe à fleurs en thyrses;Ceanothus thyrsiflorus;Rhamnaceae;acide,neutre;frais,sec;;-14;;non;oui;faible;faible;oui;2.0;3.5;1.6;1.6;arbuste;Vraiment exotique
-Cèdre de l'Atlas;Cedrus atlantica;Pinaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-25;moyen;oui;non;moyen;modéré;non;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
-Cèdre du Liban;Cedrus brevifolia;;;;;;;;non;faible;;;;;;;;
+Cèdre de l'Atlas;Cedrus atlantica;Pinaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-25;moyen;oui;oui;moyen;modéré;non;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
+Cèdre du Liban;Cedrus brevifolia;;;;;;;;oui;faible;;;;;;;;
 Cedrus deodara 'Pendula';Cedrus deodara 'Pendula';Pinaceae;acide;frais;;-10;non;oui;oui;fort;;oui;20.0;50.0;4.5;7;arbre;Vraiment exotique
 Cèdre du Liban;Cedrus libani;Pinaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-25;non;oui;oui;moyen;;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
 Celastrus orbiculatus;Celastrus orbiculatus;;;;;;;;;;;;;;;;;
@@ -222,16 +222,16 @@ Micocoulier de Provence;Celtis australis ( L. );Cannabaceae;neutre,calcaire,trè
 Micocoulier de Bunge;Celtis bungeana;Cannabaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-30;;;oui;fort;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Micocoulier de Provence;Celtis caucasica;Cannabaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-25;non;;oui;fort;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Micocoulier de Juliana;Celtis julianae;Cannabaceae;;frais;;;non;;oui;faible;;non;15.0;20.0;9.8;15.0;ovoide;Vraiment exotique
-Micocoulier du Mississippi;Celtis laevigata;Cannabaceae;acide,neutre;humide,frais,sec;argileux,limoneux,sablonneux;-25;;;;fort;;oui;15.0;20.0;15.0;20.0;arbre;Vraiment exotique
-Micocoulier de Virginie;Celtis occidentalis;Cannabaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-35;non;non;non;fort;modéré;oui;10.0;15.0;10.0;15.0;arbre;Vraiment exotique
+Micocoulier du Mississippi;Celtis laevigata;Cannabaceae;acide,neutre;humide,frais,sec;argileux,limoneux,sablonneux;-25;;;oui;fort;;oui;15.0;20.0;15.0;20.0;arbre;Vraiment exotique
+Micocoulier de Virginie;Celtis occidentalis;Cannabaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-35;non;non;oui;fort;modéré;oui;10.0;15.0;10.0;15.0;arbre;Vraiment exotique
 Celtis reticulata;Celtis reticulata;;;;;;;;oui;;;;;;;;;
 Micocoulier de Chine;Celtis sinensis;Cannabaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-12;non;non;non;fort;modéré;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
-Pois-bouton;Cephalanthus occidentalis;Rubiaceae;acide,neutre;humide;argileux,limoneux,sablonneux;-30;;non;;faible;modéré;oui;2.0;3.5;3.5;7.0;arbuste;Vraiment exotique
+Pois-bouton;Cephalanthus occidentalis;Rubiaceae;acide,neutre;humide;argileux,limoneux,sablonneux;-30;;non;oui;faible;modéré;oui;2.0;3.5;3.5;7.0;arbuste;Vraiment exotique
 Céphalotaxe de Fortune;Cephalotaxus fortunei;Cephalotaxaceae;neutre;frais;argileux,limoneux,sablonneux;-20;;;oui;fort;;;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
 Ceratonia siliqua;Ceratonia siliqua;Fabaceae;calcaire;frais;limoneux;-5;non;non;oui;fort;;oui;0;10.0;4.5;7;arrondi;Indigène
-Arbre au caramel;Cercidiphyllum japonicum;Cercidiphyllaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-14;moyen;non;non;faible;faible;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
+Arbre au caramel;Cercidiphyllum japonicum;Cercidiphyllaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-14;moyen;non;oui;faible;faible;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
 Gainier du Canada pourpre Forest Pansy;Cercis canadensis 'Forest Pansy';Fabaceae;acide,neutre,calcaire;humide,frais,sec;;-14;non;non;oui;faible;faible;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
-Gainier de Chine Avondale;Cercis chinensis 'Avondale';Fabaceae;acide,neutre,calcaire;frais;;-14;;non;;faible;modéré;oui;2.0;3.5;1.2;1.2;arbuste;Vraiment exotique
+Gainier de Chine Avondale;Cercis chinensis 'Avondale';Fabaceae;acide,neutre,calcaire;frais;;-14;;non;oui;faible;modéré;oui;2.0;3.5;1.2;1.2;arbuste;Vraiment exotique
 Arbre de Judée;Cercis siliquastrum;Fabaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-20;non;non;oui;faible;faible;oui;7.0;10.0;3.5;7.0;arbre;Indigène
 Cognassier du Japon;Chaenomeles japonica (Thunb.) Lindl. ex Spach;Rosaceae;;;;-15;oui;non;;faible;;;2.1;3.0;4.5;7;arrondi;Vraiment exotique
 Cognassier du Japon Nivalis;Chaenomeles speciosa 'Nivalis';Rosaceae;acide,neutre;frais;;-15;;;;faible;;oui;1.6;1.6;2.0;3.5;arbuste;Vraiment exotique
@@ -241,7 +241,7 @@ Cyprès Sawara Sungold;Chamaecyparis pisifera 'Sungold';Cupressaceae;acide,neutr
 Palmier nain de Méditerranée;Chamaerops humilis;Arecaceae;neutre;sec;argileux,limoneux,sablonneux;-12;;;oui;faible;;oui;2.0;3.5;1.6;1.6;arbuste;Indigène
 Chimonanthe odorant;Chimonanthus praecox;Calycanthaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-15;non;non;oui;faible;;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
 Chionanthe émoussé;Chionanthus retusus;Oleaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-15;;;oui;fort;;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
-Arbre de neige;Chionanthus virginicus;Oleaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-30;moyen;non;oui;fort;faible;oui;2.0;3.5;3.5;7.0;arbuste;Vraiment exotique
+Arbre de neige;Chionanthus virginicus;Oleaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-30;moyen;non;non;fort;faible;oui;2.0;3.5;3.5;7.0;arbuste;Vraiment exotique
 Choisya ternata;Choisya ternata;Rutaceae;;;;-10;non;non;;faible;;;1.7;2.5;4.5;7;arrondi;Vraiment exotique
 Cinnamomum camphora;Cinnamomum camphora;;acide;frais;;-10;oui;non;non;fort;;oui;6.9;10.0;7.8;12;arrondi;Vraiment exotique
 Ciste à feuilles de laurier;Cistus laurifolius subsp. atlanticus (Pit.) Sennen & Mauricio;Cistaceae;acide;frais;argileux;-15;non;non;;fort;;oui;0;1.5;2.0;3;arbuste;Indigène
@@ -250,10 +250,10 @@ Citrus japonica;Citrus japonica;;;;;;;;oui;;;;;;;;;
 Citrus medica;Citrus medica;Rutaceae;;;;;;;oui;faible;;;;;;;;
 Citrus reticulata;Citrus reticulata;Rutaceae;;;;;;;;faible;;;;;;;;Vraiment exotique
 Poncir;Citrus trifoliata;Rutaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-15;;non;oui;faible;élevé;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
-Citrus x aurantium ( Sweet Orange Group );Citrus x aurantium ( Sweet Orange Group );;;;;;;;;;;;;;;;;
+Citrus x aurantium ( Sweet Orange Group );Citrus x aurantium ( Sweet Orange Group );;;;;;;;oui;;;;;;;;;
 Citrus x limon;Citrus x limon;;;;;;;;oui;;;;;;;;;
 Cladrastis delavayi;Cladrastis delavayi;;;;;;;;oui;;;;;;;;;
-Virgilier à bois jaune;Cladrastis kentukea;Fabaceae;acide,neutre,calcaire;frais;argileux,limoneux;-15;;non;;faible;faible;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
+Virgilier à bois jaune;Cladrastis kentukea;Fabaceae;acide,neutre,calcaire;frais;argileux,limoneux;-15;;non;non;faible;faible;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Clématite des Alpes;Clematis alpina (L.) Mill. subsp. alpina;Ranunculaceae;neutre;frais;limoneux;;;;;faible;;oui;0;2.0;;;grimpant;
 Clematis armandi;Clematis armandi;;;;;-10;non;non;;faible;;;6.2;9.0;4.5;7;liane;Vraiment exotique
 Clématite à boucles Freckles;Clematis cirrhosa 'Freckles';Ranunculaceae;acide,neutre;frais,sec;limoneux;-14;;;;faible;;oui;3.5;7.0;;;grimpant;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
@@ -275,22 +275,22 @@ Cordyline indivisa;Cordyline indivisa;;;;;;;;non;;;;;;;;;
 Cormier;Cormus domestica;Rosaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-15;;;non;faible;;oui;15.0;20.0;10.0;15.0;arbre;Indigène
 Cornouiller Eddies White Wonder;Cornus 'Eddie's White Wonder';Cornaceae;très acide,acide,neutre;humide,frais;;-14;;;;moyen;;oui;3.5;7.0;3.5;7.0;arbre;
 Cornouiller blanc;Cornus alba;Cornaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;non;;moyen;faible;oui;2.0;3.5;3.5;7.0;arbuste;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
-Cornouiller à feuilles alternes Argentea;Cornus alternifolia 'Argentea';Cornaceae;acide,neutre;humide,frais;;-15;;non;;moyen;faible;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
+Cornouiller à feuilles alternes Argentea;Cornus alternifolia 'Argentea';Cornaceae;acide,neutre;humide,frais;;-15;;non;non;moyen;faible;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
 Cornus capitata;Cornus capitata;;;;;;;;oui;;;;;;;;;
 Cornouiller des pagodes;Cornus controversa;Cornaceae;très acide,acide,neutre;humide,frais;;-15;oui;non;non;moyen;faible;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
 Cornouiller à fleurs de Floride;Cornus florida;Cornaceae;très acide,acide;humide,frais;argileux,limoneux,sablonneux;-25;;non;non;moyen;faible;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
-Cornouiller de Hong-Kong;Cornus hongkongensis;Cornaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-14;;;;moyen;;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
-Cornouiller du Japon;Cornus kousa;Cornaceae;très acide,acide;humide,frais;argileux,limoneux,sablonneux;-25;;non;;moyen;faible;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
-Cornouiller mâle;Cornus mas;Cornaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-30;non;non;non;moyen;faible;oui;3.5;7.0;3.5;7.0;arbre;Indigène
-Cornouiller de Nutall;Cornus nuttallii;Cornaceae;très acide,acide;humide,frais;argileux,limoneux,sablonneux;-20;;;;moyen;;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
-Cornouiller officinal;Cornus officinalis;Cornaceae;neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-25;;non;;moyen;faible;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
-Cornouiller sanguin;Cornus sanguinea;Cornaceae;neutre,calcaire;humide,frais,sec;argileux,limoneux;-30;non;non;non;moyen;modéré;oui;3.5;7.0;2.0;3.5;arbuste;Indigène
+Cornouiller de Hong-Kong;Cornus hongkongensis;Cornaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-14;;;oui;moyen;;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
+Cornouiller du Japon;Cornus kousa;Cornaceae;très acide,acide;humide,frais;argileux,limoneux,sablonneux;-25;;non;oui;moyen;faible;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
+Cornouiller mâle;Cornus mas;Cornaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-30;non;non;oui;moyen;faible;oui;3.5;7.0;3.5;7.0;arbre;Indigène
+Cornouiller de Nutall;Cornus nuttallii;Cornaceae;très acide,acide;humide,frais;argileux,limoneux,sablonneux;-20;;;oui;moyen;;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
+Cornouiller officinal;Cornus officinalis;Cornaceae;neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-25;;non;oui;moyen;faible;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
+Cornouiller sanguin;Cornus sanguinea;Cornaceae;neutre,calcaire;humide,frais,sec;argileux,limoneux;-30;non;non;oui;moyen;modéré;oui;3.5;7.0;2.0;3.5;arbuste;Indigène
 Cornouiller stolonifère Flaviramea;Cornus sericea 'Flaviramea';Cornaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;non;non;moyen;modéré;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Corokia cotoneaster;Corokia cotoneaster;;;;;;;;;;;;;;;;;Vraiment exotique
-Corylopsis à petites fleurs;Corylopsis pauciflora;Hamamelidaceae;très acide,acide,neutre;frais;;-14;;non;;faible;faible;oui;1.6;1.6;2.0;3.5;arbuste;Vraiment exotique
+Corylopsis à petites fleurs;Corylopsis pauciflora;Hamamelidaceae;très acide,acide,neutre;frais;;-14;;non;non;faible;faible;oui;1.6;1.6;2.0;3.5;arbuste;Vraiment exotique
 Corylopsis en épis;Corylopsis spicata;Hamamelidaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-14;;;;faible;;oui;1.6;1.6;2.0;3.5;arbuste;Vraiment exotique
 Noisetier commun;Corylus avellana;Betulaceae;neutre,calcaire,très basique;humide,frais;argileux,limoneux;-30;oui;non;non;moyen;faible;oui;7.0;10.0;3.5;7.0;arbre;Indigène
-Noisetier de Byzance;Corylus colurna;Betulaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-30;non;non;non;moyen;faible;oui;15.0;20.0;10.0;15.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
+Noisetier de Byzance;Corylus colurna;Betulaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-30;non;non;oui;moyen;faible;oui;15.0;20.0;10.0;15.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Noisetier pourpre de Lombardie;Corylus maxima 'Purpurea';Betulaceae;neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-15;;;non;moyen;;oui;3.5;7.0;3.5;7.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Arbre à perruque;Cotinus coggygria;Anacardiaceae;neutre,calcaire,très basique;frais,sec;limoneux;-15;non;non;non;faible;faible;oui;3.5;7.0;3.5;7.0;arbuste;Indigène
 Cotinus obovatus;Cotinus obovatus;;;;;;;;oui;;;;;;;;;
@@ -300,18 +300,18 @@ Cotonéaster arborescent;Cotoneaster frigidus;Rosaceae;neutre,calcaire;frais,sec
 Cotonéaster horizontal;Cotoneaster horizontalis;Rosaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-15;;non;;faible;faible;oui;0.5;0.8;2.0;3.5;arbuste;Vraiment exotique
 Crataegus azarolus;Crataegus azarolus;Rosaceae;calcaire;sec,frais;;-10;non;non;non;faible;;oui;6.9;10.0;2.0;3;arrondi;Indigène
 Aubépine à fruits écarlate;Crataegus coccinea;Rosaceae;neutre,calcaire,très basique;frais,sec;;-15;;;;moyen;;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
-Aubépine pied-de-coq;Crataegus crus-galli L.;Rosaceae;;;;;;;non;faible;;oui;;;;;;
+Aubépine pied-de-coq;Crataegus crus-galli L.;Rosaceae;;;;;;;oui;faible;;oui;;;;;;
 Néflier commun;Crataegus germanica;Rosaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-15;;;;moyen;;oui;3.5;7.0;3.5;7.0;arbuste;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
-Aubépine lisse;Crataegus laevigata;Rosaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux,sablonneux;-15;non;;non;moyen;;oui;3.5;7.0;3.5;7.0;arbre;Indigène
+Aubépine lisse;Crataegus laevigata;Rosaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux,sablonneux;-15;non;;oui;moyen;;oui;3.5;7.0;3.5;7.0;arbre;Indigène
 Aubépine mexicaine;Crataegus mexicana;Rosaceae;neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-15;;;;moyen;;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
 Aubépine à un style;Crataegus monogyna;Rosaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-15;non;non;oui;moyen;;oui;7.0;10.0;3.5;7.0;arbre;Indigène
-Aubépine laciniée;Crataegus orientalis;Rosaceae;;;;;;;non;faible;;;;;;;;
-Aubépine à feuilles larges;Crataegus persimilis;Rosaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-15;;;;moyen;;oui;3.5;7.0;7.0;10.0;arbre;Vraiment exotique
-Aubépine de Grignon;Crataegus x grignonensis;Rosaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux,sablonneux;-30;;;;moyen;;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
+Aubépine laciniée;Crataegus orientalis;Rosaceae;;;;;;;oui;faible;;;;;;;;
+Aubépine à feuilles larges;Crataegus persimilis;Rosaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-15;;;non;moyen;;oui;3.5;7.0;7.0;10.0;arbre;Vraiment exotique
+Aubépine de Grignon;Crataegus x grignonensis;Rosaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux,sablonneux;-30;;;non;moyen;;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
 Aupébine hybride de Lavallée Carrierei;Crataegus x lavalleei 'Carrierei';Rosaceae;neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-30;;non;;moyen;modéré;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
 Aubépine hybride Pauls Scarlet;Crataegus x media 'Paul's Scarlet';Rosaceae;neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-30;;;non;moyen;;oui;3.5;7.0;3.5;7.0;arbre;Indigène
 Crinodendron hookerianum;Crinodendron hookerianum;;;;;;;;non;;;;;;;;;Vraiment exotique
-Cèdre du Japon Vilmoriniana;Cryptomeria japonica 'Vilmoriniana';Cupressaceae;acide,neutre;humide,frais;;-15;;;non;fort;;;1.2;1.2;1.2;1.2;arbuste;Vraiment exotique
+Cèdre du Japon Vilmoriniana;Cryptomeria japonica 'Vilmoriniana';Cupressaceae;acide,neutre;humide,frais;;-15;;;oui;fort;;;1.2;1.2;1.2;1.2;arbuste;Vraiment exotique
 Sapin de Chine;Cunninghamia lanceolata;Cupressaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-20;;;oui;fort;;;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
 Cyprès du Cachemire;Cupressus cashmeriana;Cupressaceae;;frais;;;non;;oui;fort;;non;20.0;20.0;9.8;15.0;conique;Vraiment exotique
 Cyprès de Gowen;Cupressus goveniana Gordon;Cupressaceae;;;;;;;oui;fort;;;;;;;;
@@ -324,9 +324,9 @@ Genêt à balais;Cytisus scoparius;Fabaceae;très acide,acide,neutre;sec;argileu
 Daphné lauréole;Daphne laureola;Thymelaeaceae;neutre,calcaire;frais;argileux,limoneux,sablonneux;-20;;;;faible;;oui;0.8;0.8;0.5;0.8;arbuste;Indigène
 Bois gentil;Daphne mezereum;Thymelaeaceae;neutre,calcaire,très basique;frais;argileux,limoneux,sablonneux;-15;;non;;faible;élevé;oui;0.8;0.8;1.2;1.2;arbuste;Indigène
 Potentille arbustive;Dasiphora fruticosa;Rosaceae;neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;non;;faible;faible;oui;0.8;0.8;1.2;1.2;arbuste;Indigène
-Dasylire à feuilles allongées;Dasylirion longissimum;Asparagaceae;acide,neutre,calcaire;sec;;-14;;;;faible;;oui;3.5;7.0;1.6;1.6;arbuste;Vraiment exotique
-Dasylire de Wheeler;Dasylirion wheeleri;Asparagaceae;acide,neutre,calcaire;frais,sec;limoneux,sablonneux;-15;;;;faible;;oui;3.5;7.0;1.2;1.2;arbuste;Vraiment exotique
-Arbre aux mouchoirs;Davidia involucrata;Nyssaceae;acide,neutre;frais;argileux,limoneux;-14;non;non;non;faible;modéré;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
+Dasylire à feuilles allongées;Dasylirion longissimum;Asparagaceae;acide,neutre,calcaire;sec;;-14;;;oui;faible;;oui;3.5;7.0;1.6;1.6;arbuste;Vraiment exotique
+Dasylire de Wheeler;Dasylirion wheeleri;Asparagaceae;acide,neutre,calcaire;frais,sec;limoneux,sablonneux;-15;;;oui;faible;;oui;3.5;7.0;1.2;1.2;arbuste;Vraiment exotique
+Arbre aux mouchoirs;Davidia involucrata;Nyssaceae;acide,neutre;frais;argileux,limoneux;-14;non;non;oui;faible;modéré;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
 Decaisnea fargesii;Decaisnea fargesii;;;;;;;;;;;;;;;;;Vraiment exotique
 Deutzia Pride of Rochester;Deutzia crenata 'Pride of Rochester';Hydrangeaceae;neutre;frais;;-14;;non;non;faible;faible;oui;2.0;3.5;1.2;1.2;arbuste;Vraiment exotique
 Petit deutzia;Deutzia gracilis;Hydrangeaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-14;;non;non;faible;faible;oui;0.8;0.8;0.8;0.8;arbuste;Vraiment exotique
@@ -335,8 +335,8 @@ Deutzia magnifique;Deutzia x magnifica;Hydrangeaceae;acide,neutre;frais;;-14;;no
 Dicksonia antarctique;Dicksonia antarctica;Cyatheaceae;;;;;;;non;faible;;;;;;;;Vraiment exotique
 Dioscorée commune;Dioscorea communis (L.) Caddick & Wilkin;Dioscoreaceae;calcaire;frais;limoneux;;;;;faible;;oui;0;4.0;;;grimpant;
 Diospyros kaki;Diospyros kaki;Ebenaceae;;frais;;-10;oui;non;oui;fort;;non;6.9;10.0;4.5;7;arbuste;Vraiment exotique
-Plaqueminier lotier;Diospyros lotus;Ebenaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux,sablonneux;-15;oui;non;non;moyen;;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
-Plaqueminier de Virginie;Diospyros virginiana;Ebenaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-30;oui;non;oui;moyen;faible;oui;15.0;20.0;7.0;10.0;arbre;Vraiment exotique
+Plaqueminier lotier;Diospyros lotus;Ebenaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux,sablonneux;-15;oui;non;oui;moyen;;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
+Plaqueminier de Virginie;Diospyros virginiana;Ebenaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-30;oui;non;non;moyen;faible;oui;15.0;20.0;7.0;10.0;arbre;Vraiment exotique
 Dodonée visqueuse;Dodonaea viscosa 'Purpurea';Sapindaceae;;;;;;;oui;faible;;;;;;;;
 Liane patate;Dolichandra unguis-cati;Bignoniaceae;;;;;;;;faible;;;;;;;;
 Pomme de Kei;Dovyalis caffra;;;;;;;;oui;faible;;;;;;;;
@@ -344,10 +344,10 @@ Dragonnier des Canaries;Dracaena draco;Asparagaceae;;;;;;;oui;faible;;;;;;;;
 Drimys winteri;Drimys winteri;;;;;;;;oui;;;;;;;;;Vraiment exotique
 Vanillier de Cayenne;Duranta erecta;Verbenaceae;;;;;;;oui;faible;;;;;;;;
 Edgeworthia chrysantha;Edgeworthia chrysantha;;;;;;;;;;;;;;;;;Vraiment exotique
-Ehrétie à feuilles acuminées;Ehretia acuminata;Boraginaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-20;non;non;oui;faible;modéré;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
+Ehrétie à feuilles acuminées;Ehretia acuminata;Boraginaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-20;non;non;non;faible;modéré;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Ehretia dicksonii;Ehretia dicksonii;;;;;;;;oui;;;;13.8;20.0;9.8;15.0;;
 Olivier de Bohême;Elaeagnus angustifolia;Elaeagnaceae;acide,neutre,calcaire,très basique;sec;argileux,limoneux,sablonneux;-40;;non;oui;faible;élevé;oui;3.5;7.0;3.5;7.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
-Chalef argenté;Elaeagnus commutata;Elaeagnaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-40;;;;faible;;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
+Chalef argenté;Elaeagnus commutata;Elaeagnaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-40;;;non;faible;;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
 Chalef à grandes feuilles;Elaeagnus macrophylla;Elaeagnaceae;neutre;frais,sec;argileux,limoneux,sablonneux;-20;;;;faible;;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
 Goumi;Elaeagnus multiflora;Elaeagnaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-14;;;non;faible;;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Chalef en ombelles;Elaeagnus umbellata;Elaeagnaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-15;;non;;faible;élevé;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
@@ -355,7 +355,7 @@ Chalef réfléchi;Elaeagnus x reflexa Morren & Decne. [Elaeagnus glabra x Elaeag
 Eléagnus d'Ebbing;Elaeagnus x submacrophylla;Elaeagnaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-25;;non;;faible;faible;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
 Elegia capensis;Elegia capensis;;;;;;;;;;;;;;;;;Vraiment exotique
 Acanthopanax de Siebold;Eleutherococcus sieboldianus;Araliaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-30;;non;;faible;faible;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
-Enkianthe à fleur de campanule;Enkianthus campanulatus;Ericaceae;très acide,acide;humide,frais;argileux,limoneux,sablonneux;-15;;;;faible;;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
+Enkianthe à fleur de campanule;Enkianthus campanulatus;Ericaceae;très acide,acide;humide,frais;argileux,limoneux,sablonneux;-15;;;non;faible;;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Erica arborea;Erica arborea;Ericaceae;neutre;frais;limoneux;-10;non;non;oui;fort;;oui;0;4.0;2.0;3;arbuste;Indigène
 Bruyère des Alpes;Erica carnea;Ericaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-15;;;;faible;;oui;0.2;0.5;0.5;0.8;arbuste;Indigène
 Bruyère cendrée;Erica cinerea;Ericaceae;très acide,acide;frais,sec;argileux,limoneux,sablonneux;-15;;;;faible;;oui;0.2;0.5;0.5;0.8;arbuste;Indigène
@@ -371,22 +371,22 @@ Néflier du Japon sélection algérienne Algar 72;Eriobotrya japonica 'Algar 72'
 Erythrina abyssinica;Erythrina abyssinica;;;;;;;;oui;;;;;;;;;
 Érythrine crête-de-coq;Erythrina crista-galli;Fabaceae;;;;;;;oui;faible;;;;;;;;Vraiment exotique
 Erythrostemon gilliesii;Erythrostemon gilliesii;Fabaceae;;;;-10;non;non;oui;faible;;;2.1;3.0;4.5;7;buissonnant;Vraiment exotique
-Escallonia rubra var. macrantha;Escallonia rubra var. macrantha;Escalloniaceae;;;;-10;non;non;;faible;;;3.4;5.0;2.0;3;arrondi;Vraiment exotique
+Escallonia rubra var. macrantha;Escallonia rubra var. macrantha;Escalloniaceae;;;;-10;non;non;non;faible;;;3.4;5.0;2.0;3;arrondi;Vraiment exotique
 Eucalyptus  de Camaldoli;Eucalyptus camaldulensis Dehnh.;Myrtaceae;neutre;frais;limoneux;;;;oui;fort;;oui;;;;;arbre;
 Eucalyptus à fruits globuleux;Eucalyptus globulus Labill.;Myrtaceae;neutre;frais;limoneux;;;;oui;fort;;oui;0;44.0;;;arbre;Vraiment exotique
 Eucalyptus commun;Eucalyptus gunnii;Myrtaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-14;;;non;fort;;oui;15.0;20.0;7.0;10.0;arbre;Vraiment exotique
 Gommier des neiges;Eucalyptus pauciflora;Myrtaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-15;;;;fort;;oui;8.3;12;3.9;6;arbre;Vraiment exotique
-Eucalyptus à écorce de fer;Eucalyptus sideroxylon;Myrtaceae;;;;;;;non;faible;;;;;;;;
+Eucalyptus à écorce de fer;Eucalyptus sideroxylon;Myrtaceae;;;;;;;oui;faible;;;;;;;;
 Eucommia ulmoides;Eucommia ulmoides;;;;;;;;oui;;;;13.8;20.0;9.8;15.0;;
 Fusain ailé;Euonymus alatus;Celastraceae;acide,neutre,calcaire,très basique;frais;argileux,limoneux,sablonneux;-15;;non;;faible;élevé;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
-Fusain d'Europe;Euonymus europaeus;Celastraceae;neutre,calcaire,très basique;humide,frais,sec;argileux,limoneux;-35;non;non;non;fort;élevé;oui;3.5;7.0;2.0;3.5;arbuste;Indigène
+Fusain d'Europe;Euonymus europaeus;Celastraceae;neutre,calcaire,très basique;humide,frais,sec;argileux,limoneux;-35;non;non;oui;fort;élevé;oui;3.5;7.0;2.0;3.5;arbuste;Indigène
 Fusain de Fortune;Euonymus fortunei;Celastraceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;non;;faible;élevé;oui;0.5;0.8;2.0;3.5;arbuste;Vraiment exotique
 Fusain du Japon;Euonymus japonicus;Celastraceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-14;;non;non;faible;faible;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
 Fusain à feuilles larges;Euonymus latifolius;Celastraceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-30;;;non;faible;;oui;3.5;7.0;2.0;3.5;arbuste;Indigène
 Euphorbe arborescente;Euphorbia dendroides L.;Euphorbiaceae;neutre;frais;argileux;;;;oui;faible;;oui;0;2.0;;;arbuste;Indigène
 Exochorda racemosa;Exochorda racemosa;;;;;-10;oui;non;;faible;;;2.8;4.0;4.5;7;buissonnant;Vraiment exotique
-Hêtre d'Amérique;Fagus grandifolia;Fagaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-30;non;non;oui;faible;faible;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
-Hêtre commun;Fagus sylvatica;Fagaceae;très acide,acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-30;non;non;oui;faible;faible;oui;20.0;20.0;20.0;20.0;arbre;Indigène
+Hêtre d'Amérique;Fagus grandifolia;Fagaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-30;non;non;non;faible;faible;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
+Hêtre commun;Fagus sylvatica;Fagaceae;très acide,acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-30;non;non;non;faible;faible;oui;20.0;20.0;20.0;20.0;arbre;Indigène
 Renouée grimpante;Fallopia baldschuanica;Polygonaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux;-15;;;;faible;;oui;10.0;15.0;3.5;7.0;grimpant;Vraiment exotique
 Fargésia roux (véritable;Fargesia rufa;Poaceae;acide,neutre;humide,frais;argileux,limoneux;-14;;;;fort;;;2.0;3.5;1.6;1.6;arbuste;Vraiment exotique
 Aralia du Japon;Fatsia japonica;Araliaceae;très acide,acide,neutre;frais;argileux,limoneux,sablonneux;-14;;non;;faible;faible;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
@@ -397,17 +397,17 @@ Firmania simple;Firmiana simplex;Malvaceae;;frais;;-15;oui;oui;oui;fort;;non;10.
 Forsythia hybride;Forsythia x intermedia;Oleaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-25;non;non;;fort;faible;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Grand fothergille;Fothergilla latifolia;Hamamelidaceae;très acide,acide;humide;argileux,limoneux,sablonneux;-15;;non;;faible;modéré;oui;1.6;1.6;1.2;1.2;arbuste;Vraiment exotique
 Bourdaine;Frangula alnus;Rhamnaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-35;;non;non;fort;élevé;oui;3.5;7.0;3.5;7.0;arbuste;Indigène
-Frêne d'Amérique;Fraxinus americana;Oleaceae;acide,neutre;frais;;-15;non;non;non;fort;modéré;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Frêne d'Amérique;Fraxinus americana;Oleaceae;acide,neutre;frais;;-15;non;non;oui;fort;modéré;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
 Frêne à feuilles étroites;Fraxinus angustifolia;Oleaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-25;oui;non;oui;fort;;oui;15.0;20.0;10.0;15.0;arbre;Indigène
-Frêne de Chine;Fraxinus chinensis;Oleaceae;neutre,calcaire;frais;argileux,limoneux,sablonneux;-25;;;;fort;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
+Frêne de Chine;Fraxinus chinensis;Oleaceae;neutre,calcaire;frais;argileux,limoneux,sablonneux;-25;;;oui;fort;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Fraxinus cuspidata;Fraxinus cuspidata;;;;;;;;oui;;;;;;;;;
 Frêne commun;Fraxinus excelsior;Oleaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-25;oui;non;oui;fort;;oui;20.0;20.0;15.0;20.0;arbre;Indigène
-Frêne de Mandchourie;Fraxinus mandshurica;Oleaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-15;;;oui;fort;;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
-Frêne à fleurs;Fraxinus ornus;Oleaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-15;moyen;non;non;fort;;oui;7.0;10.0;3.5;7.0;arbre;Indigène
+Frêne de Mandchourie;Fraxinus mandshurica;Oleaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-15;;;non;fort;;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Frêne à fleurs;Fraxinus ornus;Oleaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-15;moyen;non;oui;fort;;oui;7.0;10.0;3.5;7.0;arbre;Indigène
 Frêne des Balkans;Fraxinus pallisiae;Oleaceae;;;;-15;;;;fort;;;15.0;20.0;;;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
-Frêne de Pennsylvanie;Fraxinus pennsylvanica;Oleaceae;acide,neutre;humide,frais,sec;argileux,limoneux,sablonneux;-15;;non;non;fort;modéré;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
-Frêne bleu;Fraxinus quadrangulata;Oleaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-30;;non;;fort;faible;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
-Frêne de Siebold;Fraxinus sieboldiana;Oleaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux,sablonneux;-20;non;;oui;fort;;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
+Frêne de Pennsylvanie;Fraxinus pennsylvanica;Oleaceae;acide,neutre;humide,frais,sec;argileux,limoneux,sablonneux;-15;;non;oui;fort;modéré;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Frêne bleu;Fraxinus quadrangulata;Oleaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-30;;non;non;fort;faible;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Frêne de Siebold;Fraxinus sieboldiana;Oleaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux,sablonneux;-20;non;;non;fort;;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
 Frêne velouté;Fraxinus velutina;Oleaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-15;oui;non;oui;fort;;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
 Fraxinus xanthoxyloides;Fraxinus xanthoxyloides;;;;;;;;oui;;;;;;;;;
 Fremontodendron californicum;Fremontodendron californicum;Malvaceae;acide,neutre,calcaire;frais,sec;limoneux,sablonneux;-7;non;non;oui;faible;;;3.8;5.5;4.5;7;pyramidal;Vraiment exotique
@@ -416,20 +416,20 @@ Garrya x thuretii;Garrya x thuretii;;;;;;;;;;;;;;;;;
 Gelsemium sempervirens;Gelsemium sempervirens;;;;;;;;;;;;;;;;;
 Genêt de l'Etna;Genista aetnensis;Fabaceae;neutre;sec;argileux,limoneux,sablonneux;-14;;;non;faible;;oui;3.5;7.0;3.5;7.0;arbuste;
 Geoffroea decorticans;Geoffroea decorticans;;;;;;;;oui;;;;;;;;;
-Arbre aux quarante écus;Ginkgo biloba;Ginkgoaceae;neutre;frais,sec;argileux,limoneux,sablonneux;-35;non;non;non;moyen;modéré;non;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Arbre aux quarante écus;Ginkgo biloba;Ginkgoaceae;neutre;frais,sec;argileux,limoneux,sablonneux;-35;non;non;oui;moyen;modéré;non;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
 Gleditsia japonica;Gleditsia japonica;;;;;;;;non;;;;;;;;;
-Févier de Chine;Gleditsia sinensis;Fabaceae;neutre;frais,sec;argileux,limoneux,sablonneux;-12;;;;faible;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
-Févier d'Amérique;Gleditsia triacanthos;Fabaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-30;oui;non;non;faible;élevé;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Févier de Chine;Gleditsia sinensis;Fabaceae;neutre;frais,sec;argileux,limoneux,sablonneux;-12;;;oui;faible;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
+Févier d'Amérique;Gleditsia triacanthos;Fabaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-30;oui;non;oui;faible;élevé;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
 Grevillea banksii;Grevillea banksii;;;;;-5;non;non;oui;faible;;;6.9;10.0;2.0;3;pyramidal;Vraiment exotique
 Grévilléa à feuilles de genévrier;Grevillea juniperina;Proteaceae;;;;;;;;faible;;;;;;;;Vraiment exotique
 Grevillea robusta;Grevillea robusta;;;;;-10;non;oui;oui;faible;;;10.3;15.0;4.5;7;pyramidal;Vraiment exotique
 Grévilléa à feuilles de romarin;Grevillea rosmarinifolia;Proteaceae;;;;;;;;faible;;;;;;;;Vraiment exotique
-Griséline du littoral;Griselinia littoralis;Griseliniaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-20;;;;faible;;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
+Griséline du littoral;Griselinia littoralis;Griseliniaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-20;;;non;faible;;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
 Rhubarbe géante du Brésil;Gunnera manicata;Gunneraceae;;;;;;;;faible;;;;;;;;
 Gymnocladus chinensis;Gymnocladus chinensis;;;;;;;;oui;;;;;;;;;
-Chicot du Canada;Gymnocladus dioicus;Fabaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux;-15;;non;non;fort;faible;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
-Hakéa laurier;Hakea laurina;Proteaceae;;;;;;;non;faible;;;;;;;;
-Arbre aux clochettes d'argent;Halesia carolina;Styracaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-30;;non;oui;faible;faible;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
+Chicot du Canada;Gymnocladus dioicus;Fabaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux;-15;;non;oui;fort;faible;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Hakéa laurier;Hakea laurina;Proteaceae;;;;;;;oui;faible;;;;;;;;
+Arbre aux clochettes d'argent;Halesia carolina;Styracaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-30;;non;non;faible;faible;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
 Hamamélis de Chine;Hamamelis mollis;Hamamelidaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-14;;non;non;faible;faible;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
 Hamamélis de Virginie;Hamamelis virginiana;Hamamelidaceae;très acide,acide;humide,frais;argileux,limoneux;-35;;non;non;faible;faible;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
 Hardenbergia violacea;Hardenbergia violacea;;;;;-10;non;non;;faible;;;2.1;3.0;2.0;3;liane;Vraiment exotique
@@ -437,20 +437,20 @@ Lierre d'Alger Ravenholst;Hedera algeriensis 'Ravenholst';Araliaceae;acide,neutr
 Lierre de Colchide;Hedera colchica;Araliaceae;acide,neutre,calcaire,très basique;humide,frais,sec;argileux,limoneux,sablonneux;-15;;non;;faible;modéré;oui;20.0;20.0;3.5;7.0;grimpant;Vraiment exotique
 Hedera helix;Hedera helix;Araliaceae;neutre;frais;humifère;-10;non;non;;fort;;oui;20.7;30.0;4.5;7;liane;Indigène
 Lierre d'Irlande;Hedera hibernica;Araliaceae;acide,neutre,calcaire,très basique;humide,frais;argileux,limoneux;-14;;;;faible;;oui;15.0;20.0;3.5;7.0;grimpant;Indigène
-Arbre aux sept fleurs;Heptacodium miconioides;Caprifoliaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-15;;non;;faible;modéré;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
+Arbre aux sept fleurs;Heptacodium miconioides;Caprifoliaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-15;;non;non;faible;modéré;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
 Heptapleurum delavayi;Heptapleurum delavayi;;;;;;;;oui;;;;;;;;;
 Cyprès de l'Arizona;Hesperocyparis arizonica;Cupressaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-15;;non;oui;fort;faible;non;15.0;20.0;7.0;10.0;arbre;Vraiment exotique
 Cyprès glabre;Hesperocyparis glabra;Cupressaceae;;;;;;;;fort;;;;;;;;Vraiment exotique
 Cyprès de Lambert;Hesperocyparis macrocarpa;Cupressaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-14;;non;oui;fort;faible;non;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
 Heteromeles arbutifolia;Heteromeles arbutifolia;;;;;-10;oui;non;oui;faible;;;6.2;9.0;4.5;7;arrondi;Vraiment exotique
 Hibiscus rosa-sinensis;Hibiscus rosa-sinensis;;;;;;;;oui;;;;;;;;;
-Hibiscus de Syrie;Hibiscus syriacus;Malvaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-15;non;non;oui;faible;élevé;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
+Hibiscus de Syrie;Hibiscus syriacus;Malvaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-15;non;non;non;faible;élevé;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Hippocrepis emerus subsp. emerus;Hippocrepis emerus subsp. emerus;Fabaceae;calcaire;frais;limoneux;-10;non;non;;fort;;oui;0;2.0;2.0;3;arbuste;Indigène
 Argousier;Hippophae rhamnoides;Elaeagnaceae;neutre,calcaire,très basique;humide,frais,sec;limoneux,sablonneux;-35;non;non;non;faible;;oui;3.5;7.0;3.5;7.0;arbuste;Indigène
 Hippophae salicifolia;Hippophae salicifolia;;;;;;;;oui;;;;;;;;;
-Raisinier de Chine;Hovenia dulcis;Rhamnaceae;neutre;frais;argileux,limoneux,sablonneux;-25;;non;non;faible;élevé;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
+Raisinier de Chine;Hovenia dulcis;Rhamnaceae;neutre;frais;argileux,limoneux,sablonneux;-25;;non;oui;faible;élevé;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
 Houblon;Humulus lupulus;Cannabaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;non;;fort;faible;oui;7.0;10.0;2.0;3.5;grimpant;Indigène
-Hortensia velu;Hydrangea aspera ( Villosa Group );Hydrangeaceae;très acide,acide,neutre;frais;argileux,limoneux,sablonneux;-14;;;;faible;;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
+Hortensia velu;Hydrangea aspera ( Villosa Group );Hydrangeaceae;très acide,acide,neutre;frais;argileux,limoneux,sablonneux;-14;;;oui;faible;;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Hortensia grimpant japonais Moonlight;Hydrangea hydrangeoides 'Moonlight';Hydrangeaceae;;humide,frais;;-14;;non;;faible;faible;oui;3.5;7.0;1.6;1.6;grimpant;Vraiment exotique
 Hortensia commun;Hydrangea macrophylla;Hydrangeaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-14;;non;;faible;faible;oui;1.6;1.6;2.0;3.5;arbuste;Vraiment exotique
 Hortensia paniculé;Hydrangea paniculata;Hydrangeaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-15;;non;non;faible;modéré;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
@@ -463,18 +463,18 @@ Hymenosporum flavum;Hymenosporum flavum;;;;;;;;non;;;;;;;;;
 Millepertuis de Hidcote;Hypericum x hidcoteense 'Hidcote';Hypericaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-14;;;;faible;;oui;0.8;0.8;1.2;1.2;arbuste;
 Idésia polycarpe;Idesia polycarpa;Salicaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-30;;;oui;moyen;;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
 Houx commun;Ilex aquifolium;Aquifoliaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-25;non;non;non;moyen;modéré;oui;10.0;15.0;3.5;7.0;arbre;Indigène
-Houx cornu;Ilex cornuta;Aquifoliaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;non;;moyen;élevé;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
-Houx crénelé;Ilex crenata;Aquifoliaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-15;;non;;moyen;modéré;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
+Houx cornu;Ilex cornuta;Aquifoliaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;non;non;moyen;élevé;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
+Houx crénelé;Ilex crenata;Aquifoliaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-15;;non;non;moyen;modéré;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
 Houx glabre Gem Box;Ilex glabra 'SMNIGAB17' GEM BOX;Aquifoliaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-15;;non;;moyen;faible;oui;0.8;0.8;0.8;0.8;arbuste;Vraiment exotique
 Ilex paraguariensis;Ilex paraguariensis;;;;;;;;non;;;;;;;;;
 Ilex perado;Ilex perado;;;;;;;;non;;;;;;;;;
 Ilex pernyi;Ilex pernyi;;;;;;;;oui;;;;;;;;;
 Ilex verticillata;Ilex verticillata;;;;;;;;non;;;;;;;;;
-Houx à feuilles de buis;Ilex vomitoria 'Dwarf' NANA;Aquifoliaceae;;;;-15;;;;moyen;;;;;;;arbuste;Vraiment exotique
+Houx à feuilles de buis;Ilex vomitoria 'Dwarf' NANA;Aquifoliaceae;;;;-15;;;non;moyen;;;;;;;arbuste;Vraiment exotique
 Houx de Highclere;Ilex x altaclerensis;Aquifoliaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-25;;;;moyen;;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
 Houx hybride de Meserve Blue Princess;Ilex x meserveae 'Conapry' BLUE PRINCESS;Aquifoliaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-25;;;;moyen;;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Indigotier rose;Indigofera heterantha;Fabaceae;acide,neutre,calcaire;sec;argileux,limoneux,sablonneux;-20;;non;oui;faible;modéré;oui;1.2;1.2;1.6;1.6;arbuste;Vraiment exotique
-Arundinaria de Ragamowsk;Indocalamus tessellatus;Poaceae;;;;;;;non;fort;;;;;;;;
+Arundinaria de Ragamowsk;Indocalamus tessellatus;Poaceae;;;;;;;oui;fort;;;;;;;;
 Ipomée des Indes;Ipomoea indica (Burm.) Merr.;Convolvulaceae;;;;;;;;faible;;;;;;;;Vraiment exotique
 Itea ilicifolia;Itea ilicifolia;;;;;-10;non;non;;faible;;;2.8;4.0;4.5;7;buissonnant;Vraiment exotique
 Itéa de Virginie;Itea virginica;Iteaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-15;;non;;faible;modéré;oui;1.6;1.6;2.0;3.5;arbuste;Vraiment exotique
@@ -487,9 +487,9 @@ Jasmin stéphanois;Jasminum x stephanense;Oleaceae;neutre;frais;;-14;;;;faible;;
 Cocotier du Chili;Jubaea chilensis;Arecaceae;neutre;frais,sec;argileux,limoneux,sablonneux;-15;;;oui;faible;;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
 Noyer cendré;Juglans cinerea;Juglandaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-35;;non;non;faible;modéré;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
 Noyer à feuilles d'ailanthe;Juglans mandshurica var. sachalinensis;Juglandaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;;oui;faible;;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
-Noyer du Texas;Juglans microcarpa;Juglandaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-25;;;;faible;;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
-Noyer d'Amérique;Juglans nigra;Juglandaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-30;;;non;faible;;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
-Noyer commun;Juglans regia;Juglandaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux,sablonneux;-15;non;;oui;faible;;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
+Noyer du Texas;Juglans microcarpa;Juglandaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-25;;;oui;faible;;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
+Noyer d'Amérique;Juglans nigra;Juglandaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-30;;;oui;faible;;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
+Noyer commun;Juglans regia;Juglandaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux,sablonneux;-15;non;;non;faible;;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
 Genévrier de Chine Stricta;Juniperus chinensis 'Stricta';Cupressaceae;neutre,calcaire;frais,sec;;-15;;;oui;fort;;;2.0;3.5;1.2;1.2;arbuste;Vraiment exotique
 Genévrier commun Repanda;Juniperus communis 'Repanda';Cupressaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-30;non;non;oui;fort;;oui;0.2;0.5;1.6;1.6;arbuste;Indigène
 Juniperus deppeana;Juniperus deppeana;;;;;;;;oui;;;;;;;;;
@@ -498,18 +498,18 @@ Genévrier monosperme;Juniperus monosperma;Cupressaceae;;;;;;;oui;fort;;;;;;;;
 Genévrier oxycèdre;Juniperus oxycedrus;Cupressaceae;neutre,calcaire;sec;limoneux,sablonneux;-12;non;non;oui;fort;;oui;3.5;7.0;2.0;3.5;arbre;Indigène
 Juniperus phoenicea;Juniperus phoenicea;Cupressaceae;calcaire;frais;limoneux;-5;non;non;;fort;;oui;0;8.0;2.0;3;arbuste;Indigène
 Genévrier prostré Nana;Juniperus procumbens 'Nana';Cupressaceae;acide,neutre,calcaire;frais,sec;;-15;;;;fort;;;0.2;0.5;1.6;1.6;arbuste;Vraiment exotique
-Genévrier des rivages Schlager;Juniperus rigida var. conferta 'Schlager';Cupressaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-20;;;;fort;;;0.2;0.5;1.6;1.6;arbuste;Vraiment exotique
+Genévrier des rivages Schlager;Juniperus rigida var. conferta 'Schlager';Cupressaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-20;;;non;fort;;;0.2;0.5;1.6;1.6;arbuste;Vraiment exotique
 Genevrier sabine;Juniperus sabina L.;Cupressaceae;neutre;frais;argileux;;;;;fort;;oui;;;;;;
 Genévrier des Rocheuses Blue Arrow;Juniperus scopulorum 'Blue Arrow';Cupressaceae;acide,neutre,calcaire;frais,sec;;-15;;non;oui;fort;faible;non;3.5;7.0;0.5;0.8;arbre;Vraiment exotique
 Genévrier écailleux Blue Star;Juniperus squamata 'Blue Star';Cupressaceae;neutre,calcaire;frais,sec;;-15;;;;fort;;;0.2;0.5;0.8;0.8;arbuste;Vraiment exotique
 Genévrier thurifère;Juniperus thurifera L.;Cupressaceae;calcaire;frais;limoneux;;;;non;fort;;oui;0;16.0;;;;
 Genévrier de Virginie;Juniperus virginiana L.;Cupressaceae;;;;;;;oui;fort;;oui;;;;;;
 Genévrier hybride de Pfitzer Old Gold;Juniperus x pfitzeriana 'Old Gold';Cupressaceae;acide,neutre,calcaire;frais;;-15;;non;non;fort;faible;non;0.8;0.8;2.0;3.5;arbuste;Vraiment exotique
-Laurier des montagnes;Kalmia latifolia;Ericaceae;très acide,acide;humide,frais;argileux,limoneux,sablonneux;-15;;;;faible;;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
-Kalopanax du Japon;Kalopanax septemlobus;Araliaceae;neutre;humide,frais;argileux,limoneux,sablonneux;-30;;non;;moyen;faible;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
+Laurier des montagnes;Kalmia latifolia;Ericaceae;très acide,acide;humide,frais;argileux,limoneux,sablonneux;-15;;;non;faible;;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
+Kalopanax du Japon;Kalopanax septemlobus;Araliaceae;neutre;humide,frais;argileux,limoneux,sablonneux;-30;;non;non;moyen;faible;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
 Corète du Japon;Kerria japonica;Rosaceae;neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-14;;;;faible;;oui;1.6;1.6;2.0;3.5;arbuste;Vraiment exotique
 Koelreuteria bipinnata;Koelreuteria bipinnata;Sapindaceae;;sec,frais;;-5;non;oui;oui;faible;;oui;10.0;15.0;7.8;12;etalé;Vraiment exotique
-Koelreuteria paniculata 'Fastigiata';Koelreuteria paniculata 'Fastigiata';Sapindaceae;acide;frais;;-10;non;oui;non;fort;;oui;6.9;10.0;7.8;12;etalé;Vraiment exotique
+Koelreuteria paniculata 'Fastigiata';Koelreuteria paniculata 'Fastigiata';Sapindaceae;acide;frais;;-10;non;oui;oui;fort;;oui;6.9;10.0;7.8;12;etalé;Vraiment exotique
 Buisson de beauté;Kolkwitzia amabilis;Caprifoliaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-15;;non;;faible;faible;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Cytise des Alpes;Laburnum alpinum;Fabaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-30;;;non;moyen;;oui;3.5;7.0;3.5;7.0;arbre;Indigène
 Cytise commun;Laburnum anagyroides;Fabaceae;neutre,calcaire,très basique;frais;argileux,limoneux,sablonneux;-30;;non;;moyen;élevé;oui;7.0;10.0;3.5;7.0;arbre;Indigène
@@ -528,25 +528,25 @@ Leptospermum scoparium;Leptospermum scoparium;;;;;;;;non;;;;;;;;;Vraiment exotiq
 Lespédeza de Thunberg;Lespedeza thunbergii;Fabaceae;acide,neutre,calcaire;frais,sec;limoneux,sablonneux;-14;;;;faible;;oui;1.2;1.2;1.6;1.6;arbuste;Vraiment exotique
 Arbre aux faisans;Leycesteria formosa;Caprifoliaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;;;faible;;oui;2.0;3.5;1.6;1.6;arbuste;Vraiment exotique
 Ligustrum delavayanum;Ligustrum delavayanum;;;;;;;;;;;;;;;;;Vraiment exotique
-Troène Ibota;Ligustrum ibota;Oleaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-15;;;oui;moyen;;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
+Troène Ibota;Ligustrum ibota;Oleaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-15;;;non;moyen;;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
 Ligustrum japonicum;Ligustrum japonicum;Oleaceae;;;;-10;oui;non;oui;moyen;;;8.3;12.0;2.0;3;arrondi;Vraiment exotique
-Troène brillant;Ligustrum lucidum;Oleaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-14;;non;non;moyen;élevé;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
+Troène brillant;Ligustrum lucidum;Oleaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-14;;non;oui;moyen;élevé;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Troène de Californie;Ligustrum ovalifolium;Oleaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-14;;;;moyen;;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
 Troène de Chine;Ligustrum sinense;Oleaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-15;;non;non;moyen;élevé;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
 Troène commun;Ligustrum vulgare;Oleaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-30;oui;non;non;moyen;élevé;oui;3.5;7.0;2.0;3.5;arbuste;Indigène
-Copalme de Chine;Liquidambar acalycina;Altingiaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-14;;;;moyen;;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
+Copalme de Chine;Liquidambar acalycina;Altingiaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-14;;;oui;moyen;;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
 Liquidambar formosana;Liquidambar formosana;;;;;;;;oui;;;;13.8;20.0;6.5;10.0;;
 Copalme d'Orient;Liquidambar orientalis;Altingiaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-15;;;oui;moyen;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
-Copalme d'Amérique;Liquidambar styraciflua;Altingiaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-25;non;non;non;moyen;faible;oui;15.0;20.0;15.0;20.0;arbre;Vraiment exotique
+Copalme d'Amérique;Liquidambar styraciflua;Altingiaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-25;non;non;oui;moyen;faible;oui;15.0;20.0;15.0;20.0;arbre;Vraiment exotique
 Tulipier de Chine;Liriodendron chinense;Magnoliaceae;acide;frais;;;non;;oui;faible;;non;10.0;15.0;6.5;10.0;ovoide;
-Tulipier de Virginie;Liriodendron tulipifera;Magnoliaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-30;non;non;non;moyen;faible;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Tulipier de Virginie;Liriodendron tulipifera;Magnoliaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-30;non;non;oui;moyen;faible;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
 Chèvrefeuille de Henry;Lonicera acuminata ( Wall. );Caprifoliaceae;neutre,calcaire;frais;;-14;;non;;faible;modéré;oui;3.5;7.0;1.6;1.6;grimpant;Vraiment exotique
 Camérisier bleu;Lonicera caerulea;Caprifoliaceae;très acide,acide,neutre;humide,frais;argileux,limoneux;-35;;;;faible;;oui;1.6;1.6;1.6;1.6;arbuste;Indigène
 Chèvrefeuille d'Étrurie;Lonicera etrusca Santi;Caprifoliaceae;calcaire;frais;limoneux;-15;non;non;;fort;;oui;0;3.0;2.0;3;arbuste;Indigène
 Chèvrefeuille d'hiver;Lonicera fragrantissima;Caprifoliaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-20;non;non;;fort;élevé;oui;2.0;3.5;1.6;1.6;arbuste;Vraiment exotique
 Chèvrefeuille asiatique;Lonicera japonica;Caprifoliaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-30;;non;;faible;élevé;oui;7.0;10.0;2.0;3.5;grimpant;Vraiment exotique
 Chèvrefeuille à cupule;Lonicera ligustrina var. pileata;Caprifoliaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-15;;;;faible;;oui;0.5;0.8;1.6;1.6;arbuste;Vraiment exotique
-Chèvrefeuille de Maack;Lonicera maackii;Caprifoliaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-15;;non;non;faible;élevé;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
+Chèvrefeuille de Maack;Lonicera maackii;Caprifoliaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-15;;non;oui;faible;élevé;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
 Chèvrefeuille noire;Lonicera nigra L.;Caprifoliaceae;neutre;frais;limoneux;;;;;faible;;oui;0;2.0;;;arbuste;
 Chèvrefeuille des bois Serotina;Lonicera periclymenum 'Serotina';Caprifoliaceae;acide,neutre;frais;humifère;-15;;;;faible;;oui;;;;;grimpant;Indigène
 Chèvrefeuille de Tartarie;Lonicera tatarica;Caprifoliaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-15;;non;;faible;élevé;oui;2.0;3.5;2.0;3.5;arbuste;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
@@ -557,17 +557,17 @@ Chèvrefeuille des haies;Lonicera xylosteum;Caprifoliaceae;neutre,calcaire;frais
 Loropetalum chinense;Loropetalum chinense;;;;;;;;oui;;;;;;;;;Vraiment exotique
 Morelle de Rantonnetti;Lycianthes rantonnetii (Carriere ex Lesc.) Bitter;Solanaceae;;;;;;;;faible;;;;;;;;Vraiment exotique
 Lyciet commun;Lycium barbarum;Solanaceae;acide,neutre,calcaire,très basique;frais,sec;limoneux;-14;;;;faible;;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
-Maackia de l'Amour;Maackia amurensis;Fabaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-30;;;;faible;;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
+Maackia de l'Amour;Maackia amurensis;Fabaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-30;;;non;faible;;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
 Oranger des Osages;Maclura pomifera;Moraceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-20;oui;non;oui;fort;élevé;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Maclura tricuspidata;Maclura tricuspidata;;;;;;;;oui;;;;;;;;;
-Pommier de Sukawa;Macromeles tschonoskii;Rosaceae;neutre;frais;;-15;;;;faible;;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
+Pommier de Sukawa;Macromeles tschonoskii;Rosaceae;neutre;frais;;-15;;;non;faible;;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
 Magnolia hybride Susan;Magnolia 'Susan';Magnoliaceae;très acide,acide,neutre;humide,frais;;-15;;;;moyen;;oui;3.5;7.0;2.0;3.5;arbuste;
 Magnolia acuminata;Magnolia acuminata;;;;;;;;non;;;;13.8;20.0;9.8;15.0;;
-Magnolia dénudé;Magnolia denudata 'Fei Huang' YELLOW RIVER;Magnoliaceae;;;;;;;non;faible;;;;;;;;
-Magnolia Stellar Ruby;Magnolia figo 'Stellar Ruby';Magnoliaceae;très acide,acide,neutre;frais;;-14;;;;moyen;;oui;3.5;7.0;1.6;1.6;arbuste;Vraiment exotique
+Magnolia dénudé;Magnolia denudata 'Fei Huang' YELLOW RIVER;Magnoliaceae;;;;;;;oui;faible;;;;;;;;
+Magnolia Stellar Ruby;Magnolia figo 'Stellar Ruby';Magnoliaceae;très acide,acide,neutre;frais;;-14;;;oui;moyen;;oui;3.5;7.0;1.6;1.6;arbuste;Vraiment exotique
 Magnolia grandiflora 'TMGH' ALTA;Magnolia grandiflora 'TMGH' ALTA;Magnoliaceae;acide;frais;;-5;oui;non;non;fort;;oui;0;35.0;7.8;12;arbre;Vraiment exotique
 Magnolia de Kobé;Magnolia kobus;Magnoliaceae;acide,neutre;humide,frais;argileux,limoneux;-30;non;;non;moyen;;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
-Magnolia à fleurs de lys Nigra;Magnolia liliiflora 'Nigra';Magnoliaceae;acide,neutre;humide,frais;;-15;;non;non;moyen;modéré;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
+Magnolia à fleurs de lys Nigra;Magnolia liliiflora 'Nigra';Magnoliaceae;acide,neutre;humide,frais;;-15;;non;oui;moyen;modéré;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
 Magnolia obovata;Magnolia obovata;;;;;;;;non;;;;;;;;;
 Magnolia salicifolia;Magnolia salicifolia;;;;;;;;non;;;;;;;;;
 Magnolia de Siebold;Magnolia sieboldii;Magnoliaceae;acide,neutre;humide,frais;;-14;;non;non;moyen;modéré;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
@@ -587,9 +587,9 @@ Pommier odorant Charlottae;Malus coronaria 'Charlottae';Rosaceae;acide,neutre,ca
 Pommier commun;Malus domestica;Rosaceae;neutre;frais;argileux,limoneux,sablonneux;-35;non;non;non;moyen;élevé;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Pommier du hou-pei ;Malus hupehensis;Rosaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-30;;non;non;moyen;modéré;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
 Malus ioensis;Malus ioensis;;;;;;;;oui;;;;;;;;;
-Pommier de Chine;Malus spectabilis;Rosaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-30;non;;non;moyen;;oui;7.0;10.0;2.0;3.5;arbre;Vraiment exotique
-Pommier des bois;Malus sylvestris;Rosaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-30;non;non;non;moyen;;oui;7.0;10.0;3.5;7.0;arbre;Indigène
-Pommier d'ornement japonais;Malus toringo;Rosaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-30;;;;moyen;;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
+Pommier de Chine;Malus spectabilis;Rosaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-30;non;;oui;moyen;;oui;7.0;10.0;2.0;3.5;arbre;Vraiment exotique
+Pommier des bois;Malus sylvestris;Rosaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-30;non;non;oui;moyen;;oui;7.0;10.0;3.5;7.0;arbre;Indigène
+Pommier d'ornement japonais;Malus toringo;Rosaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-30;;;oui;moyen;;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
 Malus toringoides;Malus toringoides;;;;;;;;oui;;;;;;;;;
 Pommier florifère;Malus x floribunda;Rosaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-35;non;non;;moyen;;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
 Pommetier Appletini;Malus x purpurea 'Gulliver' APPLETINI®;Rosaceae;neutre;frais;argileux,limoneux,sablonneux;-35;;;non;moyen;;oui;3.5;7.0;1.6;1.6;arbuste;Vraiment exotique
@@ -597,14 +597,14 @@ Pommier d'ornement Red Jade;Malus x scheideckeri 'Red Jade';Rosaceae;acide,neutr
 Pommier d'ornement Golden Hornet;Malus x zumi 'Golden Hornet';Rosaceae;neutre,calcaire;frais;argileux,limoneux,sablonneux;-35;;;;moyen;;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
 Mandevilla sanderi;Mandevilla sanderi;;;;;;;;;;;;;;;;;
 Marsdenia sinensis;Marsdenia sinensis;;;;;;;;;;;;;;;;;
-Maytène du Chili;Maytenus boaria;Celastraceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-15;;;;faible;;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
+Maytène du Chili;Maytenus boaria;Celastraceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-15;;;oui;faible;;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
 Melaleuca citrina;Melaleuca citrina;;;;;;;;non;;;;;;;;;Vraiment exotique
 Melaleuca lophantha;Melaleuca lophantha;;;;;;;;;;;;;;;;;Vraiment exotique
 niaouli;Melaleuca quinquenervia;Myrtaceae;;;;;;;non;faible;;;;;;;;
 Rince bouteille;Melaleuca viminalis 'Kkho1' HOT PINK;Myrtaceae;;;;;;;oui;faible;;;;;;;;Vraiment exotique
 Melia azedarach;Melia azedarach;Meliaceae;;frais;;-10;moyen;non;oui;fort;;oui;10.0;15.0;7.8;12;arrondi;Vraiment exotique
 Melianthus major;Melianthus major;;;;;;;;;;;;;;;;;Vraiment exotique
-Métaséquoia;Metasequoia glyptostroboides;Cupressaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-25;;;non;moyen;;;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
+Métaséquoia;Metasequoia glyptostroboides;Cupressaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-25;;;oui;moyen;;;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
 Metrosideros excelsa;Metrosideros excelsa;;;;;;;;non;;;;2.8;4.0;0.7;1.0;;
 Mûrier blanc stérile;Morus alba 'Fruitless';Moraceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-15;oui;oui;oui;faible;modéré;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
 Mûrier noir;Morus nigra L.;Moraceae;neutre;frais;limoneux;-15;oui;oui;oui;faible;;oui;0;12.0;7.8;12;arrondi;Vraiment exotique
@@ -613,20 +613,20 @@ Muehlenbeckia complexe;Muehlenbeckia complexa (A.Cunn.) Meisn.;Polygonaceae;;;;;
 Bananier du Japon;Musa basjoo;Musaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-14;;;;faible;;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
 Myrica cerifera;Myrica cerifera;;;;;;;;oui;;;;;;;;;
 Myrsine africana;Myrsine africana;;;;;;;;oui;;;;;;;;;Vraiment exotique
-Myrtus communis subsp. tarentina;Myrtus communis subsp. tarentina;Myrtaceae;calcaire;frais;limoneux;-10;non;non;;faible;;oui;0;3.0;2.0;3;arbuste;Indigène
+Myrtus communis subsp. tarentina;Myrtus communis subsp. tarentina;Myrtaceae;calcaire;frais;limoneux;-10;non;non;oui;faible;;oui;0;3.0;2.0;3;arbuste;Indigène
 Bambou sacré;Nandina domestica;Berberidaceae;très acide,acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-15;oui;non;;faible;élevé;oui;2.0;3.5;1.2;1.2;arbuste;Vraiment exotique
-Fausse-spirée à fleurs roses;Neillia affinis;Rosaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;;;faible;;oui;1.6;1.6;1.2;1.2;arbuste;Vraiment exotique
+Fausse-spirée à fleurs roses;Neillia affinis;Rosaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;;oui;faible;;oui;1.6;1.6;1.2;1.2;arbuste;Vraiment exotique
 Stéphanandre Crispa;Neillia incisa 'Crispa';Rosaceae;très acide,acide,neutre;humide,frais;;-15;;non;;faible;modéré;oui;0.5;0.8;1.2;1.2;arbuste;Vraiment exotique
 Nerium oleander;Nerium oleander;Apocynaceae;calcaire;humide;limoneux;-10;non;non;oui;fort;;oui;2.8;4.0;2.0;3;buissonnant;Indigène
 Hêtre austral;Nothofagus antarctica;Nothofagaceae;;;;;;;non;faible;;;;;;;;Vraiment exotique
-Roble;Nothofagus obliqua;Nothofagaceae;très acide,acide,neutre,calcaire;humide,frais,sec;argileux,limoneux,sablonneux;-20;;;;faible;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
-Tupélo de Chine;Nyssa sylvatica;Nyssaceae;acide,neutre;humide,frais;argileux,limoneux;-30;;non;;fort;faible;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
+Roble;Nothofagus obliqua;Nothofagaceae;très acide,acide,neutre,calcaire;humide,frais,sec;argileux,limoneux,sablonneux;-20;;;oui;faible;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
+Tupélo de Chine;Nyssa sylvatica;Nyssaceae;acide,neutre;humide,frais;argileux,limoneux;-30;;non;non;fort;faible;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Olea europaea;Olea europaea;Oleaceae;calcaire;frais;limoneux;-10;non;non;oui;moyen;;oui;0;6.0;7.8;12;arbuste;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Olearia traversii;Olearia traversii;;;;;;;;;;;;;;;;;
 Aster en arbre à feuilles fines;Olearia virgata;Asteraceae;neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-20;;;;faible;;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Aster en arbre de Haast;Olearia x haastii;Asteraceae;neutre,calcaire,très basique;frais,sec;limoneux,sablonneux;-15;;;;faible;;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Oponce figuier de Barbarie;Opuntia ficus-indica (L.) Mill.;Cactaceae;calcaire;frais;humifère;;;;oui;faible;;oui;0;5.0;;;arbuste;
-Osmanthe à feuilles de houx;Osmanthus armatus;Oleaceae;acide,neutre,calcaire;frais,sec;;-14;;;;faible;;oui;2.0;3.5;1.6;1.6;arbuste;Vraiment exotique
+Osmanthe à feuilles de houx;Osmanthus armatus;Oleaceae;acide,neutre,calcaire;frais,sec;;-14;;;oui;faible;;oui;2.0;3.5;1.6;1.6;arbuste;Vraiment exotique
 Osmanthe du Caucase;Osmanthus decorus;Oleaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-20;;;;faible;;oui;1.6;1.6;2.0;3.5;arbuste;Vraiment exotique
 Osmanthe de Delavay;Osmanthus delavayi;Oleaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-20;;non;;faible;modéré;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Osmanthe à parfum;Osmanthus fragrans;Oleaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-12;non;non;oui;fort;modéré;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
@@ -636,11 +636,11 @@ Osmanthe hybride de Fortune;Osmanthus x fortunei;Oleaceae;acide,neutre;frais,sec
 Ostrya à feuilles de charme;Ostrya carpinifolia Scop.;Betulaceae;calcaire;frais;limoneux;-25;oui;non;oui;moyen;;oui;15.0;20.0;7.8;12;arbre;Indigène
 Ostryer de Virginie;Ostrya virginiana;Betulaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-35;non;non;oui;moyen;faible;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Oxydendrum arboreum;Oxydendrum arboreum;;;;;;;;non;;;;;;;;;
-Paliure épine-du-Christ;Paliurus spina-christi Mill.;Rhamnaceae;calcaire;frais;sablonneux;-15;oui;non;non;fort;;oui;0;3.0;2.0;3;arbuste;Indigène
+Paliure épine-du-Christ;Paliurus spina-christi Mill.;Rhamnaceae;calcaire;frais;sablonneux;-15;oui;non;oui;fort;;oui;0;3.0;2.0;3;arbuste;Indigène
 Pandorée faux-jasmin;Pandorea jasminoides;Bignoniaceae;;;;;;;;faible;;;;;;;;Vraiment exotique
 Parasenegalia visco;Parasenegalia visco;;;;;;;;oui;;;;;;;;;
 Albizie à crête;Paraserianthes lophantha (Willd.) I.C.Nielsen;Fabaceae;;;;;;;oui;faible;;oui;;;;;;
-Parrotie de Perse;Parrotia persica;Hamamelidaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux;-15;non;non;non;fort;modéré;oui;7.0;10.0;7.0;10.0;arbre;Vraiment exotique
+Parrotie de Perse;Parrotia persica;Hamamelidaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux;-15;non;non;oui;fort;modéré;oui;7.0;10.0;7.0;10.0;arbre;Vraiment exotique
 Faux-parrotie de Jacquemont;Parrotiopsis jacquemontiana;Hamamelidaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-20;;;;faible;;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
 Parthenocissus henryana;Parthenocissus henryana;;;;;;;;;;;;;;;;;Vraiment exotique
 Vigne vierge à cinq folioles;Parthenocissus quinquefolia;Vitaceae;acide,neutre;humide,frais;argileux,limoneux;-35;non;non;;faible;modéré;oui;15.0;20.0;7.0;10.0;grimpant;Vraiment exotique
@@ -649,7 +649,7 @@ Passiflore bleuâtre;Passiflora caerulea L.;Passifloraceae;;;;;;;;faible;;;;;;;;
 Passiflore à quatre angles;Passiflora quadrangularis;Passifloraceae;;;;;;;;faible;;;;;;;;
 Passiflora x belotii;Passiflora x belotii;;;;;;;;;;;;;;;;;
 Passiflora x violacea;Passiflora x violacea;;;;;;;;;;;;;;;;;
-Paulownia Fast Blue;Paulownia fortunei 'Minfast' FAST BLUE®;Paulowniaceae;neutre,calcaire;frais;;-14;;;;moyen;;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
+Paulownia Fast Blue;Paulownia fortunei 'Minfast' FAST BLUE®;Paulowniaceae;neutre,calcaire;frais;;-14;;;oui;moyen;;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
 Paulownia impérial;Paulownia tomentosa;Paulowniaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-20;oui;oui;non;moyen;élevé;oui;10.0;15.0;10.0;15.0;arbre;Vraiment exotique
 Phellodendron amurense;Phellodendron amurense;;;;;;;;oui;;;;10.3;15.0;9.8;15.0;;
 Seringat des jardins;Philadelphus coronarius;Hydrangeaceae;acide,neutre,calcaire,très basique;frais;argileux,limoneux,sablonneux;-20;non;non;;faible;faible;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
@@ -661,7 +661,7 @@ Phénix des Canaries;Phoenix canariensis hort. ex Chabaud;Arecaceae;;;;;;;oui;fa
 Phénix dattier;Phoenix dactylifera;Arecaceae;;;;;;;oui;faible;;;;;;;;Vraiment exotique
 Dattier nain;Phoenix roebelenii;Arecaceae;;;;;;;;faible;;;;;;;;
 Lin de Nouvelle-Zélande;Phormium tenax;Asphodelaceae;neutre;frais,sec;argileux,limoneux,sablonneux;-12;non;non;;faible;;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
-Photinia du Père David;Photinia davidiana;Rosaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-15;;non;;faible;faible;oui;2.0;3.5;3.5;7.0;arbuste;Vraiment exotique
+Photinia du Père David;Photinia davidiana;Rosaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-15;;non;non;faible;faible;oui;2.0;3.5;3.5;7.0;arbuste;Vraiment exotique
 Photinia serratifolia;Photinia serratifolia;;;;;-10;non;non;oui;faible;;;6.9;10.0;4.5;7;etalé;Vraiment exotique
 Photinia hybride de Fraser;Photinia x fraseri;Rosaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-15;;;;faible;;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
 Bambou doré;Phyllostachys aurea;Poaceae;acide,neutre;humide,frais;argileux,limoneux;-20;;non;oui;fort;élevé;non;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
@@ -671,31 +671,31 @@ Phyllostachys faux bambou;Phyllostachys reticulata;Poaceae;;;;;;;oui;fort;;;;;;;
 Physocarpe à feuilles d'obier;Physocarpus opulifolius;Rosaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;non;;faible;modéré;oui;2.0;3.5;3.5;7.0;arbuste;Vraiment exotique
 Epicéa commun;Picea abies;Pinaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux;-40;oui;;non;faible;;oui;20.0;20.0;10.0;15.0;arbre;Indigène
 Épicéa de Chine;Picea asperata;Pinaceae;;;;;;;oui;faible;;;;;;;;
-Epicéa d'Engelmann;Picea engelmannii;Pinaceae;acide,neutre;humide,frais;argileux,limoneux;-35;;;non;faible;;;15.0;20.0;3.5;7.0;arbre;Vraiment exotique
+Epicéa d'Engelmann;Picea engelmannii;Pinaceae;acide,neutre;humide,frais;argileux,limoneux;-35;;;oui;faible;;;15.0;20.0;3.5;7.0;arbre;Vraiment exotique
 Épicéa glauque;Picea glauca;;;;;;;;;faible;;;;;;;;
-Épicéa du Japon;Picea jezoensis;Pinaceae;;;;;;;non;faible;;;;;;;;
+Épicéa du Japon;Picea jezoensis;Pinaceae;;;;;;;oui;faible;;;;;;;;
 Epicéa blanc Echiniformis;Picea laxa 'Echiniformis';Pinaceae;acide,neutre;humide,frais;;-15;;non;;faible;faible;non;;;;;arbuste;Vraiment exotique
 Épicéa du Likiang;Picea likiangensis var. rubescens;Pinaceae;;;;;;;;faible;;;;;;;;
-Sapinette noire Doumetii;Picea mariana 'Doumetii';Pinaceae;acide,neutre,calcaire;humide,frais,sec;;-15;;;non;faible;;;3.5;7.0;;;arbuste;Vraiment exotique
+Sapinette noire Doumetii;Picea mariana 'Doumetii';Pinaceae;acide,neutre,calcaire;humide,frais,sec;;-15;;;oui;faible;;;3.5;7.0;;;arbuste;Vraiment exotique
 Epicéa de Serbie;Picea omorika;Pinaceae;neutre,calcaire;humide,frais;argileux,limoneux;-30;;;non;faible;;;20.0;20.0;3.5;7.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
-Épicéa d'Orient;Picea orientalis (L.) Link;Pinaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-30;moyen;;oui;faible;;oui;20.0;20;3.2;5;elancé;Vraiment exotique
+Épicéa d'Orient;Picea orientalis (L.) Link;Pinaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-30;moyen;;non;faible;;oui;20.0;20;3.2;5;elancé;Vraiment exotique
 Epicéa bleu du Colorado;Picea pungens;Pinaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux;-15;;non;non;faible;faible;non;15.0;20.0;7.0;10.0;arbre;Vraiment exotique
 Épicéa de Sitka;Picea sitchensis (Bong.) Carriere;Pinaceae;acide;frais;limoneux;;;;non;faible;;oui;0;60.0;;;;
-Épicéa de Smith;Picea smithiana;Pinaceae;;;;;;;non;faible;;;;;;;;
+Épicéa de Smith;Picea smithiana;Pinaceae;;;;;;;oui;faible;;;;;;;;
 Epicéa blanc Conica;Picea x albertiana 'Conica';Pinaceae;acide,neutre;humide,frais;;-15;;;;faible;;;2.0;3.5;1.2;1.2;arbuste;Vraiment exotique
 Andromède du Japon;Pieris japonica;Ericaceae;très acide,acide,neutre;frais;argileux,limoneux,sablonneux;-14;;non;non;faible;modéré;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
 Pin aristé;Pinus aristata;Pinaceae;acide,neutre;frais,sec;limoneux,sablonneux;-35;;non;non;faible;modéré;non;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
 Pinus armandii;Pinus armandii;;;;;;;;oui;;;;;;;;;
-Pin de Banks;Pinus banksiana;Pinaceae;très acide,acide,neutre;frais,sec;limoneux,sablonneux;-40;;;non;faible;;;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
+Pin de Banks;Pinus banksiana;Pinaceae;très acide,acide,neutre;frais,sec;limoneux,sablonneux;-40;;;oui;faible;;;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Pin de Calabre;Pinus brutia Ten.;Pinaceae;calcaire;frais;argileux;;non;;oui;faible;;non;0;20.0;9.8;15.0;ovoide;
 Pin Napoléon;Pinus bungeana;Pinaceae;très acide,acide,neutre,calcaire;frais;limoneux,sablonneux;-30;non;oui;oui;faible;faible;non;15.0;20.0;7.0;10.0;arbre;Vraiment exotique
 Pin des Canaries;Pinus canariensis;Pinaceae;;;;;;;oui;faible;;;;;;;;
 Pin cembro;Pinus cembra;Pinaceae;très acide,acide,neutre;frais;argileux,limoneux,sablonneux;-35;;;non;faible;;oui;10.0;15.0;3.5;7.0;arbre;Indigène
 Pin faux cembro;Pinus cembroides Zuccarin;Pinaceae;;;;;;;oui;faible;;;;;;;;Vraiment exotique
-Pin tordu;Pinus contorta;Pinaceae;très acide,acide;humide,frais,sec;limoneux,sablonneux;-45;;non;;faible;faible;non;3.5;7.0;5.2;8;arbuste;Vraiment exotique
+Pin tordu;Pinus contorta;Pinaceae;très acide,acide;humide,frais,sec;limoneux,sablonneux;-45;;non;oui;faible;faible;non;3.5;7.0;5.2;8;arbuste;Vraiment exotique
 Pin à gros cônes;Pinus coulteri;Pinaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-12;;;oui;faible;;;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
 Pin rouge du Japon;Pinus densiflora 'Umbraculifera';Pinaceae;;;;;;;non;faible;;;;;;;;
-Pin flexible;Pinus flexilis;Pinaceae;;;;;;;non;faible;;;;;;;;
+Pin flexible;Pinus flexilis;Pinaceae;;;;;;;oui;faible;;;;;;;;
 Pin d'Alep;Pinus halepensis;Pinaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-12;oui;oui;oui;faible;;non;20.0;20.0;3.5;7.0;arbre;Indigène
 Pin blanc de Bosnie;Pinus heldreichii;Pinaceae;neutre,calcaire;frais;;-15;;;non;faible;;;10.0;15.0;3.5;7.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Pin de Jeffrey;Pinus jeffreyi;Pinaceae;acide,neutre,calcaire;frais,sec;limoneux,sablonneux;-25;;non;oui;faible;faible;non;20.0;20.0;3.5;7.0;arbre;Vraiment exotique
@@ -704,12 +704,12 @@ Pin blanc des montagnes;Pinus monticola;Pinaceae;;;;;;;non;faible;;;;;;;;
 Pin des montagnes nain Pumilio;Pinus mugo ( Pumilio Group );Pinaceae;acide,neutre,calcaire;frais,sec;sablonneux;-15;;;non;faible;;oui;1.6;1.6;1.6;1.6;arbuste;Indigène
 Pin épineux;Pinus muricata;Pinaceae;;;;;;;oui;faible;;;;;;;;
 Pin noir;Pinus nigra;Pinaceae;très acide,acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-35;non;non;non;faible;modéré;non;20.0;20.0;7.0;10.0;arbre;Indigène
-Pin blanc du Japon;Pinus parviflora;Pinaceae;acide,neutre,calcaire;humide,frais;;-15;non;non;oui;faible;modéré;non;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
+Pin blanc du Japon;Pinus parviflora;Pinaceae;acide,neutre,calcaire;humide,frais;;-15;non;non;non;faible;modéré;non;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
 Pin de Macédoine;Pinus peuce;Pinaceae;acide,neutre,calcaire;frais;;-15;;non;non;faible;modéré;non;7.0;10.0;3.5;7.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
-Pin maritime;Pinus pinaster;Pinaceae;très acide,acide,neutre;frais,sec;argileux,limoneux,sablonneux;-15;oui;non;non;faible;;non;20.0;20.0;7.0;10.0;arbre;Indigène
-Pin parasol;Pinus pinea;Pinaceae;très acide,acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-15;oui;non;non;faible;faible;non;20.0;20.0;10.0;15.0;arbre;Indigène
+Pin maritime;Pinus pinaster;Pinaceae;très acide,acide,neutre;frais,sec;argileux,limoneux,sablonneux;-15;oui;non;oui;faible;;non;20.0;20.0;7.0;10.0;arbre;Indigène
+Pin parasol;Pinus pinea;Pinaceae;très acide,acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-15;oui;non;oui;faible;faible;non;20.0;20.0;10.0;15.0;arbre;Indigène
 Pin jaune du Nouveau Monde;Pinus ponderosa;Pinaceae;acide,neutre,calcaire;humide,frais;limoneux,sablonneux;-30;non;non;oui;faible;faible;non;15.0;20.0;15.0;20.0;arbre;Vraiment exotique
-Pin de Monterey;Pinus radiata;Pinaceae;très acide,acide,neutre;frais,sec;argileux,limoneux,sablonneux;-35;;;non;faible;;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Pin de Monterey;Pinus radiata;Pinaceae;très acide,acide,neutre;frais,sec;argileux,limoneux,sablonneux;-35;;;oui;faible;;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
 Pin rigide;Pinus rigida;Pinaceae;acide,neutre,calcaire;frais;limoneux,sablonneux;-30;;;non;faible;;;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
 Pin gris de Californie;Pinus sabiniana;Pinaceae;;;;;;;oui;faible;;;;;;;;
 Pin Weymouth;Pinus strobus;Pinaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-35;non;;non;faible;;non;15.0;20.0;7.0;10.0;arbre;Vraiment exotique
@@ -717,7 +717,7 @@ Pin sylvestre;Pinus sylvestris;Pinaceae;très acide,acide,neutre;frais,sec;argil
 Pin noir du Japon;Pinus thunbergii;Pinaceae;très acide,acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-20;;non;non;faible;faible;non;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
 Pinus torreyana;Pinus torreyana;;;;;;;;oui;;;;;;;;;
 Pin à crochets;Pinus uncinata;Pinaceae;;frais;;;non;;non;faible;;non;20.0;20.0;6.5;10.0;conique;
-Pin pleureur de l'Himalaya;Pinus wallichiana;Pinaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-25;;non;non;faible;faible;non;15.0;20.0;3.5;7.0;arbre;Vraiment exotique
+Pin pleureur de l'Himalaya;Pinus wallichiana;Pinaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-25;;non;oui;faible;faible;non;15.0;20.0;3.5;7.0;arbre;Vraiment exotique
 Pistacia atlantica;Pistacia atlantica;;;;;-10;non;non;oui;fort;;;10.3;15.0;7.8;12;arrondi;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Pistachier de Chine;Pistacia chinensis;Anacardiaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-20;;non;oui;fort;faible;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Pistachier lentisque;Pistacia lentiscus;Anacardiaceae;acide,neutre,calcaire,très basique;sec;limoneux,sablonneux;-12;non;non;oui;fort;;oui;2.0;3.5;2.0;3.5;arbuste;Indigène
@@ -728,8 +728,8 @@ Pittosporum à feuilles épaisses;Pittosporum crassifolium;Pittosporaceae;;;;;;;
 Pittosporum eugenioides;Pittosporum eugenioides;;;;;;;;non;;;;;;;;;
 Pittosporum tenuifolium;Pittosporum tenuifolium;;;;;-10;non;non;non;fort;;;2.8;4.0;4.5;7;pyramidal;Vraiment exotique
 Pittosporum tobira;Pittosporum tobira (Thunb.) W.T.Aiton;Pittosporaceae;neutre;frais;limoneux;;;;;faible;;oui;;;;;;Vraiment exotique
-Platane d'Amérique;Platanus occidentalis;Platanaceae;neutre;frais,sec;argileux,limoneux,sablonneux;-30;;non;non;moyen;élevé;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
-Platane d'Orient;Platanus orientalis;Platanaceae;neutre,calcaire;frais,sec;argileux,limoneux;-20;moyen;non;non;moyen;;oui;20.0;20.0;15.0;20.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
+Platane d'Amérique;Platanus occidentalis;Platanaceae;neutre;frais,sec;argileux,limoneux,sablonneux;-30;;non;oui;moyen;élevé;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
+Platane d'Orient;Platanus orientalis;Platanaceae;neutre,calcaire;frais,sec;argileux,limoneux;-20;moyen;non;oui;moyen;;oui;20.0;20.0;15.0;20.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Platane à feuilles d'érable;Platanus x hispanica;Platanaceae;neutre;frais,sec;argileux,limoneux,sablonneux;-15;;;non;moyen;;oui;20.0;20.0;20.0;20.0;arbre;
 Thuya d'Orient Aurea Nana;Platycladus orientalis 'Aurea Nana';Cupressaceae;acide,neutre,calcaire;humide,frais;;-15;;;oui;fort;;;1.6;1.6;0.8;0.8;arbuste;Vraiment exotique
 Plombago auriculé;Plumbago auriculata Lam.;Plumbaginaceae;;;;;;;;faible;;oui;;;;;;
@@ -738,11 +738,11 @@ Podocarpus nivalis;Podocarpus nivalis;;;;;;;;;;;;;;;;;
 Poliothyrsis sinensis;Poliothyrsis sinensis;;;;;;;;oui;;;;;;;;;
 Peuplier blanc;Populus alba;Salicaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux,sablonneux;-15;moyen;oui;non;faible;faible;oui;20.0;20.0;15.0;20.0;arbre;Indigène
 Peuplier baumier;Populus balsamifera L.;Salicaceae;calcaire;humide;sablonneux;;;;non;faible;;oui;;;;;arbre;
-Peuplier à fruits velus;Populus lasiocarpa;Salicaceae;;;;;;;non;faible;;;;;;;;Vraiment exotique
+Peuplier à fruits velus;Populus lasiocarpa;Salicaceae;;;;;;;oui;faible;;;;;;;;Vraiment exotique
 Peuplier noir;Populus nigra;Salicaceae;neutre,calcaire,très basique;humide,frais,sec;argileux,limoneux,sablonneux;-35;oui;oui;non;faible;élevé;oui;20.0;20.0;15.0;20.0;arbre;Indigène
-Peuplier de Simon;Populus simonii;Salicaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux;-40;moyen;;non;faible;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
-Peuplier tremble;Populus tremula;Salicaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-40;moyen;oui;oui;faible;;oui;20.0;20.0;10.0;15.0;arbre;Indigène
-Peuplier à fruits chevelus;Populus trichocarpa Torr. & A.Gray ex Hook.;Salicaceae;calcaire;humide;sablonneux;;;;non;faible;;oui;0;42.0;;;arbre;
+Peuplier de Simon;Populus simonii;Salicaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux;-40;moyen;;oui;faible;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
+Peuplier tremble;Populus tremula;Salicaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-40;moyen;oui;non;faible;;oui;20.0;20.0;10.0;15.0;arbre;Indigène
+Peuplier à fruits chevelus;Populus trichocarpa Torr. & A.Gray ex Hook.;Salicaceae;calcaire;humide;sablonneux;;;;oui;faible;;oui;0;42.0;;;arbre;
 Populus x acuminata;Populus x acuminata;;;;;;;;oui;;;;;;;;;
 Peuplier de Berlin;Populus x berolinensis;Salicaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux,sablonneux;-30;;;non;faible;;oui;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
 Peuplier euraméricain Robusta;Populus x canadensis 'Robusta';Salicaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-30;;;non;faible;;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
@@ -751,10 +751,10 @@ Cerisier des collines Kanzan;Prunus 'Kanzan';Rosaceae;neutre,calcaire;frais;;-15
 Abricotier;Prunus armeniaca;Rosaceae;neutre,calcaire;frais;argileux,limoneux,sablonneux;-25;non;non;oui;fort;élevé;oui;3.5;7.0;3.5;7.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Merisier;Prunus avium;Rosaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-35;moyen;;oui;fort;;oui;15.0;20.0;10.0;15.0;arbre;Indigène
 Prunier de Briançon;Prunus brigantina Vill.;Rosaceae;calcaire;frais;limoneux;;;;non;faible;;oui;0;5.0;;;arbuste;
-Myrobolan;Prunus cerasifera;Rosaceae;neutre,calcaire,très basique;humide,frais,sec;argileux,limoneux,sablonneux;-25;non;non;non;fort;élevé;oui;7.0;10.0;7.0;10.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
+Myrobolan;Prunus cerasifera;Rosaceae;neutre,calcaire,très basique;humide,frais,sec;argileux,limoneux,sablonneux;-25;non;non;oui;fort;élevé;oui;7.0;10.0;7.0;10.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Griottier Montmorency;Prunus cerasus 'Montmorency';Rosaceae;neutre;frais;limoneux;-15;;non;;faible;élevé;non;3.5;7.0;;;arbre;Vraiment exotique
 Prunier;Prunus domestica;Rosaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-30;non;non;non;fort;;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
-Amandier;Prunus dulcis;Rosaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-15;non;non;non;fort;;oui;10.0;15.0;7.0;10.0;arbre;Indigène
+Amandier;Prunus dulcis;Rosaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-15;non;non;oui;fort;;oui;10.0;15.0;7.0;10.0;arbre;Indigène
 Prunier nain;Prunus fruticosa Pall.;Rosaceae;;;;;;;;faible;;oui;;;;;;
 Amandier à fleurs du Japon;Prunus glandulosa;Rosaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-15;;;;faible;;oui;1.2;1.2;1.6;1.6;arbuste;Vraiment exotique
 Cerisier à fleur Kojo No Mai;Prunus incisa 'Kojo-no-mai';Rosaceae;neutre;frais;;-15;;;non;faible;;oui;2.0;3.5;1.6;1.6;arbuste;Vraiment exotique
@@ -762,18 +762,18 @@ Mirabellier de Nancy;Prunus insititia 'Mirabelle de Nancy';Rosaceae;acide,neutre
 Prunier du Japon;Prunus japonica;Rosaceae;;;;;;;;faible;;;;;;;;
 Laurier-palme;Prunus laurocerasus;Rosaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-20;;non;non;faible;modéré;oui;7.0;10.0;7.0;10.0;arbuste;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Laurier du Portugal;Prunus lusitanica;Rosaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-20;non;;non;faible;;oui;7.0;10.0;3.5;7.0;arbuste;Indigène
-Cerisier de Mandchourie;Prunus maackii;Rosaceae;acide,neutre;frais;;-15;;;;faible;;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
-Bois de sainte Lucie;Prunus mahaleb;Rosaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-30;non;non;non;fort;;oui;3.5;7.0;3.5;7.0;arbre;Indigène
-Abricotier d'ornement Beni Shi Dori;Prunus mume 'Beni-chidori';Rosaceae;neutre;frais;;-14;;non;;faible;faible;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
-Prunus nipponica var. kurilensis;Prunus nipponica var. kurilensis;;;;;;;;;;;;;;;;;
+Cerisier de Mandchourie;Prunus maackii;Rosaceae;acide,neutre;frais;;-15;;;oui;faible;;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
+Bois de sainte Lucie;Prunus mahaleb;Rosaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-30;non;non;oui;fort;;oui;3.5;7.0;3.5;7.0;arbre;Indigène
+Abricotier d'ornement Beni Shi Dori;Prunus mume 'Beni-chidori';Rosaceae;neutre;frais;;-14;;non;oui;faible;faible;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
+Prunus nipponica var. kurilensis;Prunus nipponica var. kurilensis;;;;;;;;non;;;;;;;;;
 Merisier à grappes;Prunus padus;Rosaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux;-35;moyen;;non;faible;;oui;10.0;15.0;3.5;7.0;arbre;Indigène
 Cerisier de Pennsylvanie;Prunus pensylvanica;Rosaceae;;;;;;;non;faible;;;;;;;;
 Prunus persica;Prunus persica;Rosaceae;calcaire;frais;limoneux;-10;non;non;oui;fort;;oui;0;11.0;4.5;7;arbuste;Vraiment exotique
-Cerisier de Sargent;Prunus sargentii;Rosaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-15;;;non;faible;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
+Cerisier de Sargent;Prunus sargentii;Rosaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-15;;;oui;faible;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Cerisier tardif;Prunus serotina;Rosaceae;très acide,acide,neutre,calcaire;humide,frais,sec;argileux,limoneux,sablonneux;-35;;non;non;faible;faible;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
-Cerisier du Tibet;Prunus serrula;Rosaceae;neutre;frais,sec;argileux,limoneux,sablonneux;-25;;;non;faible;;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
-Cerisier des collines;Prunus serrulata;Rosaceae;neutre,calcaire,très basique;humide,frais;argileux,limoneux,sablonneux;-25;non;oui;non;faible;faible;oui;7.0;10.0;7.0;10.0;arbre;Vraiment exotique
-Prunellier;Prunus spinosa;Rosaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux;-30;oui;oui;non;fort;;oui;3.5;7.0;2.0;3.5;arbuste;Indigène
+Cerisier du Tibet;Prunus serrula;Rosaceae;neutre;frais,sec;argileux,limoneux,sablonneux;-25;;;oui;faible;;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
+Cerisier des collines;Prunus serrulata;Rosaceae;neutre,calcaire,très basique;humide,frais;argileux,limoneux,sablonneux;-25;non;oui;oui;faible;faible;oui;7.0;10.0;7.0;10.0;arbre;Vraiment exotique
+Prunellier;Prunus spinosa;Rosaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux;-30;oui;oui;oui;fort;;oui;3.5;7.0;2.0;3.5;arbuste;Indigène
 Amandier nain de Georgie;Prunus tenella;Rosaceae;neutre,calcaire,très basique;frais,sec;limoneux,sablonneux;-15;;;;faible;;oui;0.8;0.8;0.8;0.8;arbuste;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Amandier de Chine;Prunus triloba;Rosaceae;neutre;humide,frais;argileux,limoneux,sablonneux;-30;;;oui;faible;;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Prunier de Virginie;Prunus virginiana L.;Rosaceae;neutre;frais;limoneux;;;;;faible;;oui;;;;;arbuste;
@@ -783,22 +783,22 @@ Cerisier des Steppes Umbraculifera;Prunus x eminens 'Umbraculifera';Rosaceae;neu
 Cerisier hybride Anglaise Hâtive;Prunus x gondouinii 'Anglaise Hâtive';Rosaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-30;;;;faible;;oui;3.5;7.0;1.3;2;arbre;Vraiment exotique
 Prunus x hybrida;Prunus x hybrida;;;;;;;;;;;;;;;;;
 Cerisier à fleurs Okamé;Prunus x incam 'Okame';Rosaceae;neutre,calcaire;frais;argileux,limoneux,sablonneux;-30;;;;faible;;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
-Cerisier à fleurs d'hiver Autumnalis Rosea;Prunus x subhirtella 'Autumnalis Rosea';Rosaceae;neutre,calcaire;frais;argileux,limoneux,sablonneux;-30;;;;faible;;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
+Cerisier à fleurs d'hiver Autumnalis Rosea;Prunus x subhirtella 'Autumnalis Rosea';Rosaceae;neutre,calcaire;frais;argileux,limoneux,sablonneux;-30;;;non;faible;;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
 Cerisier Yoshino;Prunus x yedoensis;Rosaceae;neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-30;;non;non;faible;élevé;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
 Cognassier de Chine;Pseudocydonia sinensis;Rosaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-25;;;oui;faible;;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
 Faux-sasa du Japon;Pseudosasa japonica;Poaceae;acide,neutre;humide,frais;argileux,limoneux;-25;;;non;fort;;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
-Sapin de Douglas;Pseudotsuga menziesii;Pinaceae;très acide,acide,neutre;frais;argileux,limoneux,sablonneux;-35;;non;non;faible;élevé;non;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
+Sapin de Douglas;Pseudotsuga menziesii;Pinaceae;très acide,acide,neutre;frais;argileux,limoneux,sablonneux;-35;;non;oui;faible;élevé;non;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
 Ptéléa trifolié;Ptelea trifoliata;Rutaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-30;non;non;oui;faible;faible;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
-Ptérocaryer à feuilles de frêne;Pterocarya fraxinifolia;Juglandaceae;neutre,calcaire;humide,frais;argileux,limoneux;-20;moyen;;oui;faible;;oui;15.0;20.0;15.0;20.0;arbre;Vraiment exotique
+Ptérocaryer à feuilles de frêne;Pterocarya fraxinifolia;Juglandaceae;neutre,calcaire;humide,frais;argileux,limoneux;-20;moyen;;non;faible;;oui;15.0;20.0;15.0;20.0;arbre;Vraiment exotique
 Pterocarya rhoifolia;Pterocarya rhoifolia;;;;;;;;non;;;;;;;;;
-Ptérocaryer de Chine;Pterocarya stenoptera;Juglandaceae;neutre;humide,frais,sec;argileux,limoneux;-20;;non;non;faible;élevé;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Ptérocaryer de Chine;Pterocarya stenoptera;Juglandaceae;neutre;humide,frais,sec;argileux,limoneux;-20;;non;oui;faible;élevé;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
 Ptéroceltis de Tatarinoff;Pteroceltis tatarinowii;Cannabaceae;neutre;humide,frais,sec;argileux,limoneux,sablonneux;-30;;non;oui;faible;modéré;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Ptérostyrax hispide;Pterostyrax hispidus;Styracaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-14;;non;oui;faible;faible;oui;7.0;10.0;7.0;10.0;arbuste;Vraiment exotique
 Grenadier;Punica granatum L.;Lythraceae;calcaire;frais;limoneux;-15;non;oui;oui;faible;;oui;0;5.0;4.5;7;arbuste;Vraiment exotique
 Buisson ardent écarlate;Pyracantha coccinea;Rosaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-20;;non;;faible;faible;oui;3.5;7.0;3.5;7.0;arbuste;Indigène
 Pyrus bretschneideri;Pyrus bretschneideri;;;;;;;;oui;;;;;;;;;
 Poirier de Faurie;Pyrus calleryana var. fauriei;Rosaceae;neutre;humide,frais;argileux,limoneux,sablonneux;-15;non;oui;oui;faible;élevé;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
-Poirier commun;Pyrus communis;Rosaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-30;non;oui;non;faible;;oui;15.0;20.0;7.0;10.0;arbre;Indigène
+Poirier commun;Pyrus communis;Rosaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-30;non;oui;oui;faible;;oui;15.0;20.0;7.0;10.0;arbre;Indigène
 Poirier cordé;Pyrus cordata Desv.;Rosaceae;neutre;frais;limoneux;;;;non;faible;;oui;0;8.0;;;arbuste;
 Poirier des neiges;Pyrus nivalis Jacq.;Rosaceae;calcaire;frais;limoneux;;;;non;faible;;oui;0;12.0;;;arbuste;
 Nashi Shinseiki;Pyrus pyrifolia 'Shinseiki';Rosaceae;;frais;;-15;non;non;oui;faible;élevé;oui;6.9;10.0;2.0;3.0;arbre;Vraiment exotique
@@ -807,71 +807,71 @@ Pyrus spinosa;Pyrus spinosa;Rosaceae;calcaire;frais;limoneux;-10;non;non;oui;for
 Chêne hybride de rouvre Columna;Quercus 'Columna';Fagaceae;;;;-15;;;;fort;;;;;;;arbre;
 Chêne à dents de scie;Quercus acutissima;Fagaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-25;;non;oui;fort;modéré;oui;10.0;15.0;10.0;15.0;arbre;Vraiment exotique
 Chêne de Californie;Quercus agrifolia;Fagaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-12;;;oui;fort;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
-Chêne blanc;Quercus alba;Fagaceae;très acide,acide,neutre;humide,frais;limoneux,sablonneux;-35;;non;non;fort;modéré;oui;15.0;20.0;15.0;20.0;arbre;Vraiment exotique
+Chêne blanc;Quercus alba;Fagaceae;très acide,acide,neutre;humide,frais;limoneux,sablonneux;-35;;non;oui;fort;modéré;oui;15.0;20.0;15.0;20.0;arbre;Vraiment exotique
 Quercus alnifolia;Quercus alnifolia;;;;;;;;oui;;;;;;;;;Vraiment exotique
 Quercus baloot;Quercus baloot;;;;;;;;oui;;;;;;;;;
-Chêne bicolore;Quercus bicolor;Fagaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-30;non;non;non;fort;faible;oui;15.0;20.0;15.0;20.0;arbre;Vraiment exotique
+Chêne bicolore;Quercus bicolor;Fagaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-30;non;non;oui;fort;faible;oui;15.0;20.0;15.0;20.0;arbre;Vraiment exotique
 Quercus buckleyi;Quercus buckleyi;;;;;;;;non;;;;;;;;;
 Quercus canariensis;Quercus canariensis;Fagaceae;neutre;frais;limoneux;-10;non;non;oui;fort;;oui;0;30.0;7.8;12;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Chêne à feuilles de châtaignier;Quercus castaneifolia;Fagaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-15;;;oui;fort;;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
-Chêne chevelu;Quercus cerris;Fagaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-25;moyen;;non;fort;;oui;20.0;20.0;15.0;20.0;arbre;Indigène
+Chêne chevelu;Quercus cerris;Fagaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-25;moyen;;oui;fort;;oui;20.0;20.0;15.0;20.0;arbre;Indigène
 Quercus chrysolepis;Quercus chrysolepis;;;;;;;;oui;;;;;;;;;
 Quercus coccifera;Quercus coccifera;Fagaceae;neutre;frais;limoneux;-5;oui;non;oui;fort;;oui;0;2.0;4.5;7;arbuste;Indigène
-Chêne écarlate;Quercus coccinea;Fagaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-30;;non;non;fort;faible;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
-Chêne Daimyo;Quercus dentata;Fagaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-30;;;;fort;;oui;10.0;15.0;10.0;15.0;arbre;Vraiment exotique
+Chêne écarlate;Quercus coccinea;Fagaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-30;;non;oui;fort;faible;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Chêne Daimyo;Quercus dentata;Fagaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-30;;;oui;fort;;oui;10.0;15.0;10.0;15.0;arbre;Vraiment exotique
 Quercus dolicholepis;Quercus dolicholepis;;;;;;;;oui;;;;;;;;;
 Quercus douglasii;Quercus douglasii;;;;;;;;oui;;;;;;;;;
 Quercus emoryi;Quercus emoryi;;;;;;;;oui;;;;;;;;;
 Quercus engelmannii;Quercus engelmannii;;;;;;;;oui;;;;;;;;;
 Chêne faginé;Quercus faginea Lam. subsp. faginea;Fagaceae;calcaire;frais;;;non;;oui;fort;;oui;10.0;15.0;6.5;10.0;globuleux;
-Chêne falciforme;Quercus falcata;Fagaceae;très acide,acide,neutre;frais,sec;argileux,limoneux,sablonneux;-15;non;non;oui;fort;modéré;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
-Chêne de Hongrie;Quercus frainetto;Fagaceae;acide,neutre;humide,frais,sec;argileux,limoneux,sablonneux;-25;moyen;non;non;fort;modéré;oui;20.0;20.0;10.0;15.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
+Chêne falciforme;Quercus falcata;Fagaceae;très acide,acide,neutre;frais,sec;argileux,limoneux,sablonneux;-15;non;non;non;fort;modéré;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Chêne de Hongrie;Quercus frainetto;Fagaceae;acide,neutre;humide,frais,sec;argileux,limoneux,sablonneux;-25;moyen;non;oui;fort;modéré;oui;20.0;20.0;10.0;15.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Quercus gambelii;Quercus gambelii;;;;;;;;oui;;;;;;;;;
 Quercus garryana;Quercus garryana;;;;;;;;oui;;;;;;;;;
 Quercus gilva;Quercus gilva;;;;;;;;non;;;;;;;;;
-Chêne glauque;Quercus glauca;Fagaceae;neutre;humide,frais;argileux,limoneux,sablonneux;-12;non;non;non;fort;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
+Chêne glauque;Quercus glauca;Fagaceae;neutre;humide,frais;argileux,limoneux,sablonneux;-12;non;non;oui;fort;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Quercus gravesii;Quercus gravesii;;;;;;;;oui;;;;;;;;;
 Quercus greggii;Quercus greggii;;;;;;;;oui;;;;;;;;;
 Quercus havardii;Quercus havardii;;;;;;;;oui;;;;;;;;;
 Quercus hypoleucoides;Quercus hypoleucoides;;;;;;;;oui;;;;;;;;;
-Chêne vert;Quercus ilex subsp. ballota (Desf.) Samp.;Fagaceae;neutre;frais;limoneux;-15;moyen;non;non;fort;;oui;0;30.0;7.8;12;arbre;Indigène
+Chêne vert;Quercus ilex subsp. ballota (Desf.) Samp.;Fagaceae;neutre;frais;limoneux;-15;moyen;non;oui;fort;;oui;0;30.0;7.8;12;arbre;Indigène
 Chêne à feuilles de houx;Quercus ilicifolia;Fagaceae;très acide,acide,neutre;frais,sec;argileux,limoneux,sablonneux;-15;;;non;fort;;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
-Chêne à lattes;Quercus imbricaria;Fagaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-30;;non;non;fort;modéré;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Chêne à lattes;Quercus imbricaria;Fagaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-30;;non;oui;fort;modéré;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
 Quercus incana;Quercus incana;;;;;;;;non;;;;;;;;;
 Quercus infectoria;Quercus infectoria;;;;;;;;oui;;;;6.9;10.0;3.2;5.0;;
 Chêne de Grèce;Quercus ithaburensis subsp. macrolepis;Fagaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-20;non;non;oui;fort;;oui;10.0;15.0;10.0;15.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Quercus kelloggii;Quercus kelloggii;;;;;;;;oui;;;;;;;;;
 Quercus laceyi;Quercus laceyi;;;;;;;;oui;;;;;;;;;
 Quercus laevis;Quercus laevis;;;;;;;;non;;;;;;;;;
-Chêne à feuilles de laurier;Quercus laurifolia;Fagaceae;très acide,acide,neutre;humide,frais;limoneux,sablonneux;-14;;oui;oui;fort;modéré;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Chêne à feuilles de laurier;Quercus laurifolia;Fagaceae;très acide,acide,neutre;humide,frais;limoneux,sablonneux;-14;;oui;non;fort;modéré;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
 Chêne du Liban;Quercus libani;Fagaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-25;;;oui;fort;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Quercus lobata;Quercus lobata;;;;;;;;oui;;;;;;;;;
-Chêne du Caucase;Quercus macranthera;Fagaceae;neutre,calcaire,très basique;sec;;-15;;;oui;fort;;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
-Chêne à gros glands;Quercus macrocarpa;Fagaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-35;;non;;fort;modéré;oui;20.0;20.0;20.0;20.0;arbre;Vraiment exotique
-Chêne du Maryland;Quercus marilandica;Fagaceae;très acide,acide;frais,sec;argileux,limoneux;-20;;non;;fort;faible;non;7.0;10.0;10.0;15.0;arbre;Vraiment exotique
+Chêne du Caucase;Quercus macranthera;Fagaceae;neutre,calcaire,très basique;sec;;-15;;;non;fort;;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Chêne à gros glands;Quercus macrocarpa;Fagaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-35;;non;oui;fort;modéré;oui;20.0;20.0;20.0;20.0;arbre;Vraiment exotique
+Chêne du Maryland;Quercus marilandica;Fagaceae;très acide,acide;frais,sec;argileux,limoneux;-20;;non;oui;fort;faible;non;7.0;10.0;10.0;15.0;arbre;Vraiment exotique
 Quercus mohriana;Quercus mohriana;;;;;;;;oui;;;;;;;;;
-Chêne à feuilles de châtaignier;Quercus montana;Fagaceae;acide,neutre;humide,frais,sec;argileux,limoneux,sablonneux;-15;;non;;fort;faible;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
-Chêne jaune;Quercus muehlenbergii;Fagaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-30;;non;;fort;modéré;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
+Chêne à feuilles de châtaignier;Quercus montana;Fagaceae;acide,neutre;humide,frais,sec;argileux,limoneux,sablonneux;-15;;non;non;fort;faible;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
+Chêne jaune;Quercus muehlenbergii;Fagaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-30;;non;oui;fort;modéré;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
 Chêne à feuilles de myrsine;Quercus myrsinifolia;Fagaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-14;;;oui;fort;;oui;15.0;20.0;7.0;10.0;arbre;Vraiment exotique
 Chêne noir;Quercus nigra;Fagaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-25;;oui;non;fort;modéré;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
-Chêne des marais;Quercus palustris;Fagaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-15;;;non;fort;;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
-Chêne rouvre;Quercus petraea;Fagaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-25;moyen;;oui;fort;;oui;20.0;20.0;15.0;20.0;arbre;Indigène
-Chêne à feuilles de saule;Quercus phellos;Fagaceae;très acide,acide,neutre;humide,frais,sec;argileux,limoneux,sablonneux;-25;;non;;fort;faible;oui;15.0;20.0;3.5;7.0;arbre;Vraiment exotique
-Chêne à feuilles de filaire;Quercus phillyreoides;Fagaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-20;;;;fort;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
+Chêne des marais;Quercus palustris;Fagaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-15;;;oui;fort;;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Chêne rouvre;Quercus petraea;Fagaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-25;moyen;;non;fort;;oui;20.0;20.0;15.0;20.0;arbre;Indigène
+Chêne à feuilles de saule;Quercus phellos;Fagaceae;très acide,acide,neutre;humide,frais,sec;argileux,limoneux,sablonneux;-25;;non;non;fort;faible;oui;15.0;20.0;3.5;7.0;arbre;Vraiment exotique
+Chêne à feuilles de filaire;Quercus phillyreoides;Fagaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-20;;;non;fort;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Quercus polymorpha;Quercus polymorpha;;;;;;;;oui;;;;;;;;;
 Quercus prinoides;Quercus prinoides;;;;;;;;oui;;;;;;;;;
 Chêne pubescent;Quercus pubescens;Fagaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-30;non;oui;oui;fort;;oui;15.0;20.0;10.0;15.0;arbre;Indigène
 Quercus pungens;Quercus pungens;;;;;;;;oui;;;;;;;;;
-Chêne des Pyrénées;Quercus pyrenaica Willd.;Fagaceae;neutre;frais;limoneux;;moyen;;non;fort;;oui;0;20.0;6.5;10.0;ovoide;Indigène
+Chêne des Pyrénées;Quercus pyrenaica Willd.;Fagaceae;neutre;frais;limoneux;;moyen;;oui;fort;;oui;0;20.0;6.5;10.0;ovoide;Indigène
 Chêne pédonculé;Quercus robur;Fagaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-30;moyen;non;oui;fort;faible;oui;20.0;20.0;20.0;20.0;arbre;Indigène
 Quercus rotundifolia;Quercus rotundifolia;Fagaceae;;;;-10;non;non;oui;fort;;non;6.9;10.0;4.5;7;arrondi;Indigène
-Chêne rouge d'Amérique;Quercus rubra;Fagaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-35;non;non;non;fort;faible;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
+Chêne rouge d'Amérique;Quercus rubra;Fagaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-35;non;non;oui;fort;faible;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
 Chêne du Mexique;Quercus rysophylla;Fagaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-14;;;oui;fort;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Quercus sessilifolia;Quercus sessilifolia;;;;;;;;non;;;;;;;;;
 Chêne de Shumard;Quercus shumardii;Fagaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-30;;non;oui;fort;faible;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
 Quercus stellata;Quercus stellata;;;;;;;;oui;;;;;;;;;
-Chêne-liège;Quercus suber;Fagaceae;très acide,acide,neutre;frais,sec;limoneux,sablonneux;-15;non;non;non;fort;faible;oui;15.0;20.0;10.0;15.0;arbre;Indigène
-Chêne de Nuttall;Quercus texana;Fagaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-14;;non;oui;fort;modéré;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Chêne-liège;Quercus suber;Fagaceae;très acide,acide,neutre;frais,sec;limoneux,sablonneux;-15;non;non;oui;fort;faible;oui;15.0;20.0;10.0;15.0;arbre;Indigène
+Chêne de Nuttall;Quercus texana;Fagaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-14;;non;non;fort;modéré;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
 Chêne de Macédoine;Quercus trojana;Fagaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-14;;;oui;fort;;oui;10.0;15.0;7.0;10.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Quercus turbinella;Quercus turbinella;;;;;;;;oui;;;;;;;;;
 Quercus urbani;Quercus urbani;;;;;;;;oui;;;;;;;;;
@@ -880,7 +880,7 @@ Quercus vaseyana;Quercus vaseyana;;;;;;;;oui;;;;;;;;;
 Chêne velouté;Quercus velutina;Fagaceae;très acide,acide,neutre;frais;argileux,limoneux,sablonneux;-15;non;non;oui;fort;modéré;oui;20.0;20.0;20.0;20.0;arbre;Vraiment exotique
 Quercus wislizeni;Quercus wislizeni;;;;;;;;oui;;;;;;;;;Vraiment exotique
 Chêne à feuilles variables;Quercus x heterophylla;Fagaceae;acide,neutre;frais,sec;argileux,limoneux;-35;;;non;fort;;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
-Chêne hispanique de Wageningen;Quercus x hispanica 'Wageningen';Fagaceae;neutre,calcaire,très basique;sec;argileux,limoneux;-35;;;;fort;;oui;10.0;15.0;7.0;10.0;arbre;Indigène
+Chêne hispanique de Wageningen;Quercus x hispanica 'Wageningen';Fagaceae;neutre,calcaire,très basique;sec;argileux,limoneux;-35;;;non;fort;;oui;10.0;15.0;7.0;10.0;arbre;Indigène
 Quercus x kewensis;Quercus x kewensis;;;;;;;;;;;;;;;;;
 Chêne hybride de l'Illinois;Quercus x schochiana;Fagaceae;acide,neutre;frais,sec;argileux,limoneux;-35;;;;fort;;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
 Chêne hybride de Turner;Quercus x turneri;Fagaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux;-35;;;non;fort;;oui;15.0;20.0;10.0;15.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
@@ -910,9 +910,9 @@ Groseiller à grappes;Ribes rubrum;Grossulariaceae;acide,neutre;humide,frais;arg
 Groseillier à fleurs;Ribes sanguineum;Grossulariaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-15;;non;;faible;faible;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Groseillier à maquereau;Ribes uva-crispa;Grossulariaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-30;non;non;;fort;;oui;0.8;0.8;0.8;0.8;arbuste;Indigène
 Casseillier;Ribes x nidigrolaria;Grossulariaceae;neutre;frais;argileux,limoneux,sablonneux;-25;;;;faible;;;0.8;0.8;0.8;0.8;arbuste;Vraiment exotique
-Robinier rose arbustif;Robinia hispida;Fabaceae;neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-30;;non;;moyen;modéré;oui;1.6;1.6;1.6;1.6;arbuste;Vraiment exotique
+Robinier rose arbustif;Robinia hispida;Fabaceae;neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-30;;non;oui;moyen;modéré;oui;1.6;1.6;1.6;1.6;arbuste;Vraiment exotique
 Robinier faux acacia;Robinia pseudoacacia;Fabaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-30;;non;non;moyen;modéré;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
-Robinier visqueux;Robinia viscosa;Fabaceae;;;;;;;non;faible;;;;;;;;
+Robinier visqueux;Robinia viscosa;Fabaceae;;;;;;;oui;faible;;;;;;;;
 Robinier Casque Rouge;Robinia x margaretta 'Pink Cascade' CASQUE ROUGE;Fabaceae;neutre,calcaire;frais,sec;;-14;;;;moyen;;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
 Rosier des champs;Rosa arvensis Huds.;Rosaceae;calcaire;frais;limoneux;;;;;faible;;oui;0;2.0;;;arbuste;
 Rosier de Banks;Rosa banksiae 'Lutea';Rosaceae;;;;-15;non;non;;faible;;;4.1;6.0;4.5;7;arrondi;Vraiment exotique
@@ -925,37 +925,37 @@ Ronce commune;Rubus fruticosus;Rosaceae;acide,neutre,calcaire;frais;argileux,lim
 Framboisier commun;Rubus idaeus;Rosaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-30;;;;faible;;oui;1.6;1.6;1.6;1.6;arbuste;Indigène
 Ronce à feuilles d'Orme;Rubus ulmifolius Schott;Rosaceae;neutre;frais;limoneux;;;;;faible;;oui;0;3.0;;;arbuste;
 Sabal mexicana;Sabal mexicana;;;;;;;;oui;;;;;;;;;Vraiment exotique
-Sabal nain;Sabal minor;Arecaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-12;;;;faible;;oui;2.0;3.5;1.2;1.2;arbuste;Vraiment exotique
-Palmier sabal;Sabal palmetto;Arecaceae;;;;;;;non;faible;;;;;;;;Vraiment exotique
+Sabal nain;Sabal minor;Arecaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-12;;;non;faible;;oui;2.0;3.5;1.2;1.2;arbuste;Vraiment exotique
+Palmier sabal;Sabal palmetto;Arecaceae;;;;;;;oui;faible;;;;;;;;Vraiment exotique
 Saule à feuilles aiguës;Salix acutifolia 'Pendulifolia';Salicaceae;;;;;;;;faible;;;;;;;;
-Saule blanc;Salix alba;Salicaceae;neutre,calcaire,très basique;humide,frais,sec;argileux,limoneux;-40;moyen;oui;oui;moyen;élevé;oui;20.0;20.0;15.0;20.0;arbre;Indigène
+Saule blanc;Salix alba;Salicaceae;neutre,calcaire,très basique;humide,frais,sec;argileux,limoneux;-40;moyen;oui;non;moyen;élevé;oui;20.0;20.0;15.0;20.0;arbre;Indigène
 Saule  gris cendré foncé;Salix atrocinerea Brot.;Salicaceae;neutre;humide;sablonneux;;;;non;moyen;;oui;;;;;;
 Saule à oreillettes;Salix aurita L.;Salicaceae;acide;humide;sablonneux;;;;non;moyen;;oui;0;3.0;;;arbuste;
-Saule pleureur (à bois vert);Salix babylonica;Salicaceae;neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-20;;oui;non;moyen;modéré;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
-Saule marsault;Salix caprea;Salicaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux;-30;;;oui;moyen;;oui;7.0;10.0;3.5;7.0;arbre;Indigène
-Saule cendré;Salix cinerea;Salicaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux;-40;;;oui;moyen;;oui;3.5;7.0;3.5;7.0;arbre;Indigène
+Saule pleureur (à bois vert);Salix babylonica;Salicaceae;neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-20;;oui;oui;moyen;modéré;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
+Saule marsault;Salix caprea;Salicaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux;-30;;;non;moyen;;oui;7.0;10.0;3.5;7.0;arbre;Indigène
+Saule cendré;Salix cinerea;Salicaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux;-40;;;non;moyen;;oui;3.5;7.0;3.5;7.0;arbre;Indigène
 Saule faux-daphné;Salix daphnoides;Salicaceae;neutre,calcaire,très basique;humide,frais;argileux,limoneux,sablonneux;-30;;;non;moyen;;oui;10.0;15.0;7.0;10.0;arbre;Indigène
 Saule drapé;Salix eleagnos;Salicaceae;acide,neutre,calcaire,très basique;humide,frais,sec;argileux,limoneux,sablonneux;-15;;;non;moyen;;oui;7.0;10.0;7.0;10.0;arbre;Indigène
-Saule des coyotes;Salix exigua;Salicaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux,sablonneux;-15;;;;moyen;;;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
+Saule des coyotes;Salix exigua;Salicaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux,sablonneux;-15;;;oui;moyen;;;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
 Salix fragilis ( Forssk. );Salix fragilis ( Forssk. );Salicaceae;calcaire;humide;sablonneux;;;;non;fort;;;;;;;arbre;
-Saule japonais à chatons;Salix gracilistyla;Salicaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;;;moyen;;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
+Saule japonais à chatons;Salix gracilistyla;Salicaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;;oui;moyen;;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Saule de Suisse;Salix helvetica;Salicaceae;acide,neutre;humide,frais;limoneux;-15;;;;moyen;;oui;0.5;0.8;0.8;0.8;arbuste;Indigène
 Saule herbacé;Salix herbacea L.;Salicaceae;acide;humide;argileux;;;;;moyen;;oui;;;;;;
 Saule crevette;Salix integra 'Hakuro-nishiki';Salicaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-14;;;;moyen;;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
-Saule à rameaux bleus;Salix irrorata;Salicaceae;neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;;;moyen;;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
-Saule laineux;Salix lanata;Salicaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;;;moyen;;oui;0.8;0.8;0.8;0.8;arbuste;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
+Saule à rameaux bleus;Salix irrorata;Salicaceae;neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;;oui;moyen;;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
+Saule laineux;Salix lanata;Salicaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;;non;moyen;;oui;0.8;0.8;0.8;0.8;arbuste;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Salix magnifica;Salix magnifica;;;;;;;;non;;;;;;;;;
 Saule pleureur;Salix matsudana;;;;;;;;;faible;;;;;;;;
 Saule noircissant;Salix myrsinifolia;Salicaceae;neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;;non;moyen;;oui;3.5;7.0;3.5;7.0;arbuste;Indigène
 Saule à cinq étamines;Salix pentandra L.;Salicaceae;neutre;humide;sablonneux;;;;non;moyen;;oui;;;;;;
 Osier rouge;Salix purpurea;Salicaceae;acide,neutre,calcaire,très basique;humide,frais,sec;argileux,limoneux;-30;;oui;non;moyen;modéré;oui;3.5;7.0;3.5;7.0;arbuste;Indigène
-Saule baumier;Salix pyrifolia;Salicaceae;très acide,acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;;;moyen;;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
+Saule baumier;Salix pyrifolia;Salicaceae;très acide,acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;;non;moyen;;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Saule rampant;Salix repens;Salicaceae;acide,neutre,calcaire,très basique;humide,frais;argileux,limoneux,sablonneux;-15;;;;moyen;;oui;0.5;0.8;0.8;0.8;arbuste;Indigène
 Saule réticulé;Salix reticulata L.;Salicaceae;calcaire;humide;argileux;;;;;moyen;;oui;;;;;;
 Saule à feuilles de romarin des botanistes;Salix rosmarinifolia ( L. );Salicaceae;très acide,acide,neutre;humide,frais,sec;;-15;;;;moyen;;oui;0.8;0.8;1.6;1.6;arbuste;Indigène
 Saule;Salix subopposita;Salicaceae;;humide,frais,sec;;-14;;;;moyen;;;0.5;0.8;0.8;0.8;arbuste;Vraiment exotique
-Saule amandier;Salix triandra;Salicaceae;neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-30;;;oui;moyen;;oui;3.5;7.0;3.5;7.0;arbuste;Indigène
-Osier vert;Salix viminalis;Salicaceae;neutre,calcaire,très basique;humide,frais;argileux,limoneux;-30;oui;;oui;moyen;;oui;7.0;10.0;3.5;7.0;arbre;Indigène
+Saule amandier;Salix triandra;Salicaceae;neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-30;;;non;moyen;;oui;3.5;7.0;3.5;7.0;arbuste;Indigène
+Osier vert;Salix viminalis;Salicaceae;neutre,calcaire,très basique;humide,frais;argileux,limoneux;-30;oui;;non;moyen;;oui;7.0;10.0;3.5;7.0;arbre;Indigène
 Saule blanc Vitellina;Salix x fragilis f. vitellina;Salicaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux,sablonneux;-25;;;;moyen;;oui;15.0;20.0;15.0;20.0;arbre;Vraiment exotique
 Saule pleureur à bois jaune;Salix x pendulina ( Tristis Group ) 'Chrysocoma';Salicaceae;neutre,calcaire;humide,frais;argileux;-25;;;;moyen;;oui;15.0;20.0;15.0;20.0;arbre;Vraiment exotique
 Romarin officinal;Salvia rosmarinus;Lamiaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-14;;non;;faible;modéré;oui;1.2;1.2;1.6;1.6;arbuste;Indigène
@@ -963,8 +963,8 @@ Sureau yèble;Sambucus ebulus L.;Viburnaceae;calcaire;frais;limoneux;;;;;faible;
 Sureau noir;Sambucus nigra;Viburnaceae;acide,neutre,calcaire,très basique;humide,frais;argileux,limoneux,sablonneux;-25;moyen;oui;non;faible;élevé;oui;7.0;10.0;3.5;7.0;arbre;Indigène
 Sureau à grappes;Sambucus racemosa;Viburnaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;;non;faible;;oui;3.5;7.0;3.5;7.0;arbuste;Indigène
 Savonnier saponaire;Sapindus saponaria;Sapindaceae;acide;;;;non;;oui;faible;;non;6.9;10.0;6.5;10.0;globuleux;
-Sasa de Tsuboi;Sasa tsuboiana;Poaceae;acide,neutre;humide,frais;;-15;;;;fort;;;1.2;1.2;1.2;1.2;arbuste;Vraiment exotique
-Laurier des Iroquois;Sassafras albidum;Lauraceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-25;;non;;faible;modéré;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
+Sasa de Tsuboi;Sasa tsuboiana;Poaceae;acide,neutre;humide,frais;;-15;;;non;fort;;;1.2;1.2;1.2;1.2;arbuste;Vraiment exotique
+Laurier des Iroquois;Sassafras albidum;Lauraceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-25;;non;non;faible;modéré;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
 Schinus molle;Schinus molle;Anacardiaceae;acide;sec,frais;;-10;oui;oui;oui;fort;;oui;0;15.0;4.5;7;etalé;Vraiment exotique
 Vigne-magnolia rouge;Schisandra rubriflora;Schisandraceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-15;;;;faible;;oui;3.5;7.0;2.0;3.5;grimpant;Vraiment exotique
 Pin parasol du Japon;Sciadopitys verticillata;Sciadopityaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-25;;non;non;fort;faible;non;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
@@ -975,8 +975,8 @@ Bambou noble;Semiarundinaria fastuosa;Poaceae;acide,neutre;humide,frais;argileux
 Senna corymbosa;Senna corymbosa;;;;;-10;non;non;oui;fort;;;2.1;3.0;4.5;7;buissonnant;Vraiment exotique
 Senna didymobotrya;Senna didymobotrya;;;;;;;;oui;;;;;;;;;
 Senna x floribunda;Senna x floribunda;;;;;;;;oui;;;;;;;;;
-Séquoia toujours vert;Sequoia sempervirens;Cupressaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-15;non;;non;fort;;non;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
-Séquoia géant;Sequoiadendron giganteum;Cupressaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-15;moyen;;non;fort;;non;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Séquoia toujours vert;Sequoia sempervirens;Cupressaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-15;non;;oui;fort;;non;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
+Séquoia géant;Sequoiadendron giganteum;Cupressaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-15;moyen;;oui;fort;;non;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
 Sesbania rouge vif;Sesbania punicea (Cav.) Benth.;Fabaceae;;;;;;;oui;faible;;;0;5.0;;;;Vraiment exotique
 Skimmia du Japon;Skimmia japonica;Rutaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-14;;;;faible;;oui;0.8;0.8;0.8;0.8;arbuste;Vraiment exotique
 Solanum crispum;Solanum crispum;;;;;;;;oui;;;;;;;;;Vraiment exotique
@@ -988,10 +988,10 @@ Sorbier d’Amérique;Sorbus americana;Rosaceae;;;;;;;non;faible;;;;;;;;
 Sorbier des oiseleurs;Sorbus aucuparia;Rosaceae;très acide,acide,neutre;humide,frais;argileux,limoneux,sablonneux;-35;non;non;non;moyen;modéré;oui;10.0;15.0;3.5;7.0;arbre;Indigène
 Sorbier du Cachemire;Sorbus cashmiriana;Rosaceae;acide,neutre,calcaire;humide,frais;;-15;;;;moyen;;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
 Sorbier petit néflier;Sorbus chamaemespilus (L.) Crantz;Rosaceae;calcaire;frais;limoneux;;;;;faible;;oui;0;3.0;;;arbuste;
-Sorbier du Japon;Sorbus commixta;Rosaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-25;;non;;moyen;modéré;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
+Sorbier du Japon;Sorbus commixta;Rosaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-25;;non;non;moyen;modéré;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
 Sorbus discolor;Sorbus discolor;;;;;;;;oui;;;;;;;;;
 Alisier de Suède;Sorbus intermedia (Ehrh.) Pers.;Rosaceae;calcaire;frais;limoneux;;non;;non;faible;;oui;0;20.0;4.5;7.0;ovoide;
-Sorbier de Koehne;Sorbus koehneana;Rosaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-15;;;;moyen;;oui;3.5;7.0;1.6;1.6;arbuste;Vraiment exotique
+Sorbier de Koehne;Sorbus koehneana;Rosaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-15;;;oui;moyen;;oui;3.5;7.0;1.6;1.6;arbuste;Vraiment exotique
 Alisier de Fontainebleau;Sorbus latifolia (Lam.) Pers.;Rosaceae;calcaire;frais;limoneux;;;;;faible;;oui;0;20.0;;;;
 Sorbus reducta;Sorbus reducta;;;;;;;;non;;;;;;;;;
 Sorbus sargentiana;Sorbus sargentiana;;;;;;;;;;;;;;;;;
@@ -1004,9 +1004,9 @@ Spirée hybride de Billiard;Spiraea x billardii;Rosaceae;acide,neutre,calcaire;h
 Spirée de Van Houtte;Spiraea x vanhouttei;Rosaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-30;;non;;faible;faible;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Staphylier de Colchide;Staphylea colchica;Staphyleaceae;acide,neutre,calcaire,très basique;humide,frais;argileux,limoneux,sablonneux;-25;;non;non;fort;modéré;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
 Faux pistachier;Staphylea pinnata;Staphyleaceae;neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-25;;;non;fort;;oui;3.5;7.0;3.5;7.0;arbuste;Indigène
-Faux-pistachier;Staphylea trifolia;Staphyleaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-30;;non;;fort;faible;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
+Faux-pistachier;Staphylea trifolia;Staphyleaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-30;;non;oui;fort;faible;oui;3.5;7.0;2.0;3.5;arbuste;Vraiment exotique
 Stauntonia coriacea;Stauntonia coriacea;;;;;;;;;;;;;;;;;Vraiment exotique
-Camélia d'été;Stewartia pseudocamellia;Theaceae;très acide,acide;humide,frais;argileux,limoneux,sablonneux;-30;;non;;faible;élevé;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
+Camélia d'été;Stewartia pseudocamellia;Theaceae;très acide,acide;humide,frais;argileux,limoneux,sablonneux;-30;;non;non;faible;élevé;oui;7.0;10.0;3.5;7.0;arbre;Vraiment exotique
 Strelitzia alba;Strelitzia alba;;;;;;;;;;;;;;;;;
 Oiseau du paradis;Strelitzia reginae;Strelitziaceae;;;;;;;;faible;;;;;;;;
 Styphnolobium japonicum;Styphnolobium japonicum;Fabaceae;;;;-10;oui;oui;non;faible;;;17.2;25.0;7.8;12;etalé;Vraiment exotique
@@ -1016,34 +1016,34 @@ Symphorine à baies corail Foliis Variegatis;Symphoricarpos orbiculatus 'Foliis 
 Lilas de Hongrie;Syringa josikaea;Oleaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux;-40;;;non;faible;;oui;3.5;7.0;3.5;7.0;arbuste;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Syringa oblata;Syringa oblata;;;;;;;;oui;;;;;;;;;
 Lilas de Perse;Syringa persica;Oleaceae;acide,neutre,calcaire,très basique;frais,sec;;-14;;non;;faible;faible;oui;1.6;1.6;1.6;1.6;arbuste;Vraiment exotique
-Lilas de Pékin;Syringa reticulata subsp. pekinensis;Oleaceae;acide,neutre,calcaire,très basique;humide,frais;argileux,limoneux,sablonneux;-15;;non;;faible;faible;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
+Lilas de Pékin;Syringa reticulata subsp. pekinensis;Oleaceae;acide,neutre,calcaire,très basique;humide,frais;argileux,limoneux,sablonneux;-15;;non;oui;faible;faible;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
 Lilas commun;Syringa vulgaris;Oleaceae;acide,neutre,calcaire,très basique;frais;argileux,limoneux,sablonneux;-35;oui;non;non;faible;faible;oui;3.5;7.0;3.5;7.0;arbuste;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Bois de pomme blanc;Syzygium paniculatum;Myrtaceae;;;;;;;non;faible;;;;;;;;
-Tamaris de printemps;Tamarix africana;Tamaricaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-15;non;;non;faible;;oui;3.5;7.0;2.0;3.5;arbuste;Indigène
+Tamaris de printemps;Tamarix africana;Tamaricaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-15;non;;oui;faible;;oui;3.5;7.0;2.0;3.5;arbuste;Indigène
 Tamaris d'été;Tamarix gallica;Tamaricaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-30;non;;oui;faible;;oui;7.0;10.0;3.5;7.0;arbre;Indigène
 Tamaris de printemps;Tamarix parviflora;Tamaricaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-30;non;non;oui;faible;;oui;3.5;7.0;3.5;7.0;arbuste;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Tamaris d'été;Tamarix ramosissima;Tamaricaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-14;;non;oui;faible;élevé;oui;3.5;7.0;3.5;7.0;arbuste;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Tamarix senegalensis;Tamarix senegalensis;;;;;;;;oui;;;;;;;;;
 Tamaris à quatre étamines;Tamarix tetrandra;Tamaricaceae;neutre;frais,sec;argileux;-14;;;oui;faible;;oui;3.5;7.0;2.0;3.5;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Tasmannia lanceolata;Tasmannia lanceolata;;;;;;;;;;;;;;;;;Vraiment exotique
-Cyprès chauve;Taxodium distichum;Cupressaceae;très acide,acide,neutre;humide;argileux,limoneux,sablonneux;-30;non;non;oui;fort;faible;non;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
-If commun;Taxus baccata;Taxaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux;-25;non;non;non;moyen;;non;15.0;20.0;7.0;10.0;arbre;Indigène
+Cyprès chauve;Taxodium distichum;Cupressaceae;très acide,acide,neutre;humide;argileux,limoneux,sablonneux;-30;non;non;non;fort;faible;non;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
+If commun;Taxus baccata;Taxaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux;-25;non;non;oui;moyen;;non;15.0;20.0;7.0;10.0;arbre;Indigène
 If du Japon;Taxus cuspidata;Taxaceae;acide,neutre,calcaire;humide,frais,sec;argileux,limoneux,sablonneux;-30;;;non;moyen;;;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
 Arbre à miel;Tetradium daniellii;Rutaceae;neutre,calcaire;frais,sec;argileux,limoneux;-15;non;non;oui;faible;faible;oui;10.0;15.0;3.5;7.0;arbre;Vraiment exotique
-Aralie à papier de Chine;Tetrapanax papyrifer 'Rex';Araliaceae;;;;;;;non;faible;;;;;;;;Vraiment exotique
+Aralie à papier de Chine;Tetrapanax papyrifer 'Rex';Araliaceae;;;;;;;oui;faible;;;;;;;;Vraiment exotique
 Teucrium fruticans;Teucrium fruticans;Lamiaceae;neutre;frais;argileux;-10;non;non;;fort;;oui;0;1.0;2.0;3;buissonnant;Indigène
-Thuya d'occident Emeraude;Thuja occidentalis 'Smaragd' EMERAUDE;Cupressaceae;neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-35;;non;non;fort;faible;non;3.5;7.0;1.2;1.2;arbre;Vraiment exotique
-Thuya de Californie Atrovirens;Thuja plicata 'Atrovirens';Cupressaceae;acide,neutre,calcaire;humide,frais;limoneux;-15;;;non;fort;;oui;15.0;20.0;3.5;7.0;arbre;Vraiment exotique
-Tilleul d'Amérique;Tilia americana;Malvaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-35;non;non;non;moyen;faible;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
+Thuya d'occident Emeraude;Thuja occidentalis 'Smaragd' EMERAUDE;Cupressaceae;neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-35;;non;oui;fort;faible;non;3.5;7.0;1.2;1.2;arbre;Vraiment exotique
+Thuya de Californie Atrovirens;Thuja plicata 'Atrovirens';Cupressaceae;acide,neutre,calcaire;humide,frais;limoneux;-15;;;oui;fort;;oui;15.0;20.0;3.5;7.0;arbre;Vraiment exotique
+Tilleul d'Amérique;Tilia americana;Malvaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-35;non;non;oui;moyen;faible;oui;20.0;20.0;15.0;20.0;arbre;Vraiment exotique
 Tilleul à petites feuilles;Tilia cordata;Malvaceae;acide,neutre,calcaire,très basique;frais;argileux,limoneux,sablonneux;-35;moyen;non;oui;moyen;faible;oui;20.0;20.0;10.0;15.0;arbre;Indigène
-Tilleul à style poilu;Tilia dasystyla;Malvaceae;acide;frais;;;non;;non;faible;;oui;20.0;20.0;;;;
-Tilleul de Henry;Tilia henryana;Malvaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-14;non;;non;moyen;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
-Tilleul de Kyushu;Tilia kiusiana;Malvaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;;oui;moyen;;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
-Tilleul de Mongolie;Tilia mongolica;Malvaceae;acide,neutre;frais;argileux,limoneux;-35;non;non;non;moyen;faible;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
+Tilleul à style poilu;Tilia dasystyla;Malvaceae;acide;frais;;;non;;oui;faible;;oui;20.0;20.0;;;;
+Tilleul de Henry;Tilia henryana;Malvaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-14;non;;oui;moyen;;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
+Tilleul de Kyushu;Tilia kiusiana;Malvaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;;non;moyen;;oui;3.5;7.0;3.5;7.0;arbre;Vraiment exotique
+Tilleul de Mongolie;Tilia mongolica;Malvaceae;acide,neutre;frais;argileux,limoneux;-35;non;non;oui;moyen;faible;oui;10.0;15.0;7.0;10.0;arbre;Vraiment exotique
 Tilleul à grandes feuilles;Tilia platyphyllos;Malvaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-30;oui;non;non;moyen;faible;oui;20.0;20.0;20.0;20.0;arbre;Indigène
 Tilleul argenté;Tilia tomentosa;Malvaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-30;oui;non;non;moyen;faible;oui;20.0;20.0;15.0;20.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
 Tilleul de Crimée;Tilia x euchlora;Malvaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-35;non;non;non;moyen;faible;oui;15.0;20.0;10.0;15.0;arbre;Indigène en Europe de l'Ouest mais pas en HDF/BeNeLux
-Tilleul hybride Pallida;Tilia x europaea 'Pallida';Malvaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-35;oui;non;non;moyen;;oui;20.0;20.0;15.0;20.0;arbre;Indigène
+Tilleul hybride Pallida;Tilia x europaea 'Pallida';Malvaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-35;oui;non;oui;moyen;;oui;20.0;20.0;15.0;20.0;arbre;Indigène
 Tilia x flavescens 'Glenleven';Tilia x flavescens 'Glenleven';;;;;;;;;;;;;;;;;
 Tipuana tipu;Tipuana tipu;Fabaceae;;frais;;-5;oui;non;oui;fort;;oui;6.9;10.0;7.8;12;etalé;Vraiment exotique
 Cédrèle de Chine;Toona sinensis;Meliaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-20;oui;non;oui;faible;;oui;15.0;20.0;7.0;10.0;arbre;Vraiment exotique
@@ -1053,8 +1053,8 @@ Trachelospermum asiaticum;Trachelospermum asiaticum;;;;;;;;;;;;;;;;;Vraiment exo
 Trachelospermum jasminoides;Trachelospermum jasminoides;Apocynaceae;;;;-10;non;non;;faible;;;0;3.0;2.0;3;liane;Vraiment exotique
 Palmier de Chine;Trachycarpus fortunei;Arecaceae;acide,neutre;frais;;-14;;;non;faible;;oui;7.0;10.0;1.6;1.6;arbre;Vraiment exotique
 Trithrinax brasiliensis;Trithrinax brasiliensis;;;;;;;;non;;;;;;;;;
-Palmier trident;Trithrinax campestris;Arecaceae;neutre,calcaire;frais,sec;;-14;;;;faible;;oui;3.5;7.0;2.0;3.5;arbre;Vraiment exotique
-Pruche du Canada;Tsuga canadensis;Pinaceae;acide,neutre;humide,frais;;-15;;;non;faible;;;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
+Palmier trident;Trithrinax campestris;Arecaceae;neutre,calcaire;frais,sec;;-14;;;oui;faible;;oui;3.5;7.0;2.0;3.5;arbre;Vraiment exotique
+Pruche du Canada;Tsuga canadensis;Pinaceae;acide,neutre;humide,frais;;-15;;;oui;faible;;;20.0;20.0;7.0;10.0;arbre;Vraiment exotique
 Tsuga hétérophylle;Tsuga heterophylla (Raf.) Sarg.;Pinaceae;;;;;;;non;faible;;;;;;;;
 Ajonc d'Europe;Ulex europaeus;Fabaceae;très acide,acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-14;;;;faible;;oui;2.0;3.5;2.0;3.5;arbuste;Indigène
 Orme hybride Lobel;Ulmus 'Lobel';Ulmaceae;neutre,calcaire,très basique;humide,frais;;-15;;;non;faible;;oui;15.0;20.0;3.5;7.0;arbre;
@@ -1062,23 +1062,23 @@ Orme hybride Lutèce;Ulmus 'Nanguen' LUTECE®;Ulmaceae;neutre,calcaire;humide,fr
 Orme hybride Vada;Ulmus 'Wanoux' VADA®;Ulmaceae;neutre,calcaire;humide,frais;;-15;;;;faible;;oui;10.0;15.0;3.5;7.0;arbre;
 Orme de montagne pleureur;Ulmus glabra 'Pendula';Ulmaceae;neutre,calcaire,très basique;humide,frais;sablonneux;-15;non;non;non;faible;modéré;oui;3.5;7.0;3.5;7.0;arbuste;Indigène
 Orme lisse;Ulmus laevis;Ulmaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;moyen;;non;faible;;oui;20.0;20.0;20.0;20.0;arbre;Indigène
-Orme mineur;Ulmus minor subsp. procera (Salisb.) Franco;Ulmaceae;calcaire;frais;sablonneux;;moyen;;non;faible;;oui;0;45.0;13.0;20.0;arbre;
+Orme mineur;Ulmus minor subsp. procera (Salisb.) Franco;Ulmaceae;calcaire;frais;sablonneux;;moyen;;oui;faible;;oui;0;45.0;13.0;20.0;arbre;
 Orme de Chine;Ulmus parvifolia;Ulmaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-15;;non;oui;faible;élevé;oui;10.0;15.0;10.0;15.0;arbre;Vraiment exotique
-Orme de Sibérie;Ulmus pumila;Ulmaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-30;non;oui;non;faible;élevé;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Orme de Sibérie;Ulmus pumila;Ulmaceae;neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-30;non;oui;oui;faible;élevé;oui;15.0;20.0;10.0;15.0;arbre;Vraiment exotique
 Orme à petites feuilles Jacqueline Hillier;Ulmus x hollandica 'Jacqueline Hillier';Ulmaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-15;;;;faible;;oui;3.5;7.0;2.0;3.5;arbuste;Indigène
 Umbellularia californica;Umbellularia californica;Lauraceae;;;;-5;non;non;oui;fort;;;13.8;20.0;4.5;7;arrondi;Vraiment exotique
 Mimosa odorant;Vachellia karroo;Fabaceae;;;;;;;oui;faible;;;;;;;;
 Vesalea floribunda;Vesalea floribunda;;;;;;;;;;;;;;;;;Vraiment exotique
 Viorne de Carles;Viburnum carlesii;Viburnaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-15;;non;;faible;faible;oui;1.6;1.6;1.6;1.6;arbuste;Vraiment exotique
-Viburnum à feuilles de cannelier;Viburnum cinnamomifolium;Viburnaceae;neutre;frais;argileux,limoneux;-14;;;;faible;;oui;2.0;3.5;;;arbuste;Vraiment exotique
+Viburnum à feuilles de cannelier;Viburnum cinnamomifolium;Viburnaceae;neutre;frais;argileux,limoneux;-14;;;oui;faible;;oui;2.0;3.5;;;arbuste;Vraiment exotique
 Viorne odorante de Farrer;Viburnum farreri;Viburnaceae;acide,neutre,calcaire;frais;argileux,limoneux,sablonneux;-25;;;oui;faible;;oui;2.0;3.5;1.6;1.6;arbuste;Vraiment exotique
 Viorne lantane;Viburnum lantana;Viburnaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-30;oui;non;non;fort;;oui;3.5;7.0;3.5;7.0;arbuste;Indigène
 Viburnum lentago;Viburnum lentago;;;;;;;;non;;;;;;;;;
-Viorne très odorante;Viburnum odoratissimum;Viburnaceae;neutre;frais;argileux,limoneux;-12;;non;;faible;faible;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
+Viorne très odorante;Viburnum odoratissimum;Viburnaceae;neutre;frais;argileux,limoneux;-12;;non;oui;faible;faible;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
 Viorne obier;Viburnum opulus;Viburnaceae;neutre,calcaire,très basique;humide,frais;argileux,limoneux,sablonneux;-35;;non;;faible;élevé;oui;3.5;7.0;2.0;3.5;arbuste;Indigène
 Viorne de Chine;Viburnum plicatum;Viburnaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-15;;non;;faible;faible;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
 Viorne à feuilles ridées;Viburnum rhytidophyllum;Viburnaceae;acide,neutre,calcaire,très basique;humide,frais,sec;argileux,limoneux,sablonneux;-15;;;non;faible;;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
-Viorne-tin;Viburnum tinus;Viburnaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-15;oui;non;non;faible;faible;oui;3.5;7.0;2.0;3.5;arbuste;Indigène
+Viorne-tin;Viburnum tinus;Viburnaceae;acide,neutre,calcaire,très basique;frais,sec;argileux,limoneux,sablonneux;-15;oui;non;oui;faible;faible;oui;3.5;7.0;2.0;3.5;arbuste;Indigène
 Viorne utile;Viburnum utile;Viburnaceae;acide,neutre;frais;argileux,limoneux,sablonneux;-15;;non;;faible;faible;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Viorne hybride bodnantense;Viburnum x bodnantense;Viburnaceae;acide,neutre,calcaire;humide,frais;argileux,limoneux,sablonneux;-20;;non;;faible;faible;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
 Viorne hybride de Burkwood;Viburnum x burkwoodii;Viburnaceae;acide,neutre;humide,frais;argileux,limoneux,sablonneux;-20;;non;;faible;faible;oui;2.0;3.5;2.0;3.5;arbuste;Vraiment exotique
@@ -1105,11 +1105,11 @@ Yucca brevifolia;Yucca brevifolia;;;;;;;;oui;;;;;;;;;
 Yucca faxoniana;Yucca faxoniana;;;;;;;;oui;;;;;;;;;
 Yucca filamenteux;Yucca filamentosa;Asparagaceae;neutre;sec;;-15;;;;faible;;oui;1.6;1.6;0.8;0.8;arbuste;Vraiment exotique
 Yucca gigantea;Yucca gigantea;;;;;;;;oui;;;;;;;;;
-Yucca glauque;Yucca glauca;Asparagaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-30;;non;;faible;faible;oui;1.6;1.6;0.3;0.5;herbacée;Vraiment exotique
-Dague espagnole;Yucca gloriosa;Asparagaceae;neutre;frais,sec;limoneux,sablonneux;-20;;non;non;faible;faible;oui;1.2;1.2;1.2;1.2;arbuste;Vraiment exotique
-Yucca bleu;Yucca rostrata;Asparagaceae;neutre;sec;;-14;;non;;faible;faible;oui;3.5;7.0;1.2;1.2;arbuste;Vraiment exotique
+Yucca glauque;Yucca glauca;Asparagaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-30;;non;oui;faible;faible;oui;1.6;1.6;0.3;0.5;herbacée;Vraiment exotique
+Dague espagnole;Yucca gloriosa;Asparagaceae;neutre;frais,sec;limoneux,sablonneux;-20;;non;oui;faible;faible;oui;1.2;1.2;1.2;1.2;arbuste;Vraiment exotique
+Yucca bleu;Yucca rostrata;Asparagaceae;neutre;sec;;-14;;non;oui;faible;faible;oui;3.5;7.0;1.2;1.2;arbuste;Vraiment exotique
 Zanthoxylum d’Amérique;Zanthoxylum americanum;Rutaceae;;;;;;;non;faible;;;;;;;;
-Poivrier du Sichuan;Zanthoxylum simulans;Rutaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-25;;non;;faible;modéré;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
-Faux-orme de Sibérie;Zelkova carpinifolia;Ulmaceae;neutre;frais;argileux,limoneux,sablonneux;-15;;;non;fort;;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
-Faux-orme du Japon;Zelkova serrata;Ulmaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-25;non;non;non;fort;modéré;oui;15.0;20.0;15.0;20.0;arbre;Vraiment exotique
+Poivrier du Sichuan;Zanthoxylum simulans;Rutaceae;acide,neutre,calcaire;frais,sec;argileux,limoneux,sablonneux;-25;;non;oui;faible;modéré;oui;3.5;7.0;3.5;7.0;arbuste;Vraiment exotique
+Faux-orme de Sibérie;Zelkova carpinifolia;Ulmaceae;neutre;frais;argileux,limoneux,sablonneux;-15;;;oui;fort;;oui;20.0;20.0;10.0;15.0;arbre;Vraiment exotique
+Faux-orme du Japon;Zelkova serrata;Ulmaceae;acide,neutre;frais,sec;argileux,limoneux,sablonneux;-25;non;non;oui;fort;modéré;oui;15.0;20.0;15.0;20.0;arbre;Vraiment exotique
 Ziziphus jujuba ( Mill. );Ziziphus jujuba ( Mill. );Rhamnaceae;calcaire;frais;limoneux;-10;oui;non;oui;faible;;;0;8.0;4.5;7;arbuste;Vraiment exotique
